@@ -560,7 +560,7 @@ window.DEALS = [
       posted: 'Feb 21, 2026',
       img: 'https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?w=1200&q=80&fit=crop',
       title: 'Charlotte → Liberia, Costa Rica from $298 roundtrip',
-      desc: 'Cheap flights from Charlotte, North Carolina to Liberia, Costa Rica with Delta Air Lines. Gateway to the Guanacaste region — beaches, volcanoes, rainforest.',
+      desc: 'Cheap flights from Charlotte, USA to Liberia, Costa Rica with Delta Air Lines. Gateway to the Guanacaste region — beaches, volcanoes, rainforest.',
       exampleDates: [
         { group: 'Charlotte – Liberia, Costa Rica: $298', dates: [
           { label: '24th–31st Mar', url: 'https://www.skyscanner.com/g/referrals/v1/flights/day-view?adults=1&adultsv2=1&cabinclass=economy&locale=en-GB&sortby=cheapest&currency=USD&market=US&airlines=DL&infants=0&children=0&childrenv2=&inboundaltsenabled=false&outboundaltsenabled=false&origin=CLT&destination=LIR&inboundDate=2026-03-31&outboundDate=2026-03-24&rtn=1' },
@@ -732,7 +732,7 @@ window.DEALS = [
       bookUrl: 'https://www.skyscanner.net/g/referrals/v1/flights/day-view?adultsv2=1&cabinclass=economy&rtn=1&sortby=cheapest&currency=USD&market=SE&locale=en-GB&airlines=UA&origin=LAX&destination=DEN&inboundDate=2026-03-20&outboundDate=2026-03-13',
       detail: [
         { label: 'From', value: 'Los Angeles, USA' },
-        { label: 'To', value: 'Denver, Colorado' },
+        { label: 'To', value: 'Denver, USA' },
         { label: 'Dates', value: 'March–April 2026' },
         { label: 'Airline', value: 'United Airlines' },
         { label: 'Stops', value: 'Non-stop' },
@@ -798,7 +798,7 @@ window.DEALS = [
       bookUrl: 'https://www.skyscanner.net/g/referrals/v1/flights/day-view?adultsv2=1&cabinclass=economy&rtn=1&sortby=cheapest&currency=USD&market=SE&locale=en-GB&airlines=UA&origin=DFW&destination=DEN&inboundDate=2026-03-22&outboundDate=2026-03-15',
       detail: [
         { label: 'From', value: 'Dallas, USA' },
-        { label: 'To', value: 'Denver, Colorado' },
+        { label: 'To', value: 'Denver, USA' },
         { label: 'Dates', value: 'March–April 2026' },
         { label: 'Airline', value: 'United Airlines' },
         { label: 'Stops', value: 'Non-stop' },
@@ -842,7 +842,7 @@ window.DEALS = [
       bookUrl: 'https://www.skyscanner.net/g/referrals/v1/flights/day-view?adultsv2=1&cabinclass=economy&rtn=1&sortby=cheapest&currency=USD&market=SE&locale=en-GB&airlines=UA&origin=CHI&destination=ORL&inboundDate=2026-03-22&outboundDate=2026-03-15',
       detail: [
         { label: 'From', value: 'Chicago, USA' },
-        { label: 'To', value: 'Orlando, Florida' },
+        { label: 'To', value: 'Orlando, USA' },
         { label: 'Dates', value: 'March–April 2026' },
         { label: 'Airline', value: 'United Airlines' },
         { label: 'Stops', value: 'Non-stop' },
@@ -1441,7 +1441,6 @@ window.BLOG_POSTS = [
       `
     },
     {
-      id: 11,
       cat: 'Destination Guide',
       title: "Colombia: South America's Most Exciting Country Right Now",
       date: 'Feb 22, 2026',
