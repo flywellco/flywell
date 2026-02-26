@@ -548,7 +548,7 @@ window.DEALS = [
     },
     {
       id: 30,
-      from: ['Charlotte, North Carolina, USA'],
+      from: ['Charlotte, USA'],
       to: ['Liberia, Costa Rica'],
       price: '$298',
       badge: 'hot', badgeLabel: '🔥 Hot Deal',
@@ -597,7 +597,7 @@ window.DEALS = [
     {
       id: 24,
       from: ['Vilnius, Lithuania'],
-      to: 'Cape Town, South Africa',
+      to: ['Cape Town, South Africa'],
       price: '€475',
       badge: 'New',
       airline: 'airBaltic / Edelweiss Air',
@@ -615,7 +615,7 @@ window.DEALS = [
     {
       id: 25,
       from: ['Frankfurt, Germany'],
-      to: 'Auckland, New Zealand',
+      to: ['Auckland, New Zealand'],
       price: '€617',
       badge: 'New',
       airline: 'China Southern Airlines',
@@ -700,7 +700,7 @@ window.DEALS = [
       id: 35,
       badge: 'new', badgeLabel: '✨ New',
       price: '$127', tripType: 'roundtrip', cabin: 'Economy',
-      from: ['Washington DC'],
+      from: ['Washington DC, USA'],
       to: ['Las Vegas, USA'],
       stops: 'Non-stop',
       airline: 'United Airlines',
@@ -709,7 +709,7 @@ window.DEALS = [
       img: 'https://images.unsplash.com/photo-1581351721010-8cf859cb14c0?w=1200&q=80&fit=crop',
       bookUrl: 'https://www.skyscanner.net/g/referrals/v1/flights/day-view?adultsv2=1&cabinclass=economy&rtn=1&sortby=cheapest&currency=USD&market=SE&locale=en-GB&airlines=UA&origin=WAS&destination=LAS&inboundDate=2026-05-02&outboundDate=2026-04-25',
       detail: [
-        { label: 'From', value: 'Washington DC' },
+        { label: 'From', value: 'Washington DC, USA' },
         { label: 'To', value: 'Las Vegas, USA' },
         { label: 'Dates', value: 'April–May 2026' },
         { label: 'Airline', value: 'United Airlines' },
@@ -722,8 +722,8 @@ window.DEALS = [
       id: 36,
       badge: 'new', badgeLabel: '✨ New',
       price: '$95', tripType: 'roundtrip', cabin: 'Economy',
-      from: ['Los Angeles'],
-      to: ['Denver, Colorado'],
+      from: ['Los Angeles, USA'],
+      to: ['Denver, USA'],
       stops: 'Non-stop',
       airline: 'United Airlines',
       dates: 'March–April 2026',
@@ -731,7 +731,7 @@ window.DEALS = [
       img: 'https://images.unsplash.com/photo-1546156929-a4c0ac411f47?w=1200&q=80&fit=crop',
       bookUrl: 'https://www.skyscanner.net/g/referrals/v1/flights/day-view?adultsv2=1&cabinclass=economy&rtn=1&sortby=cheapest&currency=USD&market=SE&locale=en-GB&airlines=UA&origin=LAX&destination=DEN&inboundDate=2026-03-20&outboundDate=2026-03-13',
       detail: [
-        { label: 'From', value: 'Los Angeles' },
+        { label: 'From', value: 'Los Angeles, USA' },
         { label: 'To', value: 'Denver, Colorado' },
         { label: 'Dates', value: 'March–April 2026' },
         { label: 'Airline', value: 'United Airlines' },
@@ -744,7 +744,7 @@ window.DEALS = [
       id: 37,
       badge: 'new', badgeLabel: '✨ New',
       price: '$238', tripType: 'roundtrip', cabin: 'Economy',
-      from: ['Boston'],
+      from: ['Boston, USA'],
       to: ['Liberia, Costa Rica'],
       stops: '1 stop',
       airline: 'American Airlines',
@@ -753,7 +753,7 @@ window.DEALS = [
       img: 'https://images.unsplash.com/photo-1433086966628-e97b8d6a5bb6?w=1200&q=80&fit=crop',
       bookUrl: 'https://www.skyscanner.net/g/referrals/v1/flights/day-view?adultsv2=1&cabinclass=economy&rtn=1&sortby=cheapest&currency=USD&market=SE&locale=en-GB&origin=BOS&destination=LIR&inboundDate=2026-04-12&outboundDate=2026-04-05',
       detail: [
-        { label: 'From', value: 'Boston' },
+        { label: 'From', value: 'Boston, USA' },
         { label: 'To', value: 'Liberia, Costa Rica' },
         { label: 'Dates', value: 'March–May 2026' },
         { label: 'Airline', value: 'American Airlines' },
@@ -766,7 +766,7 @@ window.DEALS = [
       id: 38,
       badge: 'new', badgeLabel: '✨ New',
       price: '$464', tripType: 'roundtrip', cabin: 'Economy',
-      from: ['Los Angeles'],
+      from: ['Los Angeles, USA'],
       to: ['Stockholm, Sweden'],
       stops: '1 stop',
       airline: 'Swiss',
@@ -775,7 +775,7 @@ window.DEALS = [
       img: 'https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=1200&q=80&fit=crop',
       bookUrl: 'https://www.skyscanner.net/g/referrals/v1/flights/day-view?adultsv2=1&cabinclass=economy&rtn=1&sortby=cheapest&currency=USD&market=SE&locale=en-GB&origin=LAX&destination=STO&inboundDate=2026-05-10&outboundDate=2026-05-03',
       detail: [
-        { label: 'From', value: 'Los Angeles' },
+        { label: 'From', value: 'Los Angeles, USA' },
         { label: 'To', value: 'Stockholm, Sweden' },
         { label: 'Dates', value: 'April–May 2026' },
         { label: 'Airline', value: 'Swiss' },
@@ -788,8 +788,8 @@ window.DEALS = [
       id: 39,
       badge: 'new', badgeLabel: '✨ New',
       price: '$91', tripType: 'roundtrip', cabin: 'Economy',
-      from: ['Dallas, Texas'],
-      to: ['Denver, Colorado'],
+      from: ['Dallas, USA'],
+      to: ['Denver, USA'],
       stops: 'Non-stop',
       airline: 'United Airlines',
       dates: 'March–April 2026',
@@ -797,7 +797,7 @@ window.DEALS = [
       img: 'https://images.unsplash.com/photo-1607214220743-d9d2d2a1b1aa?w=1200&q=80&fit=crop',
       bookUrl: 'https://www.skyscanner.net/g/referrals/v1/flights/day-view?adultsv2=1&cabinclass=economy&rtn=1&sortby=cheapest&currency=USD&market=SE&locale=en-GB&airlines=UA&origin=DFW&destination=DEN&inboundDate=2026-03-22&outboundDate=2026-03-15',
       detail: [
-        { label: 'From', value: 'Dallas, Texas' },
+        { label: 'From', value: 'Dallas, USA' },
         { label: 'To', value: 'Denver, Colorado' },
         { label: 'Dates', value: 'March–April 2026' },
         { label: 'Airline', value: 'United Airlines' },
@@ -810,7 +810,7 @@ window.DEALS = [
       id: 40,
       badge: 'new', badgeLabel: '✨ New',
       price: '$280', tripType: 'roundtrip', cabin: 'Economy',
-      from: ['Philadelphia'],
+      from: ['Philadelphia, USA'],
       to: ['San Jose, Costa Rica'],
       stops: '1 stop',
       airline: 'American Airlines',
@@ -819,7 +819,7 @@ window.DEALS = [
       img: 'https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=1200&q=80&fit=crop',
       bookUrl: 'https://www.skyscanner.net/g/referrals/v1/flights/day-view?adultsv2=1&cabinclass=economy&rtn=1&sortby=cheapest&currency=USD&market=SE&locale=en-GB&origin=PHL&destination=SJO&inboundDate=2026-04-12&outboundDate=2026-04-05',
       detail: [
-        { label: 'From', value: 'Philadelphia' },
+        { label: 'From', value: 'Philadelphia, USA' },
         { label: 'To', value: 'San Jose, Costa Rica' },
         { label: 'Dates', value: 'March–May 2026' },
         { label: 'Airline', value: 'American Airlines' },
@@ -832,8 +832,8 @@ window.DEALS = [
       id: 41,
       badge: 'new', badgeLabel: '✨ New',
       price: '$95', tripType: 'roundtrip', cabin: 'Economy',
-      from: ['Chicago'],
-      to: ['Orlando, Florida'],
+      from: ['Chicago, USA'],
+      to: ['Orlando, USA'],
       stops: 'Non-stop',
       airline: 'United Airlines',
       dates: 'March–April 2026',
@@ -841,7 +841,7 @@ window.DEALS = [
       img: 'https://images.unsplash.com/photo-1562883676-8c7feb83f09d?w=1200&q=80&fit=crop',
       bookUrl: 'https://www.skyscanner.net/g/referrals/v1/flights/day-view?adultsv2=1&cabinclass=economy&rtn=1&sortby=cheapest&currency=USD&market=SE&locale=en-GB&airlines=UA&origin=CHI&destination=ORL&inboundDate=2026-03-22&outboundDate=2026-03-15',
       detail: [
-        { label: 'From', value: 'Chicago' },
+        { label: 'From', value: 'Chicago, USA' },
         { label: 'To', value: 'Orlando, Florida' },
         { label: 'Dates', value: 'March–April 2026' },
         { label: 'Airline', value: 'United Airlines' },
@@ -854,8 +854,8 @@ window.DEALS = [
       id: 42,
       badge: 'new', badgeLabel: '✨ New',
       price: '$103', tripType: 'roundtrip', cabin: 'Economy',
-      from: ['Charlotte, NC'],
-      to: ['Chicago'],
+      from: ['Charlotte, USA'],
+      to: ['Chicago, USA'],
       stops: 'Non-stop',
       airline: 'United Airlines',
       dates: 'March–April 2026',
@@ -863,8 +863,8 @@ window.DEALS = [
       img: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1200&q=80&fit=crop',
       bookUrl: 'https://www.skyscanner.net/g/referrals/v1/flights/day-view?adultsv2=1&cabinclass=economy&rtn=1&sortby=cheapest&currency=USD&market=SE&locale=en-GB&airlines=UA&origin=CLT&destination=CHI&inboundDate=2026-03-22&outboundDate=2026-03-15',
       detail: [
-        { label: 'From', value: 'Charlotte, NC' },
-        { label: 'To', value: 'Chicago' },
+        { label: 'From', value: 'Charlotte, USA' },
+        { label: 'To', value: 'Chicago, USA' },
         { label: 'Dates', value: 'March–April 2026' },
         { label: 'Airline', value: 'United Airlines' },
         { label: 'Stops', value: 'Non-stop' },
@@ -876,7 +876,7 @@ window.DEALS = [
       id: 43,
       badge: 'new', badgeLabel: '✨ New',
       price: '$282', tripType: 'roundtrip', cabin: 'Economy',
-      from: ['Austin, Texas'],
+      from: ['Austin, USA'],
       to: ['San Jose, Costa Rica'],
       stops: '1 stop',
       airline: 'Copa Airlines',
@@ -885,7 +885,7 @@ window.DEALS = [
       img: 'https://images.unsplash.com/photo-1598135753163-6167c1a1ad65?w=1200&q=80&fit=crop',
       bookUrl: 'https://www.skyscanner.net/g/referrals/v1/flights/day-view?adultsv2=1&cabinclass=economy&rtn=1&sortby=cheapest&currency=USD&market=SE&locale=en-GB&origin=AUS&destination=SJO&inboundDate=2026-07-12&outboundDate=2026-07-05',
       detail: [
-        { label: 'From', value: 'Austin, Texas' },
+        { label: 'From', value: 'Austin, USA' },
         { label: 'To', value: 'San Jose, Costa Rica' },
         { label: 'Dates', value: 'Summer & New Year 2026' },
         { label: 'Airline', value: 'Copa Airlines' },
@@ -1154,6 +1154,12 @@ window.BLOG_POSTS = [
         <p>Don't book non-refundable hotels or connecting flights until the airline confirms your ticket. Wait 24–48 hours for a confirmation email. If you receive a booking reference, that's a strong sign the ticket will be honoured. Don't contact the airline to ask — you're essentially drawing attention to their mistake.</p>
         <h2>Error Fare Etiquette</h2>
         <p>Only book what you genuinely intend to fly. Booking multiple error fares speculatively and then cancelling hurts the community — airlines track this and become more aggressive about cancelling suspected error fare bookings.</p>
+        <h2>The Best Routes For Error Fares</h2>
+        <p>Long-haul business class routes produce the most dramatic error fares because the gap between normal and mistaken prices is largest. Transatlantic routes — particularly to the US East Coast — are the most common for economy errors. Routes priced in foreign currencies (JPY, KRW, BRL) are especially prone to conversion errors that create fleeting windows of extraordinary value.</p>
+        <h2>Tools That Help You Find Them</h2>
+        <p>Beyond FlyWell.Flights, a few tools are worth bookmarking: Google Flights' price graph shows historical pricing so you can immediately recognise an outlier. Skyscanner's "everywhere" search can surface anomalies you'd never find by searching a specific route. Secret Flying and Airfarewatchdog are two long-running communities that share error fares in real time.</p>
+        <h2>What Happens If The Airline Cancels?</h2>
+        <p>If the airline cancels your error fare ticket, you are entitled to a full refund under both EU261 and US DOT regulations — no questions asked. You will not be charged any penalty. Some airlines have attempted to charge fees for cancelling error fare tickets, but this is generally not enforceable. Keep every confirmation email as documentation.</p>
       `
     },
     {
@@ -1175,6 +1181,12 @@ window.BLOG_POSTS = [
         <p>Always use the "whole month" view on Skyscanner or Google Flights. A flight on a Tuesday can be €80 while the same route on Sunday costs €220. Shifting your travel by even one day can make a dramatic difference, especially for routes to popular leisure destinations.</p>
         <h2>Set Price Alerts</h2>
         <p>Both Google Flights and Skyscanner offer price alerts. Set one the moment you know you want to travel a particular route — then watch the price history graph. If you see the price is near its historical low, that is your signal to book.</p>
+        <h2>Incognito Mode: Myth or Reality?</h2>
+        <p>The theory that airlines track your searches and raise prices accordingly is largely a myth — major airlines use consistent real-time pricing algorithms rather than individual tracking. That said, searching in incognito mode removes cookie-based personalisation and ensures you're seeing the cleanest possible price. It costs nothing and takes two seconds, so it's worth doing regardless.</p>
+        <h2>Book Direct vs OTA: When It Matters</h2>
+        <p>Online travel agencies (OTAs) like Expedia or eDreams occasionally show lower prices than airline websites — but the saving comes with a cost. Seat selection, changes, and cancellations are significantly harder to manage through an OTA. For deal fares that you're confident you'll fly, booking direct with the airline is almost always the better long-term choice. Use OTAs for price comparison, then book on the airline's own site.</p>
+        <h2>The 24-Hour Rule</h2>
+        <p>Both EU and US regulations require airlines to offer refunds within 24 hours of booking — EU carriers operating internationally and all US-based carriers are covered. This means you can book a great fare the moment you see it, then spend 24 hours confirming dates and making arrangements before committing. Never let a good deal slip because you weren't sure of your dates.</p>
       `
     },
     {
@@ -1205,6 +1217,10 @@ window.BLOG_POSTS = [
         <p>A flat island of whitewashed villages, Roman ruins, and long sandy beaches. Charter flights from across Europe make this one of the most overlooked affordable beach destinations in the Mediterranean basin.</p>
         <h2>10. Koh Samui & Gulf of Thailand</h2>
         <p>When Bangkok deal fares drop below €300 (which happens regularly), you're effectively getting the entire Gulf of Thailand for that price. Koh Samui, Koh Phangan, and Koh Tao are all reachable for a few euros extra by domestic flight or ferry.</p>
+        <h2>How To Find Cheap Onward Connections</h2>
+        <p>For most of these destinations, the flight to the nearest hub is the main cost — onward connections are often negligible. Use Google Flights' multi-city search to add a cheap domestic leg to your booking. For island destinations in the Indian Ocean and Southeast Asia, local ferries are often just a few euros and part of the experience. Don't let a short onward connection stop you from reaching somewhere genuinely spectacular.</p>
+        <h2>Timing Your Visit</h2>
+        <p>Many of these destinations have distinct seasons that dramatically affect both the experience and the price. Cape Verde is perfect October to June. Zanzibar is best June to October and January to February. The Azores are accessible year-round but wildest and most dramatic in winter. Research the weather window before you book — a cheap flight to a destination in its worst month is rarely a good deal.</p>
       `
     },
     {
@@ -1226,6 +1242,12 @@ window.BLOG_POSTS = [
         <p>Often the cheapest approach is to book business one way on the outbound (when you want to arrive refreshed) and economy on the return (when you're heading home anyway). This is called a mixed-cabin booking and can halve the cost compared to a return business fare.</p>
         <h2>Watch Positioning Flights</h2>
         <p>Some of the best business class deals require flying to a hub first. A cheap Ryanair flight to Frankfurt followed by a Lufthansa business class flight to Tokyo can be significantly cheaper than flying business from your home airport. Always search hub airports as your origin when hunting business class deals.</p>
+        <h2>The Best Business Class Products In The World</h2>
+        <p>Not all business class is equal. Qatar Airways QSuites — a genuinely private double bed suite — is widely considered the world's best business class product. Singapore Airlines' Business Class on the A350 and 777 is equally exceptional. Emirates' First Class masquerades as business class on some routes. When a deal fare appears on one of these carriers, it's worth prioritising — the gap between them and a standard European carrier in business is enormous.</p>
+        <h2>Arrival Lounges and the Hidden Value of Business</h2>
+        <p>The value of a business class ticket extends beyond the seat. Dedicated check-in, priority boarding, and — crucially — access to arrival lounges at some airports mean you can shower, eat, and work immediately after landing. For important business trips or a holiday beginning the moment you touch down, this soft product value is often worth as much as the seat itself. Singapore's SATS Premier Lounge and Lufthansa's Frankfurt Senator Lounge are worth seeking out specifically.</p>
+        <h2>Timing A Business Class Deal Purchase</h2>
+        <p>Business class deal fares follow their own rhythm. They appear most often in January (post-holiday inventory clearance), late August (before the autumn corporate booking surge), and around major airline schedule releases in March and October. Keep an eye on FlyWell.Flights during these windows — some of the most extraordinary business class deals of the year surface in these periods.</p>
       `
     },
     {
@@ -1248,6 +1270,12 @@ window.BLOG_POSTS = [
         <p>November to April is the dry season across most of mainland Southeast Asia and Bali — the best weather window. May to October is monsoon season but prices drop significantly, crowds thin out, and many destinations (particularly northern Thailand and Vietnam) remain perfectly enjoyable with intermittent rain rather than constant downpours.</p>
         <h2>Airlines To Watch</h2>
         <p>Norse Atlantic has been aggressively pricing Bangkok and Phuket routes from Scandinavia. Thai Airways and EVA Air regularly discount their European routes during low-demand periods. Turkish Airlines (via Istanbul) and Qatar Airways (via Doha) both offer competitive prices on Southeast Asian routes when connection times are flexible.</p>
+        <h2>Vietnam: The Rising Star</h2>
+        <p>Vietnam has overtaken Thailand as the most talked-about Southeast Asian destination among serious travellers. The food alone — pho, banh mi, bun cha, cao lau — justifies the flight. Add Ha Long Bay, the ancient town of Hoi An, the terraced rice fields of Sapa, and the energetic chaos of Ho Chi Minh City, and you have an itinerary that could fill three weeks comfortably. Flights from European hubs via Doha or Dubai regularly drop to €500–€600 return.</p>
+        <h2>The Budget Breakdown</h2>
+        <p>Once in Southeast Asia, daily costs are astonishingly low by European standards. Thailand and Vietnam: €30–€50 per day covering accommodation, food, and local transport at a comfortable level. Singapore is the exception — budget €100+ per day. Bali has crept up in price but remains good value at €40–€60 per day. The region rewards those who eat street food, stay in guesthouses, and use local transport — not as a sacrifice, but as genuinely the best way to experience it.</p>
+        <h2>Visa Requirements In 2026</h2>
+        <p>Thailand offers 60-day visa-free entry for most European nationalities. Vietnam's e-visa is simple, cheap, and grants 90 days. Singapore is visa-free for most. Indonesia (Bali) offers a 30-day visa on arrival, extendable once. Malaysia is visa-free for 90 days. Always verify current requirements before booking — visa policies in the region can change with little notice.</p>
       `
     },
     {
@@ -1268,6 +1296,12 @@ window.BLOG_POSTS = [
         <p>Cape Town regularly appears in "most beautiful city in the world" lists — and rightly so. Table Mountain, Boulders Beach penguins, the Winelands, and the Cape Peninsula are all within an hour of the city. Flights from Europe drop to €450–€600 return, and once in South Africa costs are extremely low. Namibia — with its surreal Deadvlei dunes and enormous skies — is one of the world's great wilderness destinations.</p>
         <h2>Airlines To Use</h2>
         <p>Ethiopian Airlines has the most extensive African network and consistently offers competitive prices from European hubs via Addis Ababa. Turkish Airlines via Istanbul is another strong option for East and Southern African routes. For North Africa, low-cost carriers offer the best value.</p>
+        <h2>Practical Planning: Visas and Health</h2>
+        <p>Visa requirements vary enormously across Africa. South Africa, Namibia, Morocco, Tunisia, and Kenya are among the most accessible for European travellers — most EU nationalities enter visa-free or with a simple e-visa. East and Central African destinations often require a yellow fever vaccination certificate. Check requirements at least 6 weeks before travel and consult a travel health clinic for up-to-date vaccination advice specific to your itinerary.</p>
+        <h2>The Best Time To Visit</h2>
+        <p>East Africa's wildlife is best from July to October during the dry season — this is when the Great Migration crosses the Mara River in Kenya. Southern Africa is superb May to October. Morocco and North Africa are best October to April, avoiding the intense summer heat. The continent is vast enough that some region is always in its ideal season — there is no bad time of year to go to Africa as a whole.</p>
+        <h2>Combining Destinations</h2>
+        <p>Africa rewards multi-destination itineraries. A Kenya-Tanzania combination is the classic wildlife route. South Africa with Namibia is spectacular and self-driveable in 3 weeks. Morocco with a hop to Senegal or the Canary Islands makes a fascinating Atlantic circuit. Internal African flights have become significantly cheaper and more reliable in recent years — Ethiopian Airlines, Kenya Airways, and Airlink (South Africa) together cover most of the continent with manageable connections.</p>
       `
     },
     {
@@ -1288,6 +1322,12 @@ window.BLOG_POSTS = [
         <p>Qatar offers free transit visas for most nationalities. The Souq Waqif — a restored traditional market — is 30 minutes from Hamad Airport and genuinely spectacular at night. The Corniche waterfront is a short walk away. Qatar Airways has a dedicated transit hotel programme for long connections.</p>
         <h2>Practical Tips</h2>
         <p>Always check visa requirements before leaving the airport — some nationalities need transit visas even for a few hours. Keep your luggage checked through to your final destination. Allow at minimum 3 hours from your return to the airport before departure. And always carry your onward boarding pass or booking confirmation.</p>
+        <h2>Kuala Lumpur: The Underrated Stopover</h2>
+        <p>KLIA is one of Asia's most efficient airports and KL city is just 30 minutes away by express train. A 6-hour layover gives you time to reach the Petronas Towers, eat at a proper hawker centre, and return comfortably. Malaysia Airlines offers a dedicated transit programme with discounted hotel rates for passengers with long layovers. Of all the major hub cities, KL is the most underrated stopover destination.</p>
+        <h2>What To Pack For A Layover City Visit</h2>
+        <p>A compact daypack that fits inside your carry-on is essential — you don't want to drag a full bag through the city. Keep your passport, boarding passes, and travel insurance details easily accessible. Comfortable walking shoes you can put on over airport socks. A portable phone charger. And the name of your hotel or return terminal written down in case you lose mobile signal.</p>
+        <h2>When To Stay In The Airport</h2>
+        <p>Not every layover city deserves a visit. Some airports are genuinely destination-worthy in themselves: Singapore Changi with its Jewel waterfall and indoor forest, Doha's Hamad International with its iconic lamp bear sculpture and luxury retail, and Dubai International with its famous duty-free and multiple transit hotels. If the city is difficult to reach or the layover is under 4 hours, staying airside and using a lounge is often the better choice.</p>
       `
     },
     {
@@ -1308,6 +1348,12 @@ window.BLOG_POSTS = [
         <p>The dry season runs December to April — this is peak season, especially on the Pacific coast. May to November is green season — prices drop significantly, crowds thin out, and the landscapes are lush and dramatic. The Caribbean coast has its own weather pattern and is often sunny when the Pacific coast is wet.</p>
         <h2>Budget Tips</h2>
         <p>Costa Rica is not cheap by Central American standards but is excellent value compared to Europe. Shared shuttle buses between tourist hubs are the cheapest transport option. Local sodas (family restaurants) serve casado — rice, beans, meat, salad — for $5–8. Book accommodation in advance for the dry season, especially near popular national parks.</p>
+        <h2>Beyond Costa Rica and Panama</h2>
+        <p>Guatemala is Central America's most historically rich country — the Mayan ruins of Tikal rising from the jungle canopy are genuinely among the world's great archaeological sites. Antigua, the well-preserved colonial capital, is one of Latin America's most beautiful cities. Belize offers the second-largest barrier reef in the world and extraordinary jungle wildlife. Both countries are easily reachable as extensions from a Costa Rica or Panama base, adding depth to a Central American itinerary without significantly increasing the cost.</p>
+        <h2>Wildlife: What You'll Actually See</h2>
+        <p>Central America has extraordinary biodiversity packed into a small area. In Costa Rica alone: sloths hanging in cecropia trees, resplendent quetzals in the cloud forest, sea turtles nesting on both coasts, scarlet macaws flying in pairs, and four species of monkey. The Tortuguero canals in the Caribbean lowlands offer boat-based wildlife watching comparable to the Amazon at a fraction of the logistical difficulty. Bring binoculars — they make the difference between spotting wildlife and missing it.</p>
+        <h2>Safety and Practicalities</h2>
+        <p>Costa Rica and Panama are among the safest countries in Latin America. Standard travel precautions apply — don't display expensive electronics, use official taxis or Uber, and avoid isolated areas after dark. The road network in Costa Rica is famously rough in places — a 4x4 is worth the extra rental cost for reaching remote beaches and national parks. Both countries use the US dollar as currency or have it widely accepted, simplifying finances considerably.</p>
       `
     },
     {
@@ -1328,6 +1374,12 @@ window.BLOG_POSTS = [
         <p>Cables are the biggest space and weight culprit. A single multi-port USB-C charger replaces 3–4 individual chargers. An e-reader replaces a stack of books. Download offline maps, shows, and playlists before you fly so you don't need to worry about connectivity.</p>
         <h2>The Trick For Cold Destinations</h2>
         <p>Cold-weather travel seems impossible carry-on only — but it isn't. Wear your heaviest items on the plane: boots, thick trousers, coat. A packable down jacket compresses to the size of a water bottle. Two thermal base layers replace three bulky jumpers. You can always do laundry.</p>
+        <h2>Laundry On The Road</h2>
+        <p>The single biggest objection to carry-on-only travel is "I'll run out of clothes." The solution is laundry. Most accommodation will wash clothes for a small fee — typically €5–10 per bag in Asia and Southern Europe. Laundromats exist in every city. A small packet of travel soap lets you hand-wash in a sink overnight. Once you start doing laundry on trips, you realise how much you've been over-packing your whole life.</p>
+        <h2>What To Leave Behind</h2>
+        <p>The biggest carry-on mistake is packing for every eventuality. You will not need the full first aid kit, the travel iron, the three different pairs of shoes, or the book you've been meaning to start for six months. Pack for the first three days only — you can always buy something if you've genuinely forgotten it. In most destinations, a forgotten item costs less than a checked baggage fee anyway.</p>
+        <h2>Airlines With The Best Carry-On Policies</h2>
+        <p>Full-service carriers (Lufthansa, KLM, British Airways, Finnair) allow 55x40x23cm plus a personal item — genuinely generous. Norwegian and Vueling are similarly reasonable. Ryanair is the most restrictive — their "small personal bag" policy catches out many travellers. If you're flying Ryanair on a deal fare, paying for their Priority boarding (which includes a full cabin bag) is often cheaper than the standard bag fee and gives you guaranteed overhead space.</p>
       `
     },
     {
@@ -1351,6 +1403,12 @@ window.BLOG_POSTS = [
         <p>Hanoi (HAN) and Ho Chi Minh City (SGN) are both well-served from European hubs. Qatar Airways via Doha and Emirates via Dubai are consistent performers on price. Flights from Scandinavian cities regularly appear below €550 return — watch for deals on FlyWell.Flights. The sweet spot for booking is 8–12 weeks ahead for the best combination of price and availability.</p>
         <h2>Best Time To Visit</h2>
         <p>Vietnam is long and thin, so weather varies significantly by region. October to April is best for the south and central regions. The north is best November to April. Avoid the central coast during September–November typhoon season. The shoulder months of March–April and September–October offer the best balance of weather and crowds.</p>
+        <h2>The Food: Vietnam's Greatest Asset</h2>
+        <p>Vietnamese cuisine is one of the world's great food cultures and it's best eaten exactly where it's made — on a plastic stool, on a street corner, for under a dollar. Each region has its own specialities: Hanoi's pho is clearer and more delicate than the south's sweeter version; Hoi An has dishes found nowhere else in the country; Ho Chi Minh City's street food scene is denser and more chaotic than anywhere north. Budget a significant portion of your time simply to eating — it's the best investment you can make in understanding Vietnam.</p>
+        <h2>Getting Around</h2>
+        <p>Vietnam is most rewarding when you move through it north to south (or vice versa) rather than flying in and out of one city. The Reunification Express train connects Hanoi to Ho Chi Minh City in 30–40 hours — book a soft sleeper berth and watch the country unfold. VietJet and Bamboo Airways offer cheap domestic flights for longer jumps. Motorbike taxis (Grab, in Vietnam) are the standard city transport and cost almost nothing.</p>
+        <h2>Budget Expectations</h2>
+        <p>Vietnam is among the most affordable countries in Asia for travellers. A comfortable guesthouse or boutique hotel costs €20–€40 per night. A full restaurant meal with a beer rarely exceeds €8. Street food is €1–€2 per dish. A budget traveller can live extremely well on €40–€50 per day; those wanting boutique hotels and occasional nicer restaurants should budget €80–€100. The flight is often the most expensive part of the entire trip.</p>
       `
     },
     {
@@ -1374,6 +1432,12 @@ window.BLOG_POSTS = [
         <p>Windhoek's Hosea Kutako International Airport (WDH) is the main gateway. Ethiopian Airlines via Addis Ababa and Kenya Airways via Nairobi offer the most competitive fares from European cities, regularly below €800 return. Layovers in both Addis and Nairobi are manageable at under 3 hours. Watch for deals on FlyWell.Flights — we track Namibia fares regularly.</p>
         <h2>Self-Drive or Guided?</h2>
         <p>Namibia is one of the few African countries where self-drive is genuinely recommended. Roads are well-maintained, distances are vast but manageable, and the freedom to stop wherever you want is invaluable. A 4x4 is essential for Sossusvlei and the more remote areas. Book accommodation in advance — quality lodges fill up fast.</p>
+        <h2>Stargazing: Namibia's Secret Superpower</h2>
+        <p>The NamibRand Nature Reserve is one of only a handful of International Dark Sky Reserves on earth. Away from any light pollution, with the Milky Way arching from horizon to horizon and the Southern Cross visible for European visitors for the first time, the night sky here is among the most spectacular natural experiences on the planet. Several lodges offer dedicated stargazing programmes with telescopes and astronomers. If you visit Namibia and don't stay one night in the desert purely for the stars, you've missed something irreplaceable.</p>
+        <h2>Wildlife Beyond Etosha</h2>
+        <p>While Etosha gets the most attention, Namibia's wildlife extends across the country in unexpected ways. Desert-adapted elephants in the Kunene region walk extraordinary distances between water sources. Cheetahs thrive on the central farmlands — Namibia has the world's largest free-roaming cheetah population. The Caprivi Strip in the northeast is a lush river delta teeming with hippos, crocodiles, and buffalo. Namibia rewards those who venture beyond the obvious highlights.</p>
+        <h2>Combining With South Africa or Botswana</h2>
+        <p>Namibia pairs naturally with its neighbours for an extended southern African itinerary. Fly into Cape Town, drive up through the Cederberg into Namibia via the Orange River, spend 10 days covering the highlights, then fly home from Windhoek. Alternatively, Botswana's Okavango Delta — one of the world's great wildlife destinations — is a short flight from Windhoek and makes a spectacular add-on. This combination circuit is one of the finest road trip itineraries anywhere in the world.</p>
       `
     },
     {
@@ -1397,6 +1461,12 @@ window.BLOG_POSTS = [
         <p>Bogotá (BOG) is the main hub with direct flights from Madrid with Iberia and Air Europa, and good connections via Miami, Panama City, and Lisbon. Cartagena (CTG) and Medellín (MDE) are also accessible with one stop. Fares from European cities regularly appear below €600 return — keep an eye on FlyWell.Flights for Colombia deals.</p>
         <h2>Safety & Practical Notes</h2>
         <p>Colombia is significantly safer than its reputation suggests for prepared travellers. Stick to well-touristed areas, use registered taxis or Uber, and avoid displaying valuables. The tourist infrastructure in Medellín, Cartagena, Salento, and Bogotá is excellent. Spanish is spoken everywhere — even basic phrases go a long way with the notoriously friendly Colombian people.</p>
+        <h2>The Food and Coffee Culture</h2>
+        <p>Colombian cuisine is underrated even by Latin American standards. Bandeja paisa — a loaded platter of beans, rice, chicharrón, chorizo, avocado, and egg — is the national dish and a meal that requires no other food for the rest of the day. Arepas appear at every meal in different regional variations. And the coffee: Colombia produces some of the world's finest arabica beans, and the tinto served in small cups at every street corner is the daily ritual that holds the country together. Don't leave without visiting a working finca and understanding the process from cherry to cup.</p>
+        <h2>The Pacific Coast: Colombia's Undiscovered Gem</h2>
+        <p>While the Caribbean coast gets most of the attention, Colombia's Pacific coast — particularly around Nuquí and Bahía Solano — is one of South America's great secrets. Humpback whales arrive between July and October to give birth in the warm Pacific waters. Dense jungle meets deserted beaches with no roads in or out. Reaching it requires a domestic flight or a long boat ride, which is exactly why it remains extraordinary. This is not yet on the tourist trail in any meaningful way.</p>
+        <h2>When To Visit</h2>
+        <p>Colombia straddles the equator, meaning temperature is determined by altitude rather than season. Bogotá sits at 2,600 metres and is cool year-round (14–18°C). Medellín's eternal spring at 1,500 metres gives it its nickname. Cartagena on the coast is hot and humid year-round with a rainy season May–June and October–November. The driest months for most of Colombia are December–March and July–August — plan your visit around these windows for the best outdoor experiences.</p>
       `
     }
   ];
