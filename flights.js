@@ -3,6 +3,39 @@
 
 window.DEALS = [
     {
+      id: 65, region: "europe namerica", badge: "new", badgeLabel: "✨ New",
+      price: "$356", tripType: "roundtrip", cabin: "Economy",
+      from: ["Chicago, USA"], to: ["Gothenburg, Sweden", "Stockholm, Sweden"],
+      stops: "Copenhagen", airline: "Scandinavian Airlines/CityJet",
+      availability: "Availability from November 2026 to January 2027 (excluding Christmas/New Year)",
+      dates: [
+        { label: "2nd–9th Nov 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=02&iym=2611&selectediday=09" },
+        { label: "3rd–10th Nov 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=03&iym=2611&selectediday=10" },
+        { label: "4th–11th Nov 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=04&iym=2611&selectediday=11" },
+        { label: "5th–12th Nov 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=05&iym=2611&selectediday=12" },
+        { label: "6th–13th Nov 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=06&iym=2611&selectediday=13" },
+        { label: "7th–14th Nov 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=07&iym=2611&selectediday=14" },
+        { label: "10th–17th Nov 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=10&iym=2611&selectediday=17" },
+        { label: "11th–18th Nov 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=11&iym=2611&selectediday=18" },
+        { label: "12th–19th Nov 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=12&iym=2611&selectediday=19" },
+        { label: "13th–20th Nov 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=13&iym=2611&selectediday=20" },
+        { label: "14th–21st Nov 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=14&iym=2611&selectediday=21" },
+        { label: "17th–24th Nov 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=17&iym=2611&selectediday=24" },
+        { label: "20th–27th Nov 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=20&iym=2611&selectediday=27" },
+        { label: "24th Nov – 1st Dec 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=24&iym=2612&selectediday=01" },
+        { label: "25th Nov – 2nd Dec 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=25&iym=2612&selectediday=02" },
+        { label: "26th Nov – 3rd Dec 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=26&iym=2612&selectediday=03" },
+        { label: "30th Nov – 7th Dec 2026", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=30&iym=2612&selectediday=07" },
+        { label: "11th–18th Jan 2027", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2701&selectedoday=11&iym=2701&selectediday=18" },
+        { label: "14th–21st Jan 2027", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2701&selectedoday=14&iym=2701&selectediday=21" },
+        { label: "15th–22nd Jan 2027", url: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2701&selectedoday=15&iym=2701&selectediday=22" }
+      ],
+      posted: "Feb 27, 2026", img: "",
+      title: "Cheap flights from Chicago, USA to Gothenburg or Stockholm, Sweden from only $356 roundtrip with Scandinavian Airlines",
+      desc: "Cheap flights from Chicago, USA to Gothenburg or Stockholm, Sweden with Scandinavian Airlines and CityJet via Copenhagen.",
+      bookUrl: "https://www.skyscanner.se/transport/flights/CHI/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
+    },
+    {
       id: 62, region: "europe easia", badge: "new", badgeLabel: "✨ New",
       price: "€344", tripType: "roundtrip", cabin: "Economy",
       from: ["Budapest, Hungary"], to: ["Shanghai, China"],
