@@ -2187,10 +2187,8 @@ function openDeal(id) {
 
   const ddImg = document.getElementById('dd-img');
   // FIX #14: Set fb1 BEFORE setting src to avoid race condition
-  ddImg.dataset.fbStep = '';
-  ddImg.dataset.fb1    = resolveImageCountryOnly(toArr);
   ddImg.alt            = d.title || '';
-  ddImg.src            = resolveImage(toArr) || d.img || '';
+  ddImg.src            = 'images/earth.jpg';
 
   const badge = document.getElementById('dd-badge');
   badge.textContent = badgeLabel;
