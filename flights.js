@@ -55,7 +55,7 @@ window.DEALS = [
       bookUrl: "https://www.skyscanner.se/transport/flights/MIL/JNB/?currency=EUR&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
     },
     {
-      id: 73, region: "europe seasia", badge: "new", badgeLabel: "✨ New",
+      id: 73, region: "europe scasia", badge: "new", badgeLabel: "✨ New",
       price: "€423", tripType: "roundtrip", cabin: "Economy",
       from: ["Stockholm, Sweden"], to: ["Manila, Philippines"],
       stops: "Beijing", airline: "Air China",
