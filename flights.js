@@ -145,7 +145,7 @@ window.DEALS = [
       bookUrl: "https://www.skyscanner.se/transport/flights/LON/MLB/?currency=GBP&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
     },
     {
-      id: 63, region: "africa europe", badge: "new", badgeLabel: "✨ New",
+      id: 63, region: "africa mena europe", badge: "new", badgeLabel: "✨ New",
       price: "$195", tripType: "roundtrip", cabin: "Economy",
       from: ["Tunis, Tunisia"], to: ["Paris, France"],
       stops: "Non-stop", airline: "Air France",
@@ -164,7 +164,7 @@ window.DEALS = [
       bookUrl: "https://www.skyscanner.se/transport/flights/TUN/PAR/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
     },
     {
-      id: 64, region: "africa europe", badge: "new", badgeLabel: "✨ New",
+      id: 64, region: "africa mena europe", badge: "new", badgeLabel: "✨ New",
       price: "$196", tripType: "roundtrip", cabin: "Economy",
       from: ["Tunis, Tunisia"], to: ["Milan, Italy"],
       stops: "Paris", airline: "Air France",
