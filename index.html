@@ -1601,10 +1601,40 @@ function applyAllFilters() {
     let matchWhen = true;
     if (selectedMonth) {
       const deal = (window.DEALS || []).find(d => String(d.id) === String(card.dataset.deal));
-      const availability = deal ? (deal.availability || '').toLowerCase() : '';
-      const monthName = MONTHS_FULL[selectedMonth.monthIdx].toLowerCase();
-      const year = String(selectedMonth.year);
-      matchWhen = availability.includes(monthName) || availability.includes(year);
+      matchWhen = false;
+      if (deal && Array.isArray(deal.dates) && deal.dates.length) {
+        const selM = selectedMonth.monthIdx; // 0-based (Jan=0)
+        const selY = selectedMonth.year;
+        const MON = {jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+        matchWhen = deal.dates.some(function(dateObj) {
+          // Handles all label formats:
+          //   "11th–21st May 2026"            — same month, one year
+          //   "29th May – 4th Jun 2026"       — cross-month, one year at end
+          //   "26th Dec 2026 – 2nd Jan 2027"  — cross-year, two years
+          // Strategy: tokenise label into month/year tokens in order,
+          // then pair each month with the next year that appears after it.
+          // If no year follows a month, fall back to the last year in the label.
+          const lbl = (dateObj.label || '');
+          const tokens = [];
+          const re = /\b([A-Z][a-z]{2})\b|(\d{4})/g;
+          let t;
+          while ((t = re.exec(lbl)) !== null) {
+            if (t[1] && MON[t[1].toLowerCase()] !== undefined) {
+              tokens.push({ type: 'month', idx: MON[t[1].toLowerCase()], pos: t.index });
+            } else if (t[2]) {
+              tokens.push({ type: 'year', yr: parseInt(t[2], 10), pos: t.index });
+            }
+          }
+          const years = tokens.filter(function(t) { return t.type === 'year'; });
+          if (!years.length) return false;
+          const lastYr = years[years.length - 1].yr;
+          return tokens.filter(function(t) { return t.type === 'month'; }).some(function(mon) {
+            const nextYear = years.find(function(y) { return y.pos > mon.pos; });
+            const yr = nextYear ? nextYear.yr : lastYr;
+            return mon.idx === selM && yr === selY;
+          });
+        });
+      }
     }
 
     if (matchRegion && matchFrom && matchTo && matchWhen) filtered.push(card);
