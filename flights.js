@@ -3,6 +3,108 @@
 
 window.DEALS = [
     {
+      id: 94, region: "europe africa", badge: "new", badgeLabel: "✨ New",
+      price: "€415", tripType: "roundtrip", cabin: "Economy",
+      from: ["Amsterdam, Netherlands"], to: ["Zanzibar, Tanzania"],
+      stops: "Mombasa (incoming only)", airline: "TUI.nl",
+      availability: "Availability in March 2026",
+      dates: [
+        { label: "2nd201310th Mar 2026", url: "https://www.skyscanner.net/transport/flights/AMS/ZNZ/260302/260310/?currency=EUR" },
+        { label: "5th201313th Mar 2026", url: "https://www.skyscanner.net/transport/flights/AMS/ZNZ/260305/260313/?currency=EUR" },
+        { label: "9th201317th Mar 2026", url: "https://www.skyscanner.net/transport/flights/AMS/ZNZ/260309/260317/?currency=EUR" },
+        { label: "12th201320th Mar 2026", url: "https://www.skyscanner.net/transport/flights/AMS/ZNZ/260312/260320/?currency=EUR" },
+        { label: "16th201324th Mar 2026", url: "https://www.skyscanner.net/transport/flights/AMS/ZNZ/260316/260324/?currency=EUR" },
+        { label: "19th201327th Mar 2026", url: "https://www.skyscanner.net/transport/flights/AMS/ZNZ/260319/260327/?currency=EUR" }
+      ],
+      posted: "Feb 28, 2026", img: "",
+      title: "Cheap flights from Amsterdam, Netherlands to Zanzibar, Tanzania for only €415 roundtrip with TUI.nl",
+      desc: "Cheap flights from Amsterdam, Netherlands to Zanzibar, Tanzania for only €415 roundtrip with TUI.nl via Mombasa (incoming only). Dates range between €415 and €425 roundtrip. Availability in March 2026.",
+      bookUrl: "https://www.skyscanner.net/transport/flights/AMS/ZNZ/?currency=EUR"
+    },
+    {
+      id: 93, region: "europe easia", badge: "new", badgeLabel: "✨ New",
+      price: "€472", tripType: "roundtrip", cabin: "Economy",
+      from: ["Helsinki, Finland"], to: ["Hanoi, Vietnam"],
+      stops: "Shanghai", airline: "Juneyao Airlines",
+      availability: "Availability from November to December 2026",
+      dates: [
+        { label: "5th–15th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261105/261115/?currency=EUR" },
+        { label: "5th–16th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261105/261116/?currency=EUR" },
+        { label: "5th–17th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261105/261117/?currency=EUR" },
+        { label: "5th–19th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261105/261119/?currency=EUR" },
+        { label: "7th–17th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261107/261117/?currency=EUR" },
+        { label: "7th–19th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261107/261119/?currency=EUR" },
+        { label: "7th–21st Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261107/261121/?currency=EUR" },
+        { label: "8th–19th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261108/261119/?currency=EUR" },
+        { label: "8th–21st Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261108/261121/?currency=EUR" },
+        { label: "8th–22nd Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261108/261122/?currency=EUR" },
+        { label: "9th–19th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261109/261119/?currency=EUR" },
+        { label: "9th–21st Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261109/261121/?currency=EUR" },
+        { label: "9th–22nd Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261109/261122/?currency=EUR" },
+        { label: "9th–23rd Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261109/261123/?currency=EUR" },
+        { label: "10th–21st Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261110/261121/?currency=EUR" },
+        { label: "10th–22nd Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261110/261122/?currency=EUR" },
+        { label: "10th–23rd Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261110/261123/?currency=EUR" },
+        { label: "10th–24th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261110/261124/?currency=EUR" },
+        { label: "12th–22nd Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261112/261122/?currency=EUR" },
+        { label: "12th–23rd Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261112/261123/?currency=EUR" },
+        { label: "12th–24th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261112/261124/?currency=EUR" },
+        { label: "12th–26th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261112/261126/?currency=EUR" },
+        { label: "14th–24th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261114/261124/?currency=EUR" },
+        { label: "14th–26th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261114/261126/?currency=EUR" },
+        { label: "14th–28th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261114/261128/?currency=EUR" },
+        { label: "15th–26th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261115/261126/?currency=EUR" },
+        { label: "15th–28th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261115/261128/?currency=EUR" },
+        { label: "15th–29th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261115/261129/?currency=EUR" },
+        { label: "16th–26th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261116/261126/?currency=EUR" },
+        { label: "16th–28th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261116/261128/?currency=EUR" },
+        { label: "16th–29th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261116/261129/?currency=EUR" },
+        { label: "16th–30th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261116/261130/?currency=EUR" },
+        { label: "17th–28th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261117/261128/?currency=EUR" },
+        { label: "17th–29th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261117/261129/?currency=EUR" },
+        { label: "17th–30th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261117/261130/?currency=EUR" },
+        { label: "17th Nov – 1st Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261117/261201/?currency=EUR" },
+        { label: "19th–29th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261119/261129/?currency=EUR" },
+        { label: "19th–30th Nov 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261119/261130/?currency=EUR" },
+        { label: "19th Nov – 1st Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261119/261201/?currency=EUR" },
+        { label: "19th Nov – 3rd Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261119/261203/?currency=EUR" },
+        { label: "21st Nov – 1st Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261121/261201/?currency=EUR" },
+        { label: "21st Nov – 3rd Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261121/261203/?currency=EUR" },
+        { label: "21st Nov – 5th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261121/261205/?currency=EUR" },
+        { label: "22nd Nov – 3rd Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261122/261203/?currency=EUR" },
+        { label: "22nd Nov – 5th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261122/261205/?currency=EUR" },
+        { label: "22nd Nov – 6th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261122/261206/?currency=EUR" },
+        { label: "23rd Nov – 3rd Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261123/261203/?currency=EUR" },
+        { label: "23rd Nov – 5th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261123/261205/?currency=EUR" },
+        { label: "23rd Nov – 6th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261123/261206/?currency=EUR" },
+        { label: "23rd Nov – 7th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261123/261207/?currency=EUR" },
+        { label: "24th Nov – 5th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261124/261205/?currency=EUR" },
+        { label: "24th Nov – 6th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261124/261206/?currency=EUR" },
+        { label: "24th Nov – 7th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261124/261207/?currency=EUR" },
+        { label: "26th Nov – 6th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261126/261206/?currency=EUR" },
+        { label: "26th Nov – 7th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261126/261207/?currency=EUR" },
+        { label: "26th Nov – 8th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261126/261208/?currency=EUR" },
+        { label: "26th Nov – 10th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261126/261210/?currency=EUR" },
+        { label: "28th Nov – 8th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261128/261208/?currency=EUR" },
+        { label: "28th Nov – 10th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261128/261210/?currency=EUR" },
+        { label: "29th Nov – 10th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261129/261210/?currency=EUR" },
+        { label: "29th Nov – 13th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261129/261213/?currency=EUR" },
+        { label: "30th Nov – 10th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261130/261210/?currency=EUR" },
+        { label: "30th Nov – 13th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261130/261213/?currency=EUR" },
+        { label: "30th Nov – 14th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261130/261214/?currency=EUR" },
+        { label: "1st–14th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261201/261214/?currency=EUR" },
+        { label: "1st–15th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261201/261215/?currency=EUR" },
+        { label: "3rd–13th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261203/261213/?currency=EUR" },
+        { label: "3rd–14th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261203/261214/?currency=EUR" },
+        { label: "3rd–15th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261203/261215/?currency=EUR" },
+        { label: "3rd–17th Dec 2026", url: "https://www.skyscanner.net/transport/flights/HEL/HAN/261203/261217/?currency=EUR" }
+      ],
+      posted: "Feb 28, 2026", img: "",
+      title: "Cheap flights from Helsinki, Finland to Hanoi, Vietnam for only €472 roundtrip with Juneyao Airlines",
+      desc: "Cheap flights from Helsinki, Finland to Hanoi, Vietnam for only €472 roundtrip with Juneyao Airlines via Shanghai. Availability from November to December 2026.",
+      bookUrl: "https://www.skyscanner.net/transport/flights/HEL/HAN/?currency=EUR"
+    },
+    {
       id: 92, region: "europe namerica", badge: "new", badgeLabel: "✨ New",
       price: "€326", tripType: "roundtrip", cabin: "Economy",
       from: ["Stockholm, Sweden"], to: ["Seattle, USA"],
@@ -47,13 +149,13 @@ window.DEALS = [
         { label: "5th–12th Jun 2026", url: "https://www.skyscanner.se/transport/flights/STO/SEA/?currency=EUR&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2606&selectedoday=05&iym=2606&selectediday=12" },
         { label: "5th–14th Jun 2026", url: "https://www.skyscanner.se/transport/flights/STO/SEA/?currency=EUR&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2606&selectedoday=05&iym=2606&selectediday=14" }
       ],
-      posted: "Mar 1, 2026", img: "",
+      posted: "Feb 28, 2026", img: "",
       title: "Cheap flights from Stockholm, Sweden to Seattle, USA for only €326 roundtrip with Finnair and British Airways",
       desc: "Cheap flights from Stockholm, Sweden to Seattle, USA for only €326 roundtrip with Finnair and British Airways via Helsinki and London. Dates range between €326 and €350 roundtrip.",
       bookUrl: "https://www.skyscanner.se/transport/flights/STO/SEA/?currency=EUR&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
     },
     {
-      id: 91, region: "europe asia", badge: "new", badgeLabel: "✨ New",
+      id: 91, region: "europe easia", badge: "new", badgeLabel: "✨ New",
       price: "€415", tripType: "roundtrip", cabin: "Economy",
       from: ["Stockholm, Sweden"], to: ["Seoul, South Korea"],
       stops: "Beijing", airline: "Air China",
@@ -103,7 +205,7 @@ window.DEALS = [
         { label: "18th–31st May 2026", url: "https://www.skyscanner.se/transport/flights/STO/SEL/?currency=EUR&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2605&selectedoday=18&iym=2605&selectediday=31" },
         { label: "19th–31st May 2026", url: "https://www.skyscanner.se/transport/flights/STO/SEL/?currency=EUR&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2605&selectedoday=19&iym=2605&selectediday=31" }
       ],
-      posted: "Mar 1, 2026", img: "",
+      posted: "Feb 28, 2026", img: "",
       title: "Cheap flights from Stockholm, Sweden to Seoul, South Korea for only €415 roundtrip with Air China",
       desc: "Cheap flights from Stockholm, Sweden to Seoul, South Korea for only €415 roundtrip with Air China via Beijing. Dates range between €415 and €439 roundtrip.",
       bookUrl: "https://www.skyscanner.se/transport/flights/STO/SEL/?currency=EUR&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
@@ -154,7 +256,7 @@ window.DEALS = [
         { label: "13th–24th Apr 2026", url: "https://www.skyscanner.se/transport/flights/OSL/WDH/?currency=EUR&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2604&selectedoday=13&iym=2604&selectediday=24" },
         { label: "14th–24th Apr 2026", url: "https://www.skyscanner.se/transport/flights/OSL/WDH/?currency=EUR&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2604&selectedoday=14&iym=2604&selectediday=24" }
       ],
-      posted: "Mar 1, 2026", img: "",
+      posted: "Feb 28, 2026", img: "",
       title: "Cheap flights from Oslo, Norway to Windhoek, Namibia for only €338 roundtrip with Ethiopian Airlines",
       desc: "Cheap flights from Oslo, Norway to Windhoek, Namibia for only €338 roundtrip with Ethiopian Airlines via Stockholm and Addis Ababa. Dates range between €338 and €366 roundtrip.",
       bookUrl: "https://www.skyscanner.se/transport/flights/OSL/WDH/?currency=EUR&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
@@ -199,7 +301,7 @@ window.DEALS = [
         { label: "16th–23rd May 2026", url: "https://www.skyscanner.se/transport/flights/PDX/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2605&selectedoday=16&iym=2605&selectediday=23" },
         { label: "30th May – 6th Jun 2026", url: "https://www.skyscanner.se/transport/flights/PDX/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2605&selectedoday=30&iym=2606&selectediday=06" }
       ],
-      posted: "Mar 1, 2026", img: "",
+      posted: "Feb 28, 2026", img: "",
       title: "Cheap flights from Portland, Oregon to Gothenburg, Sweden for only $436 roundtrip with KLM",
       desc: "Cheap flights from Portland, USA to Gothenburg, Sweden for only $436 roundtrip with KLM via Amsterdam. Dates range between $436 and $457 roundtrip.",
       bookUrl: "https://www.skyscanner.se/transport/flights/PDX/GOT/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
@@ -223,7 +325,7 @@ window.DEALS = [
         { label: "15th–21st May 2026", url: "https://www.skyscanner.se/transport/flights/PDX/STO/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2605&selectedoday=15&iym=2605&selectediday=21" },
         { label: "19th–26th May 2026", url: "https://www.skyscanner.se/transport/flights/PDX/STO/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2605&selectedoday=19&iym=2605&selectediday=26" }
       ],
-      posted: "Mar 1, 2026", img: "",
+      posted: "Feb 28, 2026", img: "",
       title: "Cheap flights from Portland, Oregon to Stockholm, Sweden for only $390 roundtrip with Delta Air Lines",
       desc: "Cheap flights from Portland, USA to Stockholm, Sweden for only $390 roundtrip with Delta Air Lines via New York.",
       bookUrl: "https://www.skyscanner.se/transport/flights/PDX/STO/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
@@ -240,7 +342,7 @@ window.DEALS = [
         { label: "28th Apr – 6th May 2026", url: "https://www.skyscanner.se/transport/flights/SMF/KOA/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2604&selectedoday=28&iym=2605&selectediday=06" },
         { label: "29th Apr – 6th May 2026", url: "https://www.skyscanner.se/transport/flights/SMF/KOA/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2604&selectedoday=29&iym=2605&selectediday=06" }
       ],
-      posted: "Mar 1, 2026", img: "",
+      posted: "Feb 28, 2026", img: "",
       title: "Non-stop flights from Sacramento, California to Kona, Hawaii for only $199 roundtrip with Alaska as Hawaiian Airlines",
       desc: "Non-stop flights from Sacramento, USA to Kona, Hawaii for only $199 roundtrip with Alaska as Hawaiian Airlines.",
       bookUrl: "https://www.skyscanner.se/transport/flights/SMF/KOA/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
@@ -262,7 +364,7 @@ window.DEALS = [
         { label: "27th Apr – 8th May 2026", url: "https://www.skyscanner.se/transport/flights/SAT/SJU/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2604&selectedoday=27&iym=2605&selectediday=08" },
         { label: "28th Apr – 7th May 2026", url: "https://www.skyscanner.se/transport/flights/SAT/SJU/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2604&selectedoday=28&iym=2605&selectediday=07" }
       ],
-      posted: "Mar 1, 2026", img: "",
+      posted: "Feb 28, 2026", img: "",
       title: "Cheap flights from San Antonio, Texas to San Juan, Puerto Rico for only $216 roundtrip with United Airlines",
       desc: "Cheap flights from San Antonio, USA to San Juan, Puerto Rico for only $216 roundtrip with United Airlines via Washington DC/Chicago. Dates range between $216 and $241 roundtrip.",
       bookUrl: "https://www.skyscanner.se/transport/flights/SAT/SJU/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
@@ -284,7 +386,7 @@ window.DEALS = [
         { label: "30th Oct – 13th Nov 2026", url: "https://www.skyscanner.se/transport/flights/LON/SYD/?currency=GBP&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2610&selectedoday=30&iym=2611&selectediday=13" },
         { label: "6th–20th Nov 2026", url: "https://www.skyscanner.se/transport/flights/LON/SYD/?currency=GBP&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=06&iym=2611&selectediday=20" }
       ],
-      posted: "Mar 1, 2026", img: "",
+      posted: "Feb 28, 2026", img: "",
       title: "Cheap flights from London, UK to Sydney, Australia for only £475 roundtrip with AirAsia",
       desc: "Cheap flights from London, UK to Sydney, Australia for only £475 roundtrip with AirAsia via Bahrain and Kuala Lumpur. Dates range between £475 and £497 roundtrip.",
       bookUrl: "https://www.skyscanner.se/transport/flights/LON/SYD/?currency=GBP&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
@@ -300,7 +402,7 @@ window.DEALS = [
         { label: "6th–23rd Apr 2026", url: "https://www.skyscanner.se/transport/flights/LON/JNB/?currency=GBP&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2604&selectedoday=06&iym=2604&selectediday=23" },
         { label: "15th Apr – 2nd May 2026", url: "https://www.skyscanner.se/transport/flights/LON/JNB/?currency=GBP&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2604&selectedoday=15&iym=2605&selectediday=02" }
       ],
-      posted: "Mar 1, 2026", img: "",
+      posted: "Feb 28, 2026", img: "",
       title: "Cheap flights from London, UK to Johannesburg, South Africa for only £386 roundtrip with Air Algerie",
       desc: "Cheap flights from London, UK to Johannesburg, South Africa for only £386 roundtrip with Air Algerie via Algiers.",
       bookUrl: "https://www.skyscanner.se/transport/flights/LON/JNB/?currency=GBP&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
@@ -316,7 +418,7 @@ window.DEALS = [
         { label: "14th–23rd May 2026", url: "https://www.skyscanner.se/transport/flights/VNO/CPT/?currency=EUR&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2605&selectedoday=14&iym=2605&selectediday=23" },
         { label: "2nd–11th Jun 2026", url: "https://www.skyscanner.se/transport/flights/VNO/CPT/?currency=EUR&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2606&selectedoday=02&iym=2606&selectediday=11" }
       ],
-      posted: "Mar 1, 2026", img: "",
+      posted: "Feb 28, 2026", img: "",
       title: "Cheap flights from Vilnius, Lithuania to Cape Town, South Africa for only €475 roundtrip",
       desc: "Cheap flights from Vilnius, Lithuania to Cape Town, South Africa for only €475 roundtrip with airBaltic and Edelweiss Air via Zurich.",
       bookUrl: "https://www.skyscanner.se/transport/flights/VNO/CPT/?currency=EUR&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
@@ -359,7 +461,7 @@ window.DEALS = [
         { label: "21st–28th Nov 2026", url: "https://www.skyscanner.se/transport/flights/TUN/ROM/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=21&iym=2611&selectediday=28" },
         { label: "22nd–29th Nov 2026", url: "https://www.skyscanner.se/transport/flights/TUN/ROM/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=22&iym=2611&selectediday=29" }
       ],
-      posted: "Mar 1, 2026", img: "",
+      posted: "Feb 28, 2026", img: "",
       title: "Summer flights from Tunis, Tunisia to Rome, Italy for only $226 roundtrip with Lufthansa",
       desc: "Summer flights from Tunis, Tunisia to Rome, Italy for only $226 USD roundtrip with Lufthansa via Frankfurt.",
       bookUrl: "https://www.skyscanner.se/transport/flights/TUN/ROM/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
@@ -387,7 +489,7 @@ window.DEALS = [
         { label: "14th–21st Nov 2026", url: "https://www.skyscanner.se/transport/flights/DKR/BRU/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=14&iym=2611&selectediday=21" },
         { label: "15th–22nd Nov 2026", url: "https://www.skyscanner.se/transport/flights/DKR/BRU/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net&oym=2611&selectedoday=15&iym=2611&selectediday=22" }
       ],
-      posted: "Mar 1, 2026", img: "",
+      posted: "Feb 28, 2026", img: "",
       title: "Cheap flights from Dakar, Senegal to Brussels, Belgium for only $417 roundtrip with TAP Air Portugal",
       desc: "Cheap flights from Dakar, Senegal to Brussels, Belgium for only $417 USD roundtrip with TAP Air Portugal via Lisbon.",
       bookUrl: "https://www.skyscanner.se/transport/flights/DKR/BRU/?currency=USD&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
@@ -1008,7 +1110,7 @@ window.DEALS = [
         { label: "14th–27th Apr 2026",       url: "https://www.skyscanner.se/transport/flights/ROM/YYC/?currency=EUR&locale=en-GB&market=SE&oym=2604&selectedoday=14&iym=2604&selectediday=27" },
         { label: "14th–28th Apr 2026",       url: "https://www.skyscanner.se/transport/flights/ROM/YYC/?currency=EUR&locale=en-GB&market=SE&oym=2604&selectedoday=14&iym=2604&selectediday=28" }
       ],
-      posted: "Mar 1, 2026", img: "",
+      posted: "Feb 28, 2026", img: "",
       title: "Non-stop flights from Rome, Italy to Calgary, Canada for only €403 roundtrip with WestJet",
       desc: "Non-stop flights from Rome, Italy to Calgary, Canada for only €403 roundtrip with WestJet.",
       bookUrl: "https://www.skyscanner.se/transport/flights/ROM/YYC/?currency=EUR&locale=en-GB&market=SE"
