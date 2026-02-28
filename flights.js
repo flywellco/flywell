@@ -224,7 +224,7 @@ window.DEALS = [
       bookUrl: "https://www.skyscanner.se/transport/flights/LON/CUN/?currency=GBP&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
     },
     {
-      id: 70, region: "europe africa", badge: "new", badgeLabel: "✨ New",
+      id: 70, region: "europe africa", badge: "business", badgeLabel: "✈ Business Class",
       price: "£1551", tripType: "roundtrip", cabin: "Business",
       from: ["London, UK"], to: ["Nairobi, Kenya"],
       stops: "Non-stop", airline: "British Airways",
@@ -246,7 +246,7 @@ window.DEALS = [
       bookUrl: "https://www.skyscanner.se/transport/flights/LON/NBO/?currency=GBP&locale=en-GB&market=SE&previousCultureSource=URL&redirectedFrom=www.skyscanner.net"
     },
     {
-      id: 69, region: "europe camerica", badge: "new", badgeLabel: "✨ New",
+      id: 69, region: "europe camerica", badge: "business", badgeLabel: "✈ Business Class",
       price: "£1628", tripType: "roundtrip", cabin: "Business",
       from: ["London, UK"], to: ["Kingston, Jamaica"],
       stops: "Non-stop", airline: "British Airways",
