@@ -842,12 +842,17 @@
     transition: all 0.2s; margin-top: 0.5rem;
   }
   .submit-btn:hover { background: #a06820; }
+  .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
   .form-success { display: none; text-align: center; padding: 2rem 1rem; }
   .form-success .success-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
   .form-success h4 { font-family: 'Bebas Neue'; font-size: 1.4rem; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
   .form-success p { color: var(--muted); font-size: 0.85rem; }
-
-  /* TERMS / PRIVACY */
+  .form-error-msg {
+    display: none; margin-top: 0.75rem; padding: 0.75rem 1rem;
+    background: rgba(217,79,30,0.08); border: 1px solid rgba(217,79,30,0.25);
+    border-radius: 8px; font-size: 0.82rem; color: var(--accent2); line-height: 1.5;
+  }
+  .form-error-msg a { color: var(--accent2); font-weight: 700; }
   .legal-section { margin-bottom: 2rem; }
   .legal-section h3 {
     font-family: 'Bebas Neue'; font-size: 1rem; letter-spacing: 0.08em;
@@ -906,10 +911,70 @@
   .footer-links a { padding: 0.1rem 0.5rem; }
   .footer-sep { color: var(--border2); }
 
+  /* ── HAMBURGER BUTTON ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 36px; height: 36px;
+    background: none; border: none;
+    cursor: pointer; padding: 4px;
+    margin-left: auto; flex-shrink: 0;
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .nav-hamburger:hover { background: var(--surface2); }
+  .nav-hamburger span {
+    display: block; width: 20px; height: 2px;
+    background: var(--text); border-radius: 2px;
+    transition: transform 0.25s, opacity 0.2s;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE NAV MENU ── */
+  .mobile-nav-menu {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: rgba(248,245,240,0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    z-index: 499;
+    padding: 0.5rem 0 0.75rem;
+    box-shadow: 0 8px 32px rgba(40,30,20,0.1);
+    transform: translateY(-8px);
+    opacity: 0;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+  }
+  .mobile-nav-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .mobile-nav-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s, color 0.15s;
+  }
+  .mobile-nav-menu a:last-child { border-bottom: none; }
+  .mobile-nav-menu a:hover { background: var(--surface2); color: var(--accent); }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
     nav { padding: 0 1rem; gap: 0.5rem; }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-nav-menu { display: block; }
     .mobile-search-bar {
       display: flex;
       align-items: center;
@@ -918,7 +983,7 @@
       padding: 0 0.9rem;
       gap: 0.5rem;
       height: 34px;
-      margin-left: auto;
+      margin-left: 0;
     }
     .mobile-search-bar input {
       border: none; background: transparent; outline: none;
@@ -980,12 +1045,21 @@
     <li><a href="#" onclick="showPage('qa');return false;">Q&amp;A</a></li>
     <li><a href="#" onclick="showPage('contact');return false;">Contact</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <div class="mobile-search-bar">
     <span style="font-size:0.8rem;opacity:0.5;">🔍</span>
     <input type="text" id="mobile-search-input" placeholder="Search destinations…" autocomplete="off"
       oninput="navSearch(this.value)" onkeydown="if(event.key==='Enter'){navSearchGoMobile()}" />
   </div>
 </nav>
+<div id="mobile-nav-menu" class="mobile-nav-menu" aria-hidden="true">
+  <a href="#" onclick="showPage('main');mobileMenuClose();return false;">✈ Flight Deals</a>
+  <a href="#" onclick="showPage('blog');mobileMenuClose();return false;">📖 Blog</a>
+  <a href="#" onclick="showPage('qa');mobileMenuClose();return false;">❓ Q&amp;A</a>
+  <a href="#" onclick="showPage('contact');mobileMenuClose();return false;">✉️ Contact</a>
+</div>
 
 <!-- MAIN PAGE -->
 <div id="main-page">
@@ -1190,7 +1264,7 @@
         <p>Found a great fare we missed? Have a question about a deal? Just want to say hi? Drop us a message and we'll get back to you as soon as we can.</p>
         <p>We're a small team passionate about helping people travel more for less — your messages genuinely make our day.</p>
         <div class="contact-info-item" style="margin-top:1.5rem;">
-          <div class="contact-info-icon">✉️</div><span><a href="mailto:hello@flywell.flights" style="color:var(--accent);text-decoration:none;">hello@flywell.flights</a></span>
+          <div class="contact-info-icon">✉️</div><span><a href="/cdn-cgi/l/email-protection#09616c656566496f65707e6c6565276f65606e617d7a" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="375f525b5b5877515b4e40525b5b19515b5e505f4344">[email&#160;protected]</span></a></span>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-icon">⏱️</div><span>We reply within 24 hours</span>
@@ -1220,7 +1294,11 @@
           </div>
           <div class="form-group"><label>Message *</label><textarea id="cf-message" placeholder="Tell us what's on your mind…"></textarea></div>
           <button class="submit-btn" onclick="submitForm()">Send Message</button>
-          <p style="font-size:0.72rem;color:rgba(28,22,18,0.5);margin-top:0.75rem;line-height:1.6;">🔒 Your data will be processed in accordance with our <a href="#" onclick="showPage('privacy');return false;" style="color:var(--accent);text-decoration:none;">Privacy Policy</a>. Used solely to respond to your message. Request deletion anytime: <a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a>.</p>
+          <div class="form-error-msg" id="form-error-msg">
+            ⚠️ Message couldn't be sent. Please email us directly at
+            <a href="mailto:hello@flywell.flights">hello@flywell.flights</a>
+          </div>
+          <p style="font-size:0.72rem;color:rgba(28,22,18,0.5);margin-top:0.75rem;line-height:1.6;">🔒 Your data will be processed in accordance with our <a href="#" onclick="showPage('privacy');return false;" style="color:var(--accent);text-decoration:none;">Privacy Policy</a>. Used solely to respond to your message. Request deletion anytime: <a href="/cdn-cgi/l/email-protection#fd8d8f948b9c9e84bd9b91848a989191d39b91949a95898e" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="87f7f5eef1e6e4fec7e1ebfef0e2ebeba9e1ebeee0eff3f4">[email&#160;protected]</span></a>.</p>
         </div>
         <div class="form-success" id="form-success">
           <div class="success-icon">✅</div>
@@ -1264,20 +1342,20 @@
   <div class="page-content">
     <p class="legal-date"><strong>Last updated: 16 February 2026</strong></p>
     <p class="legal-intro">This Privacy Policy explains how FlyWell.Flights collects, uses, stores, and protects your personal data. It is drafted in compliance with the <strong>EU General Data Protection Regulation (GDPR) (Regulation (EU) 2016/679)</strong>, the <strong>UK GDPR</strong>, the <strong>ePrivacy Directive</strong>, and other applicable European data protection legislation.</p>
-    <div class="legal-section"><h3>1. Data Controller &amp; DPO</h3><p>FlyWell.Flights is the data controller. As a small informational service, we are not currently required to appoint a formal Data Protection Officer (DPO) under GDPR Art. 37. All data protection enquiries are handled by our privacy team.</p><p style="margin-top:0.4rem;">FlyWell.Flights is responsible for your personal data. Contact us at <strong><a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a></strong> for all data protection enquiries.</p></div>
+    <div class="legal-section"><h3>1. Data Controller &amp; DPO</h3><p>FlyWell.Flights is the data controller. As a small informational service, we are not currently required to appoint a formal Data Protection Officer (DPO) under GDPR Art. 37. All data protection enquiries are handled by our privacy team.</p><p style="margin-top:0.4rem;">FlyWell.Flights is responsible for your personal data. Contact us at <strong><a href="/cdn-cgi/l/email-protection#68181a011e090b11280e04111f0d0404460e04010f001c1b" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="39494b504f585a40795f55404e5c5555175f55505e514d4a">[email&#160;protected]</span></a></strong> for all data protection enquiries.</p></div>
     <div class="legal-section"><h3>2. What Personal Data We Collect</h3><ul><li><strong>Contact form data:</strong> name, email address, phone number (optional), subject, and message content.</li><li><strong>Account data:</strong> email address and password (hashed) if you create an account.</li><li><strong>Usage data:</strong> IP address, browser type, device type, OS, pages visited, time and date of visit, and referring URLs.</li><li><strong>Cookie data:</strong> identifiers and preferences stored via cookies and similar tracking technologies.</li><li><strong>Communications:</strong> any correspondence you send us.</li></ul></div>
     <div class="legal-section"><h3>3. Legal Basis for Processing (GDPR Article 6)</h3><ul><li><strong>Consent (Art. 6(1)(a)):</strong> for non-essential cookies and marketing communications.</li><li><strong>Contract (Art. 6(1)(b)):</strong> where necessary to fulfil a contract with you.</li><li><strong>Legal obligation (Art. 6(1)(c)):</strong> where required to comply with applicable law.</li><li><strong>Legitimate interests (Art. 6(1)(f)):</strong> for analytics, fraud prevention, and improving our Service.</li></ul></div>
     <div class="legal-section"><h3>4. How We Use Your Data</h3><ul><li>To respond to enquiries and provide customer support</li><li>To operate, maintain, and improve the Service</li><li>To send deal alerts and notifications where you have opted in</li><li>To process and manage account registration and future memberships</li><li>To comply with legal and regulatory obligations</li><li>To detect, prevent, and respond to fraud, abuse, or security threats</li></ul><p style="margin-top:0.6rem;">We will never sell, rent, or trade your personal data to third parties for their own marketing purposes.</p></div>
     <div class="legal-section"><h3>5. Data Retention</h3><p>We retain your personal data only for as long as necessary. Contact form submissions are retained for up to 24 months. Account data is retained for the duration of your account. When data is no longer required, it is securely deleted or anonymised.</p></div>
     <div class="legal-section"><h3>6. Data Sharing, Third-Party Processors &amp; Analytics</h3><p>We may share your data with trusted third-party processors, all bound by data processing agreements (DPAs):</p><ul style="margin-top:0.4rem;"><li><strong>Hosting &amp; infrastructure:</strong> EU-based servers where possible.</li><li><strong>Analytics:</strong> if used, tools such as Google Analytics 4 will be configured with IP anonymisation, data minimisation, and no cross-site tracking. Users may opt out via browser settings or our cookie banner.</li><li><strong>Email services:</strong> for communications where you have opted in.</li><li><strong>Paddle:</strong> payment processor when paid memberships are introduced.</li><li><strong>Legal authorities:</strong> where required by applicable law.</li></ul></div>
     <div class="legal-section"><h3>7. International Data Transfers</h3><p>Where personal data is transferred outside the EEA or UK, we ensure appropriate safeguards are in place including Standard Contractual Clauses (SCCs) approved by the European Commission or adequacy decisions.</p></div>
-    <div class="legal-section"><h3>8. Your Rights Under GDPR &amp; DSAR Process</h3><ul><li><strong>Right of access (Art. 15):</strong> obtain a copy of your personal data.</li><li><strong>Right to rectification (Art. 16):</strong> correct inaccurate or incomplete data.</li><li><strong>Right to erasure (Art. 17):</strong> request deletion of your personal data.</li><li><strong>Right to restriction (Art. 18):</strong> limit the processing of your data.</li><li><strong>Right to data portability (Art. 20):</strong> receive your data in a machine-readable format.</li><li><strong>Right to object (Art. 21):</strong> object to processing based on legitimate interests.</li><li><strong>Right to withdraw consent (Art. 7(3)):</strong> withdraw consent at any time.</li></ul><p style="margin-top:0.6rem;">To exercise any right, submit a <strong>Data Subject Access Request (DSAR)</strong> by emailing <a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a> with subject <em>"GDPR Data Request"</em>, your full name, and the right you wish to exercise. We respond within <strong>30 days</strong>. You may complain to your national supervisory authority (e.g. UODO — Poland, ICO — UK, CNIL — France, EDPB: <strong>edpb.europa.eu</strong>).</p></div>
+    <div class="legal-section"><h3>8. Your Rights Under GDPR &amp; DSAR Process</h3><ul><li><strong>Right of access (Art. 15):</strong> obtain a copy of your personal data.</li><li><strong>Right to rectification (Art. 16):</strong> correct inaccurate or incomplete data.</li><li><strong>Right to erasure (Art. 17):</strong> request deletion of your personal data.</li><li><strong>Right to restriction (Art. 18):</strong> limit the processing of your data.</li><li><strong>Right to data portability (Art. 20):</strong> receive your data in a machine-readable format.</li><li><strong>Right to object (Art. 21):</strong> object to processing based on legitimate interests.</li><li><strong>Right to withdraw consent (Art. 7(3)):</strong> withdraw consent at any time.</li></ul><p style="margin-top:0.6rem;">To exercise any right, submit a <strong>Data Subject Access Request (DSAR)</strong> by emailing <a href="/cdn-cgi/l/email-protection#b3c3c1dac5d2d0caf3d5dfcac4d6dfdf9dd5dfdad4dbc7c0" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="5b2b29322d3a38221b3d37222c3e3737753d37323c332f28">[email&#160;protected]</span></a> with subject <em>"GDPR Data Request"</em>, your full name, and the right you wish to exercise. We respond within <strong>30 days</strong>. You may complain to your national supervisory authority (e.g. UODO — Poland, ICO — UK, CNIL — France, EDPB: <strong>edpb.europa.eu</strong>).</p></div>
     <div class="legal-section"><h3>9. Cookies &amp; Tracking Technologies</h3><p>Cookies are small text files stored on your device. We use the following:</p><ul style="margin-top:0.4rem;"><li><strong>Strictly necessary (no consent required):</strong> session management and security tokens. Duration: session.</li><li><strong>Functional (consent required):</strong> remembering your preferences. Duration: up to 12 months.</li><li><strong>Analytics (consent required):</strong> anonymised usage statistics. IP addresses are anonymised before processing. Duration: up to 13 months. Users may opt out via browser settings.</li><li><strong>Marketing/retargeting:</strong> we do not currently use advertising or retargeting cookies.</li></ul><p style="margin-top:0.6rem;">Manage or withdraw consent at any time using the cookie banner on this site or your browser settings. Withdrawal does not affect prior lawful processing.</p></div>
     <div class="legal-section"><h3>10. Data Security</h3><p>We implement appropriate technical and organisational measures including TLS/SSL encryption, access controls, and regular security reviews. In the event of a personal data breach, we will notify the relevant supervisory authority within 72 hours and inform affected individuals without undue delay (GDPR Arts. 33 &amp; 34).</p></div>
     <div class="legal-section"><h3>11. Children's Privacy</h3><p>Our Service is not directed at children under the age of 16. We do not knowingly collect personal data from children. If you believe a child has provided us with personal data, please contact us immediately.</p></div>
     <div class="legal-section"><h3>12. Links to Third-Party Sites</h3><p>Our website contains links to third-party websites. This Privacy Policy does not apply to those websites. We encourage you to read the privacy policies of any third-party sites you visit.</p></div>
     <div class="legal-section"><h3>13. Changes to This Privacy Policy</h3><p>We may update this Privacy Policy from time to time. Material changes will be communicated by updating the "Last updated" date. Continued use of the Service constitutes acceptance of the updated policy.</p></div>
-    <div class="legal-section"><h3>14. Contact and Complaints</h3><p>Contact us at <strong><a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a></strong> or via our <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">contact form</a>. A list of EU supervisory authorities is available at <strong>edpb.europa.eu</strong>.</p></div>
+    <div class="legal-section"><h3>14. Contact and Complaints</h3><p>Contact us at <strong><a href="/cdn-cgi/l/email-protection#deaeacb7a8bfbda79eb8b2a7a9bbb2b2f0b8b2b7b9b6aaad" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="215153485740425861474d5856444d4d0f474d4846495552">[email&#160;protected]</span></a></strong> or via our <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">contact form</a>. A list of EU supervisory authorities is available at <strong>edpb.europa.eu</strong>.</p></div>
   </div>
 </div>
 
@@ -1398,7 +1476,7 @@
   </div>
 </div>
 
-<script src="flights.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="flights.js"></script>
 
 <script>
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1526,11 +1604,13 @@ function selectMonth(monthIdx) {
   pickerEl.style.display = 'none';
   pickerVisible = false;
   renderMonthGrid();
+  applyAllFilters();
 }
 
 function changeYear(dir) {
   const now = new Date();
   if (dir === -1 && pickerYear - 1 < now.getFullYear()) return;
+  if (dir === +1 && pickerYear + 1 > now.getFullYear() + 2) return;
   pickerYear += dir;
   renderMonthGrid();
 }
@@ -1541,6 +1621,7 @@ function clearMonth() {
   pickerEl.style.display = 'none';
   pickerVisible = false;
   renderMonthGrid();
+  applyAllFilters();
 }
 
 function toggleMonthPicker(e) {
@@ -2042,7 +2123,7 @@ function renderDealsGrid() {
     var to0       = toArr[0] || '';
     var region    = d.region || 'europe';
     var badgeType = d.badge || 'new';
-    var badgeText = d.badge === 'hot' ? '&#x1F525; Hot' : d.badge === 'business' ? '&#x2708; Business' : '&#x2728; New';
+    var badgeText = d.badgeLabel || (d.badge === 'hot' ? '&#x1F525; Hot' : d.badge === 'business' ? '&#x2708; Business Class' : '&#x2728; New');
     var tripType  = d.tripType || 'roundtrip';
     var imgSrc    = resolveImage(toArr) || d.img || 'images/earth.jpg';
     var airline   = Array.isArray(d.airline) ? d.airline[0] : (d.airline || '');
@@ -2097,7 +2178,7 @@ function renderBlogGrid() {
       : '';
     var slugAttr = (p.slug || '').replace(/'/g, '');
     html += '<div class="blog-card" onclick="openBlogPost(\'' + slugAttr + '\')">'
-          + '<img class="blog-card-img" src="' + (p.img || '') + '" alt="' + (p.cat || '').replace(/"/g, '&quot;') + '">'
+          + '<img class="blog-card-img" src="' + (p.img || 'images/earth.jpg') + '" alt="' + (p.cat || '').replace(/"/g, '&quot;') + '" onerror="this.src=\'images/earth.jpg\'">'
           + '<div class="blog-card-body">'
           + '<div class="blog-card-cat">'   + (p.cat   || '') + '</div>'
           + '<div class="blog-card-title">' + (p.title || '') + '</div>'
@@ -2121,9 +2202,12 @@ function openBlogPost(slug) {
   if (post.img) {
     heroImg.src = post.img;
     heroImg.alt = post.title;
+    heroImg.onerror = function() { this.src = 'images/earth.jpg'; this.onerror = null; };
     heroWrap.style.display = 'block';
   } else {
-    heroWrap.style.display = 'none';
+    heroImg.src = 'images/earth.jpg';
+    heroImg.alt = post.title;
+    heroWrap.style.display = 'block';
   }
   showPage('blogpost');
 }
@@ -2201,6 +2285,7 @@ function openDeal(id) {
 // PAGE NAVIGATION
 // ─────────────────────────────────────────────────────────────────────────────
 function showPage(page, pushState) {
+  mobileMenuClose();
   ['main-page','contact-page','terms-page','privacy-page','about-page',
    'qa-page','deal-page','blog-page','blogpost-page'].forEach(id => {
     const el = document.getElementById(id);
@@ -2246,6 +2331,44 @@ window.addEventListener('popstate', function(e) {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
+// MOBILE NAV MENU
+// ─────────────────────────────────────────────────────────────────────────────
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-nav-menu');
+  const btn  = document.getElementById('nav-hamburger');
+  if (!menu || !btn) return;
+  const isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    mobileMenuClose();
+  } else {
+    menu.classList.add('open');
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
+  }
+}
+
+function mobileMenuClose() {
+  const menu = document.getElementById('mobile-nav-menu');
+  const btn  = document.getElementById('nav-hamburger');
+  if (!menu || !btn) return;
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  menu.setAttribute('aria-hidden', 'true');
+}
+
+// Close mobile menu when clicking outside it
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('mobile-nav-menu');
+  const btn  = document.getElementById('nav-hamburger');
+  if (menu && menu.classList.contains('open') &&
+      !menu.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+    mobileMenuClose();
+  }
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
 // FIX 4: DOMContentLoaded instead of load — deals now render as soon as the
 // DOM is parsed, without waiting for all images/fonts to finish loading.
 // This prevents a blank deal grid on slow connections.
@@ -2278,57 +2401,73 @@ function toggleQA(btn) {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // CONTACT FORM
-// FIX 2: phone field is now collected and included in the Formspree payload.
-// FIX 3: when FORMSPREE_ID is unconfigured, show an error alert instead of
-//         the fake success UI — users no longer think their message was sent.
+// Configure: replace 'YOUR_FORMSPREE_ID' with your actual Formspree endpoint ID
+//   e.g. const FORMSPREE_ID = 'xpwzabcd';  (the ID from your Formspree dashboard)
+//   Sign up free at https://formspree.io — no server required.
+// When unconfigured: form opens a pre-filled mailto: link so messages still arrive.
 // ─────────────────────────────────────────────────────────────────────────────
+const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // ← replace this value
+
 async function submitForm() {
   const name    = document.getElementById('cf-name').value.trim();
   const email   = document.getElementById('cf-email').value.trim();
+  const phone   = document.getElementById('cf-phone').value.trim();
   const subject = document.getElementById('cf-subject').value;
   const message = document.getElementById('cf-message').value.trim();
+  const errorEl = document.getElementById('form-error-msg');
+
+  // Reset error state
+  if (errorEl) errorEl.style.display = 'none';
+
   if (!name || !email || !subject || !message) {
-    alert('Please fill in all required fields.');
+    if (errorEl) {
+      errorEl.innerHTML = '⚠️ Please fill in all required fields (Name, Email, Subject, Message).';
+      errorEl.style.display = 'block';
+    }
     return;
   }
+
   const btn = document.querySelector('.submit-btn');
   btn.textContent = 'Sending…';
   btn.disabled = true;
 
-  // FIX 2: collect phone field
-  const phone = document.getElementById('cf-phone').value.trim();
-
-  // TODO: Replace 'YOUR_FORMSPREE_ID' with your actual Formspree endpoint ID
-  const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
-  if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
-    console.warn('FlyWell: Formspree ID not configured. Set FORMSPREE_ID in submitForm().');
-    // FIX 3: show error instead of fake success — form was previously hiding
-    // itself and showing the success message even though nothing was sent.
-    alert('Contact form is not configured yet. Please email us directly at hello@flywell.flights');
+  // ── Unconfigured fallback: open a pre-filled mailto link ──────────────────
+  if (!FORMSPREE_ID || FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      (phone ? 'Phone: ' + phone + '\n' : '') +
+      '\n' + message
+    );
+    const mailtoUrl = 'mailto:hello@flywell.flights'
+      + '?subject=' + encodeURIComponent('[FlyWell] ' + subject)
+      + '&body=' + body;
+    window.location.href = mailtoUrl;
     btn.textContent = 'Send Message';
     btn.disabled = false;
     return;
   }
 
+  // ── Live Formspree submission ─────────────────────────────────────────────
   try {
     const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      // FIX 2: phone now included in payload
       body: JSON.stringify({ name, email, phone, subject, message })
     });
     if (res.ok) {
       document.getElementById('contact-form').style.display = 'none';
       document.getElementById('form-success').style.display = 'block';
     } else {
-      alert('Something went wrong. Please email us directly at hello@flywell.flights');
-      btn.textContent = 'Send Message';
-      btn.disabled = false;
+      throw new Error('Server error ' + res.status);
     }
   } catch(e) {
-    alert('Something went wrong. Please email us directly at hello@flywell.flights');
     btn.textContent = 'Send Message';
     btn.disabled = false;
+    if (errorEl) {
+      errorEl.innerHTML = '⚠️ Message couldn\'t be sent. Please email us directly at <a href="mailto:hello@flywell.flights">hello@flywell.flights</a>';
+      errorEl.style.display = 'block';
+    }
   }
 }
 
@@ -2341,7 +2480,7 @@ window.BLOG_POSTS = [
       cat: 'Destination Guide',
       title: 'Vietnam: The Smart Traveler\'s 2026 Strategy Guide',
       date: 'Feb 27, 2026', readtime: '11 min read',
-      img: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80&fit=crop',
+      img: 'images/blog/vietnam.jpg',
       body: `<p>Vietnam is not a country you do. It is a country you sequence correctly. Enter through history, move through architecture, exit through velocity. The travelers who understand the routing logic see more, spend less, and avoid retracing 1,700 unnecessary kilometres. The fares from Europe still make this intelligence available. They won't forever.</p><p>Vietnam is entering its final pre-luxury cycle phase. International hotel brands are arriving in volume, the domestic airport network is expanding, and crowds at tier-one sites are beginning to price out the experience itself. The window to encounter Vietnam at the intersection of genuine accessibility and genuine depth is narrowing with a precision that should concentrate the mind of anyone who has been meaning to go.</p><h2>The North: Hanoi and the Logic of Arrival</h2><p>Land at Noi Bai (HAN) and give the city its first hour before forming an opinion. The drive in from the airport at dusk — Red River flatlands dissolving into the first motorbike density, the smell of charcoal and roasting corn — is the correct introduction. Hanoi operates on social logic rather than legal one, and that first hour teaches you more about how it functions than any prior reading could.</p><p>Ca phe trung — egg coffee, a legacy of wartime milk shortages that became permanent cultural institution — is best ordered sitting on a low plastic stool at Giang Cafe, which has been producing it the same way since 1946. The culinary identity of the north is precise and non-negotiable: bun cha at lunch, banh mi before 8am, pho on the pavement in the cold-season morning when your breath is visible and the broth steams in the bowl.</p><p>The insider move most Vietnam itineraries miss: Mu Cang Chai in late September or early October. The rice terraces here — 500km northwest of Hanoi, in a valley flanked by peaks reaching 3,000 metres — are at harvest. The paddies shift from deep green to gold in a sequence that moves across the hillside over three weeks. Sapa gets the coverage. Mu Cang Chai gets the reality. Fares in this window are at their annual low, the viewpoints are largely yours, and the light in the late afternoon is the kind photographers plan trips around. Build an itinerary around this window and the rest of the country follows naturally southward.</p><h2>Central Vietnam: Where the Architecture Lives</h2><p>The corridor between Da Nang (DAD) and Hoi An is where Vietnam's identity reaches its most concentrated expression. Most itineraries waste Da Nang as a transit point. The smarter move: exit Vietnam from DAD rather than SGN on a 10-day trip. This single routing decision eliminates the backtrack south, recovers a full day, and positions the central region as the culminating experience rather than a stopover. It is one of the better open-jaw arguments in Southeast Asian travel.</p><p>Hoi An's ancient town has retained its structural integrity through the American War and mass tourism, which is a genuine architectural miracle. Understand it before 8am when the light is horizontal and the tour groups are still at their hotels. The Hai Van Pass north of Da Nang — the mountain road marking the climatic boundary between central and northern Vietnam — is one of the most dramatic coastal drives in Southeast Asia and explains practically why Hue receives considerably more rain than everything south of it. This is not a trivial planning consideration if you're there in November.</p><h2>The South: Velocity and the Delta</h2><p>Ho Chi Minh City (SGN) operates at a frequency Hanoi has no interest in matching. Where the capital negotiates with its history, Saigon has largely decided to move on. The energy is mercantile and forward-looking. District 1 is for orientation; District 3 is where the city lives — tree-lined streets, independent restaurants, coffee shops that take their craft seriously. The Ben Thanh market is for tourists; the Binh Tay market in Cholon functions at a scale and intensity that recalibrates your understanding of what commerce actually looks like.</p><p>The Mekong Delta, two hours south by road, is the agricultural engine of the country and one of its most visually distinct landscapes. The floating markets at Cai Rang are functional commerce, not performance — but arrive before 6am or the boats thin out and the dynamic dissolves entirely. Between July and November the delta floods seasonally. The flooded landscape is extraordinary, but it changes access and aesthetics in ways worth understanding before you book.</p><h2>Flight Access From Europe</h2><p>Vietnam's two main gateways are Noi Bai (HAN) in Hanoi and Tan Son Nhat (SGN) in Ho Chi Minh City. The most competitive fares from Europe route through Gulf hubs — Qatar Airways via Doha (DOH), Emirates via Dubai (DXB), Etihad via Abu Dhabi (AUH) — with one-stop journey times in the 13–16 hour range. From Paris (CDG), fares to Hanoi in shoulder season appear around EUR700–800 return. Frankfurt (FRA) to Ho Chi Minh City prices regularly in the EUR650–900 range off-peak. From Scandinavia, positioning via Helsinki (HEL) through Singapore or Copenhagen (CPH) via Doha frequently undercuts direct Nordic ticketing by EUR150–200.</p><p>The open-jaw is the correct structure for most Vietnam itineraries: fly into HAN, exit from SGN — or, on shorter trips, exit from DAD. This eliminates the 1,700km backtrack and typically adds nothing meaningful to the fare. Use multi-city search rather than a standard return — the pricing on this routing is frequently identical and occasionally cheaper. FlyWell tracks Vietnam fare cycles weekly; the 8–10 week window before shoulder season departures is consistently where Gulf carrier inventory softens and the better pricing appears.</p><h2>Seasonal Timing Intelligence</h2><p>Vietnam's 15-degree latitudinal span makes a single best-time answer structurally impossible. The framework: November through April covers the south and central coast reliably; May through September suits the north. November and March are the two months where workable conditions exist across all regions simultaneously — which is precisely why fares in both windows run 15–20% above the annual average. The Christmas and Tet (late January) windows carry a 30–45% fare premium. Avoid both unless dates are non-negotiable.</p><p>The specific insight most booking guides omit: the central highlands around Da Lat at 1,500 metres operate on a microclimate entirely divorced from the coastal pattern. Cool year-round, occasionally misty, producing some of the best Vietnamese coffee and wine in the country. It is dramatically undervisited relative to its quality and adds genuine texture to any southern itinerary without adding logistical complexity.</p><h2>Smart Booking Strategy</h2><p>Lock the open-jaw first — HAN inbound, SGN or DAD outbound. Search it as multi-city, not return. The 8–12 week booking window consistently produces the best inventory on Gulf carrier routes into Vietnam; beyond 16 weeks, pricing is often higher than it will eventually become. FlyWell monitors this corridor and publishes Vietnam deals the moment anomalous inventory appears — the patterns are regular enough that subscribers catch them before the fares adjust.</p><p>Vietnam rewards the traveler who arrives with a sequence rather than a list. The country is large enough, varied enough, and historically layered enough that two visits with entirely non-overlapping itineraries are not just possible but probable. The fares from Europe, given the distance and the quality of what is there, remain one of long-haul travel's more quietly rational propositions. That will change. The time to act on it is not later.</p>`
     },
     {
@@ -2349,7 +2488,7 @@ window.BLOG_POSTS = [
       cat: 'Destination Guide',
       title: 'Thailand Beyond Bangkok: Where To Go & When To Book',
       date: 'Feb 27, 2026', readtime: '10 min read',
-      img: 'https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?w=1200&q=80&fit=crop',
+      img: 'images/blog/thailand.jpg',
       body: `<p>Bangkok has become, in the taxonomy of long-haul travel, what Paris is to European city breaks — a byword for the destination rather than a description of it. The Thailand most people experience is BKK arrivals, Sukhumvit hotel corridor, a flight south to a beach. It is a real country and worth the journey. It is also approximately 10% of what Thailand actually contains. The remaining 90% rewards travelers who understand that a domestic flight from Suvarnabhumi costs less than a restaurant dinner and changes everything.</p><h2>Bangkok: The Necessary Foundation</h2><p>Suvarnabhumi (BKK) handles international arrivals. Don Mueang (DMK), 30km north in traffic that is genuinely variable, handles budget carriers for domestic connections. Know which airport your onward flight uses before you land — this is not a minor operational detail. Bangkok itself rewards a minimum of three days, not to see more but to recalibrate. The city operates across registers simultaneously: the Wat Pho and Grand Palace circuit in the morning heat, the Yaowarat Chinatown night market after dark, where Jay Fai has been cooking her crab omelette over charcoal on a pavement since before she earned a Michelin star. She still does it the same way. The star did not change the method.</p><h2>Chiang Mai and the North: The Country's Cultural Core</h2><p>Chiang Mai (CNX) is 90 minutes from BKK on AirAsia or Thai Airways, and it functions as the gateway to a part of Thailand the south-focused tourist economy largely ignores. The city — built on the ruins of the Lanna Kingdom, encircled by a moat, surrounded by mountains reaching 2,500 metres — has a cultural density the beach corridor cannot match. The Sunday Walking Street on Wualai Road is one of Southeast Asia's more honest night markets: locally made crafts, genuine food, no tourist pricing on the som tam.</p><p>The insider angle most northern Thailand itineraries miss: Doi Inthanon National Park in late November. Thailand's highest peak at 2,565 metres sits an hour south of Chiang Mai, and in November the summit is cool enough for frost at dawn, the rhododendrons are in partial bloom, and the birdlife — over 300 species, including endemics found nowhere else in Thailand — draws ornithologists from across Asia. Most visitors are day-trippers from the city. The overnight camp near the summit, available through the national park, puts you in the forest before the coaches arrive.</p><h2>The Gulf Coast vs The Andaman: A Decision, Not a Preference</h2><p>Thailand's two coastlines operate on opposite monsoon cycles and conflating them is the single most common planning failure among first-time visitors. The Gulf of Thailand — Koh Samui (USM), Koh Phangan, Koh Tao — runs dry and clear from December through April. The Andaman — Phuket (HKT), Krabi (KBV), Koh Lanta — mirrors this window, extending reliably into November. Both coasts go wet in their respective monsoon seasons roughly six months apart, which means an itinerary combining both is structurally achievable in a single trip if the routing is planned correctly.</p><p>Phuket has been developed extensively, and certain stretches of its western coast now resemble a resort corridor that could exist almost anywhere. The correct response is not avoidance but geography: the north of the island around Naithon and Nai Yang beaches, adjacent to HKT airport, remains comparatively quiet. Krabi, an hour east by ferry, operates at a different pace entirely. The limestone karst formations around Railay Beach — accessible only by longtail boat because the cliff face drops directly into the sea — are among the most dramatic coastal landscapes in Southeast Asia, and Railay at 7am before the day boats arrive is a different place entirely from Railay at noon.</p><h2>Flight Access From Europe</h2><p>London (LHR) to Bangkok (BKK) is one of the most competitive long-haul routes in the European market. Return fares in shoulder season appear regularly in the GBP480–650 range, with Qatar Airways via Doha (DOH) and Emirates via Dubai (DXB) producing the most consistent pricing. From Nordic capitals, Turkish Airlines via Istanbul (IST) regularly undercuts Gulf carrier pricing by EUR80–150 and is the correct default routing from Copenhagen (CPH), Stockholm (ARN), and Oslo (OSL). From Frankfurt (FRA) and Amsterdam (AMS), Lufthansa codeshares and KLM both offer competitive options worth comparing against Gulf pricing before booking.</p><p>For Phuket specifically: flying directly into HKT rather than BKK and connecting domestically saves three to four hours of total travel time and frequently costs no more on Gulf carrier routings. Qatar Airways and Emirates both operate direct European services into Phuket in high season. Check this option before defaulting to Bangkok. FlyWell monitors Thai fare releases across all European departure cities — the pattern on Gulf inventory for BKK and HKT routes follows a predictable release cycle, and the 8–10 week window before travel consistently produces the better pricing.</p><h2>Seasonal Timing Intelligence</h2><p>The Thai low season for the Andaman coast — May through October — produces the most dramatic fare drops of any Southeast Asian destination from Europe: 25–35% below the December–January peak. For travelers whose primary interest is Bangkok and the north rather than beach destinations, the low season is largely irrelevant in practical terms. Chiang Mai in August is warm and occasionally wet but entirely functional, and the waterfalls in Doi Inthanon are running at full force.</p><p>The specific insight most Thailand guides omit: Thai domestic airfares are among the cheapest in Asia, which means a European fare to BKK combined with a separate domestic leg to CNX or HKT is almost always better value than any attempt to route directly into a secondary city from Europe. Book the international leg first on whichever dates work. Add the domestic leg separately once you can see the in-country pricing — typically 6–8 weeks before travel, when AirAsia and Nok Air inventory is most competitive.</p><h2>Smart Booking Strategy</h2><p>Book 8–12 weeks ahead for shoulder season travel. For December and January, 16–20 weeks is the minimum before preferred routings sell through. The open-jaw is the correct structure: fly into Bangkok (BKK), exit from Phuket (HKT) or Chiang Mai (CNX). Search this as multi-city rather than a return — the fare difference is typically GBP30–80 for a structure that eliminates the domestic backtrack entirely and produces a meaningfully richer itinerary. FlyWell tracks this corridor and publishes Thai deals as anomalous Gulf inventory appears — subscribe to catch the windows before they close.</p><p>Thailand has sustained its position in long-haul travel not through marketing but through variety. The country delivers genuinely different experiences within a geography compact enough to move through efficiently, at a price point that continues to compete with destinations half the distance away. The fares reward travelers who plan with specificity. The country rewards travelers who move beyond the obvious.</p>`
     },
     {
@@ -2357,7 +2496,7 @@ window.BLOG_POSTS = [
       cat: 'Destination Guide',
       title: 'Bali Without The Crowds: The 2026 Shoulder-Season Playbook',
       date: 'Feb 27, 2026', readtime: '10 min read',
-      img: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1200&q=80&fit=crop',
+      img: 'images/blog/bali.jpg',
       body: `<p>Bali has a crowd problem that is also a timing problem, which means it is solvable. The island receives over five million international visitors annually, the vast majority of whom arrive between June and August, concentrate in the same four postcodes, and leave having experienced a version of Bali that is real but incomplete. Arrive in April or October instead, understand the island's geography rather than defaulting to its most photographed coordinates, and you encounter something that justifies every superlative that has been applied to it. The difference is not distance. It is a calendar decision and a map decision.</p><h2>The Geography of Avoidance</h2><p>Denpasar (DPS) is the arrival point. Kuta and Seminyak, immediately adjacent to the airport, are where package tourism concentrates — and where the island's more generic face presents itself. Thirty minutes north by road, the character shifts. Forty-five minutes east, it shifts again. Ubud sits in the interior at 300 metres elevation, surrounded by the rice terrace systems that define the Balinese agricultural landscape, cooler in the evening, quieter in the morning, structured around a cultural life that predates the hotels by centuries.</p><p>The north of the island — Lovina, Singaraja, the Munduk highlands — receives approximately 15% of Bali's total international tourist traffic despite containing some of its most coherent landscape. The coffee and clove plantations around Munduk produce single-origin Arabica of genuine quality. At 700 metres elevation, the mornings are cool enough for a jacket. The drive north over the central mountain spine, past the caldera lake of Batur with the volcano rising behind it, is one of the better road journeys in Southeast Asia and takes two hours from Ubud. Almost nobody does it.</p><h2>Ubud: How to Actually Use It</h2><p>The Campuhan Ridge Walk leaves directly from the centre of Ubud and runs for 9km along a ridge above the confluence of two rivers. At 6am, before the heat arrives and before the guided groups begin, the walk delivers a version of Bali that the afternoon does not: morning mist in the valley, the sound of a gamelan from somewhere below, the rice terraces catching the first light at an angle that explains every photograph you have ever seen of this place. It takes 90 minutes. It costs nothing. Most visitors sleep through it.</p><p>The insider angle on Bali's rice terraces: Jatiluwih, 45 minutes west of Tegallalang, is the insight. Tegallalang is the most photographed terrace system in Bali and is managed accordingly — entry fee, selfie platforms, cafe terraces built specifically to frame the view. Jatiluwih is a UNESCO World Heritage landscape covering 600 hectares of working subak irrigation system that has functioned continuously for over a thousand years. It is larger, less visited, more architecturally coherent, and almost entirely lacking in infrastructure designed for photography. That last point is what makes the photographs better.</p><h2>The Southern Peninsula: Honest Assessment</h2><p>Canggu has completed its transition from surf village to digital nomad capital. The infrastructure is now genuinely good — excellent restaurants, serious coffee, a café-coworking hybrid economy that functions efficiently. Echo Beach still produces legitimate surf for intermediate and above. But Canggu is dense and it moves fast, and for travelers whose interest is Balinese culture rather than a well-designed laptop-friendly café, it functions best as a base for day trips rather than an immersive destination.</p><p>Uluwatu at sunset is non-negotiable. The temple sits on a 70-metre limestone cliff above the Indian Ocean, and the kecak fire dance performed there at dusk — the Ramayana told through 50 male voices and firelight, with the ocean as backdrop — is not a tourist approximation of ceremony. It is the real thing in an extraordinary setting. Arrive 45 minutes before the performance, take the cliff path rather than the main entrance, and face west for the last 20 minutes of light. The combination of light, sound, and topography is one of the more precise sensory experiences available at the end of an airline ticket.</p><h2>Flight Access From Europe</h2><p>Denpasar (DPS) is served from Europe exclusively via connecting hubs — no direct European services exist. Qatar Airways via Doha (DOH) consistently produces the most competitive pricing on this corridor, with return fares from major European cities in the EUR550–800 range in shoulder season. Turkish Airlines via Istanbul (IST) regularly undercuts Gulf pricing by EUR80–120, particularly from Central and Eastern Europe where Turkish has strong feed traffic. Emirates via Dubai (DXB) prices at a slight premium but offers the most consistent long-haul product for those for whom the upgrade economics work.</p><p>The routing via Singapore (SIN) carries specific strategic logic and is worth understanding before booking. Singapore Airlines is among the three best long-haul carriers on earth, Changi is the most functional transit airport in the world, and using SIN as an open-jaw entry point — fly into Singapore, exit from Bali, or vice versa — creates an itinerary that captures two distinct Southeast Asian experiences on a single fare, typically within EUR60–100 of a straight return to DPS. Search this as multi-city. FlyWell tracks DPS fare cycles and the release pattern on this corridor is consistent — the 10–12 week window before April and October departures is where the pricing softens most reliably.</p><h2>Seasonal Timing Intelligence</h2><p>Peak season runs June through August, when European summer holidays align with Bali's dry season to produce maximum crowds and maximum fares simultaneously. The shoulder windows of April–May and September–October offer the best balance: dry conditions, temperatures indistinguishable from peak season, and fares from Europe running 20–30% below the July–August ceiling. This is not a marginal difference. On a EUR700 peak fare, that gap funds two nights of good accommodation.</p><p>The rainy season (November through March) is more nuanced than the blanket warning suggests. Rain in Bali typically falls in concentrated afternoon downpours rather than sustained all-day precipitation. Mornings are frequently clear. The rice terraces are at their most intensely saturated green. The island is as quiet as it gets, the villas have availability and the fares drop to their annual floor. January and February are the wettest months — approach with adjusted expectations, but do not dismiss them on principle.</p><h2>Smart Booking Strategy</h2><p>The 8–12 week window is the consistent sweet spot for Bali from Europe. April and October departures, booked in this window, produce some of the best fare-to-experience ratios in Southeast Asian travel. Search Denpasar (DPS) as a multi-city destination if you are combining with Singapore or another Southeast Asian city — the open-jaw pricing is frequently identical to a return and the itinerary it creates is structurally superior. FlyWell publishes Bali fare alerts when anomalous inventory appears on Gulf and Turkish routings — the pattern is regular enough that the better prices surface predictably for those watching the corridor.</p><p>Bali is not a destination to be dismissed because it became popular, nor approached carelessly because it became complicated. It is an island of genuine cultural depth and physical beauty that continues to reward the traveler who arrives with a map, a calendar, and the discipline to resist its most obvious gravitational pulls. That traveler finds a different island. It was there all along.</p>`
     },
     {
@@ -2365,27 +2504,16 @@ window.BLOG_POSTS = [
       cat: 'Travel Strategy',
       title: 'Singapore As A Strategic Southeast Asia Hub',
       date: 'Feb 27, 2026', readtime: '9 min read',
-      img: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1200&q=80&fit=crop',
-      body: `<p>Most travelers arrive in Singapore and treat it as a destination. The more useful frame — particularly for anyone constructing a Southeast Asian itinerary — is to treat it as infrastructure. Changi Airport (SIN) is by meaningful margin the most functional transit hub in the world. Singapore Airlines is among the three best long-haul carriers on earth. Building these facts into your routing logic rather than defaulting to a simpler point-to-point booking is, in most cases, the difference between an adequate itinerary and a significantly better one for the same or lower total cost.</p>`
+      img: 'images/blog/singapore.jpg',
+      body: `<p>Most travelers arrive in Singapore and treat it as a destination. The more useful frame — particularly for anyone constructing a Southeast Asian itinerary — is to treat it as infrastructure. Changi Airport (SIN) is by meaningful margin the most functional transit hub in the world. Singapore Airlines is among the three best long-haul carriers on earth. Building these facts into your routing logic rather than defaulting to a simpler point-to-point booking is, in most cases, the difference between an adequate itinerary and a significantly better one for the same or lower total cost.</p><h2>Why Changi Changes Everything</h2><p>Changi has won the Skytrax World's Best Airport award more times than any other facility on earth, and the practical consequence of that is not comfort — it is time. Connections clear faster here than at any other major hub. Transit is seamless in a way that Dubai (DXB) and Doha (DOH) approach but do not quite match, and that Bangkok (BKK) does not seriously attempt. For an itinerary that moves between multiple Southeast Asian cities, the routing logic becomes clear: enter through Singapore, use it as the distribution point, and let the LCC network — AirAsia, Scoot, Jetstar — handle the regional dispersal at prices that frequently undercut anything available on a through-ticket from Europe.</p><p>The specific arithmetic: a return fare from London (LHR) to Singapore (SIN) on Singapore Airlines in shoulder season falls regularly in the GBP550–750 range. A separate one-way from SIN to Bali (DPS), Bangkok (BKK), or Ho Chi Minh City (SGN) on Scoot or AirAsia adds GBP40–90. The total is competitive with or cheaper than a direct European fare to those secondary cities — and the Changi transit, rather than being dead time, is a genuinely pleasant few hours if the connection is long enough. The Jewel terminal, a 40-metre indoor waterfall surrounded by a forest of 2,000 trees inside a glass toroid, is the most architecturally interesting airport building in the world. It is worth the layover on its own terms.</p><h2>Singapore Airlines: The Routing Argument</h2><p>Singapore Airlines consistently ranks as one of the top three long-haul carriers globally, alongside Qatar Airways and ANA. Its economy product is materially better than the European legacy carrier equivalent at the same price point — seat pitch is more generous, the food service is not an afterthought, and the IFE library is deep enough to handle a 13-hour flight without repetition. The business class product, when fares soften at the 10–14 week booking window, produces one of the better value propositions in premium long-haul travel.</p><p>The routing implication: for any journey that terminates in Southeast Asia, Australia, or New Zealand, SIN as a hub deserves explicit comparison against the Gulf routings before you book. London to Sydney (SYD) via SIN on Singapore Airlines, when the 10-week fare window opens, frequently matches Emirates via Dubai on price and exceeds it on product. London to Bali open-jaw via Singapore, with a city night in Changi's transit hotel before the onward leg, is structurally superior to any single-carrier routing to DPS and often cheaper.</p><h2>The Open-Jaw Architecture</h2><p>The strongest practical argument for routing through Singapore is what it enables structurally. An open-jaw that enters Southeast Asia through SIN and exits from a different city — Hanoi (HAN), Bangkok (BKK), Denpasar (DPS), Kuala Lumpur (KUL) — allows linear travel through the region rather than the costly backtrack a return ticket to a single city requires. Search this as multi-city: London to Singapore, then your exit city back to London. The fare difference versus a straight SIN return is typically GBP30–80 for an itinerary that is structurally far superior and eliminates internal flights you would otherwise need to buy.</p><p>Singapore itself is worth the night or two you give it in transit. The hawker centre circuit — Maxwell Food Centre for Tian Tian Hainanese chicken rice, Lau Pa Sat for satay after dark, Old Airport Road for char kway teow at a standard that justifies the 45-minute taxi — delivers some of the most honest food in Asia at prices that feel structurally impossible given the cost of everything else in the city. The MRT runs clean and on time until after midnight. The Colonial District and Chinatown are navigable on foot in a single evening. It is a city that rewards the traveler who stops treating the connection as a gap to survive and starts treating it as a destination in its own right.</p><h2>Flight Access and Booking Strategy</h2><p>Singapore is one of the most connected cities on earth. Non-stop services from Europe include Singapore Airlines from London (LHR), Frankfurt (FRA), Amsterdam (AMS), Paris (CDG), Zurich (ZRH), and Rome (FCO); Lufthansa and Swiss from their respective hubs; and British Airways from Heathrow. Qatar Airways via Doha and Emirates via Dubai both offer one-stop options that are worth comparing on the specific fare day — Gulf pricing is volatile and sometimes undercuts the non-stop carriers significantly.</p><p>The 8–12 week booking window is consistent on this corridor. Singapore Airlines releases promotional inventory in this window regularly, and the fare movement between 14 weeks out and 8 weeks out can be GBP80–150 in either direction depending on load. FlyWell monitors SIN fares from all major European departure cities and publishes deals when the pricing crosses into deal territory. The corridor is competitive enough that patient, window-aware booking almost always outperforms impulse purchasing. Singapore rewards the traveler who treats it as infrastructure. It also rewards the traveler who stops long enough to eat properly. These two things are not in conflict.</p>`
     },
     {
       slug: 'oman-guide',
       cat: 'Destination Guide',
       title: 'Oman: Arabia\'s Most Underrated Adventure Destination',
       date: 'Feb 27, 2026', readtime: '10 min read',
-      img: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1200&q=80&fit=crop',
-      body: `<p>Oman is what the Arabian Peninsula looked like before the oil economy reshaped it — and then, more precisely, what that economy looks like when it chooses restraint.</p>`
-    },
-    {
-      slug: 'jordan-guide',
-      cat: 'Destination Guide',
-      title: 'Jordan: Petra, Wadi Rum & Smart Routing Into The Levant',
-      date: 'Feb 27, 2026', readtime: '10 min read',
-      img: 'https://images.unsplash.com/photo-1539768942893-daf53e448371?w=1200&q=80&fit=crop',
-      body: `<p>Jordan is the most intellectually dense destination in the Middle East — a country the size of Portugal containing Nabataean, Roman, Byzantine, Crusader, Ottoman, and modern Arab history in physical proximity.</p>`
+      img: 'images/blog/oman.jpg',
+      body: `<p>Oman occupies a position in the geography of travel that very few countries manage: genuinely extraordinary, structurally accessible, and still operating below the threshold of mass tourism. The UAE to its northwest is a known quantity. Saudi Arabia is opening but cautious. Oman has been quietly available for years, offering landscapes of genuine drama, a culture of unusual warmth toward visitors, and infrastructure that functions without the abrasiveness of more heavily touristed destinations. The travelers who have found it tend not to advertise it loudly. The ones who haven't are, increasingly, the ones who should have gone sooner.</p><h2>Muscat: The Correct Entry Point</h2><p>Muscat International Airport (MCT) is served directly from most major European hubs, and the city it deposits you into is unlike any other Gulf capital. Where Dubai and Abu Dhabi built upward and outward with maximum velocity, Muscat built laterally, under strict height regulations that kept the skyline below the Hajar mountains. The result is a city that reads as coherent rather than assembled — low white buildings against brown rock, the sea visible from almost everywhere, the Sultan Qaboos Grand Mosque rising with genuine architectural confidence rather than the competitive gigantism of its Gulf equivalents.</p><p>The mosque is worth a morning. The colonnaded interior, the 21-tonne Swarovski chandelier, the hand-knotted Iranian carpet that held the record as the world's largest for decades — it is a building that takes its own ambition seriously. Muttrah Souq, fifteen minutes from the airport district, is the correct antidote: a working market with silver, frankincense, and halwa that has been operating in roughly the same configuration since the Portuguese fortifications above it were built in the sixteenth century. Arrive at 9am before the tour groups. Drink kahwa — cardamom-spiced coffee with dates — at the first stall that offers it.</p><h2>Wahiba Sands: The Desert Without The Theatre</h2><p>The Wahiba Sands (Sharqiyah Sands) begin three hours southeast of Muscat by road and deliver the desert experience that the UAE attempts to manufacture at scale but cannot quite produce authentically. The dunes here reach 100 metres. The colour shifts from gold at midday to deep orange at 4pm to a rose-amber in the last twenty minutes before the sun drops. The silence is total. The Bedouin camps along the western edge offer overnight accommodation ranging from genuine simplicity to well-designed comfort, and the choice between them depends entirely on whether you want to wake at 5am in a sleeping bag to see the dunes empty of other people.</p><p>The insider move: hire a local 4WD driver from Bidiyah village rather than booking through a Muscat operator. The price is lower, the guide will be a local Bedouin with three decades of knowledge about the sand conditions, and the experience will not come with a timed itinerary and a group of fourteen other tourists. Ask about the camel races — held on Friday mornings near the village between October and March — before you decide which day to go.</p><h2>Nizwa and the Interior: Where Oman's History Lives</h2><p>The interior of Oman, accessed via the Al Batinah highway and then southwest into the Hajar mountains, contains the country's historical and cultural core. Nizwa — the old capital, 165km from Muscat — is anchored by its seventeenth-century fort, a circular tower of such mass that it reads as geological rather than constructed. The Friday cattle and goat market at the base of the fort begins before 8am and ends by 10; it is one of the most authentic market scenes remaining in the Arabian Peninsula and is conducted with complete indifference to the small number of tourists who attend.</p><p>Jebel Akhdar — the Green Mountain — rises above Nizwa to 3,000 metres and carries a microclimate so distinct from the valley floor that roses grow here for the production of rose water that has been exported across the Gulf for centuries. The rose harvest in late March is the peak season, but the plateau is worthwhile year-round for the walking, the terraced villages, and the temperature: 10–15°C cooler than Muscat at any time of year, which between June and September is not a minor consideration.</p><h2>Wadi Shab and the Coastal South</h2><p>The coastal road east from Muscat toward Sur passes through a series of wadis — seasonal riverbeds that hold water and vegetation year-round in their lower reaches. Wadi Shab is the most visited and justifiably so: a two-hour walk through palm groves and turquoise pools leads to a cave where the water enters through a narrow gap and the interior is lit by an improbable aquamarine light. The walk requires a short swim. Go early. By 11am the path is crowded; by 8am it belongs to you.</p><p>Sur, at the eastern tip of the country, is a dhow-building town that has been constructing wooden sailing vessels for the Indian Ocean trade for over a thousand years. The Al Barakah boatyard still operates with traditional methods, and the shipwrights will talk through their work with genuine openness if you arrive outside the midday heat. The turtle reserve at Ras Al Jinz, 30km south, is one of the most reliable green turtle nesting sites on earth — the night hatching-and-nesting observation tours between June and October are managed with genuine conservation intent rather than entertainment logic.</p><h2>Flight Access From Europe</h2><p>Muscat (MCT) is well served from Europe with competitive fares. Oman Air operates direct services from London (LHR), Frankfurt (FRA), Paris (CDG), Amsterdam (AMS), Zurich (ZRH), and Munich (MUC), with return fares in the EUR380–520 range in shoulder season. British Airways operates from Heathrow and is worth comparing on the specific booking day. The Gulf hub routings — via Dubai (DXB) on Emirates, via Doha (DOH) on Qatar Airways — occasionally undercut the direct services, particularly from secondary European cities where Oman Air feed is thinner.</p><p>The journey time is among the most efficient to any Middle Eastern destination: London to Muscat is 7 hours 30 minutes non-stop on Oman Air, which means an overnight flight deposits you at the airport at 7am with a full first day available. This operational logic is worth factoring into the booking decision — the non-stop overnight to MCT is objectively superior to a two-stop routing that arrives at the same time but costs three additional hours of transit. FlyWell tracks Oman fares from all major European cities and publishes deals as inventory softens in the 8–12 week window before travel.</p><h2>Seasonal Timing Intelligence</h2><p>The optimal window is October through March. Summer temperatures in Muscat exceed 40°C and the humidity from June through September makes outdoor exploration genuinely difficult. The exception is the Dhofar region in the south — around Salalah (SLL) — which receives the khareef monsoon between June and September, turning the otherwise arid landscape into something that resembles the Scottish Highlands more than Arabia. The Salalah Tourism Festival in August draws domestic Gulf tourists in large numbers; come in late September when the green is still present but the crowds have returned home.</p><p>The sweet spot on both price and weather is November: post-peak fares, temperatures in the mid-20s in Muscat, the wadis running well after the autumn rains, and the Wahiba Sands at their most photogenic light. December and January bring cooler nights — a sleeping bag is advisable in the desert — and the Jebel Akhdar rose farms are dormant, but the clear skies and walking conditions are the best of the year.</p><h2>Smart Booking Strategy</h2><p>Book 8–10 weeks ahead for the October–March window. Oman Air's promotional inventory appears in this window regularly and the pricing softens predictably from the 14-week mark. The open-jaw is worth considering: fly into Muscat (MCT) and out of Salalah (SLL) if the Dhofar south is in your itinerary, or vice versa — the internal Oman Air connection between the two cities is short and inexpensive and the linear routing is structurally superior to a return. FlyWell publishes Oman deals as they appear — the corridor is consistent enough that subscribers catch the fare windows reliably. Oman is not a secret. It is simply a country that has not yet been processed by the machinery that turns places into products. That will change. The time to go is before it does.</p>`
     }
 ];
-
 </script>
-</body>
-</html>
