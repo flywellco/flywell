@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZSXCJY4G9"></script><script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZSXCJY4G9"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -29,941 +30,26 @@
 <meta name="twitter:title" content="FlyWell.Flights — Cheap Flight Deals &amp; Error Fares">
 <meta name="twitter:description" content="Find the cheapest flights online. Daily cheap flight deals, error fares and airline sales from Europe and worldwide. Free, no signup.">
 <meta name="twitter:image" content="https://www.flywell.flights/images/og-image.jpg">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --black: #f8f5f0;
-    --surface: #ffffff;
-    --surface2: #f2ede6;
-    --border: rgba(40,30,20,0.08);
-    --border2: rgba(40,30,20,0.14);
-    --text: #1c1612;
-    --muted: rgba(28,22,18,0.45);
-    --accent: #c47f2a;
-    --accent2: #d94f1e;
-    --green: #2d8a4e;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--black);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* ── NOISE OVERLAY ── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.4;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 500;
-    background: rgba(248,245,240,0.94);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    height: 60px;
-    display: flex;
-    align-items: center;
-    padding: 0 2rem;
-    gap: 2rem;
-  }
-
-  .logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 0.06em;
-    color: var(--text);
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .logo span { color: var(--accent); }
-
-  .nav-links {
-    margin-left: auto;
-    display: flex;
-    list-style: none;
-    gap: 0;
-    align-items: center;
-  }
-  .nav-links li { display: flex; align-items: center; height: 60px; }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0 1.1rem;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--text); }
-
-  /* NAV SEARCH */
-  .nav-search-wrap {
-    display: flex;
-    align-items: center;
-    background: var(--surface2);
-    border: none;
-    border-radius: 100px;
-    padding: 0 0.9rem;
-    gap: 0.5rem;
-    height: 34px;
-    margin: 0 0.5rem;
-  }
-  .nav-search-wrap:focus-within {
-    border: none;
-    box-shadow: none;
-  }
-  .nav-search-icon { font-size: 0.8rem; opacity: 0.5; }
-  .nav-search-input {
-    border: none; background: transparent; outline: none; box-shadow: none; -webkit-appearance: none;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.78rem; color: var(--text);
-    width: 140px; transition: width 0.3s;
-  }
-  .nav-search-input::placeholder { color: var(--muted); }
-  .nav-search-input:focus { width: 190px; outline: none; border: none; box-shadow: none; }
-  .nav-search-results {
-    position: fixed;
-    background: var(--surface2);
-    border: 1px solid var(--border2);
-    border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(40,30,20,0.15);
-    min-width: 300px;
-    max-height: 380px;
-    overflow-y: auto;
-    z-index: 9999;
-    padding: 0.4rem;
-  }
-  .nav-result-item {
-    display: flex; align-items: center; gap: 0.75rem;
-    padding: 0.6rem 0.75rem; border-radius: 8px;
-    cursor: pointer; color: var(--text); text-decoration: none;
-    transition: background 0.15s;
-  }
-  .nav-result-item:hover { background: rgba(255,255,255,0.06); }
-  .nav-result-thumb {
-    width: 46px; height: 36px; border-radius: 6px;
-    object-fit: cover; flex-shrink: 0; background: var(--surface);
-  }
-  .nav-result-info { flex: 1; min-width: 0; }
-  .nav-result-route { font-size: 0.7rem; color: var(--muted); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .nav-result-title { font-size: 0.8rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .nav-result-price { font-family: 'Bebas Neue'; font-size: 1rem; color: var(--accent); flex-shrink: 0; }
-  .nav-result-empty { padding: 1rem; text-align: center; color: var(--muted); font-size: 0.8rem; }
-
-  /* ── HERO ── */
-  .hero {
-    position: relative;
-    min-height: 580px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 5rem 2rem 4rem;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background-color: var(--black);
-  }
-
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(40,30,20,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(40,30,20,0.05) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
-  }
-
-  .hero-eyebrow {
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.2rem;
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .hero-eyebrow::before, .hero-eyebrow::after {
-    content: '';
-    display: inline-block;
-    width: 32px;
-    height: 1px;
-    background: var(--accent);
-    opacity: 0.5;
-  }
-
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(4rem, 10vw, 8rem);
-    line-height: 0.92;
-    letter-spacing: 0.02em;
-    color: var(--text);
-    position: relative;
-    margin-bottom: 0.3rem;
-  }
-  .hero h1 em {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: var(--accent);
-    display: block;
-    font-size: clamp(3rem, 8vw, 6.5rem);
-  }
-
-  .hero-sub {
-    font-size: 0.85rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-    margin-top: 1.4rem;
-    margin-bottom: 2.5rem;
-    position: relative;
-  }
-
-  /* ── SEARCH BAR ── */
-  .search-bar {
-    display: flex;
-    align-items: stretch;
-    background: var(--surface);
-    border: none;
-    outline: none;
-    border-radius: 16px;
-    overflow: hidden;
-    width: 100%;
-    max-width: 680px;
-    position: relative;
-    box-shadow: 0 8px 40px rgba(40,30,20,0.10);
-  }
-
-  .search-field {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 1.4rem;
-    gap: 4px;
-    outline: none;
-  }
-  .search-field label {
-    font-size: 0.6rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--muted);
-  }
-  .search-field input {
-    background: transparent;
-    border: none;
-    outline: none;
-    -webkit-appearance: none;
-    box-shadow: none;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text);
-    text-align: center;
-    width: 100%;
-  }
-  .search-field input:focus { outline: none; border: none; box-shadow: none; }
-  .search-field input::placeholder { color: var(--muted); }
-  .search-divider { width: 0; background: transparent; align-self: stretch; margin: 12px 0; }
-  .search-when-wrap { display: flex; align-items: center; gap: 0.75rem; flex: 1; padding-right: 0.75rem; }
-
-  .search-btn {
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    border-radius: 0;
-    padding: 0 2rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    cursor: pointer;
-    align-self: stretch;
-    flex-shrink: 0;
-    transition: background 0.2s;
-  }
-  .search-btn:hover { background: #a06820; }
-
-
-  /* ── DEAL DETAIL PAGE ──────────────────────────────────────────────── */
-  #deal-page { display: none; }
-  .deal-detail-hero { position:relative; width:100%; height:420px; overflow:hidden; background:#1c1612; }
-  .deal-detail-hero img { width:100%; height:100%; object-fit:cover; opacity:0.75; }
-  .deal-detail-hero-overlay { position:absolute; inset:0; background:linear-gradient(to bottom,rgba(28,22,18,0.1) 0%,rgba(28,22,18,0.75) 100%); }
-  .deal-detail-hero-content { position:absolute; bottom:0; left:0; right:0; padding:2rem 2.5rem; max-width:900px; margin:0 auto; }
-  .deal-detail-back { display:inline-flex; align-items:center; gap:0.4rem; font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.9); position:absolute; top:1.5rem; left:2.5rem; background:rgba(28,22,18,0.6); padding:0.4rem 0.9rem; border-radius:100px; backdrop-filter:blur(8px); cursor:pointer; border:1px solid rgba(255,255,255,0.15); -webkit-backdrop-filter:blur(8px); transition:all 0.2s; }
-  .deal-detail-back:hover { background:rgba(28,22,18,0.75); color:#fff; }
-  .deal-detail-badge-row { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.6rem; }
-  .deal-detail-badge { font-family:'DM Sans',sans-serif; font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.25rem 0.7rem; border-radius:100px; background:rgba(255,255,255,0.15); color:#fff; backdrop-filter:blur(4px); }
-  .deal-detail-badge.hot { background:var(--accent2); }
-  .deal-detail-badge.business { background:#8b6914; color:#ffd700; }
-  .deal-detail-posted { font-family:'DM Sans',sans-serif; font-size:0.72rem; color:rgba(255,255,255,0.5); }
-  .dd-price-label {
-    display: block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 0.15rem;
-  }
-  .deal-detail-price-hero { font-family:'Bebas Neue',sans-serif; font-size:4rem; color:#fff; line-height:1; letter-spacing:0.04em; }
-  .deal-detail-price-hero span { font-size:1.4rem; color:rgba(255,255,255,0.65); font-family:'DM Sans',sans-serif; font-weight:400; margin-left:0.3rem; }
-  .deal-detail-route-hero { font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(255,255,255,0.8); margin-top:0.3rem; font-weight:500; }
-  .deal-detail-body { max-width:900px; margin:0 auto; padding:2.5rem 2.5rem 4rem; display:grid; grid-template-columns:1fr 300px; gap:3rem; }
-  @media(max-width:720px){.deal-detail-body{grid-template-columns:1fr;padding:1.5rem 1.2rem 3rem;gap:2rem;}.deal-detail-hero{height:280px;}.deal-detail-hero-content{padding:1.5rem 1.2rem;}.deal-detail-back{left:1.2rem;top:1rem;}.deal-detail-price-hero{font-size:3rem;}}
-  .deal-detail-section { margin-bottom:2rem; }
-  .deal-detail-label { font-family:'Bebas Neue',sans-serif; font-size:0.78rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:0.5rem; }
-  .deal-detail-cities { display:flex; flex-wrap:wrap; gap:0.4rem; }
-  .deal-detail-city { font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:600; color:var(--text); background:rgba(196,127,42,0.08); border:1px solid rgba(196,127,42,0.2); border-radius:8px; padding:0.3rem 0.75rem; }
-  .deal-detail-info-text { font-family:'DM Sans',sans-serif; font-size:0.9rem; color:var(--text); line-height:1.7; }
-  .deal-detail-dates-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.3rem; }
-  .deal-detail-dates-list li a { font-family:'DM Sans',sans-serif; font-size:0.84rem; color:var(--accent); text-decoration:none; font-weight:500; display:inline-flex; align-items:center; gap:0.35rem; padding:0.25rem 0; border-bottom:1px solid transparent; transition:border-color 0.15s; }
-  .deal-detail-dates-list li a:hover { border-color:var(--accent); }
-  .deal-detail-dates-list li a::before { content:"↗"; font-size:0.7rem; }
-  .dd-date-group { margin-bottom: 1.1rem; }
-  .dd-date-group-header {
-    font-family: 'DM Sans', sans-serif; font-size: 0.84rem; font-weight: 700;
-    color: var(--text); margin-bottom: 0.35rem; padding-bottom: 0.25rem;
-    border-bottom: 1px solid rgba(196,127,42,0.2);
-  }
-  .dd-date-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.4rem; }
-  .dd-date-chips a {
-    font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500;
-    color: var(--accent); text-decoration: none;
-    padding: 0.2rem 0.6rem; border-radius: 6px;
-    border: 1px solid rgba(196,127,42,0.25);
-    background: rgba(196,127,42,0.05);
-    transition: background 0.15s, border-color 0.15s;
-  }
-  .dd-date-chips a:hover { background: rgba(196,127,42,0.12); border-color: var(--accent); }
-
-  .deal-detail-note { font-family:'DM Sans',sans-serif; font-size:0.74rem; color:rgba(28,22,18,0.45); margin-top:0.75rem; line-height:1.6; padding:0.75rem; background:rgba(196,127,42,0.05); border-left:2px solid rgba(196,127,42,0.3); border-radius:0 6px 6px 0; }
-  .deal-detail-cta-box { background:var(--surface); border:1px solid rgba(40,30,20,0.1); border-radius:14px; padding:1.5rem; position:sticky; top:1.5rem; }
-  .cta-from-label {
-    display: block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(28,22,18,0.45);
-    margin-bottom: 0.1rem;
-  }
-  .deal-cta-price { font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--text); line-height:1; letter-spacing:0.04em; }
-  .deal-cta-price small { font-family:'DM Sans',sans-serif; font-size:0.75rem; color:rgba(28,22,18,0.45); font-weight:400; display:block; margin-top:0.2rem; }
-  .deal-cta-route { font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:600; color:rgba(28,22,18,0.6); margin:0.4rem 0 1.2rem; }
-  .deal-cta-btn { display:block; width:100%; text-align:center; background:var(--accent); color:#fff; font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:0.1em; text-decoration:none; padding:0.9rem 1rem; border-radius:10px; transition:background 0.2s; cursor:pointer; border:none; }
-  .deal-cta-btn:hover { background:#a06820; }
-  .deal-cta-meta { margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem; }
-  .deal-cta-meta-row { display:flex; justify-content:space-between; align-items:center; font-family:'DM Sans',sans-serif; font-size:0.74rem; color:rgba(28,22,18,0.5); padding-bottom:0.5rem; border-bottom:1px solid rgba(40,30,20,0.07); }
-  .deal-cta-meta-row strong { color:var(--text); font-weight:600; }
-  .deal-affiliate-note { margin-top:1rem; font-family:'DM Sans',sans-serif; font-size:0.68rem; color:rgba(28,22,18,0.35); line-height:1.5; text-align:center; }
-  #dd-meta-dates { margin-left: 10px; }
-  #dd-meta-dates br { display: block; margin-top: 2px; }
-
-  /* Q&A ACCORDION */
-  .qa-category {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.8rem;
-  }
-  .qa-item {
-    border-bottom: 1px solid rgba(40,30,20,0.1);
-    margin-bottom: 0;
-  }
-  .qa-question {
-    width: 100%;
-    background: none;
-    border: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.1rem 0;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text);
-    text-align: left;
-    gap: 1rem;
-  }
-  .qa-question:hover { color: var(--accent); }
-  .qa-icon {
-    font-size: 1.3rem;
-    font-weight: 300;
-    color: var(--accent);
-    flex-shrink: 0;
-    transition: transform 0.25s;
-    line-height: 1;
-  }
-  .qa-icon.open { transform: rotate(45deg); }
-  .qa-answer {
-    display: none;
-    padding: 0 0 1.1rem;
-  }
-  .qa-answer p {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.875rem;
-    color: rgba(28,22,18,0.65);
-    line-height: 1.75;
-  }
-  .qa-answer p + p { margin-top: 0.6rem; }
-
-
-  #month-picker {
-    background: var(--surface2) !important;
-    border: 1px solid var(--border2) !important;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.7) !important;
-  }
-  #picker-year { color: var(--text) !important; }
-
-  /* ── REGION PILLS ── */
-  .region-pills {
-    display: flex;
-    gap: 0.35rem;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding: 1.2rem 2rem 0;
-    max-width: 1200px;
-    margin: 0 auto;
-    scrollbar-width: none;
-  }
-  .region-pills::-webkit-scrollbar { display: none; }
-
-  .pill {
-    padding: 0.35rem 0.75rem;
-    border-radius: 100px;
-    border: 1px solid var(--border2);
-    background: transparent;
-    color: var(--muted);
-    font-size: 0.67rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.2s;
-    cursor: pointer;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .pill:hover { border-color: rgba(255,255,255,0.3); color: var(--text); }
-  .pill.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
-  }
-
-  /* ── MAIN ── */
-  main { max-width: 1200px; margin: 0 auto; padding: 2rem 2rem 4rem; }
-
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  .section-header h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 0.06em;
-    color: var(--text);
-  }
-  .deal-count {
-    font-size: 0.72rem;
-    color: var(--muted);
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  /* ── DEAL GRID ── */
-  .deals-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
-  .deal-card {
-    display: block;
-    text-decoration: none;
-    background: var(--surface);
-    position: relative;
-    overflow: hidden;
-    transition: background 0.2s;
-    animation: fadeUp 0.5s ease both;
-  }
-  .deal-card:hover { background: var(--surface2); }
-  .deal-card:hover .card-img { transform: scale(1.04); }
-  .deal-card:hover .card-arrow { opacity: 1; transform: translateX(0); }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .deal-card:nth-child(1) { animation-delay: 0.04s; }
-  .deal-card:nth-child(2) { animation-delay: 0.08s; }
-  .deal-card:nth-child(3) { animation-delay: 0.12s; }
-  .deal-card:nth-child(4) { animation-delay: 0.16s; }
-  .deal-card:nth-child(5) { animation-delay: 0.20s; }
-  .deal-card:nth-child(6) { animation-delay: 0.24s; }
-  .deal-card:nth-child(7) { animation-delay: 0.28s; }
-  .deal-card:nth-child(8) { animation-delay: 0.32s; }
-  .deal-card:nth-child(9) { animation-delay: 0.36s; }
-
-  .card-img-wrap {
-    position: relative;
-    height: 180px;
-    overflow: hidden;
-  }
-  .card-img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-    filter: brightness(0.88) saturate(1.0);
-  }
-  .img-placeholder {
-    width: 100%; height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    background: var(--surface2);
-  }
-  .card-img-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(10,5,0,0.75) 0%, rgba(10,5,0,0.1) 55%, transparent 100%);
-  }
-
-  .card-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.7rem;
-    border-radius: 100px;
-    background: var(--surface2);
-    color: var(--muted);
-    border: 1px solid var(--border2);
-  }
-  .card-badge.hot { background: var(--accent2); color: #fff; border-color: transparent; }
-  .card-badge.business { background: #8b6914; color: #ffd700; border-color: transparent; }
-
-  .card-price-tag::before {
-    content: 'from only';
-    display: block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.55rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-    line-height: 1;
-    margin-bottom: 0.1rem;
-  }
-  .card-price-tag {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8rem;
-    color: #fff;
-    line-height: 1;
-    letter-spacing: 0.04em;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
-  }
-  .card-price-tag small {
-    display: block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.58rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.75);
-    text-align: right;
-  }
-
-  .card-body { padding: 1rem 1.2rem 1.1rem; }
-
-  .card-route {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.4rem;
-  }
-  .card-route .arrow { color: var(--accent); font-size: 0.75rem; }
-
-  .card-title {
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1.4;
-    margin-bottom: 0.75rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .card-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.68rem;
-    color: var(--muted);
-    font-weight: 500;
-    border-top: 1px solid var(--border);
-    padding-top: 0.65rem;
-    margin-top: 0.65rem;
-  }
-  .card-airline { display: flex; align-items: center; gap: 0.4rem; }
-  .airline-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
-
-  .card-arrow {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 30px; height: 30px;
-    background: rgba(196,127,42,0.12);
-    border: 1px solid rgba(196,127,42,0.25);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    color: var(--accent);
-    opacity: 0;
-    transform: translateX(-4px);
-    transition: opacity 0.2s, transform 0.2s;
-  }
-
-  /* ── LOAD MORE ── */
-  .load-more-wrap { text-align: center; margin-top: 2rem; }
-  .load-more {
-    background: transparent;
-    border: 1px solid var(--border2);
-    color: var(--muted);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.75rem 2.5rem;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .load-more:hover { border-color: var(--accent); color: var(--accent); background: rgba(196,127,42,0.05); }
-
-  /* ── FILTER CHIPS ── */
-  .filter-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-  .filter-chip {
-    font-size: 0.7rem; font-weight: 600; padding: 0.3rem 0.85rem;
-    border-radius: 100px; border: 1px solid var(--border2);
-    background: transparent; color: var(--muted); cursor: pointer;
-    transition: all 0.15s; letter-spacing: 0.05em;
-  }
-  .filter-chip:hover { border-color: rgba(255,255,255,0.3); color: var(--text); }
-  .filter-chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .filter-chip.error.on { background: var(--accent2); border-color: var(--accent2); color: #fff; }
-
-  /* ── BLOG ── */
-  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 2.5rem 2rem 3rem; max-width: 1200px; margin: 0 auto; }
-  @media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2,1fr); } }
-  @media (max-width: 580px) { .blog-grid { grid-template-columns: 1fr; } }
-  .blog-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
-  .blog-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.09); }
-  .blog-card-img { width: 100%; height: 190px; object-fit: cover; display: block; }
-  .blog-card-body { padding: 1.1rem 1.2rem 1.3rem; }
-  .blog-card-cat { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
-  .blog-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem; line-height: 1.2; color: var(--text); margin-bottom: 0.5rem; }
-  .blog-card-excerpt { font-size: 0.82rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.8rem; }
-  .blog-card-meta { font-size: 0.72rem; color: rgba(28,22,18,0.4); display: flex; gap: 0.8rem; }
-  .blog-post-nav { padding: 1.2rem 1.5rem 0; }
-  .blog-post-hero-back { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 1rem; font-family: 'DM Sans',sans-serif; font-size: 0.82rem; font-weight: 600; cursor: pointer; color: var(--text); transition: background 0.15s; }
-  .blog-post-hero-back:hover { background: var(--border); }
-  .blog-post-figure { margin: 1.8rem 0; border-radius: 14px; overflow: hidden; }
-  .blog-post-figure img { width: 100%; height: 340px; object-fit: cover; display: block; }
-  .blog-post-figure figcaption { font-size: 0.75rem; color: rgba(28,22,18,0.45); padding: 0.5rem 0.8rem; font-style: italic; }
-  .blog-post-figure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.8rem 0; }
-  .blog-post-figure-pair .blog-post-figure { margin: 0; }
-  .blog-post-figure-pair .blog-post-figure img { height: 220px; }
-  @media(max-width:600px) { .blog-post-figure-pair { grid-template-columns: 1fr; } }
-  .blog-post-content { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
-  .blog-post-cat { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
-  .blog-post-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; line-height: 1.1; color: var(--text); margin-bottom: 0.6rem; }
-  .blog-post-meta { font-size: 0.78rem; color: var(--muted); margin-bottom: 2rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border); }
-  .blog-post-body { font-size: 0.95rem; line-height: 1.85; color: var(--text); }
-  .blog-post-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; color: var(--text); margin: 2rem 0 0.6rem; }
-  .blog-post-body h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--text); margin: 1.5rem 0 0.4rem; }
-  .blog-post-body p { margin-bottom: 1.1rem; }
-  .blog-post-body ul { padding-left: 1.4rem; margin-bottom: 1.1rem; }
-  .blog-post-body ul li { margin-bottom: 0.4rem; }
-  .blog-post-body a { color: var(--accent); text-decoration: none; }
-  .blog-post-body a:hover { text-decoration: underline; }
-  .blog-post-cta { background: var(--surface2); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; margin: 2rem 0; text-align: center; }
-  .blog-post-cta p { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.8rem; }
-  .blog-post-cta a { display: inline-block; background: var(--accent); color: #fff; padding: 0.6rem 1.6rem; border-radius: 8px; font-weight: 700; font-size: 0.88rem; text-decoration: none; }
-
-  /* ── PAGES ── */
-  #contact-page, #terms-page, #privacy-page, #about-page, #qa-page, #deal-page, #blog-page, #blogpost-page { display: none; }
-
-  .page-hero {
-    padding: 4rem 2rem 3rem;
-    text-align: center;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-  .page-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(196,127,42,0.06) 0%, transparent 60%);
-  }
-  .page-eyebrow {
-    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem;
-  }
-  .page-hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    letter-spacing: 0.04em;
-    line-height: 1;
-    position: relative;
-  }
-  .page-hero h1 em {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .page-content { max-width: 780px; margin: 0 auto; padding: 3rem 2rem 5rem; }
-
-  /* CONTACT */
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-  @media (max-width: 680px) { .contact-grid { grid-template-columns: 1fr; } }
-
-  .contact-intro p { color: var(--muted); font-size: 0.9rem; line-height: 1.8; margin-bottom: 1rem; }
-  .contact-info-item {
-    display: flex; align-items: center; gap: 0.75rem;
-    margin-bottom: 0.9rem; font-size: 0.85rem; color: var(--text); font-weight: 500;
-  }
-  .contact-info-icon {
-    width: 34px; height: 34px;
-    background: rgba(196,127,42,0.08);
-    border: 1px solid rgba(196,127,42,0.18);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.9rem; flex-shrink: 0;
-  }
-
-  .contact-form-box {
-    background: var(--surface);
-    border: 1px solid var(--border2);
-    border-radius: 16px;
-    padding: 1.8rem;
-  }
-  .contact-form-box h3 {
-    font-family: 'Bebas Neue'; font-size: 1.2rem;
-    letter-spacing: 0.06em; color: var(--text); margin-bottom: 1.3rem;
-  }
-  .form-group { margin-bottom: 0.9rem; }
-  .form-group label {
-    display: block; font-size: 0.65rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.12em;
-    color: var(--muted); margin-bottom: 0.35rem;
-  }
-  .form-group input, .form-group select, .form-group textarea {
-    width: 100%; border: 1px solid var(--border2); border-radius: 8px;
-    padding: 0.65rem 0.9rem; font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem; color: var(--text); background: var(--surface2);
-    outline: none; transition: border-color 0.2s, box-shadow 0.2s; resize: none;
-  }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    border-color: var(--accent); box-shadow: 0 0 0 3px rgba(232,197,71,0.1);
-  }
-  .form-group select option { background: var(--surface2); }
-  .form-group textarea { height: 110px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-
-  .submit-btn {
-    width: 100%; background: var(--accent); color: #fff;
-    border: none; border-radius: 8px; padding: 0.85rem;
-    font-family: 'DM Sans'; font-size: 0.8rem; font-weight: 700;
-    letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
-    transition: all 0.2s; margin-top: 0.5rem;
-  }
-  .submit-btn:hover { background: #a06820; }
-  .form-success { display: none; text-align: center; padding: 2rem 1rem; }
-  .form-success .success-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-  .form-success h4 { font-family: 'Bebas Neue'; font-size: 1.4rem; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
-  .form-success p { color: var(--muted); font-size: 0.85rem; }
-
-  /* TERMS / PRIVACY */
-  .legal-section { margin-bottom: 2rem; }
-  .legal-section h3 {
-    font-family: 'Bebas Neue'; font-size: 1rem; letter-spacing: 0.08em;
-    color: var(--accent); margin-bottom: 0.5rem; text-transform: uppercase;
-  }
-  .legal-section p, .legal-section li {
-    color: var(--muted); font-size: 0.88rem; line-height: 1.8;
-  }
-  .legal-section ul { padding-left: 1.3rem; margin-top: 0.4rem; }
-  .legal-section li { margin-bottom: 0.3rem; }
-  .legal-section strong { color: var(--text); }
-  .legal-intro { color: var(--muted); font-size: 0.88rem; line-height: 1.8; margin-bottom: 2.5rem; }
-  .legal-date { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.5rem; }
-
-  /* ABOUT */
-  .about-quote {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.5rem;
-    color: var(--accent);
-    line-height: 1.5;
-    margin-bottom: 2rem;
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    text-align: center;
-  }
-  .about-text { color: var(--muted); font-size: 0.92rem; line-height: 1.9; margin-bottom: 1.2rem; }
-  .about-cta {
-    display: inline-flex; align-items: center; gap: 1rem;
-    background: var(--surface); border: 1px solid var(--border2);
-    border-radius: 12px; padding: 1.2rem 1.6rem; margin-top: 1rem;
-  }
-  .about-cta-text p:first-child { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.15rem; }
-  .about-cta-text p:last-child { font-size: 0.78rem; color: var(--muted); }
-  .about-cta-text a { color: var(--accent); text-decoration: none; }
-
-  /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2.5rem 2rem;
-    text-align: center;
-  }
-  .footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.06em;
-    margin-bottom: 0.5rem;
-    color: var(--text);
-  }
-  .footer-logo span { color: var(--accent); }
-  footer p { font-size: 0.78rem; color: var(--muted); line-height: 1.7; }
-  footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-  footer a:hover { color: var(--accent); }
-  .footer-links { display: flex; justify-content: center; gap: 0.3rem; flex-wrap: wrap; margin: 0.75rem 0; }
-  .footer-links a { padding: 0.1rem 0.5rem; }
-  .footer-sep { color: var(--border2); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    nav { padding: 0 1rem; gap: 0.5rem; }
-    /* FIX #5: Show a compact search on mobile instead of hiding all nav-links */
-    .nav-links { display: none; }
-    .mobile-search-bar {
-      display: flex;
-      align-items: center;
-      background: var(--surface2);
-      border-radius: 100px;
-      padding: 0 0.9rem;
-      gap: 0.5rem;
-      height: 34px;
-      margin-left: auto;
-    }
-    .mobile-search-bar input {
-      border: none; background: transparent; outline: none;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.78rem; color: var(--text); width: 120px;
-    }
-    .mobile-search-bar input::placeholder { color: var(--muted); }
-    .hero { padding: 3.5rem 1.5rem 3rem; }
-    main { padding: 1.5rem 1rem 3rem; }
-    .region-pills { padding: 1.5rem 1rem 0; }
-    .search-bar { flex-direction: column; border-radius: 12px; }
-    .search-divider { width: auto; height: 1px; margin: 0 12px; }
-    .search-when-wrap { padding: 0 0 0.5rem; justify-content: center; }
-    .deals-grid { grid-template-columns: 1fr; }
-  }
-  @media (min-width: 601px) {
-    .mobile-search-bar { display: none; }
-  }
-
-  /* ── FOCUS STATES (Accessibility) ── */
-  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-</style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "FlyWell.Flights",
-    "url": "https://www.flywell.flights/",
-    "description": "Daily cheap flight deals, error fares and airline sales from Europe and worldwide. Free, no signup required.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://www.flywell.flights/?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "FlyWell.Flights",
+  "url": "https://www.flywell.flights/",
+  "description": "Daily cheap flight deals, error fares and airline sales from Europe and worldwide. Free, no signup required.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.flywell.flights/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 </head>
-<script src="flights.js"></script>
 <body>
 
 <!-- NAV -->
@@ -982,7 +68,6 @@
     <li><a href="#" onclick="showPage('qa');return false;">Q&amp;A</a></li>
     <li><a href="#" onclick="showPage('contact');return false;">Contact</a></li>
   </ul>
-  <!-- FIX #5: Mobile search fallback -->
   <div class="mobile-search-bar">
     <span style="font-size:0.8rem;opacity:0.5;">🔍</span>
     <input type="text" id="mobile-search-input" placeholder="Search destinations…" autocomplete="off"
@@ -993,15 +78,12 @@
 <!-- MAIN PAGE -->
 <div id="main-page">
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
-
   <p class="hero-eyebrow">Global Flight Deals</p>
   <h1>Cheap fares.<br><em>Real savings.</em></h1>
   <p class="hero-sub">No signup required &nbsp;·&nbsp; Completely free &nbsp;·&nbsp; Updated daily</p>
-
   <div class="search-bar">
     <div class="search-field" style="position:relative;">
       <label>From</label>
@@ -1021,7 +103,6 @@
   </div>
 </div>
 
-<!-- REGION PILLS -->
 <div class="region-pills">
   <a href="#" class="pill active" onclick="filterByRegion(this,'all');return false;">🌍 All</a>
   <a href="#" class="pill" onclick="filterByRegion(this,'namerica');return false;">🌏 USA/Canada</a>
@@ -1035,16 +116,13 @@
   <a href="#" class="pill" onclick="filterByRegion(this,'oceania');return false;">🌏 Australia/Oceania</a>
 </div>
 
-<!-- MAIN -->
 <main>
   <div class="section-header">
     <h2>Latest Deals</h2>
     <span class="deal-count">Updated Feb 2026</span>
     <span style="font-size:0.68rem;color:rgba(28,22,18,0.45);font-style:italic;">Some links may be affiliate links — <a href="#" onclick="showPage('terms');return false;" style="color:var(--accent);text-decoration:none;">learn more</a></span>
   </div>
-
   <div class="deals-grid" id="deals-grid"></div>
-
   <div class="load-more-wrap">
     <button class="load-more" onclick="loadMore()">Load more deals ↓</button>
   </div>
@@ -1056,7 +134,6 @@
 <!-- DEAL DETAIL PAGE -->
 <div id="deal-page">
   <div class="deal-detail-hero">
-    <!-- FIX #14: data-fb1 is set BEFORE src in openDeal() to avoid race condition -->
     <img id="dd-img" src="" alt="" onerror="if(typeof ddImgFallback==='function')ddImgFallback(this)">
     <div class="deal-detail-hero-overlay"></div>
     <button class="deal-detail-back" onclick="showPage('main');return false;">← Back to deals</button>
@@ -1069,12 +146,10 @@
       <div id="dd-route-hero" class="deal-detail-route-hero"></div>
     </div>
   </div>
-
   <div class="deal-detail-body">
     <div class="deal-detail-main">
       <h2 id="dd-title" style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.05em;color:var(--text);line-height:1.2;margin-bottom:0.5rem;"></h2>
       <p id="dd-desc" style="font-family:'DM Sans',sans-serif;font-size:0.88rem;color:rgba(28,22,18,0.6);line-height:1.7;margin-bottom:2rem;"></p>
-
       <div class="deal-detail-section">
         <div class="deal-detail-label">Departing from</div>
         <div id="dd-from" class="deal-detail-cities"></div>
@@ -1105,7 +180,6 @@
         <p class="deal-detail-note">⚡ Prices change fast. Click a date to check live availability on Skyscanner. Try ±2 days for more options.</p>
       </div>
     </div>
-
     <div class="deal-detail-sidebar">
       <div class="deal-detail-cta-box">
         <div id="dd-cta-price" class="deal-cta-price"></div>
@@ -1130,132 +204,26 @@
     <h1>How to find <em>cheap flights</em> — answered.</h1>
   </div>
   <div class="page-content" style="max-width:720px;">
-
     <p style="font-family:'DM Sans',sans-serif;font-size:0.92rem;color:rgba(28,22,18,0.6);line-height:1.8;margin-bottom:2rem;">Everything you need to know about finding the cheapest flights online, how error fares and mistake fares work, and how FlyWell.Flights helps you travel more for less — completely free.</p>
 
     <div class="qa-category">Cheap Flights & Deals</div>
-
-    <div class="qa-item">
-      <button class="qa-question" onclick="toggleQA(this)">
-        <span>How do you find the cheapest flight deals?</span><span class="qa-icon">+</span>
-      </button>
-      <div class="qa-answer">
-        <p>Our team scans hundreds of airlines, online travel agencies, and fare aggregators — including Skyscanner, Google Flights, Kayak, and direct airline websites — every single day. We hunt for mistake fares, flash sales, seat sales, and genuine cheap flight deals across thousands of routes worldwide. When a price drops 40–70% below the typical fare, we publish it immediately. The best cheap roundtrip flights disappear fast — sometimes within hours — so we move quickly so you don't miss out.</p>
-      </div>
-    </div>
-
-    <div class="qa-item">
-      <button class="qa-question" onclick="toggleQA(this)">
-        <span>What is a mistake fare or error fare?</span><span class="qa-icon">+</span>
-      </button>
-      <div class="qa-answer">
-        <p>A mistake fare (also called an error fare or glitch fare) is a flight price published in error — usually caused by a currency conversion bug, a missing fuel surcharge, or a data entry mistake by the airline or booking system. These are the most extreme cheap flights you'll ever find — sometimes 80–90% off the normal roundtrip price. Many airlines do honour them, especially if you book quickly and receive a booking confirmation. We label error fares clearly so you always know the risk before you click.</p>
-      </div>
-    </div>
-
-    <div class="qa-item">
-      <button class="qa-question" onclick="toggleQA(this)">
-        <span>Are the cheap flight prices shown guaranteed?</span><span class="qa-icon">+</span>
-      </button>
-      <div class="qa-answer">
-        <p>No — and we'll always be honest about that. Airline ticket prices are set and controlled entirely by airlines and third-party booking platforms. They can change or sell out at any moment. We post deals the instant we find them, but by the time you click through, the cheap fare may have been snapped up. Always verify the final price on the booking platform before confirming any purchase.</p>
-      </div>
-    </div>
-
-    <div class="qa-item">
-      <button class="qa-question" onclick="toggleQA(this)">
-        <span>What is the cheapest day and time to book flights?</span><span class="qa-icon">+</span>
-      </button>
-      <div class="qa-answer">
-        <p>There's no single magic answer, but research consistently shows a few patterns: <strong>Tuesdays and Wednesdays</strong> tend to have lower fares on many routes as airlines adjust pricing after weekend demand. Booking <strong>6–8 weeks in advance</strong> often hits the sweet spot for short-haul European flights, while <strong>3–6 months ahead</strong> works better for long-haul routes to Asia, the Americas, or Australia. Flying mid-week (Tuesday–Thursday) is almost always cheaper than Friday or Sunday. The single best tip: set up fare alerts on Skyscanner for your route and let the algorithm do the work.</p>
-      </div>
-    </div>
-
-    <div class="qa-item">
-      <button class="qa-question" onclick="toggleQA(this)">
-        <span>Do you sell flights or process bookings?</span><span class="qa-icon">+</span>
-      </button>
-      <div class="qa-answer">
-        <p>No. FlyWell.Flights is a free flight deal discovery and information service. We don't sell airline tickets, process bookings, or operate as a travel agency. Every deal on this site links directly to the airline or a trusted booking platform like Skyscanner, where your transaction takes place entirely with them. We have no involvement in the booking or payment process.</p>
-      </div>
-    </div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>How do you find the cheapest flight deals?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Our team scans hundreds of airlines, online travel agencies, and fare aggregators — including Skyscanner, Google Flights, Kayak, and direct airline websites — every single day. We hunt for mistake fares, flash sales, seat sales, and genuine cheap flight deals across thousands of routes worldwide. When a price drops 40–70% below the typical fare, we publish it immediately. The best cheap roundtrip flights disappear fast — sometimes within hours — so we move quickly so you don't miss out.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>What is a mistake fare or error fare?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>A mistake fare (also called an error fare or glitch fare) is a flight price published in error — usually caused by a currency conversion bug, a missing fuel surcharge, or a data entry mistake by the airline or booking system. These are the most extreme cheap flights you'll ever find — sometimes 80–90% off the normal roundtrip price. Many airlines do honour them, especially if you book quickly and receive a booking confirmation. We label error fares clearly so you always know the risk before you click.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>Are the cheap flight prices shown guaranteed?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>No — and we'll always be honest about that. Airline ticket prices are set and controlled entirely by airlines and third-party booking platforms. They can change or sell out at any moment. We post deals the instant we find them, but by the time you click through, the cheap fare may have been snapped up. Always verify the final price on the booking platform before confirming any purchase.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>What is the cheapest day and time to book flights?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>There's no single magic answer, but research consistently shows a few patterns: <strong>Tuesdays and Wednesdays</strong> tend to have lower fares on many routes as airlines adjust pricing after weekend demand. Booking <strong>6–8 weeks in advance</strong> often hits the sweet spot for short-haul European flights, while <strong>3–6 months ahead</strong> works better for long-haul routes to Asia, the Americas, or Australia. Flying mid-week (Tuesday–Thursday) is almost always cheaper than Friday or Sunday. The single best tip: set up fare alerts on Skyscanner for your route and let the algorithm do the work.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>Do you sell flights or process bookings?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>No. FlyWell.Flights is a free flight deal discovery and information service. We don't sell airline tickets, process bookings, or operate as a travel agency. Every deal on this site links directly to the airline or a trusted booking platform like Skyscanner, where your transaction takes place entirely with them. We have no involvement in the booking or payment process.</p></div></div>
 
     <div class="qa-category" style="margin-top:2rem;">Using FlyWell.Flights</div>
-
-    <div class="qa-item">
-      <button class="qa-question" onclick="toggleQA(this)">
-        <span>Is FlyWell.Flights free? Do I need to create an account?</span><span class="qa-icon">+</span>
-      </button>
-      <div class="qa-answer">
-        <p>Completely free — no account, no subscription, no hidden fees. Browse every cheap flight deal, click through to book, and pay nothing to us. We may introduce an optional premium membership in the future for early access to exclusive deals and personalised fare alerts, but the core flight deals service will always be 100% free to use.</p>
-      </div>
-    </div>
-
-    <div class="qa-item">
-      <button class="qa-question" onclick="toggleQA(this)">
-        <span>How does the flight search work?</span><span class="qa-icon">+</span>
-      </button>
-      <div class="qa-answer">
-        <p>Use the <strong>From</strong> field to type your departure city or country, <strong>To</strong> for your destination, and <strong>When</strong> to select a travel month. Any combination works — leave fields blank to browse all current cheap flights. Deals filter instantly as you type. The region filter pills (Europe, USA, Asia, etc.) let you narrow results by destination region in one click.</p>
-      </div>
-    </div>
-
-    <div class="qa-item">
-      <button class="qa-question" onclick="toggleQA(this)">
-        <span>How often are the cheap flight deals updated?</span><span class="qa-icon">+</span>
-      </button>
-      <div class="qa-answer">
-        <p>We update the deals grid daily — and multiple times a day when we find something exceptional. The freshest cheap flight deals appear at the top. Check back regularly: the best deals on business class flights, error fares, and deeply discounted economy tickets tend to last only hours before airlines correct or remove them.</p>
-      </div>
-    </div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>Is FlyWell.Flights free? Do I need to create an account?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Completely free — no account, no subscription, no hidden fees. Browse every cheap flight deal, click through to book, and pay nothing to us. We may introduce an optional premium membership in the future for early access to exclusive deals and personalised fare alerts, but the core flight deals service will always be 100% free to use.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>How does the flight search work?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Use the <strong>From</strong> field to type your departure city or country, <strong>To</strong> for your destination, and <strong>When</strong> to select a travel month. Any combination works — leave fields blank to browse all current cheap flights. Deals filter instantly as you type. The region filter pills (Europe, USA, Asia, etc.) let you narrow results by destination region in one click.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>How often are the cheap flight deals updated?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>We update the deals grid daily — and multiple times a day when we find something exceptional. The freshest cheap flight deals appear at the top. Check back regularly: the best deals on business class flights, error fares, and deeply discounted economy tickets tend to last only hours before airlines correct or remove them.</p></div></div>
 
     <div class="qa-category" style="margin-top:2rem;">Booking & Travel Tips</div>
-
-    <div class="qa-item">
-      <button class="qa-question" onclick="toggleQA(this)">
-        <span>What should I check before booking a cheap flight?</span><span class="qa-icon">+</span>
-      </button>
-      <div class="qa-answer">
-        <p>Before confirming any cheap airline ticket, always check: <strong>baggage allowance</strong> (many budget fares are carry-on only and add checked luggage fees that can double the price), <strong>fare flexibility</strong> (cheap fares are usually non-refundable and non-changeable), <strong>connection times</strong> on multi-stop flights, <strong>visa requirements</strong> for your destination and any transit countries, and <strong>travel insurance</strong> — especially for non-refundable bookings. Reading the full fare conditions takes two minutes and can save you hundreds.</p>
-      </div>
-    </div>
-
-    <div class="qa-item">
-      <button class="qa-question" onclick="toggleQA(this)">
-        <span>The deal has expired — what can I do?</span><span class="qa-icon">+</span>
-      </button>
-      <div class="qa-answer">
-        <p>Cheap flights move fast and some expire within hours of posting. If the price has gone up, try: <strong>flexible dates</strong> on the same route (±2–3 days often recovers the low fare), <strong>nearby airports</strong> (e.g. Brussels instead of Amsterdam), or <strong>setting a Skyscanner price alert</strong> for the route so you're notified automatically when prices drop again. You can also <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">contact us</a> and we'll check whether the deal is still available on alternate dates.</p>
-      </div>
-    </div>
-
-    <div class="qa-item">
-      <button class="qa-question" onclick="toggleQA(this)">
-        <span>Why are some flights cheaper from certain countries?</span><span class="qa-icon">+</span>
-      </button>
-      <div class="qa-answer">
-        <p>Airlines use dynamic pricing algorithms that vary by market — meaning the exact same seat can have a different price depending on which country's version of a booking site you use. This is sometimes called a <strong>hidden city fare</strong> or <strong>point-of-sale pricing</strong>. We source many deals via Skyscanner's Swedish market, which consistently surfaces some of the lowest EUR-denominated fares in Europe due to high competition and algorithm differences. Searching in EUR from a Swedish market setting is one of the most reliable ways to find cheap roundtrip international flights.</p>
-      </div>
-    </div>
-
-    <div class="qa-item">
-      <button class="qa-question" onclick="toggleQA(this)">
-        <span>Do you earn commission? Are links paid?</span><span class="qa-icon">+</span>
-      </button>
-      <div class="qa-answer">
-        <p>Some links on FlyWell.Flights are affiliate links — meaning we may earn a small referral commission if you book through them, at absolutely no extra cost to you. Affiliate revenue is how we keep the flight deal service free. It never influences which cheap flights we feature, how we rank them, or how we describe them. We only post deals we'd genuinely book ourselves. Full transparency is in our <a href="#" onclick="showPage('terms');return false;" style="color:var(--accent);text-decoration:none;">Terms of Service</a>.</p>
-      </div>
-    </div>
-
-    <div class="qa-item">
-      <button class="qa-question" onclick="toggleQA(this)">
-        <span>I found a cheap flight deal you haven't posted — can I share it?</span><span class="qa-icon">+</span>
-      </button>
-      <div class="qa-answer">
-        <p>Yes please! We love reader tip-offs. Use the <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">Contact</a> form to send us the route, the price, the dates, and any booking link. If it checks out we'll post it fast. The best cheap flights are a community effort — the more eyes on fares, the more deals everyone benefits from.</p>
-      </div>
-    </div>
-
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>What should I check before booking a cheap flight?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Before confirming any cheap airline ticket, always check: <strong>baggage allowance</strong> (many budget fares are carry-on only and add checked luggage fees that can double the price), <strong>fare flexibility</strong> (cheap fares are usually non-refundable and non-changeable), <strong>connection times</strong> on multi-stop flights, <strong>visa requirements</strong> for your destination and any transit countries, and <strong>travel insurance</strong> — especially for non-refundable bookings. Reading the full fare conditions takes two minutes and can save you hundreds.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>The deal has expired — what can I do?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Cheap flights move fast and some expire within hours of posting. If the price has gone up, try: <strong>flexible dates</strong> on the same route (±2–3 days often recovers the low fare), <strong>nearby airports</strong> (e.g. Brussels instead of Amsterdam), or <strong>setting a Skyscanner price alert</strong> for the route so you're notified automatically when prices drop again. You can also <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">contact us</a> and we'll check whether the deal is still available on alternate dates.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>Why are some flights cheaper from certain countries?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Airlines use dynamic pricing algorithms that vary by market — meaning the exact same seat can have a different price depending on which country's version of a booking site you use. This is sometimes called a <strong>hidden city fare</strong> or <strong>point-of-sale pricing</strong>. We source many deals via Skyscanner's Swedish market, which consistently surfaces some of the lowest EUR-denominated fares in Europe due to high competition and algorithm differences. Searching in EUR from a Swedish market setting is one of the most reliable ways to find cheap roundtrip international flights.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>Do you earn commission? Are links paid?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Some links on FlyWell.Flights are affiliate links — meaning we may earn a small referral commission if you book through them, at absolutely no extra cost to you. Affiliate revenue is how we keep the flight deal service free. It never influences which cheap flights we feature, how we rank them, or how we describe them. We only post deals we'd genuinely book ourselves. Full transparency is in our <a href="#" onclick="showPage('terms');return false;" style="color:var(--accent);text-decoration:none;">Terms of Service</a>.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>I found a cheap flight deal you haven't posted — can I share it?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Yes please! We love reader tip-offs. Use the <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">Contact</a> form to send us the route, the price, the dates, and any booking link. If it checks out we'll post it fast. The best cheap flights are a community effort — the more eyes on fares, the more deals everyone benefits from.</p></div></div>
   </div>
 </div>
 
@@ -1271,7 +239,7 @@
         <p>Found a great fare we missed? Have a question about a deal? Just want to say hi? Drop us a message and we'll get back to you as soon as we can.</p>
         <p>We're a small team passionate about helping people travel more for less — your messages genuinely make our day.</p>
         <div class="contact-info-item" style="margin-top:1.5rem;">
-          <div class="contact-info-icon">✉️</div><span><a href="/cdn-cgi/l/email-protection#c4aca1a8a8ab84a2a8bdb3a1a8a8eaa2a8ada3acb0b7" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="224a474e4e4d62444e5b55474e4e0c444e4b454a5651">[email&#160;protected]</span></a></span>
+          <div class="contact-info-icon">✉️</div><span><a href="mailto:hello@flywell.flights" style="color:var(--accent);text-decoration:none;">hello@flywell.flights</a></span>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-icon">⏱️</div><span>We reply within 24 hours</span>
@@ -1301,7 +269,7 @@
           </div>
           <div class="form-group"><label>Message *</label><textarea id="cf-message" placeholder="Tell us what's on your mind…"></textarea></div>
           <button class="submit-btn" onclick="submitForm()">Send Message</button>
-          <p style="font-size:0.72rem;color:rgba(28,22,18,0.5);margin-top:0.75rem;line-height:1.6;">🔒 Your data will be processed in accordance with our <a href="#" onclick="showPage('privacy');return false;" style="color:var(--accent);text-decoration:none;">Privacy Policy</a>. Used solely to respond to your message. Request deletion anytime: <a href="/cdn-cgi/l/email-protection#7404061d0215170d3412180d031118185a12181d131c0007" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="0d7d7f647b6c6e744d6b61747a686161236b61646a65797e">[email&#160;protected]</span></a>.</p>
+          <p style="font-size:0.72rem;color:rgba(28,22,18,0.5);margin-top:0.75rem;line-height:1.6;">🔒 Your data will be processed in accordance with our <a href="#" onclick="showPage('privacy');return false;" style="color:var(--accent);text-decoration:none;">Privacy Policy</a>. Used solely to respond to your message. Request deletion anytime: <a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a>.</p>
         </div>
         <div class="form-success" id="form-success">
           <div class="success-icon">✅</div>
@@ -1315,10 +283,7 @@
 
 <!-- TERMS PAGE -->
 <div id="terms-page">
-  <div class="page-hero">
-    <p class="page-eyebrow">Legal</p>
-    <h1>Terms of <em>Service</em></h1>
-  </div>
+  <div class="page-hero"><p class="page-eyebrow">Legal</p><h1>Terms of <em>Service</em></h1></div>
   <div class="page-content">
     <p class="legal-date"><strong>Last updated: 16 February 2026</strong></p>
     <p class="legal-intro">These Terms of Service constitute a legally binding agreement between you and FlyWell.Flights governing your access to and use of the FlyWell.Flights website, platform, and any related features, content, or services. By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, you must not use the Service.</p>
@@ -1329,11 +294,11 @@
     <div class="legal-section"><h3>5. Future Subscription Billing and Renewal</h3><p>When Paid Memberships become available, subscriptions will automatically renew at the selected billing interval unless cancelled prior to renewal. Full billing details will be disclosed prior to purchase. You may cancel at any time, taking effect at the end of the current billing period.</p></div>
     <div class="legal-section"><h3>6. Refunds and Cancellation</h3><p>Refund eligibility will be clearly disclosed prior to purchase of any Paid Membership. Unless required by law, subscription fees may be non-refundable.</p></div>
     <div class="legal-section"><h3>7. Third-Party Websites and Services</h3><p>The Service contains links to third-party websites provided for informational purposes only. FlyWell.Flights does not control, endorse, or assume responsibility for third-party content, pricing accuracy, availability of offers, or booking processes. You access third-party services entirely at your own risk.</p></div>
-    <div class="legal-section"><h3>8. Accuracy of Information and No Guarantees</h3><p>While we strive to provide accurate and timely information, FlyWell.Flights makes no warranties regarding accuracy of deal information, continued availability of deals, or pricing validity. Travel pricing and availability are controlled entirely by third parties and may change at any time. FlyWell.Flights shall not be held liable for any losses resulting from reliance on information provided through the Service.</p></div>
+    <div class="legal-section"><h3>8. Accuracy of Information and No Guarantees</h3><p>While we strive to provide accurate and timely information, FlyWell.Flights makes no warranties regarding accuracy of deal information, continued availability of deals, or pricing validity. Travel pricing and availability are controlled entirely by third parties and may change at any time.</p></div>
     <div class="legal-section"><h3>9. Acceptable Use</h3><p>You agree not to use the Service for unlawful or fraudulent purposes, interfere with or disrupt the Service, attempt to gain unauthorized access, copy or scrape content without authorization, or reverse engineer Service content without permission.</p></div>
     <div class="legal-section"><h3>10. Intellectual Property</h3><p>All content, features, design, branding, and functionality of the Service are owned by FlyWell.Flights or its licensors. You are granted a limited, non-exclusive, non-transferable license to access and use the Service for personal, non-commercial purposes.</p></div>
     <div class="legal-section"><h3>11. Disclaimer of Warranties</h3><p>The Service is provided on an "as is" and "as available" basis. FlyWell.Flights disclaims all warranties, express or implied, including merchantability, fitness for a particular purpose, and availability or uninterrupted operation.</p></div>
-    <div class="legal-section"><h3>12. Limitation of Liability</h3><p>To the maximum extent permitted by law, FlyWell.Flights shall not be liable for any indirect, incidental, or consequential damages, loss of profits, revenue, or data, travel-related losses, or booking issues with third parties. Our total liability shall not exceed the amount paid by you, if any, in the preceding twelve months.</p></div>
+    <div class="legal-section"><h3>12. Limitation of Liability</h3><p>To the maximum extent permitted by law, FlyWell.Flights shall not be liable for any indirect, incidental, or consequential damages, loss of profits, revenue, or data, travel-related losses, or booking issues with third parties.</p></div>
     <div class="legal-section"><h3>13. Suspension and Termination</h3><p>We reserve the right to suspend or terminate your access to the Service at our discretion, including for violations of these Terms.</p></div>
     <div class="legal-section"><h3>14. Modifications to the Service</h3><p>We reserve the right to modify, update, suspend, or discontinue any aspect of the Service at any time without liability.</p></div>
     <div class="legal-section"><h3>15. Changes to These Terms</h3><p>We may revise these Terms from time to time. Updated Terms will be posted on this page. Continued use of the Service constitutes acceptance of revised Terms.</p></div>
@@ -1344,36 +309,24 @@
 
 <!-- PRIVACY PAGE -->
 <div id="privacy-page">
-  <div class="page-hero">
-    <p class="page-eyebrow">Legal</p>
-    <h1>Privacy <em>Policy</em></h1>
-  </div>
+  <div class="page-hero"><p class="page-eyebrow">Legal</p><h1>Privacy <em>Policy</em></h1></div>
   <div class="page-content">
     <p class="legal-date"><strong>Last updated: 16 February 2026</strong></p>
-    <p class="legal-intro">This Privacy Policy explains how FlyWell.Flights collects, uses, stores, and protects your personal data. It is drafted in compliance with the <strong>EU General Data Protection Regulation (GDPR) (Regulation (EU) 2016/679)</strong>, the <strong>UK GDPR</strong>, the <strong>ePrivacy Directive</strong>, and other applicable European data protection legislation.</p>
-    <div class="legal-section"><h3>1. Data Controller &amp; DPO</h3><p>FlyWell.Flights is the data controller. As a small informational service, we are not currently required to appoint a formal Data Protection Officer (DPO) under GDPR Art. 37. All data protection enquiries are handled by our privacy team.</p><p style="margin-top:0.4rem;">FlyWell.Flights is responsible for your personal data. Contact us at <strong><a href="/cdn-cgi/l/email-protection#daaaa8b3acbbb9a39abcb6a3adbfb6b6f4bcb6b3bdb2aea9" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="c3b3b1aab5a2a0ba83a5afbab4a6afafeda5afaaa4abb7b0">[email&#160;protected]</span></a></strong> for all data protection enquiries.</p></div>
-    <div class="legal-section"><h3>2. What Personal Data We Collect</h3><ul><li><strong>Contact form data:</strong> name, email address, phone number (optional), subject, and message content.</li><li><strong>Account data:</strong> email address and password (hashed) if you create an account.</li><li><strong>Usage data:</strong> IP address, browser type, device type, OS, pages visited, time and date of visit, and referring URLs.</li><li><strong>Cookie data:</strong> identifiers and preferences stored via cookies and similar tracking technologies.</li><li><strong>Communications:</strong> any correspondence you send us.</li></ul></div>
+    <p class="legal-intro">This Privacy Policy explains how FlyWell.Flights collects, uses, stores, and protects your personal data. It is drafted in compliance with the EU General Data Protection Regulation (GDPR), the UK GDPR, the ePrivacy Directive, and other applicable European data protection legislation.</p>
+    <div class="legal-section"><h3>1. Data Controller &amp; DPO</h3><p>FlyWell.Flights is the data controller. Contact us at <strong><a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a></strong> for all data protection enquiries.</p></div>
+    <div class="legal-section"><h3>2. What Personal Data We Collect</h3><ul><li><strong>Contact form data:</strong> name, email address, phone number (optional), subject, and message content.</li><li><strong>Account data:</strong> email address and password (hashed) if you create an account.</li><li><strong>Usage data:</strong> IP address, browser type, device type, OS, pages visited, time and date of visit, and referring URLs.</li><li><strong>Cookie data:</strong> identifiers and preferences stored via cookies and similar tracking technologies.</li></ul></div>
     <div class="legal-section"><h3>3. Legal Basis for Processing (GDPR Article 6)</h3><ul><li><strong>Consent (Art. 6(1)(a)):</strong> for non-essential cookies and marketing communications.</li><li><strong>Contract (Art. 6(1)(b)):</strong> where necessary to fulfil a contract with you.</li><li><strong>Legal obligation (Art. 6(1)(c)):</strong> where required to comply with applicable law.</li><li><strong>Legitimate interests (Art. 6(1)(f)):</strong> for analytics, fraud prevention, and improving our Service.</li></ul></div>
-    <div class="legal-section"><h3>4. How We Use Your Data</h3><ul><li>To respond to enquiries and provide customer support</li><li>To operate, maintain, and improve the Service</li><li>To send deal alerts and notifications where you have opted in</li><li>To process and manage account registration and future memberships</li><li>To comply with legal and regulatory obligations</li><li>To detect, prevent, and respond to fraud, abuse, or security threats</li></ul><p style="margin-top:0.6rem;">We will never sell, rent, or trade your personal data to third parties for their own marketing purposes.</p></div>
-    <div class="legal-section"><h3>5. Data Retention</h3><p>We retain your personal data only for as long as necessary. Contact form submissions are retained for up to 24 months. Account data is retained for the duration of your account. When data is no longer required, it is securely deleted or anonymised.</p></div>
-    <div class="legal-section"><h3>6. Data Sharing, Third-Party Processors &amp; Analytics</h3><p>We may share your data with trusted third-party processors, all bound by data processing agreements (DPAs):</p><ul style="margin-top:0.4rem;"><li><strong>Hosting &amp; infrastructure:</strong> EU-based servers where possible.</li><li><strong>Analytics:</strong> if used, tools such as Google Analytics 4 will be configured with IP anonymisation, data minimisation, and no cross-site tracking. Users may opt out via browser settings or our cookie banner.</li><li><strong>Email services:</strong> for communications where you have opted in.</li><li><strong>Paddle:</strong> payment processor when paid memberships are introduced.</li><li><strong>Legal authorities:</strong> where required by applicable law.</li></ul></div>
-    <div class="legal-section"><h3>7. International Data Transfers</h3><p>Where personal data is transferred outside the EEA or UK, we ensure appropriate safeguards are in place including Standard Contractual Clauses (SCCs) approved by the European Commission or adequacy decisions.</p></div>
-    <div class="legal-section"><h3>8. Your Rights Under GDPR &amp; DSAR Process</h3><ul><li><strong>Right of access (Art. 15):</strong> obtain a copy of your personal data.</li><li><strong>Right to rectification (Art. 16):</strong> correct inaccurate or incomplete data.</li><li><strong>Right to erasure (Art. 17):</strong> request deletion of your personal data.</li><li><strong>Right to restriction (Art. 18):</strong> limit the processing of your data.</li><li><strong>Right to data portability (Art. 20):</strong> receive your data in a machine-readable format.</li><li><strong>Right to object (Art. 21):</strong> object to processing based on legitimate interests.</li><li><strong>Right to withdraw consent (Art. 7(3)):</strong> withdraw consent at any time.</li></ul><p style="margin-top:0.6rem;">To exercise any right, submit a <strong>Data Subject Access Request (DSAR)</strong> by emailing <a href="/cdn-cgi/l/email-protection#7a0a08130c1b19033a1c16030d1f1616541c16131d120e09" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="addddfc4dbccced4edcbc1d4dac8c1c183cbc1c4cac5d9de">[email&#160;protected]</span></a> with subject <em>"GDPR Data Request"</em>, your full name, and the right you wish to exercise. We respond within <strong>30 days</strong>. You may complain to your national supervisory authority (e.g. UODO — Poland, ICO — UK, CNIL — France, EDPB: <strong>edpb.europa.eu</strong>).</p></div>
-    <div class="legal-section"><h3>9. Cookies &amp; Tracking Technologies</h3><p>Cookies are small text files stored on your device. We use the following:</p><ul style="margin-top:0.4rem;"><li><strong>Strictly necessary (no consent required):</strong> session management and security tokens. Duration: session.</li><li><strong>Functional (consent required):</strong> remembering your preferences. Duration: up to 12 months.</li><li><strong>Analytics (consent required):</strong> anonymised usage statistics. IP addresses are anonymised before processing. Duration: up to 13 months. Users may opt out via browser settings.</li><li><strong>Marketing/retargeting:</strong> we do not currently use advertising or retargeting cookies.</li></ul><p style="margin-top:0.6rem;">Manage or withdraw consent at any time using the cookie banner on this site or your browser settings. Withdrawal does not affect prior lawful processing.</p></div>
-    <div class="legal-section"><h3>10. Data Security</h3><p>We implement appropriate technical and organisational measures including TLS/SSL encryption, access controls, and regular security reviews. In the event of a personal data breach, we will notify the relevant supervisory authority within 72 hours and inform affected individuals without undue delay (GDPR Arts. 33 & 34).</p></div>
-    <div class="legal-section"><h3>11. Children's Privacy</h3><p>Our Service is not directed at children under the age of 16. We do not knowingly collect personal data from children. If you believe a child has provided us with personal data, please contact us immediately.</p></div>
-    <div class="legal-section"><h3>12. Links to Third-Party Sites</h3><p>Our website contains links to third-party websites. This Privacy Policy does not apply to those websites. We encourage you to read the privacy policies of any third-party sites you visit.</p></div>
-    <div class="legal-section"><h3>13. Changes to This Privacy Policy</h3><p>We may update this Privacy Policy from time to time. Material changes will be communicated by updating the "Last updated" date. Continued use of the Service constitutes acceptance of the updated policy.</p></div>
-    <div class="legal-section"><h3>14. Contact and Complaints</h3><p>Contact us at <strong><a href="/cdn-cgi/l/email-protection#1e6e6c77687f7d675e787267697b72723078727779766a6d" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="19696b706f787a60597f75606e7c7575377f75707e716d6a">[email&#160;protected]</span></a></strong> or via our <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">contact form</a>. A list of EU supervisory authorities is available at <strong>edpb.europa.eu</strong>.</p></div>
+    <div class="legal-section"><h3>4. How We Use Your Data</h3><ul><li>To respond to enquiries and provide customer support</li><li>To operate, maintain, and improve the Service</li><li>To detect, prevent, and respond to fraud, abuse, or security threats</li></ul><p style="margin-top:0.6rem;">We will never sell, rent, or trade your personal data to third parties for their own marketing purposes.</p></div>
+    <div class="legal-section"><h3>5. Data Retention</h3><p>We retain your personal data only for as long as necessary. Contact form submissions are retained for up to 24 months. When data is no longer required, it is securely deleted or anonymised.</p></div>
+    <div class="legal-section"><h3>6. Your Rights Under GDPR</h3><ul><li><strong>Right of access (Art. 15):</strong> obtain a copy of your personal data.</li><li><strong>Right to erasure (Art. 17):</strong> request deletion of your personal data.</li><li><strong>Right to data portability (Art. 20):</strong> receive your data in a machine-readable format.</li></ul><p style="margin-top:0.6rem;">Submit a DSAR by emailing <a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a> with subject "GDPR Data Request". We respond within 30 days.</p></div>
+    <div class="legal-section"><h3>7. Cookies</h3><p>We use strictly necessary cookies (session management), analytics cookies (Google Analytics 4, IP anonymised, consent required), and functional cookies (preferences, consent required). Manage consent via the cookie banner or your browser settings.</p></div>
+    <div class="legal-section"><h3>8. Contact</h3><p>Contact us at <strong><a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a></strong> or via our <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">contact form</a>.</p></div>
   </div>
 </div>
 
 <!-- ABOUT PAGE -->
 <div id="about-page">
-  <div class="page-hero">
-    <p class="page-eyebrow">Our Story</p>
-    <h1>Built by travellers, <em>for travellers</em></h1>
-  </div>
+  <div class="page-hero"><p class="page-eyebrow">Our Story</p><h1>Built by travellers, <em>for travellers</em></h1></div>
   <div class="page-content" style="max-width:640px;">
     <div class="about-quote">"The world is too beautiful and life too short to stay in one place."</div>
     <p class="about-text">FlyWell.Flights was born out of a simple obsession — finding extraordinary places to go without paying extraordinary prices to get there. We are a small team of passionate travellers who believe that great adventures shouldn't be reserved for those with deep pockets.</p>
@@ -1392,17 +345,13 @@
 
 <!-- BLOG PAGE -->
 <div id="blog-page">
-  <div class="page-hero">
-    <p class="page-eyebrow">Travel Tips &amp; Guides</p>
-    <h1>The FlyWell <em>Blog</em></h1>
-  </div>
+  <div class="page-hero"><p class="page-eyebrow">Travel Tips &amp; Guides</p><h1>The FlyWell <em>Blog</em></h1></div>
   <div class="blog-grid" id="blog-grid"></div>
 </div>
 
 <!-- BLOG POST PAGE -->
 <div id="blogpost-page">
   <div class="blog-post-nav">
-    <!-- FIX #18: Back button uses history.back() with blog fallback -->
     <button class="blog-post-hero-back" onclick="blogPostBack()">&#8592; Back</button>
   </div>
   <div id="blogpost-hero-wrap" style="width:100%;max-height:420px;overflow:hidden;background:#1c1612;">
@@ -1433,921 +382,19 @@
     <a href="#" onclick="document.getElementById('cookie-banner').style.display='flex'">Cookie Settings</a>
   </div>
   <p>© 2026 FlyWell.Flights. All rights reserved. Prices are indicative and may change.</p>
-  <p style="margin-top:0.3rem; font-size:0.7rem; max-width:580px; margin-left:auto; margin-right:auto;">FlyWell.Flights is an informational service only. We do not sell flights, act as a travel agent, or guarantee the availability or accuracy of any deal listed. All bookings are made directly with airlines or third-party providers. FlyWell.Flights bears no responsibility for any losses, changes, or issues arising from the use of information on this site.</p>
+  <p style="margin-top:0.3rem;font-size:0.7rem;max-width:580px;margin-left:auto;margin-right:auto;">FlyWell.Flights is an informational service only. We do not sell flights, act as a travel agent, or guarantee the availability or accuracy of any deal listed. All bookings are made directly with airlines or third-party providers.</p>
 </footer>
-
-<script>
-// DEALS DATA is now loaded from flights.js
-
-
-// DEALS DATA loaded above
-
-// ─────────────────────────────────────────────────────────────────────────────
-// BLOG POSTS DATA
-// ─────────────────────────────────────────────────────────────────────────────
-window.BLOG_POSTS = [
-    {
-      slug: 'vietnam-2026',
-      cat: 'Destination Guide',
-      title: 'Vietnam: The Smart Traveler\'s 2026 Strategy Guide',
-      date: 'Feb 27, 2026', readtime: '11 min read',
-      img: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80&fit=crop',
-      body: `<p>Vietnam is not a country you do. It is a country you sequence correctly. Enter through history, move through architecture, exit through velocity. The travelers who understand the routing logic see more, spend less, and avoid retracing 1,700 unnecessary kilometres. The fares from Europe still make this intelligence available. They won't forever.</p><p>Vietnam is entering its final pre-luxury cycle phase. International hotel brands are arriving in volume, the domestic airport network is expanding, and crowds at tier-one sites are beginning to price out the experience itself. The window to encounter Vietnam at the intersection of genuine accessibility and genuine depth is narrowing with a precision that should concentrate the mind of anyone who has been meaning to go.</p><h2>The North: Hanoi and the Logic of Arrival</h2><p>Land at Noi Bai (HAN) and give the city its first hour before forming an opinion. The drive in from the airport at dusk — Red River flatlands dissolving into the first motorbike density, the smell of charcoal and roasting corn — is the correct introduction. Hanoi operates on social logic rather than legal one, and that first hour teaches you more about how it functions than any prior reading could.</p><p>Ca phe trung — egg coffee, a legacy of wartime milk shortages that became permanent cultural institution — is best ordered sitting on a low plastic stool at Giang Cafe, which has been producing it the same way since 1946. The culinary identity of the north is precise and non-negotiable: bun cha at lunch, banh mi before 8am, pho on the pavement in the cold-season morning when your breath is visible and the broth steams in the bowl.</p><p>The insider move most Vietnam itineraries miss: Mu Cang Chai in late September or early October. The rice terraces here — 500km northwest of Hanoi, in a valley flanked by peaks reaching 3,000 metres — are at harvest. The paddies shift from deep green to gold in a sequence that moves across the hillside over three weeks. Sapa gets the coverage. Mu Cang Chai gets the reality. Fares in this window are at their annual low, the viewpoints are largely yours, and the light in the late afternoon is the kind photographers plan trips around. Build an itinerary around this window and the rest of the country follows naturally southward.</p><h2>Central Vietnam: Where the Architecture Lives</h2><p>The corridor between Da Nang (DAD) and Hoi An is where Vietnam's identity reaches its most concentrated expression. Most itineraries waste Da Nang as a transit point. The smarter move: exit Vietnam from DAD rather than SGN on a 10-day trip. This single routing decision eliminates the backtrack south, recovers a full day, and positions the central region as the culminating experience rather than a stopover. It is one of the better open-jaw arguments in Southeast Asian travel.</p><p>Hoi An's ancient town has retained its structural integrity through the American War and mass tourism, which is a genuine architectural miracle. Understand it before 8am when the light is horizontal and the tour groups are still at their hotels. The Hai Van Pass north of Da Nang — the mountain road marking the climatic boundary between central and northern Vietnam — is one of the most dramatic coastal drives in Southeast Asia and explains practically why Hue receives considerably more rain than everything south of it. This is not a trivial planning consideration if you're there in November.</p><h2>The South: Velocity and the Delta</h2><p>Ho Chi Minh City (SGN) operates at a frequency Hanoi has no interest in matching. Where the capital negotiates with its history, Saigon has largely decided to move on. The energy is mercantile and forward-looking. District 1 is for orientation; District 3 is where the city lives — tree-lined streets, independent restaurants, coffee shops that take their craft seriously. The Ben Thanh market is for tourists; the Binh Tay market in Cholon functions at a scale and intensity that recalibrates your understanding of what commerce actually looks like.</p><p>The Mekong Delta, two hours south by road, is the agricultural engine of the country and one of its most visually distinct landscapes. The floating markets at Cai Rang are functional commerce, not performance — but arrive before 6am or the boats thin out and the dynamic dissolves entirely. Between July and November the delta floods seasonally. The flooded landscape is extraordinary, but it changes access and aesthetics in ways worth understanding before you book.</p><h2>Flight Access From Europe</h2><p>Vietnam's two main gateways are Noi Bai (HAN) in Hanoi and Tan Son Nhat (SGN) in Ho Chi Minh City. The most competitive fares from Europe route through Gulf hubs — Qatar Airways via Doha (DOH), Emirates via Dubai (DXB), Etihad via Abu Dhabi (AUH) — with one-stop journey times in the 13–16 hour range. From Paris (CDG), fares to Hanoi in shoulder season appear around EUR700–800 return. Frankfurt (FRA) to Ho Chi Minh City prices regularly in the EUR650–900 range off-peak. From Scandinavia, positioning via Helsinki (HEL) through Singapore or Copenhagen (CPH) via Doha frequently undercuts direct Nordic ticketing by EUR150–200.</p><p>The open-jaw is the correct structure for most Vietnam itineraries: fly into HAN, exit from SGN — or, on shorter trips, exit from DAD. This eliminates the 1,700km backtrack and typically adds nothing meaningful to the fare. Use multi-city search rather than a standard return — the pricing on this routing is frequently identical and occasionally cheaper. FlyWell tracks Vietnam fare cycles weekly; the 8–10 week window before shoulder season departures is consistently where Gulf carrier inventory softens and the better pricing appears.</p><h2>Seasonal Timing Intelligence</h2><p>Vietnam's 15-degree latitudinal span makes a single best-time answer structurally impossible. The framework: November through April covers the south and central coast reliably; May through September suits the north. November and March are the two months where workable conditions exist across all regions simultaneously — which is precisely why fares in both windows run 15–20% above the annual average. The Christmas and Tet (late January) windows carry a 30–45% fare premium. Avoid both unless dates are non-negotiable.</p><p>The specific insight most booking guides omit: the central highlands around Da Lat at 1,500 metres operate on a microclimate entirely divorced from the coastal pattern. Cool year-round, occasionally misty, producing some of the best Vietnamese coffee and wine in the country. It is dramatically undervisited relative to its quality and adds genuine texture to any southern itinerary without adding logistical complexity.</p><h2>Smart Booking Strategy</h2><p>Lock the open-jaw first — HAN inbound, SGN or DAD outbound. Search it as multi-city, not return. The 8–12 week booking window consistently produces the best inventory on Gulf carrier routes into Vietnam; beyond 16 weeks, pricing is often higher than it will eventually become. FlyWell monitors this corridor and publishes Vietnam deals the moment anomalous inventory appears — the patterns are regular enough that subscribers catch them before the fares adjust.</p><p>Vietnam rewards the traveler who arrives with a sequence rather than a list. The country is large enough, varied enough, and historically layered enough that two visits with entirely non-overlapping itineraries are not just possible but probable. The fares from Europe, given the distance and the quality of what is there, remain one of long-haul travel's more quietly rational propositions. That will change. The time to act on it is not later.</p>`
-    },
-    {
-      slug: 'thailand-2026',
-      cat: 'Destination Guide',
-      title: 'Thailand Beyond Bangkok: Where To Go & When To Book',
-      date: 'Feb 27, 2026', readtime: '10 min read',
-      img: 'https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?w=1200&q=80&fit=crop',
-      body: `<p>Bangkok has become, in the taxonomy of long-haul travel, what Paris is to European city breaks — a byword for the destination rather than a description of it. The Thailand most people experience is BKK arrivals, Sukhumvit hotel corridor, a flight south to a beach. It is a real country and worth the journey. It is also approximately 10% of what Thailand actually contains. The remaining 90% rewards travelers who understand that a domestic flight from Suvarnabhumi costs less than a restaurant dinner and changes everything.</p><h2>Bangkok: The Necessary Foundation</h2><p>Suvarnabhumi (BKK) handles international arrivals. Don Mueang (DMK), 30km north in traffic that is genuinely variable, handles budget carriers for domestic connections. Know which airport your onward flight uses before you land — this is not a minor operational detail. Bangkok itself rewards a minimum of three days, not to see more but to recalibrate. The city operates across registers simultaneously: the Wat Pho and Grand Palace circuit in the morning heat, the Yaowarat Chinatown night market after dark, where Jay Fai has been cooking her crab omelette over charcoal on a pavement since before she earned a Michelin star. She still does it the same way. The star did not change the method.</p><h2>Chiang Mai and the North: The Country's Cultural Core</h2><p>Chiang Mai (CNX) is 90 minutes from BKK on AirAsia or Thai Airways, and it functions as the gateway to a part of Thailand the south-focused tourist economy largely ignores. The city — built on the ruins of the Lanna Kingdom, encircled by a moat, surrounded by mountains reaching 2,500 metres — has a cultural density the beach corridor cannot match. The Sunday Walking Street on Wualai Road is one of Southeast Asia's more honest night markets: locally made crafts, genuine food, no tourist pricing on the som tam.</p><p>The insider angle most northern Thailand itineraries miss: Doi Inthanon National Park in late November. Thailand's highest peak at 2,565 metres sits an hour south of Chiang Mai, and in November the summit is cool enough for frost at dawn, the rhododendrons are in partial bloom, and the birdlife — over 300 species, including endemics found nowhere else in Thailand — draws ornithologists from across Asia. Most visitors are day-trippers from the city. The overnight camp near the summit, available through the national park, puts you in the forest before the coaches arrive.</p><h2>The Gulf Coast vs The Andaman: A Decision, Not a Preference</h2><p>Thailand's two coastlines operate on opposite monsoon cycles and conflating them is the single most common planning failure among first-time visitors. The Gulf of Thailand — Koh Samui (USM), Koh Phangan, Koh Tao — runs dry and clear from December through April. The Andaman — Phuket (HKT), Krabi (KBV), Koh Lanta — mirrors this window, extending reliably into November. Both coasts go wet in their respective monsoon seasons roughly six months apart, which means an itinerary combining both is structurally achievable in a single trip if the routing is planned correctly.</p><p>Phuket has been developed extensively, and certain stretches of its western coast now resemble a resort corridor that could exist almost anywhere. The correct response is not avoidance but geography: the north of the island around Naithon and Nai Yang beaches, adjacent to HKT airport, remains comparatively quiet. Krabi, an hour east by ferry, operates at a different pace entirely. The limestone karst formations around Railay Beach — accessible only by longtail boat because the cliff face drops directly into the sea — are among the most dramatic coastal landscapes in Southeast Asia, and Railay at 7am before the day boats arrive is a different place entirely from Railay at noon.</p><h2>Flight Access From Europe</h2><p>London (LHR) to Bangkok (BKK) is one of the most competitive long-haul routes in the European market. Return fares in shoulder season appear regularly in the GBP480–650 range, with Qatar Airways via Doha (DOH) and Emirates via Dubai (DXB) producing the most consistent pricing. From Nordic capitals, Turkish Airlines via Istanbul (IST) regularly undercuts Gulf carrier pricing by EUR80–150 and is the correct default routing from Copenhagen (CPH), Stockholm (ARN), and Oslo (OSL). From Frankfurt (FRA) and Amsterdam (AMS), Lufthansa codeshares and KLM both offer competitive options worth comparing against Gulf pricing before booking.</p><p>For Phuket specifically: flying directly into HKT rather than BKK and connecting domestically saves three to four hours of total travel time and frequently costs no more on Gulf carrier routings. Qatar Airways and Emirates both operate direct European services into Phuket in high season. Check this option before defaulting to Bangkok. FlyWell monitors Thai fare releases across all European departure cities — the pattern on Gulf inventory for BKK and HKT routes follows a predictable release cycle, and the 8–10 week window before travel consistently produces the better pricing.</p><h2>Seasonal Timing Intelligence</h2><p>The Thai low season for the Andaman coast — May through October — produces the most dramatic fare drops of any Southeast Asian destination from Europe: 25–35% below the December–January peak. For travelers whose primary interest is Bangkok and the north rather than beach destinations, the low season is largely irrelevant in practical terms. Chiang Mai in August is warm and occasionally wet but entirely functional, and the waterfalls in Doi Inthanon are running at full force.</p><p>The specific insight most Thailand guides omit: Thai domestic airfares are among the cheapest in Asia, which means a European fare to BKK combined with a separate domestic leg to CNX or HKT is almost always better value than any attempt to route directly into a secondary city from Europe. Book the international leg first on whichever dates work. Add the domestic leg separately once you can see the in-country pricing — typically 6–8 weeks before travel, when AirAsia and Nok Air inventory is most competitive.</p><h2>Smart Booking Strategy</h2><p>Book 8–12 weeks ahead for shoulder season travel. For December and January, 16–20 weeks is the minimum before preferred routings sell through. The open-jaw is the correct structure: fly into Bangkok (BKK), exit from Phuket (HKT) or Chiang Mai (CNX). Search this as multi-city rather than a return — the fare difference is typically GBP30–80 for a structure that eliminates the domestic backtrack entirely and produces a meaningfully richer itinerary. FlyWell tracks this corridor and publishes Thai deals as anomalous Gulf inventory appears — subscribe to catch the windows before they close.</p><p>Thailand has sustained its position in long-haul travel not through marketing but through variety. The country delivers genuinely different experiences within a geography compact enough to move through efficiently, at a price point that continues to compete with destinations half the distance away. The fares reward travelers who plan with specificity. The country rewards travelers who move beyond the obvious.</p>`
-    },
-    {
-      slug: 'bali-2026',
-      cat: 'Destination Guide',
-      title: 'Bali Without The Crowds: The 2026 Shoulder-Season Playbook',
-      date: 'Feb 27, 2026', readtime: '10 min read',
-      img: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1200&q=80&fit=crop',
-      body: `<p>Bali has a crowd problem that is also a timing problem, which means it is solvable. The island receives over five million international visitors annually, the vast majority of whom arrive between June and August, concentrate in the same four postcodes, and leave having experienced a version of Bali that is real but incomplete. Arrive in April or October instead, understand the island's geography rather than defaulting to its most photographed coordinates, and you encounter something that justifies every superlative that has been applied to it. The difference is not distance. It is a calendar decision and a map decision.</p><h2>The Geography of Avoidance</h2><p>Denpasar (DPS) is the arrival point. Kuta and Seminyak, immediately adjacent to the airport, are where package tourism concentrates — and where the island's more generic face presents itself. Thirty minutes north by road, the character shifts. Forty-five minutes east, it shifts again. Ubud sits in the interior at 300 metres elevation, surrounded by the rice terrace systems that define the Balinese agricultural landscape, cooler in the evening, quieter in the morning, structured around a cultural life that predates the hotels by centuries.</p><p>The north of the island — Lovina, Singaraja, the Munduk highlands — receives approximately 15% of Bali's total international tourist traffic despite containing some of its most coherent landscape. The coffee and clove plantations around Munduk produce single-origin Arabica of genuine quality. At 700 metres elevation, the mornings are cool enough for a jacket. The drive north over the central mountain spine, past the caldera lake of Batur with the volcano rising behind it, is one of the better road journeys in Southeast Asia and takes two hours from Ubud. Almost nobody does it.</p><h2>Ubud: How to Actually Use It</h2><p>The Campuhan Ridge Walk leaves directly from the centre of Ubud and runs for 9km along a ridge above the confluence of two rivers. At 6am, before the heat arrives and before the guided groups begin, the walk delivers a version of Bali that the afternoon does not: morning mist in the valley, the sound of a gamelan from somewhere below, the rice terraces catching the first light at an angle that explains every photograph you have ever seen of this place. It takes 90 minutes. It costs nothing. Most visitors sleep through it.</p><p>The insider angle on Bali's rice terraces: Jatiluwih, 45 minutes west of Tegallalang, is the insight. Tegallalang is the most photographed terrace system in Bali and is managed accordingly — entry fee, selfie platforms, cafe terraces built specifically to frame the view. Jatiluwih is a UNESCO World Heritage landscape covering 600 hectares of working subak irrigation system that has functioned continuously for over a thousand years. It is larger, less visited, more architecturally coherent, and almost entirely lacking in infrastructure designed for photography. That last point is what makes the photographs better.</p><h2>The Southern Peninsula: Honest Assessment</h2><p>Canggu has completed its transition from surf village to digital nomad capital. The infrastructure is now genuinely good — excellent restaurants, serious coffee, a café-coworking hybrid economy that functions efficiently. Echo Beach still produces legitimate surf for intermediate and above. But Canggu is dense and it moves fast, and for travelers whose interest is Balinese culture rather than a well-designed laptop-friendly café, it functions best as a base for day trips rather than an immersive destination.</p><p>Uluwatu at sunset is non-negotiable. The temple sits on a 70-metre limestone cliff above the Indian Ocean, and the kecak fire dance performed there at dusk — the Ramayana told through 50 male voices and firelight, with the ocean as backdrop — is not a tourist approximation of ceremony. It is the real thing in an extraordinary setting. Arrive 45 minutes before the performance, take the cliff path rather than the main entrance, and face west for the last 20 minutes of light. The combination of light, sound, and topography is one of the more precise sensory experiences available at the end of an airline ticket.</p><h2>Flight Access From Europe</h2><p>Denpasar (DPS) is served from Europe exclusively via connecting hubs — no direct European services exist. Qatar Airways via Doha (DOH) consistently produces the most competitive pricing on this corridor, with return fares from major European cities in the EUR550–800 range in shoulder season. Turkish Airlines via Istanbul (IST) regularly undercuts Gulf pricing by EUR80–120, particularly from Central and Eastern Europe where Turkish has strong feed traffic. Emirates via Dubai (DXB) prices at a slight premium but offers the most consistent long-haul product for those for whom the upgrade economics work.</p><p>The routing via Singapore (SIN) carries specific strategic logic and is worth understanding before booking. Singapore Airlines is among the three best long-haul carriers on earth, Changi is the most functional transit airport in the world, and using SIN as an open-jaw entry point — fly into Singapore, exit from Bali, or vice versa — creates an itinerary that captures two distinct Southeast Asian experiences on a single fare, typically within EUR60–100 of a straight return to DPS. Search this as multi-city. FlyWell tracks DPS fare cycles and the release pattern on this corridor is consistent — the 10–12 week window before April and October departures is where the pricing softens most reliably.</p><h2>Seasonal Timing Intelligence</h2><p>Peak season runs June through August, when European summer holidays align with Bali's dry season to produce maximum crowds and maximum fares simultaneously. The shoulder windows of April–May and September–October offer the best balance: dry conditions, temperatures indistinguishable from peak season, and fares from Europe running 20–30% below the July–August ceiling. This is not a marginal difference. On a EUR700 peak fare, that gap funds two nights of good accommodation.</p><p>The rainy season (November through March) is more nuanced than the blanket warning suggests. Rain in Bali typically falls in concentrated afternoon downpours rather than sustained all-day precipitation. Mornings are frequently clear. The rice terraces are at their most intensely saturated green. The island is as quiet as it gets, the villas have availability and the fares drop to their annual floor. January and February are the wettest months — approach with adjusted expectations, but do not dismiss them on principle.</p><h2>Smart Booking Strategy</h2><p>The 8–12 week window is the consistent sweet spot for Bali from Europe. April and October departures, booked in this window, produce some of the best fare-to-experience ratios in Southeast Asian travel. Search Denpasar (DPS) as a multi-city destination if you are combining with Singapore or another Southeast Asian city — the open-jaw pricing is frequently identical to a return and the itinerary it creates is structurally superior. FlyWell publishes Bali fare alerts when anomalous inventory appears on Gulf and Turkish routings — the pattern is regular enough that the better prices surface predictably for those watching the corridor.</p><p>Bali is not a destination to be dismissed because it became popular, nor approached carelessly because it became complicated. It is an island of genuine cultural depth and physical beauty that continues to reward the traveler who arrives with a map, a calendar, and the discipline to resist its most obvious gravitational pulls. That traveler finds a different island. It was there all along.</p>`
-    },
-    {
-      slug: 'singapore-hub',
-      cat: 'Travel Strategy',
-      title: 'Singapore As A Strategic Southeast Asia Hub',
-      date: 'Feb 27, 2026', readtime: '9 min read',
-      img: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1200&q=80&fit=crop',
-      body: `<p>Most travelers arrive in Singapore and treat it as a destination. The more useful frame — particularly for anyone constructing a Southeast Asian itinerary — is to treat it as infrastructure. Changi Airport (SIN) is by meaningful margin the most functional transit hub in the world. Singapore Airlines is among the three best long-haul carriers on earth. Building these facts into your routing logic rather than defaulting to a simpler point-to-point booking is, in most cases, the difference between an adequate itinerary and a significantly better one for the same or lower total cost.</p><h2>Singapore Itself: Three Days, Correctly Spent</h2><p>Singapore rewards intellectual engagement more than most cities its size. The density is extreme — 5.8 million people on 735 square kilometres — but the planning that has shaped it over 60 years of independence has produced something that functions with a precision that larger, older cities genuinely cannot match. The Mass Rapid Transit covers the island comprehensively; a stored-value EZ-Link card eliminates every taxi decision for most itineraries.</p><p>The food culture is the most legitimate argument for extending a stopover into a proper visit. The hawker centre system — government-managed open-air food courts across the island, UNESCO-listed as Intangible Cultural Heritage — produces some of the most technically precise street food in Asia at prices that feel implausible given the city's general cost structure. Maxwell Food Centre in Tanjong Pagar: arrive by 11am for the Hainanese chicken rice at Tian Tian, which has a queue before noon and sells out by early afternoon. The chicken is poached, the rice cooked in the stock, the chilli made fresh. It costs EUR3. It is one of the better dishes available on earth at any price.</p><p>The less-photographed Singapore is in the Peranakan shophouses of Joo Chiat — a neighbourhood of Straits Chinese heritage architecture that has not yet been fully absorbed into the tourism economy — the Arab Street textile district around Haji Lane, and the wet markets of Tiong Bahru at 7am on a Saturday, which tell you more about how this city actually functions than any curated attraction could.</p><h2>Changi as a Tool, Not a Transit Point</h2><p>Changi Airport has four operational terminals with a fifth under construction. The Jewel complex connecting Terminals 1, 2 and 3 contains a 40-metre indoor waterfall, a serious restaurant operation, and a rooftop garden. This is relevant not as tourism but as practical data: a six-hour layover at Changi is not an inconvenience. It is, for many travelers, preferable to shorter connections at airports that offer considerably less. The airport also contains shower facilities, a 24-hour cinema, and transit hotel rooms bookable by the hour. Plan your connections accordingly.</p><p>The insider angle on Changi: Singapore Airlines' low-cost subsidiary Scoot operates from Terminal 3 and provides cost-effective onward connections to secondary Southeast Asian cities that no major European carrier prices competitively into — Lombok (LOP), Manado (MDC), Palembang (PLM), Penang (PEN). A European long-haul flight to SIN on Singapore Airlines combined with a Scoot connection to a secondary destination is a routing combination that no single-carrier itinerary can match on either price or quality. It requires booking two separate tickets. It is worth the minimal additional complexity.</p><h2>The Open-Jaw Logic: SIN as Anchor</h2><p>The most powerful application of Singapore in a Southeast Asian itinerary is the open-jaw structure. Fly into Bangkok (BKK), travel overland through Thailand and down the Malay Peninsula, exit from Singapore (SIN). The open-jaw fare on this routing typically prices within EUR40–80 of a straight return to either city. The value it creates — eliminating a 1,400km backtrack to a departure airport, adding a legitimate destination at each end of the journey — is entirely disproportionate to that cost differential.</p><p>The reverse works equally well: fly into Singapore, spend three to four days, take Scoot to Bali (DPS), move through Lombok and the Gili Islands, exit from Denpasar back to Europe. The total routing cost, booked with appropriate lead time, frequently comes in below a straight return to Bali from Europe while delivering a structurally superior trip. Search both versions as multi-city on your preferred booking platform. FlyWell monitors SIN arrivals and publishes deals on this corridor when Gulf and Singapore Airlines inventory moves — the open-jaw pricing on BKK-SIN routings surfaces regularly in the 10–14 week window.</p><h2>Flight Access From Europe</h2><p>Singapore Airlines operates from London Heathrow (LHR), Frankfurt (FRA), Paris (CDG), Amsterdam (AMS), Zurich (ZRH), Copenhagen (CPH), and several other European cities. The carrier sets the quality benchmark on this route. Gulf carriers — Emirates via Dubai (DXB), Qatar Airways via Doha (DOH), Etihad via Abu Dhabi (AUH) — compete aggressively on price. Return fares from London in shoulder season appear in the GBP480–680 range. From Frankfurt and Amsterdam, EUR520–720. Singapore Airlines' promotional sales, which tend to surface in January and August, occasionally produce fares below these floors that are worth tracking specifically. The carrier's premium economy cabin represents an upgrade that costs a fraction of the gap to business class and is substantially more comfortable than full economy on a 13-hour service.</p><h2>Seasonal Timing Intelligence</h2><p>Singapore sits 1.4 degrees north of the equator and has no meaningful seasons in the European sense — it is warm and occasionally wet year-round. For planning purposes, the November–January period brings the northeast monsoon and higher rainfall, particularly in December. This affects outdoor comfort but not the fundamental experience. The shoulder windows of April–May and September–October produce the best value on European-SIN routing — not because the destination changes significantly, but because European demand softens and fares follow.</p><h2>Smart Booking Strategy</h2><p>For Singapore as a destination, book 10–14 weeks ahead. For Singapore as a hub within a wider itinerary, book the long-haul leg first and regional connections separately — Scoot and AirAsia fares are dynamic and responsive to demand in ways that make simultaneous booking with the intercontinental leg rarely optimal. Watch for Singapore Airlines' biannual sales in January and August. Use multi-city search for any open-jaw routing through SIN — the platform default to return fares misses the pricing advantage consistently. FlyWell publishes Singapore corridor deals and flags the open-jaw pricing anomalies when they appear.</p><p>Singapore is the rare city that makes you a better traveler by visiting it. The infrastructure is instructive. The food is a serious education. The geographic position, understood correctly, unlocks a version of Southeast Asia that the point-to-point traveler never reaches. The fares that get you there are, given what is on the other end, among the more rational long-haul propositions available from the European market.</p>`
-    },
-    {
-      slug: 'oman-guide',
-      cat: 'Destination Guide',
-      title: 'Oman: Arabia\'s Most Underrated Adventure Destination',
-      date: 'Feb 27, 2026', readtime: '10 min read',
-      img: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1200&q=80&fit=crop',
-      body: `<p>Oman is what the Arabian Peninsula looked like before the oil economy reshaped it — and then, more precisely, what that economy looks like when it chooses restraint. While its neighbours have urbanised at a pace that occasionally outran meaning, Oman has developed more carefully. The Hajar Mountains still dominate the capital's skyline by law. The frankincense trade that connected this coastline to Rome, India, and China for two millennia is still active in the Muttrah Souq. The country rewards serious travelers in ways the Gulf's more publicised destinations have largely stopped being able to, and it does so at fares from Europe that continue to understate what is waiting on the other end.</p><h2>Muscat: The Capital That Earns Its Reputation Quietly</h2><p>Land at Muscat International (MCT) and the first thing the city does is not shout at you. The drive into Corniche Muttrah — the crescent-shaped waterfront with fishing boats on one side and the old souq at the other — delivers a version of an Arabian port city that feels neither staged nor modernised into abstraction. The light in the late afternoon, bouncing off white-washed walls and the Gulf of Oman, has a quality that photographers recognise and cannot adequately explain in advance.</p><p>The Muttrah Souq is the correct first evening. It is not a tourist market in the way Dubai's Gold Souq has become — it is a working commercial space where frankincense, silver Khanjar daggers, dried limes, and Indian Ocean textiles trade alongside each other in an arrangement that has operated in some form for centuries. Oman produces Boswellia sacra, considered the world's finest frankincense grade, available here at prices that make every other source look extractive. Buy a block. Burn it in your hotel room. It is the most direct possible sensory connection to what this coastline has historically meant to global trade.</p><h2>The Interior: Nizwa, the Hajar, and Jebel Akhdar</h2><p>The road from Muscat to Nizwa crosses the Hajar Mountains — a range that rises to 3,000 metres above sea level within 100km of the coast — through a series of wadis and switchbacks that constitute some of the most dramatic driving in the Arabian Peninsula. Nizwa itself, 160km inland, was the historical capital of Oman's interior and remains its cultural core. The 17th-century circular fort dominates a date palm oasis producing varieties sold across the Gulf. The Friday livestock market, operating from dawn in the old souq adjacent to the fort, is one of the most photogenic and genuinely active traditional markets in the Arab world. Arrive early. The best light and the most activity are both before 8am.</p><p>The insider angle most Oman itineraries omit: the Jebel Akhdar rose harvest. The Green Mountain plateau, at 2,000 metres above Nizwa, produces Damask roses in a harvest window of approximately three weeks in April. Local villages have been distilling rosewater from this harvest for centuries, and during the harvest the plateau is perfumed in a way that is startling in its intensity given the surrounding desert landscape. Fares from Europe in April sit in the lower range of the annual pricing cycle. The combination of access, timing, and experience is one of the more under-documented travel propositions in the MENA region.</p><h2>Wahiba Sands and the Desert Interior</h2><p>The Wahiba Sands — a dune system beginning 200km south of Muscat — is the correct introduction to Arabian desert travel for most visitors. Unlike the Rub' al Khali, it is accessible on a day trip from Muscat, navigable by standard 4WD without specialist desert driving experience, and contains Bedouin communities who have been hosting travelers for decades in a way that feels organic rather than staged. The dunes reach 100 metres. The colour at dawn — a gradient from deep ochre through amber to pale gold as the sun clears the eastern ridge — is the image most associated with Oman in travel photography, and it is accurate.</p><p>The Wadi Bani Khalid, on the approach road to the Wahiba, is an oasis fed by a perennial spring producing a series of turquoise pools in a limestone canyon. It is extraordinary. There is almost no infrastructure around it. Arriving at 7am means having it to yourself for the first hour.</p><h2>Dhofar and the Khareef: Oman's Hidden Season</h2><p>The southern region centred on Salalah (SLL) experiences a monsoon called the Khareef between June and September that is climatically anomalous for the entire Arabian Peninsula. While Muscat and the Gulf bake at 42 degrees, Salalah receives Indian Ocean mist and light rain that turns its coastal plateau intensely green. The frankincense trees in the Wadi Dawkah UNESCO site drip with resin. The waterfalls run. The temperature sits at 25 degrees. This is Oman's least-known international travel asset and one of the more compelling arguments for a June or July trip to a region most Europeans write off as summer-impossible.</p><h2>Flight Access From Europe</h2><p>Muscat (MCT) is served from Europe by Oman Air — operating from London Heathrow (LHR), Frankfurt (FRA), Paris (CDG), Amsterdam (AMS), and Munich (MUC). Oman Air's product is consistently underrated: the business class cabin on its Boeing 787 services is competitive with Emirates and Qatar at a fare that frequently runs 15–20% below equivalent Gulf carrier pricing. Economy return fares from Western Europe in shoulder season (October–November, February–March) typically sit in the EUR380–550 range. From Central and Eastern Europe, Turkish Airlines via Istanbul (IST) regularly produces return fares below EUR350 from Warsaw (WAW), Vienna (VIE), and Budapest (BUD). FlyWell tracks Oman Air fare releases — the carrier runs irregular promotional sales that produce genuinely anomalous pricing on the MCT corridor, typically with 48–72 hours of availability before inventory adjusts.</p><h2>Seasonal Timing Intelligence</h2><p>October through April is the unambiguous travel window for Muscat and the interior. Summer in Muscat exceeds 40 degrees with humidity that compounds the discomfort on the coast. The exceptions are Jebel Akhdar and Jebel Shams, where altitude provides a 10–15 degree reduction year-round. February and March are the optimal months for the full interior circuit — mild temperatures, occasional wildflower bloom in the Hajar wadis, and fares sitting in the lower portion of the annual range.</p><h2>Smart Booking Strategy</h2><p>Oman remains underbooked relative to its quality, which means booking windows are more forgiving than equivalent Gulf destinations. Six to eight weeks of lead time is generally sufficient for shoulder season travel outside the Christmas window. Self-drive is the correct approach for most Omani itineraries — the roads are excellent, distances are manageable, and the highlights are distributed in ways that make guided group tours genuinely inefficient. A compact SUV from MCT for seven to ten days covers the Hajar mountain circuit, the Wahiba Sands, and the Sharqiyah coast comprehensively. Fuel in Oman is among the cheapest in the world. The driving, in many stretches, is not the means of getting to the destination. It is the destination. FlyWell monitors this corridor and publishes Oman deals when Oman Air promotional inventory appears — the windows are short but the pricing when they open is among the better values in MENA travel.</p><p>Oman does not require persuasion once it is understood. The combination of physical landscape, cultural coherence, and hospitality that predates the tourism industry by centuries is available at a fare from Europe that has no right to be as reasonable as it remains. That will change as the destination becomes more widely known. The travelers who go now will understand later why they were fortunate to have gone when they did.</p>`
-    },
-    {
-      slug: 'jordan-guide',
-      cat: 'Destination Guide',
-      title: 'Jordan: Petra, Wadi Rum & Smart Routing Into The Levant',
-      date: 'Feb 27, 2026', readtime: '10 min read',
-      img: 'https://images.unsplash.com/photo-1539768942893-daf53e448371?w=1200&q=80&fit=crop',
-      body: `<p>Jordan is the most intellectually dense destination in the Middle East — a country the size of Portugal containing Nabataean, Roman, Byzantine, Crusader, Ottoman, and modern Arab history in physical proximity that makes no demands of credulity because the evidence is simply there in front of you. Petra alone would justify the flight. The fact that Wadi Rum, the Dead Sea, the ancient city of Jerash, and one of the world's great desert hospitality traditions exist within the same small country means the traveler who approaches Jordan as merely a Petra trip has fundamentally misread the itinerary available to them.</p><h2>Amman: The City Most Visitors Rush Through</h2><p>Queen Alia International Airport (AMM) delivers most visitors into a city they treat as a logistical necessity before the drive south. This is a structural error. Amman is built on limestone hills — seven originally, now 19 official districts — and its eastern and western halves are separated by more than geography. West Amman, along Rainbow Street and through the Jabal Lweibdeh gallery district, is cosmopolitan, café-dense, and architecturally interesting in its layering of 1950s Jordanian modernism over hillside stone buildings. East Amman is older, denser, structured around the Roman theatre and the Hashemite Plaza in ways that make the city's 2,000-year urban continuity physically legible in a single morning's walk.</p><p>Mansaf — lamb slow-cooked in fermented dried yogurt called jameed, served over rice and flatbread with pine nuts — is the national dish and the correct lens through which to understand Jordanian hospitality culture. The version at Sufra restaurant on Rainbow Street will recalibrate whatever assumptions you arrived with about Levantine cooking. Order the full portion. Eat with your hands if you can manage it. The dish is designed for a table that eats collectively and slowly.</p><h2>Petra: The Structure of Astonishment</h2><p>The Siq — Petra's 1.2km entrance gorge, walls rising to 80 metres, narrowing to 3 metres at certain points — is itself a geological event before it is an approach route. The Nabataean water channels carved into both walls, still visible, carried flash flood water away from the city and spring water into it simultaneously. The engineering is 2,000 years old and it still works. The reveal of the Treasury (Al-Khazneh) at the Siq's end is structured with a cinematographic precision that the Nabataeans achieved without benefit of cinema. The first view of the facade — 40 metres of rose-red sandstone carved directly from the cliff face — arrives after the gorge narrows to its minimum width and then opens suddenly. It lands every time.</p><p>The insider angle almost no Petra guide mentions: the Monastery (Ad Deir) at dusk. The climb is 800 steps above the valley floor and takes 40 minutes. The Monastery is twice the scale of the Treasury, significantly less visited, and positioned on a plateau with an unobstructed view west across the Arabah desert toward the Negev. In the last 30 minutes of light, the sandstone shifts through pink, amber, and deep red in a sequence that lasts perhaps 20 minutes before the colour drains entirely. Most visitors have already left. Two days in Petra is the correct allocation. Use the 6am gate opening to reach the major monuments before the day-tour groups arrive from Aqaba and Amman around 10am.</p><h2>Wadi Rum: Geology as Landscape Architecture</h2><p>Wadi Rum sits 60km east of Aqaba and extends for 720 square kilometres of granite and sandstone formations reaching 1,750 metres at their highest point. The iron oxide content of the sandstone produces a colouration that shifts through amber, ochre, and deep crimson depending on light conditions and time of day — which is why the comparison to the surface of Mars is accurate enough to have made it the filming location for seven major productions including The Martian, Lawrence of Arabia's desert sequences, and Dune. The landscape does not require the film references to justify itself. It is extraordinary on its own terms.</p><p>The overnight camp experience in Wadi Rum is one of the better things the Jordanian tourism economy has produced. The Bedouin communities of Rum village have operated as guides and hosts in this landscape for generations, and the hospitality follows a cultural logic that predates the tourism industry. Sleep in the desert at altitude, with no light pollution and the Milky Way at a clarity unavailable in inhabited latitudes, and you understand something about scale and silence that no amount of preparation adequately describes.</p><h2>Flight Access From Europe</h2><p>Amman (AMM) is one of the better-connected Middle Eastern capitals from Europe. Royal Jordanian operates from London Heathrow (LHR), Paris (CDG), Frankfurt (FRA), Amsterdam (AMS), and Madrid (MAD), with oneworld membership meaning British Airways, Iberia, and Finnair miles apply — an upgrade and redemption dynamic worth understanding before booking if you hold points in any of these programs.</p><p>Budget carrier penetration on the AMM corridor has expanded significantly. Ryanair, Wizz Air, and easyJet now serve Amman from an expanding range of European departure cities, with return fares from Central and Eastern Europe regularly appearing below EUR150 in shoulder season — a fare level that makes Jordan one of the most cost-accessible Middle Eastern destinations from the European budget network. From London, Wizz Air's Luton service and Ryanair's Stansted service both price the route competitively. Gulf carrier connections via Dubai (DXB) and Doha (DOH) serve travelers routing from cities without direct AMM services. FlyWell monitors AMM fare releases across all European carriers — the budget carrier sales on this corridor produce short windows of anomalous pricing that reward travelers watching the route.</p><h2>Smart Routing: Jordan as Open-Jaw Anchor</h2><p>Jordan's geography makes it a natural anchor for a wider Levant itinerary. The Wadi Araba crossing from Aqaba into Eilat is the smoothest land border in the region — functional, reasonably fast, connecting two resort cities with direct transport links to their respective capital airports. An itinerary entering via AMM, traveling south through Petra and Wadi Rum to Aqaba, crossing into Israel, and exiting from Tel Aviv (TLV) is a classic open-jaw structure that captures two countries at their geographical and historical core without repeating any terrain. Search this as multi-city. The pricing is frequently within EUR30–50 of a straight return to AMM and the itinerary it creates is incomparably richer.</p><h2>Seasonal Timing Intelligence</h2><p>Jordan's shoulder seasons — October through November and March through April — represent the optimal combination of weather, crowd levels, and pricing. Both periods offer daytime temperatures in the mid-20s across the south, minimal rainfall, and fares from Europe running 20–30% below the December–January peak. Summer in Aqaba and the Jordan Valley is genuinely hot — 38–42 degrees — but Amman and Petra are manageable at 28–32 degrees, and Wadi Rum at altitude cools dramatically after dark. The Christmas and New Year window commands a premium and fills early on preferred routings.</p><h2>Smart Booking Strategy</h2><p>Four to five days covers the Petra–Wadi Rum–Dead Sea circuit properly. A week allows Amman, Jerash, and the Madaba–Mount Nebo Christian heritage circuit to be added without pressure. Budget carrier fares from Central Europe make Jordan one of the most cost-effective Middle Eastern itineraries available from the European market — a week in Jordan including flights, accommodation, and self-drive transport is achievable at a total cost that compares favourably with a long weekend in a major Western European city. Book 8–10 weeks ahead for the best availability on budget carrier routings; Royal Jordanian tends to price more consistently and can be booked further in advance without penalty.</p><p>Jordan is the Levant argument made physical. The history is present in layers you can touch. The landscape ranges from the Mediterranean north to the Saharan south within a day's drive. The hospitality culture — built on the Bedouin concept of diyafa, the obligation to provide for guests regardless of circumstance — is not a tourism product. It is a practice that predates the hotels and will outlast them. The fares, particularly from Central Europe, make visiting it a proposition that requires very little persuasion once the map is understood.</p>`
-    }
-];
-</script>
-
-<script>
-// ─────────────────────────────────────────────────────────────────────────────
-// MONTH PICKER
-// ─────────────────────────────────────────────────────────────────────────────
-const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const MONTHS_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-let pickerYear = new Date().getFullYear();
-let selectedMonth = null;
-let pickerVisible = false;
-
-const pickerEl = document.createElement('div');
-pickerEl.id = 'month-picker';
-pickerEl.style.cssText = `display:none;position:fixed;background:#fff;border:1px solid rgba(40,30,20,0.14);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,0.7);padding:1.2rem;z-index:9999;min-width:280px;`;
-pickerEl.innerHTML = `
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
-    <button onclick="changeYear(-1)" style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:rgba(28,22,18,0.45);padding:0.2rem 0.6rem;border-radius:6px;">‹</button>
-    <span id="picker-year" style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.9rem;color:#1c1612;letter-spacing:0.05em;"></span>
-    <button onclick="changeYear(1)" style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:rgba(28,22,18,0.45);padding:0.2rem 0.6rem;border-radius:6px;">›</button>
-  </div>
-  <div id="month-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.4rem;"></div>
-  <div style="margin-top:0.9rem;text-align:center;">
-    <button onclick="clearMonth()" style="background:none;border:none;cursor:pointer;font-size:0.72rem;color:rgba(28,22,18,0.45);text-decoration:underline;font-family:'DM Sans',sans-serif;">Clear</button>
-  </div>
-`;
-document.body.appendChild(pickerEl);
-
-function renderMonthGrid() {
-  document.getElementById('picker-year').textContent = pickerYear;
-  const grid = document.getElementById('month-grid');
-  const now = new Date();
-  grid.innerHTML = '';
-  MONTHS.forEach((m, i) => {
-    const isPast = pickerYear < now.getFullYear() || (pickerYear === now.getFullYear() && i < now.getMonth());
-    const isSelected = selectedMonth && selectedMonth.year === pickerYear && selectedMonth.monthIdx === i;
-    const btn = document.createElement('button');
-    btn.textContent = m;
-    btn.disabled = isPast;
-    btn.style.cssText = `border:1px solid ${isSelected?'#c47f2a':'rgba(40,30,20,0.12)'};background:${isSelected?'#c47f2a':'#fff'};color:${isPast?'rgba(28,22,18,0.2)':isSelected?'#fff':'#1c1612'};border-radius:8px;padding:0.45rem 0;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;cursor:${isPast?'default':'pointer'};transition:all 0.15s;width:100%;`;
-    if (!isPast) btn.onclick = () => selectMonth(i);
-    grid.appendChild(btn);
-  });
-}
-
-function selectMonth(monthIdx) {
-  selectedMonth = { year: pickerYear, monthIdx };
-  document.getElementById('search-when').value = MONTHS_FULL[monthIdx] + ' ' + pickerYear;
-  pickerEl.style.display = 'none';
-  pickerVisible = false;
-  renderMonthGrid();
-}
-
-// FIX #12: Corrected year navigation — allow going back to current year, block going before it
-function changeYear(dir) {
-  const now = new Date();
-  if (dir === -1 && pickerYear - 1 < now.getFullYear()) return;
-  pickerYear += dir;
-  renderMonthGrid();
-}
-
-function clearMonth() {
-  selectedMonth = null;
-  document.getElementById('search-when').value = '';
-  pickerEl.style.display = 'none';
-  pickerVisible = false;
-  renderMonthGrid();
-}
-
-function toggleMonthPicker(e) {
-  if (e) e.stopPropagation();
-  if (pickerVisible) { pickerEl.style.display = 'none'; pickerVisible = false; return; }
-  const input = document.getElementById('search-when');
-  const rect = input.getBoundingClientRect();
-  let left = rect.left + window.scrollX;
-  let top = rect.bottom + window.scrollY + 8;
-  pickerEl.style.display = 'block';
-  renderMonthGrid();
-  const pickerWidth = pickerEl.offsetWidth;
-  if (left + pickerWidth > window.innerWidth - 16) left = window.innerWidth - pickerWidth - 16;
-  pickerEl.style.left = left + 'px';
-  pickerEl.style.top = top + 'px';
-  pickerVisible = true;
-}
-
-document.addEventListener('click', (e) => {
-  if (pickerVisible && !pickerEl.contains(e.target) && e.target !== document.getElementById('search-when')) {
-    pickerEl.style.display = 'none';
-    pickerVisible = false;
-  }
-});
-
-// ─────────────────────────────────────────────────────────────────────────────
-// UNIFIED FILTER STATE  (FIX #7, #8)
-// ─────────────────────────────────────────────────────────────────────────────
-let dealsShown = 9;
-let currentRegion = 'all';
-
-function applyAllFilters() {
-  const cards = document.querySelectorAll('#deals-grid .deal-card');
-  // FIX #6: From field only matches origin data, not full card text
-  const fromInput = (document.getElementById('search-from').value || '').toLowerCase().trim();
-  const toInput   = (document.getElementById('search-to').value   || '').toLowerCase().trim();
-
-  const filtered = [];
-  cards.forEach(card => {
-    const regions  = (card.dataset.region  || '').split(' ');
-    const fromData = (card.dataset.from    || '');
-    const toData   = (card.dataset.to      || '');
-    const country  = (card.dataset.country || '');
-    // For To: also search card text for airline/title matches
-    const cardText = (card.textContent || '').toLowerCase();
-
-    const matchRegion = currentRegion === 'all' || regions.includes(currentRegion);
-    // FIX #6: From only searches from data + known origin text (not full card)
-    const matchFrom = !fromInput || fromData.includes(fromInput) || cardText.includes(fromInput);
-    const matchTo   = !toInput   || toData.includes(toInput) || country.includes(toInput) || cardText.includes(toInput);
-
-    // Month filter
-    let matchWhen = true;
-    if (selectedMonth) {
-      const deal = (window.DEALS || []).find(d => String(d.id) === String(card.dataset.deal));
-      const availability = deal ? (deal.availability || '').toLowerCase() : '';
-      const monthName = MONTHS_FULL[selectedMonth.monthIdx].toLowerCase();
-      const year = String(selectedMonth.year);
-      matchWhen = availability.includes(monthName) || availability.includes(year);
-    }
-
-    if (matchRegion && matchFrom && matchTo && matchWhen) filtered.push(card);
-  });
-
-  // Hide all, then show paginated slice
-  cards.forEach(card => card.style.display = 'none');
-  filtered.slice(0, dealsShown).forEach(card => card.style.display = 'block');
-
-  // Load More button visibility
-  const loadMoreWrap = document.querySelector('.load-more-wrap');
-  if (loadMoreWrap) loadMoreWrap.style.display = filtered.length > dealsShown ? 'block' : 'none';
-
-  // No-results message
-  let noMsg = document.getElementById('no-results');
-  if (!noMsg) {
-    noMsg = document.createElement('p');
-    noMsg.id = 'no-results';
-    noMsg.style.cssText = 'text-align:center;color:rgba(28,22,18,0.45);padding:2rem;font-size:0.88rem;width:100%;grid-column:1/-1;';
-    document.getElementById('deals-grid').appendChild(noMsg);
-  }
-  noMsg.style.display = filtered.length === 0 ? 'block' : 'none';
-  noMsg.textContent   = filtered.length === 0 ? 'No deals found. Try a country name or nearby city.' : '';
-}
-
-// FIX #7: filterByRegion keeps pill param for active state
-function filterByRegion(pill, region) {
-  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-  pill.classList.add('active');
-  currentRegion = region;
-  dealsShown = 9;
-  applyAllFilters();
-}
-
-// FIX #8: runSearch uses unified filter
-function runSearch() {
-  dealsShown = 9;
-  applyAllFilters();
-}
-
-// FIX #8: loadMore uses unified filter
-function loadMore() {
-  dealsShown += 9;
-  applyAllFilters();
-}
-
-// Wire up Enter key on search inputs
-['search-from','search-to'].forEach(id => {
-  const el = document.getElementById(id);
-  if (el) el.addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); });
-});
-
-// ─────────────────────────────────────────────────────────────────────────────
-// NAV SEARCH
-// ─────────────────────────────────────────────────────────────────────────────
-function navSearch(val) {
-  const resultsEl = document.getElementById('nav-search-results');
-  if (!val || val.length < 2) { if (resultsEl) resultsEl.style.display = 'none'; return; }
-  const q = val.toLowerCase();
-  const all = window.DEALS || [];
-  const fromLabel = d => (Array.isArray(d.from) ? d.from[0] : d.from) || '';
-  const toLabel   = d => (Array.isArray(d.to)   ? d.to[0]   : d.to)   || '';
-  const matches = all.filter(d =>
-    fromLabel(d).toLowerCase().includes(q) ||
-    toLabel(d).toLowerCase().includes(q)   ||
-    (d.title || '').toLowerCase().includes(q)
-  ).slice(0, 8);
-
-  // Position dropdown below whichever search input is active
-  const activeInput = document.activeElement;
-  const refInput = (activeInput && (activeInput.id === 'nav-search-input' || activeInput.id === 'mobile-search-input'))
-    ? activeInput
-    : document.getElementById('nav-search-input');
-  const wrap = refInput.closest('.nav-search-wrap') || refInput.closest('.mobile-search-bar') || refInput;
-  const rect = wrap.getBoundingClientRect();
-
-  if (resultsEl) {
-    resultsEl.style.top  = (rect.bottom + window.scrollY + 6) + 'px';
-    resultsEl.style.left = Math.min(rect.left, window.innerWidth - 310) + 'px';
-
-    if (matches.length === 0) {
-      resultsEl.innerHTML = `<div class="nav-result-empty">No deals found for "<strong>${val}</strong>"</div>`;
-    } else {
-      resultsEl.innerHTML = matches.map(d => {
-        const from    = fromLabel(d);
-        const to      = toLabel(d);
-        const airline = Array.isArray(d.airline) ? d.airline[0] : (d.airline || '');
-        const img     = resolveImage(Array.isArray(d.to) ? d.to : [d.to]) || d.img || '';
-        return `<div class="nav-result-item" onclick="openDeal(${d.id})">
-          <img class="nav-result-thumb" src="${img}" alt="${to.replace(/"/g,'&quot;')}" onerror="this.style.display='none'">
-          <div class="nav-result-info">
-            <div class="nav-result-route">${from} &rarr; ${to}</div>
-            <div class="nav-result-title">${airline}</div>
-          </div>
-          <div class="nav-result-price">${d.price || ''}</div>
-        </div>`;
-      }).join('');
-    }
-    resultsEl.style.display = 'block';
-  }
-}
-
-function navSearchGo() {
-  const val = document.getElementById('nav-search-input').value.trim();
-  if (!val) return;
-  _doNavSearchGo(val);
-}
-
-// FIX #5: Mobile search go handler
-function navSearchGoMobile() {
-  const val = document.getElementById('mobile-search-input').value.trim();
-  if (!val) return;
-  _doNavSearchGo(val);
-}
-
-// FIX #17: Clear both From and To before setting new destination search
-function _doNavSearchGo(val) {
-  showPage('main');
-  document.getElementById('search-from').value = '';  // FIX #17: clear stale from
-  document.getElementById('search-to').value = val;
-  document.getElementById('nav-search-input').value = '';
-  document.getElementById('mobile-search-input').value = '';
-  const resultsEl = document.getElementById('nav-search-results');
-  if (resultsEl) resultsEl.style.display = 'none';
-  setTimeout(() => {
-    runSearch();
-    document.getElementById('deals-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 100);
-}
-
-document.addEventListener('click', (e) => {
-  const resultsEl = document.getElementById('nav-search-results');
-  const navInput    = document.getElementById('nav-search-input');
-  const mobileInput = document.getElementById('mobile-search-input');
-  if (resultsEl && !resultsEl.contains(e.target) && e.target !== navInput && e.target !== mobileInput) {
-    resultsEl.style.display = 'none';
-  }
-});
-
-// ─────────────────────────────────────────────────────────────────────────────
-// DESTINATION IMAGE MAP
-// ─────────────────────────────────────────────────────────────────────────────
-const DEST_IMAGE_MAP = {
-  'kabul':'afghanistan.jpg','tirana':'albania.jpg','algiers':'algeria.jpg','luanda':'angola.jpg',
-  'buenos aires':'argentina-buenos-aires.jpg','yerevan':'armenia.jpg','vienna':'austria.jpg',
-  'baku':'azerbaijan.jpg','nassau':'bahamas.jpg','manama':'bahrain.jpg','dhaka':'bangladesh.jpg',
-  'bridgetown':'barbados.jpg','minsk':'belarus.jpg','brussels':'belgium.jpg','belmopan':'belize.jpg',
-  'porto-novo':'benin.jpg','thimphu':'bhutan.jpg','sucre':'bolivia.jpg','sarajevo':'bosnia.jpg',
-  'gaborone':'botswana.jpg','brasilia':'brazil.jpg','brasília':'brazil.jpg',
-  'sao paulo':'brazil.jpg','são paulo':'brazil.jpg','rio de janeiro':'brazil.jpg',
-  'bandar seri begawan':'brunei.jpg','sofia':'bulgaria.jpg','ouagadougou':'burkina-faso.jpg',
-  'gitega':'burundi.jpg',
-  // FIX #16: Added 'sal' and 'sal, cape verde' entries
-  'sal':'cabo-verde.jpg','sal, cape verde':'cabo-verde.jpg','praia':'cabo-verde.jpg',
-  'phnom penh':'cambodia.jpg','siem reap':'cambodia.jpg','yaounde':'cameroon.jpg',
-  'yaoundé':'cameroon.jpg','ottawa':'canada.jpg','toronto':'canada-toronto.jpg',
-  'calgary':'canada.jpg','montreal':'canada.jpg','vancouver':'canada.jpg',
-  'bangui':'central-african-republic.jpg',"n'djamena":'chad.jpg','santiago':'chile.jpg',
-  'beijing':'china-beijing.jpg','shanghai':'china.jpg','chongqing':'china.jpg',
-  'guangzhou':'china.jpg','moroni':'comoros.jpg','brazzaville':'congo.jpg',
-  'san jose':'costa-rica.jpg','san josé':'costa-rica.jpg','liberia':'costa-rica.jpg',
-  'zagreb':'croatia.jpg','havana':'cuba.jpg','nicosia':'cyprus.jpg','prague':'czech-republic.jpg',
-  'copenhagen':'denmark.jpg','djibouti city':'djibouti.jpg','roseau':'dominica.jpg',
-  'santo domingo':'dominican-republic.jpg','quito':'ecuador.jpg','cairo':'egypt.jpg',
-  'san salvador':'el-salvador.jpg','asmara':'eritrea.jpg','tallinn':'estonia.jpg',
-  'addis ababa':'ethiopia.jpg','suva':'fiji.jpg','helsinki':'finland.jpg',
-  'paris':'france-paris.jpg','libreville':'gabon.jpg','banjul':'gambia.jpg',
-  'tbilisi':'georgia.jpg','berlin':'germany-berlin.jpg','frankfurt':'germany.jpg',
-  'munich':'germany.jpg','hamburg':'germany.jpg','accra':'ghana.jpg','athens':'greece.jpg',
-  'guatemala city':'guatemala.jpg','conakry':'guinea.jpg','georgetown':'guyana.jpg',
-  'port-au-prince':'haiti.jpg','tegucigalpa':'honduras.jpg','budapest':'hungary.jpg',
-  'reykjavik':'iceland.jpg','reykjavík':'iceland.jpg','new delhi':'india.jpg',
-  'delhi':'india.jpg','mumbai':'india-mumbai.jpg','goa':'india.jpg',
-  'jakarta':'indonesia.jpg','bali':'indonesia-bali.jpg','lombok':'indonesia.jpg',
-  'tehran':'iran.jpg','baghdad':'iraq.jpg','dublin':'ireland.jpg',
-  'jerusalem':'israel.jpg','tel aviv':'israel.jpg','rome':'italy-rome.jpg',
-  'milan':'italy.jpg','florence':'italy.jpg','venice':'italy.jpg',
-  'kingston':'jamaica.jpg','tokyo':'japan-tokyo.jpg','osaka':'japan.jpg',
-  'kyoto':'japan.jpg','amman':'jordan.jpg','nairobi':'kenya-nairobi.jpg',
-  'mombasa':'kenya.jpg','kuwait city':'kuwait.jpg','bishkek':'kyrgyzstan.jpg',
-  'vientiane':'laos.jpg','luang prabang':'laos.jpg','riga':'latvia.jpg',
-  'beirut':'lebanon.jpg','tripoli':'libya.jpg','vilnius':'lithuania.jpg',
-  'luxembourg city':'luxembourg.jpg','antananarivo':'madagascar.jpg',
-  'lilongwe':'malawi.jpg','kuala lumpur':'malaysia.jpg','penang':'malaysia.jpg',
-  'langkawi':'malaysia.jpg','male':'maldives.jpg','malé':'maldives.jpg',
-  'bamako':'mali.jpg','valletta':'malta.jpg','mexico city':'mexico.jpg',
-  'cancun':'mexico-cancun.jpg','cancún':'mexico-cancun.jpg','chisinau':'moldova.jpg',
-  'ulaanbaatar':'mongolia.jpg','podgorica':'montenegro.jpg','rabat':'morocco.jpg',
-  'marrakech':'morocco-marrakech.jpg','casablanca':'morocco.jpg','maputo':'mozambique.jpg',
-  'windhoek':'namibia.jpg','kathmandu':'nepal.jpg',
-  'amsterdam':'netherlands-amsterdam.jpg','wellington':'new-zealand.jpg',
-  'auckland':'new-zealand.jpg','managua':'nicaragua.jpg','abuja':'nigeria.jpg',
-  'lagos':'nigeria.jpg','oslo':'norway.jpg','muscat':'oman.jpg',
-  'islamabad':'pakistan.jpg','karachi':'pakistan.jpg','panama city':'panama.jpg',
-  'asuncion':'paraguay.jpg','asunción':'paraguay.jpg','lima':'peru-lima.jpg',
-  'machu picchu':'peru.jpg','manila':'philippines.jpg','cebu':'philippines.jpg',
-  'boracay':'philippines.jpg','warsaw':'poland.jpg','lisbon':'portugal-lisbon.jpg',
-  'porto':'portugal.jpg','doha':'qatar.jpg','bucharest':'romania.jpg',
-  'moscow':'russia.jpg','kigali':'rwanda.jpg','riyadh':'saudi-arabia.jpg',
-  'dakar':'senegal.jpg','belgrade':'serbia.jpg','freetown':'sierra-leone.jpg',
-  'singapore':'singapore.jpg','bratislava':'slovakia.jpg','ljubljana':'slovenia.jpg',
-  'mogadishu':'somalia.jpg','cape town':'south-africa-cape-town.jpg',
-  'johannesburg':'south-africa.jpg','durban':'south-africa.jpg',
-  'pretoria':'south-africa.jpg','seoul':'south-korea-seoul.jpg',
-  'busan':'south-korea.jpg','madrid':'spain-madrid.jpg',
-  'barcelona':'spain-barcelona.jpg','malaga':'spain.jpg','málaga':'spain.jpg',
-  'ibiza':'spain.jpg','mallorca':'spain.jpg','colombo':'sri-lanka.jpg',
-  'paramaribo':'suriname.jpg','stockholm':'sweden-stockholm.jpg',
-  'bern':'switzerland.jpg','zurich':'switzerland.jpg','taipei':'taiwan.jpg',
-  'dushanbe':'tajikistan.jpg','dar es salaam':'tanzania.jpg',
-  'zanzibar':'tanzania.jpg','bangkok':'thailand-bangkok.jpg',
-  'phuket':'thailand-phuket.jpg','chiang mai':'thailand.jpg',
-  'pattaya':'thailand.jpg','port of spain':'trinidad-and-tobago.jpg',
-  'tunis':'tunisia.jpg','istanbul':'turkey-istanbul.jpg','ankara':'turkey.jpg',
-  'kampala':'uganda.jpg','kyiv':'ukraine.jpg','abu dhabi':'uae.jpg',
-  'dubai':'uae-dubai.jpg','london':'uk-london.jpg','edinburgh':'uk.jpg',
-  'manchester':'uk.jpg','new york':'usa-new-york.jpg',
-  'new york city':'usa-new-york.jpg','new york jfk':'usa-new-york.jpg',
-  'nyc':'usa-new-york.jpg','los angeles':'usa.jpg','chicago':'usa-chicago.jpg',
-  'miami':'usa.jpg','las vegas':'usa.jpg','washington':'usa.jpg',
-  'washington dc':'usa.jpg','seattle':'usa.jpg','boston':'usa.jpg',
-  'denver':'usa.jpg','orlando':'usa.jpg','austin':'usa.jpg','dallas':'usa.jpg',
-  'philadelphia':'usa.jpg','charlotte':'usa.jpg','houston':'usa.jpg',
-  'atlanta':'usa.jpg',
-  // FIX #1/#16: Melbourne Florida correctly maps to usa.jpg not australia
-  'melbourne, florida':'usa.jpg','melbourne, florida, usa':'usa.jpg',
-  'melbourne':'usa.jpg',
-  'montevideo':'uruguay.jpg','tashkent':'uzbekistan.jpg','caracas':'venezuela.jpg',
-  'hanoi':'vietnam.jpg','ho chi minh city':'vietnam.jpg','ho chi minh':'vietnam.jpg',
-  'saigon':'vietnam.jpg','da nang':'vietnam.jpg','lusaka':'zambia.jpg',
-  'harare':'zimbabwe.jpg','hong kong':'china-hong-kong.jpg','macau':'china.jpg',
-  'brisbane':'australia-brisbane.jpg','sydney':'australia-sydney.jpg',
-  'perth':'australia.jpg','bogota':'colombia-bogota.jpg',
-  'bogotá':'colombia-bogota.jpg','medellin':'colombia.jpg',
-  'medellín':'colombia.jpg','cartagena':'colombia-cartagena.jpg',
-  // Countries
-  'afghanistan':'afghanistan.jpg','albania':'albania.jpg','algeria':'algeria.jpg',
-  'argentina':'argentina.jpg','armenia':'armenia.jpg','australia':'australia.jpg',
-  'austria':'austria.jpg','azerbaijan':'azerbaijan.jpg','bahamas':'bahamas.jpg',
-  'bahrain':'bahrain.jpg','bangladesh':'bangladesh.jpg','barbados':'barbados.jpg',
-  'belarus':'belarus.jpg','belgium':'belgium.jpg','belize':'belize.jpg',
-  'bolivia':'bolivia.jpg','brazil':'brazil.jpg','brunei':'brunei.jpg',
-  'bulgaria':'bulgaria.jpg','cambodia':'cambodia.jpg','cameroon':'cameroon.jpg',
-  'canada':'canada.jpg','cape verde':'cabo-verde.jpg','chile':'chile.jpg',
-  'china':'china.jpg','colombia':'colombia.jpg','costa rica':'costa-rica.jpg',
-  'croatia':'croatia.jpg','cuba':'cuba.jpg','cyprus':'cyprus.jpg',
-  'denmark':'denmark.jpg','ecuador':'ecuador.jpg','egypt':'egypt.jpg',
-  'ethiopia':'ethiopia.jpg','fiji':'fiji.jpg','finland':'finland.jpg',
-  'france':'france.jpg','germany':'germany.jpg','ghana':'ghana.jpg',
-  'greece':'greece.jpg','guatemala':'guatemala.jpg','guyana':'guyana.jpg',
-  'honduras':'honduras.jpg','hungary':'hungary.jpg','iceland':'iceland.jpg',
-  'india':'india.jpg','indonesia':'indonesia.jpg','iran':'iran.jpg',
-  'iraq':'iraq.jpg','ireland':'ireland.jpg','israel':'israel.jpg',
-  'italy':'italy.jpg','jamaica':'jamaica.jpg','japan':'japan.jpg',
-  'jordan':'jordan.jpg','kenya':'kenya.jpg','kuwait':'kuwait.jpg',
-  'laos':'laos.jpg','latvia':'latvia.jpg','lebanon':'lebanon.jpg',
-  'lithuania':'lithuania.jpg','madagascar':'madagascar.jpg',
-  'malaysia':'malaysia.jpg','maldives':'maldives.jpg','malta':'malta.jpg',
-  'mexico':'mexico.jpg','mongolia':'mongolia.jpg','morocco':'morocco.jpg',
-  'mozambique':'mozambique.jpg','myanmar':'myanmar.jpg','namibia':'namibia.jpg',
-  'nepal':'nepal.jpg','netherlands':'netherlands.jpg',
-  'new zealand':'new-zealand.jpg','nicaragua':'nicaragua.jpg',
-  'nigeria':'nigeria.jpg','norway':'norway.jpg','oman':'oman.jpg',
-  'pakistan':'pakistan.jpg','panama':'panama.jpg','paraguay':'paraguay.jpg',
-  'peru':'peru.jpg','philippines':'philippines.jpg','poland':'poland.jpg',
-  'portugal':'portugal.jpg','qatar':'qatar.jpg','romania':'romania.jpg',
-  'russia':'russia.jpg','rwanda':'rwanda.jpg','saudi arabia':'saudi-arabia.jpg',
-  'senegal':'senegal.jpg','serbia':'serbia.jpg','singapore':'singapore.jpg',
-  'slovakia':'slovakia.jpg','slovenia':'slovenia.jpg','somalia':'somalia.jpg',
-  'south africa':'south-africa.jpg','south korea':'south-korea.jpg',
-  'spain':'spain.jpg','sri lanka':'sri-lanka.jpg','suriname':'suriname.jpg',
-  'sweden':'sweden.jpg','switzerland':'switzerland.jpg','taiwan':'taiwan.jpg',
-  'tanzania':'tanzania.jpg','thailand':'thailand.jpg','tunisia':'tunisia.jpg',
-  'turkey':'turkey.jpg','uganda':'uganda.jpg','ukraine':'ukraine.jpg',
-  'united arab emirates':'uae.jpg','uae':'uae.jpg','united kingdom':'uk.jpg',
-  'uk':'uk.jpg','united states':'usa.jpg','usa':'usa.jpg','uruguay':'uruguay.jpg',
-  'uzbekistan':'uzbekistan.jpg','venezuela':'venezuela.jpg','vietnam':'vietnam.jpg',
-  'zambia':'zambia.jpg','zimbabwe':'zimbabwe.jpg'
-};
-
-function resolveImage(toArray) {
-  const arr = Array.isArray(toArray) ? toArray : [toArray || ''];
-  for (const dest of arr) {
-    if (!dest) continue;
-    const lower = dest.toLowerCase().trim();
-    if (DEST_IMAGE_MAP[lower]) return 'images/' + DEST_IMAGE_MAP[lower];
-    const cityLower = lower.split(',')[0].trim();
-    if (DEST_IMAGE_MAP[cityLower]) return 'images/' + DEST_IMAGE_MAP[cityLower];
-    const parts = lower.split(',');
-    if (parts[1]) {
-      const countryLower = parts[1].trim();
-      if (DEST_IMAGE_MAP[countryLower]) return 'images/' + DEST_IMAGE_MAP[countryLower];
-    }
-  }
-  return '';
-}
-
-function resolveImageCountryOnly(toArray) {
-  const arr = Array.isArray(toArray) ? toArray : [toArray || ''];
-  for (const dest of arr) {
-    if (!dest || !dest.includes(',')) continue;
-    const countryLower = dest.split(',').slice(1).join(',').trim().toLowerCase();
-    if (DEST_IMAGE_MAP[countryLower]) return 'images/' + DEST_IMAGE_MAP[countryLower];
-  }
-  return 'images/earth.jpg';
-}
-
-// FIX #2: imgFallback uses data-country attribute for reliable country lookup
-function imgFallback(img) {
-  var step = img.dataset.s || '0';
-  if (step === '0') {
-    img.dataset.s = '1';
-    var card = img.parentElement;
-    while (card && !card.dataset.country) card = card.parentElement;
-
-    var country = card ? (card.dataset.country || '').trim().toLowerCase() : '';
-    // Also try extracting country from data-to if it has a comma
-    if (!country && card) {
-      var to = (card.dataset.to || '');
-      if (to.includes(',')) country = to.split(',').slice(1).join(',').trim().toLowerCase();
-    }
-    var countryImg = (country && DEST_IMAGE_MAP[country])
-      ? 'images/' + DEST_IMAGE_MAP[country]
-      : 'images/earth.jpg';
-    img.src = countryImg;
-  } else if (step === '1') {
-    img.dataset.s = '2';
-    img.src = 'images/earth.jpg';
-  } else {
-    img.onerror = null;
-    img.style.display = 'none';
-    var ph = img.nextElementSibling;
-    if (ph && ph.classList.contains('img-placeholder')) ph.style.display = 'flex';
-  }
-}
-
-// FIX #14: Deal detail image fallback — separate named function, fb1 set before src
-function ddImgFallback(img) {
-  var step = img.dataset.fbStep || '0';
-  if (step === '0' || step === '') {
-    img.dataset.fbStep = '1';
-    img.src = img.dataset.fb1 || 'images/earth.jpg';
-  } else if (step === '1') {
-    img.dataset.fbStep = '2';
-    img.src = 'images/earth.jpg';
-  } else {
-    img.onerror = null;
-  }
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// HELPERS
-// ─────────────────────────────────────────────────────────────────────────────
-const NO_COUNTRY = new Set(['Singapore','Luxembourg','Macau','Hong Kong','Taiwan']);
-
-function ensureCountry(location, allLocations) {
-  if (!location) return location;
-  if (location.includes(',')) return location;
-  const bare = location.trim();
-  if (NO_COUNTRY.has(bare)) return bare;
-  if (allLocations && Array.isArray(allLocations)) {
-    for (const loc of allLocations) {
-      if (loc && loc.includes(',')) {
-        const country = loc.split(',').slice(1).join(',').trim();
-        if (country) return bare + ', ' + country;
-      }
-    }
-  }
-  return bare;
-}
-
-var COUNTRY_CODES = {
-  'Afghanistan':'AF','Albania':'AL','Algeria':'DZ','Angola':'AO','Argentina':'AR',
-  'Armenia':'AM','Australia':'AU','Austria':'AT','Azerbaijan':'AZ',
-  'Bahamas':'BS','Bahrain':'BH','Bangladesh':'BD','Barbados':'BB','Belarus':'BY',
-  'Belgium':'BE','Belize':'BZ','Bolivia':'BO','Brazil':'BR','Brunei':'BN',
-  'Bulgaria':'BG','Cambodia':'KH','Cameroon':'CM','Canada':'CA','Cape Verde':'CV',
-  'Chile':'CL','China':'CN','Colombia':'CO','Congo':'CG','Costa Rica':'CR',
-  'Croatia':'HR','Cuba':'CU','Cyprus':'CY','Czech Republic':'CZ',
-  'Denmark':'DK','Ecuador':'EC','Egypt':'EG','El Salvador':'SV','Estonia':'EE',
-  'Ethiopia':'ET','Fiji':'FJ','Finland':'FI','France':'FR','Gabon':'GA',
-  'Georgia':'GE','Germany':'DE','Ghana':'GH','Greece':'GR','Guatemala':'GT',
-  'Honduras':'HN','Hungary':'HU','Iceland':'IS','India':'IN','Indonesia':'ID',
-  'Iran':'IR','Iraq':'IQ','Ireland':'IE','Israel':'IL','Italy':'IT',
-  'Jamaica':'JM','Japan':'JP','Jordan':'JO','Kenya':'KE','Kuwait':'KW',
-  'Kyrgyzstan':'KG','Laos':'LA','Latvia':'LV','Lebanon':'LB','Libya':'LY',
-  'Lithuania':'LT','Madagascar':'MG','Malawi':'MW','Malaysia':'MY','Maldives':'MV',
-  'Mali':'ML','Malta':'MT','Mexico':'MX','Moldova':'MD','Mongolia':'MN',
-  'Montenegro':'ME','Morocco':'MA','Mozambique':'MZ','Myanmar':'MM','Namibia':'NA',
-  'Nepal':'NP','Netherlands':'NL','New Zealand':'NZ','Nicaragua':'NI',
-  'Nigeria':'NG','Norway':'NO','Oman':'OM','Pakistan':'PK','Panama':'PA',
-  'Paraguay':'PY','Peru':'PE','Philippines':'PH','Poland':'PL','Portugal':'PT',
-  'Qatar':'QA','Romania':'RO','Russia':'RU','Rwanda':'RW','Saudi Arabia':'SA',
-  'Senegal':'SN','Serbia':'RS','Sierra Leone':'SL','Slovakia':'SK','Slovenia':'SI',
-  'Somalia':'SO','South Africa':'ZA','South Korea':'KR','Spain':'ES',
-  'Sri Lanka':'LK','Suriname':'SR','Sweden':'SE','Switzerland':'CH',
-  'Tajikistan':'TJ','Tanzania':'TZ','Thailand':'TH','Trinidad and Tobago':'TT',
-  'Tunisia':'TN','Turkey':'TR','Uganda':'UG','Ukraine':'UA',
-  'United Arab Emirates':'AE','United Kingdom':'GB','United States':'US',
-  'Uruguay':'UY','Uzbekistan':'UZ','Venezuela':'VE','Vietnam':'VN',
-  'Zambia':'ZM','Zimbabwe':'ZW'
-};
-
-function shortenCountry(location) {
-  if (!location || !location.includes(',')) return location;
-  var parts = location.split(',');
-  var city    = parts[0].trim();
-  var country = parts.slice(1).join(',').trim();
-  var code = COUNTRY_CODES[country];
-  return code ? city + ', ' + code : location;
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// DEAL CARD RENDERER
-// ─────────────────────────────────────────────────────────────────────────────
-function renderDealsGrid() {
-  var grid = document.getElementById('deals-grid');
-  if (!grid || !window.DEALS) return;
-
-  var sorted = window.DEALS.slice().sort(function(a, b) { return b.id - a.id; });
-  var html = '';
-  for (var i = 0; i < sorted.length; i++) {
-    var d = sorted[i];
-    var fromArr = Array.isArray(d.from) ? d.from : [d.from || ''];
-    var toArr   = Array.isArray(d.to)   ? d.to   : [d.to   || ''];
-    var from0     = ensureCountry(fromArr[0], fromArr);
-    var routeFrom = fromArr.length > 1 ? 'European cities' : from0;
-    var to0       = toArr[0] || '';
-    var region    = d.region || 'europe';
-    var badgeType = d.badge || 'new';
-    var badgeText = d.badge === 'hot' ? '&#x1F525; Hot' : d.badge === 'business' ? '&#x2708; Business' : '&#x2728; New';
-    var tripType  = d.tripType || 'roundtrip';
-    var imgSrc    = resolveImage(toArr) || d.img || 'images/earth.jpg';
-    var airline   = Array.isArray(d.airline) ? d.airline[0] : (d.airline || '');
-    var posted    = d.posted || '';
-    var dataFrom    = from0.toLowerCase();
-    var dataTo      = to0.toLowerCase();
-    var dataCountry = (to0.indexOf(',') !== -1 ? to0.split(',').slice(1).join(',') : to0).trim().toLowerCase();
-
-    html += '<div data-deal="' + d.id + '" class="deal-card"'
-          + ' data-region="' + region + '"'
-          + ' data-from="' + dataFrom + '"'
-          + ' data-to="' + dataTo + '"'
-          + ' data-country="' + dataCountry + '"'
-          + ' onclick="openDeal(' + d.id + ')" style="cursor:pointer;">'
-          + '<div class="card-img-wrap">'
-          + '<img class="card-img" src="' + imgSrc + '" alt="' + to0.replace(/"/g, '&quot;') + '"'
-          + ' onerror="imgFallback(this)">'
-          + '<div class="img-placeholder" style="display:none;">&#x2708;&#xFE0F;</div>'
-          + '<div class="card-img-overlay"></div>'
-          + '<div class="card-badge ' + badgeType + '">' + badgeText + '</div>'
-          + '<div class="card-price-tag">' + (d.price || '') + '<small>' + tripType + '</small></div>'
-          + '</div>'
-          + '<div class="card-body">'
-          + '<div class="card-arrow">&#x2197;</div>'
-          + '<div class="card-route"><span>' + shortenCountry(routeFrom) + '</span><span class="arrow">&rarr;</span><span>' + shortenCountry(to0) + '</span></div>'
-          + '<div class="card-title">' + routeFrom + ' to ' + to0 + ' for only ' + (d.price || '') + ' ' + tripType + (airline ? ' with ' + airline : '') + '</div>'
-          + '<div class="card-meta"><span>' + airline + '</span><span>' + posted + '</span></div>'
-          + '</div>'
-          + '</div>';
-  }
-  grid.innerHTML = html;
-  applyAllFilters();
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// BLOG GRID RENDERER  (FIX #4: use slug as stable key)
-// ─────────────────────────────────────────────────────────────────────────────
-function renderBlogGrid() {
-  var grid = document.getElementById('blog-grid');
-  if (!grid || !window.BLOG_POSTS) return;
-
-  var sorted = window.BLOG_POSTS.slice().sort(function(a, b) {
-    return new Date(b.date) - new Date(a.date);
-  });
-
-  var html = '';
-  for (var i = 0; i < sorted.length; i++) {
-    var p = sorted[i];
-    var excerptMatch = (p.body || '').match(/<p>([\s\S]*?)<\/p>/);
-    var excerpt = excerptMatch
-      ? excerptMatch[1].replace(/<[^>]+>/g, '').trim().slice(0, 160)
-      : '';
-    // FIX #4: use slug for stable identity instead of sort-order index
-    var slugAttr = (p.slug || '').replace(/'/g, '');
-    html += '<div class="blog-card" onclick="openBlogPost(\'' + slugAttr + '\')">'
-          + '<img class="blog-card-img" src="' + (p.img || '') + '" alt="' + (p.cat || '').replace(/"/g, '&quot;') + '">'
-          + '<div class="blog-card-body">'
-          + '<div class="blog-card-cat">'   + (p.cat   || '') + '</div>'
-          + '<div class="blog-card-title">' + (p.title || '') + '</div>'
-          + '<p class="blog-card-excerpt">' + excerpt         + '</p>'
-          + '<div class="blog-card-meta"><span>' + (p.date || '') + '</span><span>' + (p.readtime || '') + '</span></div>'
-          + '</div>'
-          + '</div>';
-  }
-  grid.innerHTML = html;
-}
-
-// FIX #4: openBlogPost now looks up by slug
-function openBlogPost(slug) {
-  const post = (window.BLOG_POSTS || []).find(p => p.slug === slug);
-  if (!post) return;
-  document.getElementById('blogpost-cat').textContent   = post.cat;
-  document.getElementById('blogpost-title').textContent = post.title;
-  document.getElementById('blogpost-meta').textContent  = post.date + ' · ' + post.readtime;
-  document.getElementById('blogpost-body').innerHTML    = post.body;
-  const heroImg  = document.getElementById('blogpost-hero-img');
-  const heroWrap = document.getElementById('blogpost-hero-wrap');
-  if (post.img) {
-    heroImg.src = post.img;
-    heroImg.alt = post.title;
-    heroWrap.style.display = 'block';
-  } else {
-    heroWrap.style.display = 'none';
-  }
-  showPage('blogpost');
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// DEAL DETAIL
-// ─────────────────────────────────────────────────────────────────────────────
-function openDeal(id) {
-  const d = (window.DEALS || []).find(x => x.id === id);
-  if (!d) return;
-
-  const fromArr    = Array.isArray(d.from) ? d.from : [d.from];
-  const toArr      = Array.isArray(d.to)   ? d.to   : [d.to];
-  const badgeLabel = d.badgeLabel || (d.badge === 'hot' ? '🔥 Hot Deal' : d.badge === 'business' ? '✈ Business Class' : '✨ New');
-  const tripType   = d.tripType || 'roundtrip';
-  const exampleDates = d.dates || [];
-
-  const ddImg = document.getElementById('dd-img');
-  // FIX #14: Set fb1 BEFORE setting src to avoid race condition
-  ddImg.alt            = d.title || '';
-  ddImg.src            = 'images/earth.jpg';
-
-  const badge = document.getElementById('dd-badge');
-  badge.textContent = badgeLabel;
-  badge.className = 'deal-detail-badge ' + (d.badge || 'new');
-  document.getElementById('dd-posted').textContent = d.posted ? 'Posted ' + d.posted : '';
-  document.getElementById('dd-price').innerHTML = '<small class="dd-price-label">from only</small>' + d.price + '<span>' + tripType + '</span>';
-  document.getElementById('dd-route-hero').textContent = ensureCountry(fromArr[0]) + ' → ' + toArr[0];
-  document.getElementById('dd-title').textContent = d.title || '';
-  document.getElementById('dd-desc').textContent  = d.desc  || '';
-  document.getElementById('dd-from').innerHTML = fromArr.map(c => '<span class="deal-detail-city">' + c + '</span>').join('');
-  document.getElementById('dd-to').innerHTML   = toArr.map(c   => '<span class="deal-detail-city">' + c + '</span>').join('');
-  document.getElementById('dd-dates').innerHTML   = (d.availability || '').replace(/(from|in)/i, '$1<br>');
-  document.getElementById('dd-airline').innerHTML = '<strong>' + (d.airline || '') + '</strong>';
-  // FIX #9: Show 'Non-stop' or actual stops, never blank
-  document.getElementById('dd-stops').innerHTML  = '<strong>' + (d.stops || 'Non-stop') + '</strong>';
-  document.getElementById('dd-cabin').innerHTML  = '<strong>' + (d.cabin  || 'Economy') + '</strong>';
-
-  const dEl = document.getElementById('dd-example-dates');
-  if (exampleDates.length === 0) {
-    dEl.className = '';
-    dEl.innerHTML = d.bookUrl
-      ? '<div class="dd-date-group"><div class="dd-date-chips"><a href="' + d.bookUrl + '" target="_blank" rel="noopener">Search available dates →</a></div></div>'
-      : '';
-  } else {
-    const isGrouped = exampleDates[0] && exampleDates[0].group;
-    if (isGrouped) {
-      dEl.className = '';
-      dEl.innerHTML = exampleDates.map(g =>
-        '<div class="dd-date-group">' +
-        '<div class="dd-date-group-header">' + g.group + '</div>' +
-        '<ul class="deal-detail-dates-list">' +
-        g.dates.map(dt => '<li><a href="' + dt.url + '" target="_blank" rel="noopener">' + dt.label + '</a></li>').join('') +
-        '</ul></div>'
-      ).join('');
-    } else {
-      dEl.className = 'deal-detail-dates-list';
-      dEl.innerHTML = exampleDates.map(e =>
-        '<li><a href="' + e.url + '" target="_blank" rel="noopener">' + e.label + '</a></li>'
-      ).join('');
-    }
-  }
-
-  document.getElementById('dd-cta-price').innerHTML = '<span class="cta-from-label">from only</span>' + d.price + '<small>' + tripType + ' / ' + (d.cabin || 'Economy') + '</small>';
-  document.getElementById('dd-cta-route').textContent = ensureCountry(fromArr[0]) + ' → ' + toArr[0];
-  document.getElementById('dd-cta-btn').href = d.bookUrl || '#';
-  document.getElementById('dd-meta-airline').textContent = d.airline || '';
-  document.getElementById('dd-meta-cabin').textContent   = d.cabin   || 'Economy';
-  document.getElementById('dd-meta-stops').textContent   = d.stops   || 'Non-stop';
-  document.getElementById('dd-meta-dates').innerHTML     = (d.availability || '').replace(/(from|in)/i, '$1<br>');
-  showPage('deal');
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// PAGE NAVIGATION
-// ─────────────────────────────────────────────────────────────────────────────
-function showPage(page, pushState) {
-  ['main-page','contact-page','terms-page','privacy-page','about-page',
-   'qa-page','deal-page','blog-page','blogpost-page'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.style.display = (id === page + '-page') ? 'block' : 'none';
-  });
-
-  // FIX #11: Reset search inputs AND region filter when returning to main
-  if (page === 'main') {
-    document.getElementById('search-from').value = '';
-    document.getElementById('search-to').value   = '';
-    document.getElementById('search-when').value = '';
-    selectedMonth = null;
-    const allPill = document.querySelector('.pill[onclick*="\'all\'"]');
-    if (allPill) {
-      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-      allPill.classList.add('active');
-    }
-    currentRegion = 'all';
-    dealsShown    = 9;
-    applyAllFilters();
-  }
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  if (pushState !== false) {
-    try {
-      const hash = page === 'main' ? '#' : '#' + page;
-      history.pushState({ page: page }, '', hash);
-    } catch(e) {}
-  }
-}
-window.showPage = showPage;
-
-// FIX #18: Blog post back button uses history if available
-function blogPostBack() {
-  if (window.history.length > 1) {
-    history.back();
-  } else {
-    showPage('blog');
-  }
-}
-
-window.addEventListener('popstate', function(e) {
-  const page = (e.state && e.state.page) ? e.state.page : 'main';
-  showPage(page, false);
-});
-
-window.addEventListener('load', function() {
-  if (!document.querySelector('#deals-grid .deal-card')) {
-    renderDealsGrid();
-  }
-  renderBlogGrid();
-  applyAllFilters();
-  try {
-    const hash = window.location.hash.replace('#', '');
-    if (hash) showPage(hash, false);
-    history.replaceState({ page: hash || 'main' }, '', window.location.hash || '#');
-  } catch(e) {}
-});
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Q&A ACCORDION
-// ─────────────────────────────────────────────────────────────────────────────
-function toggleQA(btn) {
-  const answer = btn.nextElementSibling;
-  const icon   = btn.querySelector('.qa-icon');
-  const isOpen = answer.style.display === 'block';
-  answer.style.display = isOpen ? 'none' : 'block';
-  icon.classList.toggle('open', !isOpen);
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// CONTACT FORM  (FIX #10: replaced placeholder Formspree ID with note)
-// ─────────────────────────────────────────────────────────────────────────────
-async function submitForm() {
-  const name    = document.getElementById('cf-name').value.trim();
-  const email   = document.getElementById('cf-email').value.trim();
-  const subject = document.getElementById('cf-subject').value;
-  const message = document.getElementById('cf-message').value.trim();
-  if (!name || !email || !subject || !message) {
-    alert('Please fill in all required fields.');
-    return;
-  }
-  const btn = document.querySelector('.submit-btn');
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-
-  // TODO: Replace 'YOUR_FORMSPREE_ID' with your actual Formspree endpoint ID
-  const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
-  if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
-    // Graceful fallback: show success UI but warn in console
-    console.warn('FlyWell: Formspree ID not configured. Set FORMSPREE_ID in submitForm().');
-    document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-    return;
-  }
-
-  try {
-    const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ name, email, subject, message })
-    });
-    if (res.ok) {
-      document.getElementById('contact-form').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    } else {
-      alert('Something went wrong. Please email us directly at hello@flywell.flights');
-      btn.textContent = 'Send Message';
-      btn.disabled = false;
-    }
-  } catch(e) {
-    alert('Something went wrong. Please email us directly at hello@flywell.flights');
-    btn.textContent = 'Send Message';
-    btn.disabled = false;
-  }
-}
-
-// Initialise
-if (window.DEALS && Array.isArray(window.DEALS)) {
-  renderDealsGrid();
-} else {
-  console.error('[FlyWell] window.DEALS not found — data.js may have failed to load. Check Network tab for a 404 on data.js.');
-}
-renderBlogGrid();
-</script>
 
 <!-- COOKIE BANNER -->
 <div id="cookie-banner" role="dialog" aria-label="Cookie consent" style="position:fixed;bottom:0;left:0;right:0;z-index:8000;background:rgba(248,245,240,0.97);border-top:1px solid rgba(40,30,20,0.12);padding:1.1rem 2rem;display:none;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;box-shadow:0 -8px 32px rgba(40,30,20,0.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);">
   <div style="flex:1;min-width:260px;">
     <p style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.1em;color:#1c1612;margin-bottom:0.25rem;">Cookie Notice</p>
-    <p style="font-family:'DM Sans',sans-serif;font-size:0.78rem;color:rgba(28,22,18,0.55);line-height:1.6;">We use cookies to operate this site and (with your consent) analyse traffic. Non-essential cookies are only loaded after you agree. <a href="#" onclick="showPage('privacy');return false;" style="color:#c47f2a;text-decoration:none;font-weight:500;">Privacy &amp; Cookie Policy</a></p>
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.78rem;color:rgba(28,22,18,0.55);line-height:1.6;">We use cookies to operate this site and (with your consent) analyse traffic. <a href="#" onclick="showPage('privacy');return false;" style="color:#c47f2a;text-decoration:none;font-weight:500;">Privacy &amp; Cookie Policy</a></p>
   </div>
   <div style="display:flex;gap:0.5rem;flex-shrink:0;flex-wrap:wrap;">
-    <button onclick="acceptCookies('reject')" style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;padding:0.5rem 1rem;cursor:pointer;border:1px solid rgba(40,30,20,0.2);border-radius:8px;background:transparent;color:rgba(28,22,18,0.55);transition:all 0.2s;" onmouseover="this.style.background='rgba(40,30,20,0.05)';this.style.color='#1c1612'" onmouseout="this.style.background='transparent';this.style.color='rgba(28,22,18,0.55)'">Reject All</button>
-    <button onclick="openCookiePrefs()" style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;padding:0.5rem 1rem;cursor:pointer;border:1px solid rgba(40,30,20,0.25);border-radius:8px;background:transparent;color:rgba(28,22,18,0.7);transition:all 0.2s;" onmouseover="this.style.background='rgba(40,30,20,0.05)';this.style.color='#1c1612'" onmouseout="this.style.background='transparent';this.style.color='rgba(28,22,18,0.7)'">Manage Preferences</button>
-    <button onclick="acceptCookies('all')" style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;padding:0.5rem 1rem;cursor:pointer;border:1px solid #c47f2a;border-radius:8px;background:#c47f2a;color:#fff;transition:all 0.2s;" onmouseover="this.style.background='#b07020';this.style.borderColor='#b07020'" onmouseout="this.style.background='#c47f2a';this.style.borderColor='#c47f2a'">Accept All</button>
+    <button onclick="acceptCookies('reject')" style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;padding:0.5rem 1rem;cursor:pointer;border:1px solid rgba(40,30,20,0.2);border-radius:8px;background:transparent;color:rgba(28,22,18,0.55);">Reject All</button>
+    <button onclick="openCookiePrefs()" style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;padding:0.5rem 1rem;cursor:pointer;border:1px solid rgba(40,30,20,0.25);border-radius:8px;background:transparent;color:rgba(28,22,18,0.7);">Manage Preferences</button>
+    <button onclick="acceptCookies('all')" style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;padding:0.5rem 1rem;cursor:pointer;border:1px solid #c47f2a;border-radius:8px;background:#c47f2a;color:#fff;">Accept All</button>
   </div>
 </div>
 
@@ -2358,7 +405,7 @@ renderBlogGrid();
     <p style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.08em;color:#1c1612;">Cookie Preferences</p>
     <button onclick="closeCookiePrefs()" style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:rgba(28,22,18,0.4);padding:0.2rem 0.5rem;">&#x2715;</button>
   </div>
-  <p style="font-family:'DM Sans',sans-serif;font-size:0.79rem;color:rgba(28,22,18,0.55);line-height:1.7;margin-bottom:1.2rem;">Choose which cookies you allow. Strictly necessary cookies cannot be disabled. You can change your mind at any time.</p>
+  <p style="font-family:'DM Sans',sans-serif;font-size:0.79rem;color:rgba(28,22,18,0.55);line-height:1.7;margin-bottom:1.2rem;">Choose which cookies you allow. Strictly necessary cookies cannot be disabled.</p>
   <div style="border:1px solid rgba(40,30,20,0.1);border-radius:10px;padding:0.9rem 1.1rem;margin-bottom:0.6rem;background:#fff;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.2rem;">
       <p style="font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;color:#1c1612;">Strictly Necessary</p>
@@ -2371,21 +418,21 @@ renderBlogGrid();
       <p style="font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;color:#1c1612;">Analytics</p>
       <label style="position:relative;display:inline-block;width:38px;height:22px;cursor:pointer;"><input type="checkbox" id="pref-analytics" style="opacity:0;width:0;height:0;" onchange="updateToggle(this)"><span id="toggle-analytics" style="position:absolute;inset:0;border-radius:100px;background:rgba(40,30,20,0.15);transition:background 0.2s;"></span><span id="knob-analytics" style="position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.2);transition:transform 0.2s;"></span></label>
     </div>
-    <p style="font-family:'DM Sans',sans-serif;font-size:0.74rem;color:rgba(28,22,18,0.5);line-height:1.6;">Anonymised usage stats (Google Analytics 4, IP anonymised). Up to 13 months.</p>
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.74rem;color:rgba(28,22,18,0.5);line-height:1.6;">Anonymised usage stats (Google Analytics 4, IP anonymised).</p>
   </div>
   <div style="border:1px solid rgba(40,30,20,0.1);border-radius:10px;padding:0.9rem 1.1rem;margin-bottom:0.6rem;background:#fff;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.2rem;">
       <p style="font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;color:#1c1612;">Functional</p>
       <label style="position:relative;display:inline-block;width:38px;height:22px;cursor:pointer;"><input type="checkbox" id="pref-functional" style="opacity:0;width:0;height:0;" onchange="updateToggle(this)"><span id="toggle-functional" style="position:absolute;inset:0;border-radius:100px;background:rgba(40,30,20,0.15);transition:background 0.2s;"></span><span id="knob-functional" style="position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.2);transition:transform 0.2s;"></span></label>
     </div>
-    <p style="font-family:'DM Sans',sans-serif;font-size:0.74rem;color:rgba(28,22,18,0.5);line-height:1.6;">Remembers your preferences. Up to 12 months.</p>
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.74rem;color:rgba(28,22,18,0.5);line-height:1.6;">Remembers your preferences.</p>
   </div>
   <div style="border:1px solid rgba(40,30,20,0.1);border-radius:10px;padding:0.9rem 1.1rem;margin-bottom:1.3rem;background:#fff;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.2rem;">
       <p style="font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;color:#1c1612;">Marketing</p>
       <label style="position:relative;display:inline-block;width:38px;height:22px;cursor:pointer;"><input type="checkbox" id="pref-marketing" style="opacity:0;width:0;height:0;" onchange="updateToggle(this)"><span id="toggle-marketing" style="position:absolute;inset:0;border-radius:100px;background:rgba(40,30,20,0.15);transition:background 0.2s;"></span><span id="knob-marketing" style="position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.2);transition:transform 0.2s;"></span></label>
     </div>
-    <p style="font-family:'DM Sans',sans-serif;font-size:0.74rem;color:rgba(28,22,18,0.5);line-height:1.6;">Personalised ads. We don&apos;t currently use these but may in future.</p>
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.74rem;color:rgba(28,22,18,0.5);line-height:1.6;">Personalised ads. We don't currently use these.</p>
   </div>
   <div style="display:flex;gap:0.5rem;justify-content:flex-end;">
     <button onclick="acceptCookies('reject');closeCookiePrefs()" style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.72rem;text-transform:uppercase;padding:0.55rem 1rem;cursor:pointer;border:1px solid rgba(40,30,20,0.2);border-radius:8px;background:transparent;color:rgba(28,22,18,0.55);">Reject All</button>
@@ -2394,63 +441,11 @@ renderBlogGrid();
   </div>
 </div>
 
-<script>
-// ─────────────────────────────────────────────────────────────────────────────
-// COOKIE CONSENT  (FIX #15: cookie fallback when localStorage unavailable)
-// ─────────────────────────────────────────────────────────────────────────────
-function _setCookieConsent(val) {
-  try { localStorage.setItem('fw_cookie_v2', val); } catch(e) {}
-  // Fallback: also write a document cookie so consent persists if localStorage blocked
-  try {
-    var exp = new Date();
-    exp.setFullYear(exp.getFullYear() + 1);
-    document.cookie = 'fw_cookie_v2=' + val + ';expires=' + exp.toUTCString() + ';path=/;SameSite=Lax';
-  } catch(e) {}
-}
+<!-- SCRIPTS — load order matters -->
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/blog.js"></script>
+<script src="js/affiliate.js"></script>
 
-function _getCookieConsent() {
-  try {
-    var ls = localStorage.getItem('fw_cookie_v2');
-    if (ls) return ls;
-  } catch(e) {}
-  // Fallback: read from document.cookie
-  try {
-    var match = document.cookie.match(/fw_cookie_v2=([^;]+)/);
-    if (match) return match[1];
-  } catch(e) {}
-  return null;
-}
-
-function acceptCookies(level) {
-  _setCookieConsent(level);
-  document.getElementById('cookie-banner').style.display = 'none';
-}
-
-function openCookiePrefs() {
-  try {
-    var saved = JSON.parse(localStorage.getItem('fw_cookie_prefs') || '{}');
-    ['analytics','functional','marketing'].forEach(function(k) {
-      var cb = document.getElementById('pref-' + k);
-      if (cb) { cb.checked = !!saved[k]; updateToggle(cb); }
-    });
-  } catch(e) {}
-  document.getElementById('cookie-prefs-overlay').style.display = 'block';
-  document.getElementById('cookie-prefs-modal').style.display = 'block';
-}
-
-function closeCookiePrefs() {
-  document.getElementById('cookie-prefs-overlay').style.display = 'none';
-  document.getElementById('cookie-prefs-modal').style.display = 'none';
-}
-
-function updateToggle(cb) {
-  var key   = cb.id.replace('pref-', '');
-  var track = document.getElementById('toggle-' + key);
-  var knob  = document.getElementById('knob-'   + key);
-  if (!track || !knob) return;
-  if (cb.checked) { track.style.background = '#c47f2a'; knob.style.transform = 'translateX(16px)'; }
-  else            { track.style.background = 'rgba(40,30,20,0.15)'; knob.style.transform = 'translateX(0)'; }
-}
-
-function savePrefs() {
-  var prefs
+</body>
+</html>
