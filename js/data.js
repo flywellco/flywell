@@ -1143,7 +1143,7 @@ window.DEALS = [
       bookUrl: "https://www.skyscanner.net/transport/flights/LON/BGI/?currency=GBP"
     },
     {
-      id: 101, region: "namerica camerica", badge: "new", badgeLabel: "✨ New",
+      id: 101, region: "namerica samerica", badge: "new", badgeLabel: "✨ New",
       price: "$336", tripType: "roundtrip", cabin: "Economy",
       from: ["Quito, Ecuador"], to: ["New York, USA"],
       stops: "Panama City", airline: "Copa Airlines",
@@ -1169,7 +1169,7 @@ window.DEALS = [
       bookUrl: "https://www.skyscanner.net/transport/flights/UIO/NYC/?currency=USD"
     },
     {
-      id: 102, region: "namerica camerica", badge: "new", badgeLabel: "✨ New",
+      id: 102, region: "namerica samerica", badge: "new", badgeLabel: "✨ New",
       price: "$489", tripType: "roundtrip", cabin: "Economy",
       from: ["Rio de Janeiro, Brazil"], to: ["Orlando, USA"],
       stops: "Panama City", airline: "Copa Airlines",
