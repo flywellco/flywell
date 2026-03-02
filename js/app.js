@@ -113,9 +113,27 @@ function applyAllFilters() {
     if (selectedMonth) {
       const deal = (window.DEALS || []).find(d => String(d.id) === String(card.dataset.deal));
       const availability = deal ? (deal.availability || '').toLowerCase() : '';
-      const monthName = MONTHS_FULL[selectedMonth.monthIdx].toLowerCase();
-      const year = String(selectedMonth.year);
-      matchWhen = availability.includes(monthName) || availability.includes(year);
+      const sel = selectedMonth.year * 12 + selectedMonth.monthIdx;
+
+      const monthNames = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+      const pairs = [];
+      const re = new RegExp('(' + monthNames.join('|') + ')\\s+(\\d{4})', 'g');
+      let mt;
+      while ((mt = re.exec(availability)) !== null) {
+        const mIdx = monthNames.indexOf(mt[1]);
+        const yr = parseInt(mt[2]);
+        pairs.push(yr * 12 + mIdx);
+      }
+
+      if (pairs.length === 0) {
+        matchWhen = availability.includes(String(selectedMonth.year));
+      } else if (pairs.length === 1) {
+        matchWhen = sel === pairs[0];
+      } else {
+        const rangeStart = Math.min(...pairs);
+        const rangeEnd   = Math.max(...pairs);
+        matchWhen = sel >= rangeStart && sel <= rangeEnd;
+      }
     }
 
     if (matchRegion && matchFrom && matchTo && matchWhen) filtered.push(card);
