@@ -4,7 +4,7 @@ window.BLOG_POSTS = [
       cat: 'Destination Guide',
       title: 'Vietnam Travel Guide 2026: The Expert\'s Complete Playbook',
       date: 'Feb 27, 2026', readtime: '14 min read',
-      img: 'images/vietnam.jpg',
+      img: 'images/earth.jpg',
       metaTitle: 'Vietnam Travel Guide 2026 | FlyWell.Flights',
       metaDesc: 'Plan the perfect Vietnam trip in 2026. Expert guide to the best time to visit, flights from Europe, neighbourhoods, food, and insider routing tips.',
       body: `<div class="quick-facts"><h3>Quick Facts: Vietnam</h3><ul><li><strong>Capital:</strong> Hanoi</li><li><strong>Currency:</strong> Vietnamese Dong (VND). EUR1 ≈ VND27,000</li><li><strong>Flight time from Europe:</strong> 10–13 hours (one stop via Gulf or Asia)</li><li><strong>Main airports:</strong> Noi Bai (HAN) — Hanoi; Tan Son Nhat (SGN) — Ho Chi Minh City; Da Nang (DAD)</li><li><strong>Language:</strong> Vietnamese. English widely spoken in tourist areas</li><li><strong>Best months:</strong> November–April (south &amp; centre); May–September (north)</li><li><strong>Daily budget:</strong> EUR50–90 (mid-range); EUR120+ (comfort)</li><li><strong>Visa:</strong> E-visa available online; 90-day single entry for most EU nationals</li></ul></div>
@@ -107,7 +107,7 @@ window.BLOG_POSTS = [
       cat: 'Destination Guide',
       title: 'Thailand Travel Guide 2026: Beyond Bangkok',
       date: 'Feb 27, 2026', readtime: '13 min read',
-      img: 'images/thailand.jpg',
+      img: 'images/earth.jpg',
       metaTitle: 'Thailand Travel Guide 2026 | FlyWell.Flights',
       metaDesc: 'The expert guide to Thailand in 2026. Best time to visit, flights from Europe, where to stay in Bangkok, Chiang Mai, and the islands. Practical and honest.',
       body: `<div class="quick-facts"><h3>Quick Facts: Thailand</h3><ul><li><strong>Capital:</strong> Bangkok</li><li><strong>Currency:</strong> Thai Baht (THB). EUR1 ≈ THB38</li><li><strong>Flight time from Europe:</strong> 10–12 hours (one stop via Gulf or Asia)</li><li><strong>Main airports:</strong> Suvarnabhumi (BKK) and Don Mueang (DMK) — Bangkok; Chiang Mai (CNX); Phuket (HKT); Koh Samui (USM)</li><li><strong>Language:</strong> Thai. English spoken in tourist areas and hotels</li><li><strong>Best months:</strong> November–April (most regions); May–October (north and less-visited areas)</li><li><strong>Daily budget:</strong> EUR45–80 (mid-range); EUR100+ (comfort)</li><li><strong>Visa:</strong> Visa-on-arrival or e-visa; most EU nationals receive 30 days free on arrival</li></ul></div>
@@ -200,7 +200,7 @@ window.BLOG_POSTS = [
       cat: 'Destination Guide',
       title: 'Bali Travel Guide 2026: Beyond the Crowds',
       date: 'Feb 27, 2026', readtime: '13 min read',
-      img: 'images/indonesia-bali.jpg',
+      img: 'images/earth.jpg',
       metaTitle: 'Bali Travel Guide 2026 | FlyWell.Flights',
       metaDesc: 'Plan the perfect Bali trip in 2026. Best time to visit, flights from Europe, where to stay beyond Kuta, and how to experience the island\'s real depth.',
       body: `<div class="quick-facts"><h3>Quick Facts: Bali</h3><ul><li><strong>Province:</strong> Bali, Indonesia</li><li><strong>Currency:</strong> Indonesian Rupiah (IDR). EUR1 ≈ IDR17,500</li><li><strong>Flight time from Europe:</strong> 14–17 hours (one or two stops)</li><li><strong>Main airport:</strong> Ngurah Rai International (DPS), Denpasar</li><li><strong>Language:</strong> Balinese, Indonesian. English widely spoken in tourist areas</li><li><strong>Best months:</strong> April–June, September–October (shoulder season); May–August (peak, dry)</li><li><strong>Daily budget:</strong> EUR40–75 (mid-range); EUR100+ (comfort/villa)</li><li><strong>Visa:</strong> Visa-on-arrival (VOA) at DPS. EUR30, 30 days, extendable once</li></ul></div>
@@ -290,7 +290,7 @@ window.BLOG_POSTS = [
       cat: 'Travel Strategy',
       title: 'Singapore Travel Guide 2026: The Ultimate Asia Hub',
       date: 'Feb 27, 2026', readtime: '12 min read',
-      img: 'images/singapore.jpg',
+      img: 'images/earth.jpg',
       metaTitle: 'Singapore Travel Guide 2026 | FlyWell.Flights',
       metaDesc: 'Singapore is Asia\'s most efficient travel hub and one of its most rewarding cities. Expert guide to flights, neighbourhoods, food, and using SIN as a launchpad.',
       body: `<div class="quick-facts"><h3>Quick Facts: Singapore</h3><ul><li><strong>Status:</strong> City-state and sovereign nation</li><li><strong>Currency:</strong> Singapore Dollar (SGD). EUR1 ≈ SGD1.45</li><li><strong>Flight time from Europe:</strong> 12–14 hours (one stop or direct on some routes)</li><li><strong>Main airport:</strong> Changi Airport (SIN) — consistently ranked the world's best</li><li><strong>Language:</strong> English, Mandarin, Malay, Tamil (all official). English is the working language</li><li><strong>Best time to visit:</strong> Year-round; February–April and July–August are drier</li><li><strong>Daily budget:</strong> EUR80–130 (mid-range); EUR180+ (comfort)</li><li><strong>Visa:</strong> Visa-free for EU nationals for up to 90 days</li></ul></div>
@@ -377,7 +377,7 @@ window.BLOG_POSTS = [
       cat: 'Destination Guide',
       title: 'Oman Travel Guide 2026: Arabia\'s Most Underrated Country',
       date: 'Feb 27, 2026', readtime: '13 min read',
-      img: 'images/oman-muscat.jpg',
+      img: 'images/earth.jpg',
       metaTitle: 'Oman Travel Guide 2026 | FlyWell.Flights',
       metaDesc: 'Oman is Arabia\'s most rewarding travel destination. Expert guide to Muscat, Wadi Shab, the Empty Quarter, best time to visit, and flights from Europe.',
       body: `<div class="quick-facts"><h3>Quick Facts: Oman</h3><ul><li><strong>Capital:</strong> Muscat</li><li><strong>Currency:</strong> Omani Rial (OMR). EUR1 ≈ OMR0.42 (the Rial is pegged high; Oman is not cheap)</li><li><strong>Flight time from Europe:</strong> 6–8 hours (direct or one stop via Gulf)</li><li><strong>Main airport:</strong> Muscat International (MCT)</li><li><strong>Language:</strong> Arabic. English widely spoken in tourism and business contexts</li><li><strong>Best months:</strong> October–April</li><li><strong>Daily budget:</strong> EUR70–120 (mid-range self-drive); EUR150+ (guided/comfort)</li><li><strong>Visa:</strong> E-visa required for most EU nationals. OMR20, processed in 24–48 hours online</li></ul></div>
@@ -459,7 +459,7 @@ window.BLOG_POSTS = [
       cat: 'Destination Guide',
       title: 'Jordan Travel Guide 2026: Petra, Wadi Rum & Beyond',
       date: 'Feb 27, 2026', readtime: '14 min read',
-      img: 'images/jordan.jpg',
+      img: 'images/earth.jpg',
       metaTitle: 'Jordan Travel Guide 2026 | FlyWell.Flights',
       metaDesc: 'The expert guide to Jordan in 2026. Petra, Wadi Rum, Amman, the Dead Sea — with practical advice on flights from Europe, costs, visa, and best time to visit.',
       body: `<div class="quick-facts"><h3>Quick Facts: Jordan</h3><ul><li><strong>Capital:</strong> Amman</li><li><strong>Currency:</strong> Jordanian Dinar (JOD). EUR1 ≈ JOD0.78 (the Dinar is pegged high; Jordan is not cheap by regional standards)</li><li><strong>Flight time from Europe:</strong> 4–5 hours (direct from most European hubs)</li><li><strong>Main airports:</strong> Queen Alia International (AMM) — Amman; Aqaba (AQJ) — south Jordan</li><li><strong>Language:</strong> Arabic. English widely spoken in Amman and tourist areas</li><li><strong>Best months:</strong> March–May, September–November</li><li><strong>Daily budget:</strong> EUR70–120 (mid-range); EUR150+ (comfort)</li><li><strong>Visa:</strong> Jordan Pass includes visa fee + entrance to major sites including Petra. Strongly recommended. EUR90–115 depending on length of stay</li></ul></div>
