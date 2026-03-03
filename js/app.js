@@ -398,7 +398,23 @@ const DEST_IMAGE_MAP = {
   'tashkent':'uzbekistan.jpg','uzbekistan':'uzbekistan.jpg',
   'caracas':'venezuela.jpg','venezuela':'venezuela.jpg',
   'hanoi':'vietnam.jpg','ho chi minh city':'vietnam.jpg','vietnam':'vietnam.jpg',
-  'harare':'zimbabwe.jpg','zimbabwe':'zimbabwe.jpg'
+  'harare':'zimbabwe.jpg','zimbabwe':'zimbabwe.jpg',
+  'calgary':'canada.jpg','montreal':'canada.jpg','hamilton':'bermuda.jpg',
+  'hamburg':'germany.jpg','florence':'italy.jpg','venice':'italy.jpg',
+  'goa':'india.jpg','lombok':'indonesia.jpg','machu picchu':'peru.jpg',
+  'bogotá':'colombia-bogota.jpg','medellin':'colombia.jpg','medellín':'colombia.jpg',
+  'da nang':'vietnam.jpg','ho chi minh':'vietnam.jpg','saigon':'vietnam.jpg',
+  'durban':'south-africa.jpg','pretoria':'south-africa.jpg',
+  'las vegas':'usa.jpg','seattle':'usa.jpg','boston':'usa.jpg','denver':'usa.jpg',
+  'orlando':'usa.jpg','austin':'usa.jpg','charlotte':'usa.jpg','atlanta':'usa.jpg',
+  'new york city':'usa-new-york.jpg','nyc':'usa-new-york.jpg','new york jfk':'usa-new-york.jpg',
+  'miami':'usa-miami.jpg','los angeles':'usa-los-angeles.jpg',
+  'melbourne, florida':'usa.jpg','melbourne, florida, usa':'usa.jpg',
+  'reykjavík':'iceland.jpg','são paulo':'brazil-sao-paolo.jpg',
+  'brasilia':'brazil.jpg','brasília':'brazil.jpg',
+  'chiang mai':'thailand.jpg','pattaya':'thailand.jpg','perth':'australia.jpg',
+  'boracay':'philippines.jpg','moscow':'russia.jpg','oslo':'norway.jpg',
+  'mombasa':'kenya.jpg','colombo':'sri-lanka.jpg','chiang rai':'thailand.jpg'
 };
 
 function resolveImage(toArray) {
