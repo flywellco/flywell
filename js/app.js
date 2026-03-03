@@ -379,7 +379,14 @@ const DEST_IMAGE_MAP = {
   'united arab emirates':'uae.jpg','uae':'uae.jpg','united kingdom':'uk.jpg',
   'uk':'uk.jpg','united states':'usa.jpg','usa':'usa.jpg','uruguay':'uruguay.jpg',
   'uzbekistan':'uzbekistan.jpg','venezuela':'venezuela.jpg','vietnam':'vietnam.jpg',
-  'zambia':'zambia.jpg','zimbabwe':'zimbabwe.jpg'
+  'zambia':'zambia.jpg','zimbabwe':'zimbabwe.jpg',
+  'dakhla':'morocco.jpg','western sahara':'morocco.jpg',
+  'aruba':'aruba.jpg','oranjestad':'aruba.jpg',
+  'dominican republic':'dominican-republic.jpg','samana':'dominican-republic.jpg',
+  'lihue':'usa-hawaii.jpg','kahului':'usa-hawaii.jpg','hawaii':'usa-hawaii.jpg',
+  'st. thomas':'usa.jpg','us virgin islands':'usa.jpg','united states virgin islands':'usa.jpg',
+  'san juan':'usa.jpg','puerto rico':'usa.jpg',
+  'bonaire':'curacao.jpg'
 };
 
 function resolveImage(toArray) {
