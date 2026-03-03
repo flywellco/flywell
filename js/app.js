@@ -503,7 +503,7 @@ const DEST_IMAGE_MAP = {
   'port louis':'mauritius.jpg',
   // Mexico
   'mexico city':'mexico.jpg','cancun':'mexico-cancun.jpg','cancún':'mexico-cancun.jpg',
-  'guadalajara':'mexico.jpg','monterrey':'mexico.jpg','tulum':'mexico.jpg',
+  'guadalajara':'mexico.jpg','monterrey':'mexico.jpg','tulum':'mexico-cancun.jpg',
   'playa del carmen':'mexico.jpg','oaxaca':'mexico.jpg','puerto vallarta':'mexico.jpg',
   'cabo san lucas':'mexico.jpg','san miguel de allende':'mexico.jpg','mérida':'mexico.jpg',
   'merida':'mexico.jpg','tijuana':'mexico.jpg',
