@@ -1526,7 +1526,7 @@ window.DEALS = [
         { label: "8th–15th May 2026",        url: "https://www.skyscanner.net/transport/flights/MIA/SXM/260508/260515/?currency=USD" },
         { label: "15th–20th May 2026",       url: "https://www.skyscanner.net/transport/flights/MIA/SXM/260515/260520/?currency=USD" }
       ],
-      posted: "Mar 3, 2026", img: "",
+      posted: "Mar 3, 2026", img: "images/st.martin.jpg",
       title: "Non-stop flights from Miami, USA to St. Martin for only $250 roundtrip with American Airlines",
       desc: "Non-stop flights from Miami, USA to St. Martin for only $250 roundtrip with American Airlines. Availability from March to May 2026.",
       bookUrl: "https://www.skyscanner.net/transport/flights/MIA/SXM/?currency=USD"
@@ -1548,7 +1548,7 @@ window.DEALS = [
         { label: "28th Sep – 5th Oct 2026",   url: "https://www.skyscanner.net/transport/flights/BOS/SXM/260928/261005/?currency=USD" },
         { label: "3rd–8th Nov 2026",          url: "https://www.skyscanner.net/transport/flights/BOS/SXM/261103/261108/?currency=USD" }
       ],
-      posted: "Mar 3, 2026", img: "",
+      posted: "Mar 3, 2026", img: "images/st.martin.jpg",
       title: "Summer flights from Boston, USA to St. Martin for only $273 roundtrip with American Airlines",
       desc: "Summer flights from Boston, USA to St. Martin for only $273 roundtrip with American Airlines via Philadelphia. Availability from May to November 2026.",
       bookUrl: "https://www.skyscanner.net/transport/flights/BOS/SXM/?currency=USD"
