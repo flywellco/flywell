@@ -639,13 +639,9 @@ function openBlogPost(slug) {
   document.getElementById('blogpost-body').innerHTML    = post.body;
   const heroImg  = document.getElementById('blogpost-hero-img');
   const heroWrap = document.getElementById('blogpost-hero-wrap');
-  if (post.img) {
-    heroImg.src = post.img;
-    heroImg.alt = post.title;
-    heroWrap.style.display = 'block';
-  } else {
-    heroWrap.style.display = 'none';
-  }
+  heroImg.src = 'images/earth.jpg';
+  heroImg.alt = post.title;
+  heroWrap.style.display = 'block';
   showPage('blogpost');
 }
 
