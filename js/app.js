@@ -267,137 +267,608 @@ document.addEventListener('click', (e) => {
 // DESTINATION IMAGE MAP
 // ─────────────────────────────────────────────────────────────────────────────
 const DEST_IMAGE_MAP = {
-  'kabul':'afghanistan.jpg','tirana':'albania.jpg','algiers':'algeria.jpg','luanda':'angola.jpg',
-  'buenos aires':'argentina-buenos-aires.jpg','yerevan':'armenia.jpg','vienna':'austria.jpg',
-  'baku':'azerbaijan.jpg','nassau':'bahamas.jpg','manama':'bahrain.jpg','dhaka':'bangladesh.jpg',
-  'bridgetown':'barbados.jpg','minsk':'belarus.jpg','brussels':'belgium.jpg','belmopan':'belize.jpg',
-  'porto-novo':'benin.jpg','thimphu':'bhutan.jpg','sucre':'bolivia.jpg','sarajevo':'bosnia.jpg',
-  'gaborone':'botswana.jpg','brasilia':'brazil.jpg','brasília':'brazil.jpg',
-  'sao paulo':'brazil.jpg','são paulo':'brazil.jpg','rio de janeiro':'brazil.jpg',
-  'bandar seri begawan':'brunei.jpg','sofia':'bulgaria.jpg','ouagadougou':'burkina-faso.jpg',
-  'gitega':'burundi.jpg',
-  'sal':'cabo-verde.jpg','sal, cape verde':'cabo-verde.jpg','praia':'cabo-verde.jpg',
-  'phnom penh':'cambodia.jpg','siem reap':'cambodia.jpg','yaounde':'cameroon.jpg',
-  'yaoundé':'cameroon.jpg','ottawa':'canada.jpg','toronto':'canada-toronto.jpg',
-  'calgary':'canada.jpg','montreal':'canada.jpg','vancouver':'canada.jpg',
-  'bangui':'central-african-republic.jpg',"n'djamena":'chad.jpg','santiago':'chile.jpg',
-  'beijing':'china-beijing.jpg','shanghai':'china.jpg','chongqing':'china.jpg',
-  'guangzhou':'china.jpg','moroni':'comoros.jpg','brazzaville':'congo.jpg',
+
+  // ── CITIES / SPECIFIC DESTINATIONS ─────────────────────────────────────────
+
+  // Afghanistan
+  'kabul':'afghanistan.jpg',
+  // Albania
+  'tirana':'albania.jpg',
+  // Algeria
+  'algiers':'algeria.jpg',
+  // Angola
+  'luanda':'angola.jpg',
+  // Antigua
+  'st. john\'s':'antigua-and-barbuda.jpg','saint john\'s':'antigua-and-barbuda.jpg',
+  // Argentina
+  'buenos aires':'argentina-buenos-aires.jpg','mendoza':'argentina.jpg','córdoba':'argentina.jpg','cordoba':'argentina.jpg',
+  // Armenia
+  'yerevan':'armenia.jpg',
+  // Aruba
+  'oranjestad':'aruba.jpg',
+  // Australia
+  'sydney':'australia-sydney.jpg','melbourne':'australia-melbourne.jpg','brisbane':'australia-brisbane.jpg',
+  'gold coast':'australia-gold-coast.jpg','perth':'australia.jpg','cairns':'australia.jpg','adelaide':'australia.jpg',
+  // Austria
+  'vienna':'austria.jpg','wien':'austria.jpg','salzburg':'austria.jpg','innsbruck':'austria.jpg',
+  // Azerbaijan
+  'baku':'azerbaijan.jpg',
+  // Bahamas
+  'nassau':'bahamas.jpg','freeport':'bahamas.jpg',
+  // Bahrain
+  'manama':'bahrain.jpg',
+  // Bangladesh
+  'dhaka':'bangladesh.jpg',
+  // Barbados
+  'bridgetown':'barbados.jpg',
+  // Belarus
+  'minsk':'belarus.jpg',
+  // Belgium
+  'brussels':'belgium.jpg','bruges':'belgium.jpg','ghent':'belgium.jpg','antwerp':'belgium.jpg',
+  // Belize
+  'belmopan':'belize.jpg','belize city':'belize.jpg',
+  // Benin
+  'porto-novo':'benin.jpg','cotonou':'benin.jpg',
+  // Bhutan
+  'thimphu':'bhutan.jpg','paro':'bhutan.jpg',
+  // Bolivia
+  'sucre':'bolivia.jpg','la paz':'bolivia.jpg','santa cruz':'bolivia.jpg',
+  // Bosnia
+  'sarajevo':'bosnia.jpg','mostar':'bosnia.jpg',
+  // Botswana
+  'gaborone':'botswana.jpg',
+  // Brazil
+  'brasilia':'brazil.jpg','brasília':'brazil.jpg','sao paulo':'brazil.jpg','são paulo':'brazil.jpg',
+  'rio de janeiro':'brazil.jpg','salvador':'brazil.jpg','fortaleza':'brazil.jpg','recife':'brazil.jpg',
+  'manaus':'brazil.jpg','belem':'brazil.jpg','belém':'brazil.jpg',
+  // Brunei
+  'bandar seri begawan':'brunei.jpg',
+  // Bulgaria
+  'sofia':'bulgaria.jpg','plovdiv':'bulgaria.jpg','varna':'bulgaria.jpg',
+  // Burkina Faso
+  'ouagadougou':'burkina-faso.jpg',
+  // Burundi
+  'gitega':'burundi.jpg','bujumbura':'burundi.jpg',
+  // Cambodia
+  'phnom penh':'cambodia.jpg','siem reap':'cambodia.jpg','angkor wat':'cambodia.jpg',
+  // Cameroon
+  'yaounde':'cameroon.jpg','yaoundé':'cameroon.jpg','douala':'cameroon.jpg',
+  // Canada
+  'ottawa':'canada.jpg','toronto':'canada-toronto.jpg','calgary':'canada.jpg',
+  'montreal':'canada.jpg','vancouver':'canada.jpg','quebec city':'canada.jpg',
+  'edmonton':'canada.jpg','winnipeg':'canada.jpg','halifax':'canada.jpg',
+  // Cape Verde
+  'sal':'cabo-verde.jpg','praia':'cabo-verde.jpg','mindelo':'cabo-verde.jpg',
+  // Cayman Islands
+  'george town':'cayman-islands.jpg','grand cayman':'cayman-islands.jpg',
+  // Central African Republic
+  'bangui':'central-african-republic.jpg',
+  // Chad
+  "n'djamena":'chad.jpg',
+  // Chile
+  'santiago':'chile.jpg','valparaíso':'chile.jpg','valparaiso':'chile.jpg',
+  // China
+  'beijing':'china-beijing.jpg','shanghai':'china-shanghai.jpg','hong kong':'china-hong-kong.jpg',
+  'chongqing':'china.jpg','guangzhou':'china.jpg','shenzhen':'china.jpg','xi\'an':'china.jpg',
+  "xi'an":'china.jpg','xian':'china.jpg','hangzhou':'china.jpg','chengdu':'china.jpg',
+  'kunming':'china.jpg','guilin':'china.jpg','macau':'china.jpg',
+  // Colombia
+  'bogota':'colombia-bogota.jpg','bogotá':'colombia-bogota.jpg',
+  'medellin':'colombia.jpg','medellín':'colombia.jpg',
+  'cartagena':'colombia-cartagena.jpg','cali':'colombia.jpg',
+  // Comoros
+  'moroni':'comoros.jpg',
+  // Congo
+  'brazzaville':'congo.jpg','kinshasa':'congo.jpg',
+  // Costa Rica
   'san jose':'costa-rica.jpg','san josé':'costa-rica.jpg','liberia':'costa-rica.jpg',
-  'zagreb':'croatia.jpg','havana':'cuba.jpg','nicosia':'cyprus.jpg','prague':'czech-republic.jpg',
-  'copenhagen':'denmark.jpg','djibouti city':'djibouti.jpg','roseau':'dominica.jpg',
-  'santo domingo':'dominican-republic.jpg','quito':'ecuador.jpg','cairo':'egypt.jpg',
-  'san salvador':'el-salvador.jpg','asmara':'eritrea.jpg','tallinn':'estonia.jpg',
-  'addis ababa':'ethiopia.jpg','suva':'fiji.jpg','helsinki':'finland.jpg',
-  'paris':'france-paris.jpg','libreville':'gabon.jpg','banjul':'gambia.jpg',
-  'tbilisi':'georgia.jpg','berlin':'germany-berlin.jpg','frankfurt':'germany.jpg',
-  'munich':'germany.jpg','hamburg':'germany.jpg','accra':'ghana.jpg','athens':'greece.jpg',
-  'guatemala city':'guatemala.jpg','conakry':'guinea.jpg','georgetown':'guyana.jpg',
-  'port-au-prince':'haiti.jpg','tegucigalpa':'honduras.jpg','budapest':'hungary.jpg',
-  'reykjavik':'iceland.jpg','reykjavík':'iceland.jpg','new delhi':'india.jpg',
-  'delhi':'india.jpg','mumbai':'india-mumbai.jpg','goa':'india.jpg',
+  // Croatia
+  'zagreb':'croatia.jpg','dubrovnik':'croatia-dubrovnik.jpg','split':'croatia.jpg',
+  // Cuba
+  'havana':'cuba.jpg','trinidad':'cuba.jpg','varadero':'cuba.jpg',
+  // Cuba (city saint) — trinidad is also in Trinidad & Tobago, city first wins
+  // Cyprus
+  'nicosia':'cyprus.jpg','paphos':'cyprus.jpg','limassol':'cyprus.jpg','larnaca':'cyprus.jpg',
+  // Czech Republic
+  'prague':'czech-republic.jpg','brno':'czech-republic.jpg',
+  // Denmark
+  'copenhagen':'denmark.jpg','aarhus':'denmark.jpg',
+  // Djibouti
+  'djibouti city':'djibouti.jpg','djibouti':'djibouti.jpg',
+  // Dominica
+  'roseau':'dominica.jpg',
+  // Dominican Republic
+  'santo domingo':'dominican-republic.jpg','punta cana':'dominican-republic.jpg',
+  'samana':'dominican-republic.jpg','samaná':'dominican-republic.jpg',
+  'santiago de los caballeros':'dominican-republic.jpg','puerto plata':'dominican-republic.jpg',
+  'la romana':'dominican-republic.jpg','bávaro':'dominican-republic.jpg','bavaro':'dominican-republic.jpg',
+  // Ecuador
+  'quito':'ecuador.jpg','guayaquil':'ecuador.jpg','cuenca':'ecuador.jpg',
+  // Egypt
+  'cairo':'egypt.jpg','luxor':'egypt.jpg','hurghada':'egypt.jpg','sharm el-sheikh':'egypt.jpg',
+  'sharm el sheikh':'egypt.jpg','alexandria':'egypt.jpg','aswan':'egypt.jpg',
+  // El Salvador
+  'san salvador':'el-salvador.jpg',
+  // Eritrea
+  'asmara':'eritrea.jpg',
+  // Estonia
+  'tallinn':'estonia.jpg','tartu':'estonia.jpg',
+  // Ethiopia
+  'addis ababa':'ethiopia.jpg',
+  // Fiji
+  'suva':'fiji.jpg','nadi':'fiji.jpg',
+  // Finland
+  'helsinki':'finland.jpg','rovaniemi':'finland.jpg','tampere':'finland.jpg',
+  // France
+  'paris':'france-paris.jpg','nice':'france.jpg','lyon':'france.jpg','marseille':'france.jpg',
+  'bordeaux':'france.jpg','toulouse':'france.jpg','strasbourg':'france.jpg',
+  'nantes':'france.jpg','montpellier':'france.jpg',
+  // Gabon
+  'libreville':'gabon.jpg',
+  // Gambia
+  'banjul':'gambia.jpg',
+  // Georgia
+  'tbilisi':'georgia.jpg','batumi':'georgia.jpg',
+  // Germany
+  'berlin':'germany-berlin.jpg','frankfurt':'germany.jpg','munich':'germany.jpg',
+  'münchen':'germany.jpg','hamburg':'germany.jpg','cologne':'germany.jpg','düsseldorf':'germany.jpg',
+  'dusseldorf':'germany.jpg','stuttgart':'germany.jpg','dresden':'germany.jpg',
+  // Ghana
+  'accra':'ghana.jpg','kumasi':'ghana.jpg',
+  // Greece
+  'athens':'greece.jpg','thessaloniki':'greece.jpg','santorini':'greece.jpg',
+  'mykonos':'greece.jpg','crete':'greece.jpg','heraklion':'greece.jpg','corfu':'greece.jpg',
+  'rhodes':'greece.jpg',
+  // Guatemala
+  'guatemala city':'guatemala.jpg','antigua':'guatemala.jpg',
+  // Guinea
+  'conakry':'guinea.jpg',
+  // Guyana
+  'georgetown':'guyana.jpg',
+  // Haiti
+  'port-au-prince':'haiti.jpg',
+  // Hawaii (USA)
+  'honolulu':'usa.jpg','kahului':'usa.jpg','kona':'usa.jpg','lihue':'usa.jpg',
+  'maui':'usa.jpg','oahu':'usa.jpg','big island':'usa.jpg','hilo':'usa.jpg',
+  // Honduras
+  'tegucigalpa':'honduras.jpg','roatan':'honduras.jpg',
+  // Hungary
+  'budapest':'hungary.jpg',
+  // Iceland
+  'reykjavik':'iceland.jpg','reykjavík':'iceland.jpg',
+  // India
+  'new delhi':'india.jpg','delhi':'india.jpg','mumbai':'india-mumbai.jpg',
+  'goa':'india.jpg','bangalore':'india.jpg','bengaluru':'india.jpg',
+  'chennai':'india.jpg','kolkata':'india.jpg','hyderabad':'india.jpg',
+  'jaipur':'india.jpg','agra':'india.jpg','varanasi':'india.jpg','kochi':'india.jpg',
+  // Indonesia
   'jakarta':'indonesia.jpg','bali':'indonesia-bali.jpg','lombok':'indonesia.jpg',
-  'tehran':'iran.jpg','baghdad':'iraq.jpg','dublin':'ireland.jpg',
-  'jerusalem':'israel.jpg','tel aviv':'israel.jpg','rome':'italy-rome.jpg',
-  'milan':'italy.jpg','florence':'italy.jpg','venice':'italy.jpg',
-  'kingston':'jamaica.jpg','tokyo':'japan-tokyo.jpg','osaka':'japan.jpg',
-  'kyoto':'japan.jpg','amman':'jordan.jpg','nairobi':'kenya-nairobi.jpg',
-  'mombasa':'kenya.jpg','kuwait city':'kuwait.jpg','bishkek':'kyrgyzstan.jpg',
-  'vientiane':'laos.jpg','luang prabang':'laos.jpg','riga':'latvia.jpg',
-  'beirut':'lebanon.jpg','tripoli':'libya.jpg','vilnius':'lithuania.jpg',
-  'luxembourg city':'luxembourg.jpg','antananarivo':'madagascar.jpg',
-  'lilongwe':'malawi.jpg','kuala lumpur':'malaysia.jpg','penang':'malaysia.jpg',
-  'langkawi':'malaysia.jpg','male':'maldives.jpg','malé':'maldives.jpg',
-  'bamako':'mali.jpg','valletta':'malta.jpg','mexico city':'mexico.jpg',
-  'cancun':'mexico-cancun.jpg','cancún':'mexico-cancun.jpg','chisinau':'moldova.jpg',
-  'ulaanbaatar':'mongolia.jpg','podgorica':'montenegro.jpg','rabat':'morocco.jpg',
-  'marrakech':'morocco-marrakech.jpg','casablanca':'morocco.jpg','maputo':'mozambique.jpg',
-  'windhoek':'namibia.jpg','kathmandu':'nepal.jpg',
-  'amsterdam':'netherlands-amsterdam.jpg','wellington':'new-zealand.jpg',
-  'auckland':'new-zealand.jpg','managua':'nicaragua.jpg','abuja':'nigeria.jpg',
-  'lagos':'nigeria.jpg','oslo':'norway.jpg','muscat':'oman.jpg',
-  'islamabad':'pakistan.jpg','karachi':'pakistan.jpg','panama city':'panama.jpg',
-  'asuncion':'paraguay.jpg','asunción':'paraguay.jpg','lima':'peru-lima.jpg',
-  'machu picchu':'peru.jpg','manila':'philippines.jpg','cebu':'philippines.jpg',
-  'boracay':'philippines.jpg','warsaw':'poland.jpg','lisbon':'portugal-lisbon.jpg',
-  'porto':'portugal.jpg','doha':'qatar.jpg','bucharest':'romania.jpg',
-  'moscow':'russia.jpg','kigali':'rwanda.jpg','riyadh':'saudi-arabia.jpg',
-  'dakar':'senegal.jpg','belgrade':'serbia.jpg','freetown':'sierra-leone.jpg',
-  'singapore':'singapore.jpg','bratislava':'slovakia.jpg','ljubljana':'slovenia.jpg',
-  'mogadishu':'somalia.jpg','cape town':'south-africa-cape-town.jpg',
-  'johannesburg':'south-africa.jpg','durban':'south-africa.jpg',
-  'pretoria':'south-africa.jpg','seoul':'south-korea-seoul.jpg',
-  'busan':'south-korea.jpg','madrid':'spain-madrid.jpg',
-  'barcelona':'spain-barcelona.jpg','malaga':'spain.jpg','málaga':'spain.jpg',
-  'ibiza':'spain.jpg','mallorca':'spain.jpg','colombo':'sri-lanka.jpg',
-  'paramaribo':'suriname.jpg','stockholm':'sweden-stockholm.jpg',
-  'bern':'switzerland.jpg','zurich':'switzerland.jpg','taipei':'taiwan.jpg',
-  'dushanbe':'tajikistan.jpg','dar es salaam':'tanzania.jpg',
-  'zanzibar':'tanzania.jpg','bangkok':'thailand-bangkok.jpg',
-  'phuket':'thailand-phuket.jpg','chiang mai':'thailand.jpg',
-  'pattaya':'thailand.jpg','port of spain':'trinidad-and-tobago.jpg',
-  'tunis':'tunisia.jpg','istanbul':'turkey-istanbul.jpg','ankara':'turkey.jpg',
-  'kampala':'uganda.jpg','kyiv':'ukraine.jpg','abu dhabi':'uae.jpg',
-  'dubai':'uae-dubai.jpg','london':'uk-london.jpg','edinburgh':'uk.jpg',
-  'manchester':'uk.jpg','new york':'usa-new-york.jpg',
-  'new york city':'usa-new-york.jpg','new york jfk':'usa-new-york.jpg',
-  'nyc':'usa-new-york.jpg','los angeles':'usa.jpg','chicago':'usa-chicago.jpg',
-  'miami':'usa.jpg','las vegas':'usa.jpg','washington':'usa.jpg',
-  'washington dc':'usa.jpg','seattle':'usa.jpg','boston':'usa.jpg',
-  'denver':'usa.jpg','orlando':'usa.jpg','austin':'usa.jpg','dallas':'usa.jpg',
-  'philadelphia':'usa.jpg','charlotte':'usa.jpg','houston':'usa.jpg',
-  'atlanta':'usa.jpg',
-  'melbourne, florida':'usa.jpg','melbourne, florida, usa':'usa.jpg','melbourne':'usa.jpg',
-  'montevideo':'uruguay.jpg','tashkent':'uzbekistan.jpg','caracas':'venezuela.jpg',
+  'yogyakarta':'indonesia.jpg','surabaya':'indonesia.jpg','komodo':'indonesia.jpg',
+  // Iran
+  'tehran':'iran.jpg','isfahan':'iran.jpg','shiraz':'iran.jpg',
+  // Iraq
+  'baghdad':'iraq.jpg','erbil':'iraq.jpg',
+  // Ireland
+  'dublin':'ireland.jpg','cork':'ireland.jpg','galway':'ireland.jpg',
+  // Israel
+  'jerusalem':'israel.jpg','tel aviv':'israel.jpg','haifa':'israel.jpg','eilat':'israel.jpg',
+  // Italy
+  'rome':'italy-rome.jpg','milan':'italy.jpg','venice':'italy.jpg','florence':'italy.jpg',
+  'naples':'italy.jpg','bologna':'italy.jpg','turin':'italy.jpg','palermo':'italy.jpg',
+  'sicily':'italy.jpg','sardinia':'italy.jpg','amalfi':'italy.jpg','positano':'italy.jpg',
+  'cinque terre':'italy.jpg','pisa':'italy.jpg','verona':'italy.jpg',
+  // Jamaica
+  'kingston':'jamaica.jpg','montego bay':'jamaica.jpg','negril':'jamaica.jpg','ocho rios':'jamaica.jpg',
+  // Japan
+  'tokyo':'japan-tokyo.jpg','osaka':'japan.jpg','kyoto':'japan.jpg','hiroshima':'japan.jpg',
+  'sapporo':'japan.jpg','fukuoka':'japan.jpg','nagoya':'japan.jpg','nara':'japan.jpg',
+  // Jordan
+  'amman':'jordan.jpg','petra':'jordan.jpg','aqaba':'jordan.jpg',
+  // Kazakhstan
+  'astana':'kazakhstan.jpg','almaty':'kazakhstan.jpg','nur-sultan':'kazakhstan.jpg',
+  // Kenya
+  'nairobi':'kenya-nairobi.jpg','mombasa':'kenya.jpg','kisumu':'kenya.jpg','malindi':'kenya.jpg',
+  // Kosovo
+  'pristina':'kosovo.jpg',
+  // Kuwait
+  'kuwait city':'kuwait.jpg',
+  // Kyrgyzstan
+  'bishkek':'kyrgyzstan.jpg',
+  // Laos
+  'vientiane':'laos.jpg','luang prabang':'laos.jpg',
+  // Latvia
+  'riga':'latvia.jpg',
+  // Lebanon
+  'beirut':'lebanon.jpg',
+  // Libya
+  'tripoli':'libya.jpg',
+  // Lithuania
+  'vilnius':'lithuania.jpg',
+  // Luxembourg
+  'luxembourg city':'luxembourg.jpg',
+  // Madagascar
+  'antananarivo':'madagascar.jpg',
+  // Malawi
+  'lilongwe':'malawi.jpg',
+  // Malaysia
+  'kuala lumpur':'malaysia.jpg','penang':'malaysia.jpg','langkawi':'malaysia.jpg',
+  'kota kinabalu':'malaysia.jpg','george town':'malaysia.jpg',
+  // Maldives
+  'male':'maldives.jpg','malé':'maldives.jpg',
+  // Mali
+  'bamako':'mali.jpg',
+  // Malta
+  'valletta':'malta.jpg',
+  // Mauritius
+  'port louis':'mauritius.jpg',
+  // Mexico
+  'mexico city':'mexico.jpg','cancun':'mexico-cancun.jpg','cancún':'mexico-cancun.jpg',
+  'guadalajara':'mexico.jpg','monterrey':'mexico.jpg','tulum':'mexico.jpg',
+  'playa del carmen':'mexico.jpg','oaxaca':'mexico.jpg','puerto vallarta':'mexico.jpg',
+  'cabo san lucas':'mexico.jpg','san miguel de allende':'mexico.jpg','mérida':'mexico.jpg',
+  'merida':'mexico.jpg','tijuana':'mexico.jpg',
+  // Moldova
+  'chisinau':'moldova.jpg','chișinău':'moldova.jpg',
+  // Mongolia
+  'ulaanbaatar':'mongolia.jpg',
+  // Montenegro
+  'podgorica':'montenegro.jpg','kotor':'montenegro.jpg','budva':'montenegro.jpg',
+  // Morocco
+  'rabat':'morocco.jpg','marrakech':'morocco-marrakech.jpg','casablanca':'morocco.jpg',
+  'fez':'morocco.jpg','fès':'morocco.jpg','tangier':'morocco.jpg','agadir':'morocco.jpg',
+  // Mozambique
+  'maputo':'mozambique.jpg',
+  // Myanmar
+  'yangon':'myanmar.jpg','naypyidaw':'myanmar.jpg','bagan':'myanmar.jpg','mandalay':'myanmar.jpg',
+  // Namibia
+  'windhoek':'namibia.jpg',
+  // Nepal
+  'kathmandu':'nepal.jpg','pokhara':'nepal.jpg',
+  // Netherlands
+  'amsterdam':'netherlands-amsterdam.jpg','rotterdam':'netherlands.jpg',
+  'the hague':'netherlands.jpg','\'s-hertogenbosch':'netherlands.jpg','utrecht':'netherlands.jpg',
+  // New Zealand
+  'wellington':'new-zealand.jpg','auckland':'new-zealand.jpg','queenstown':'new-zealand.jpg',
+  'christchurch':'new-zealand.jpg',
+  // Nicaragua
+  'managua':'nicaragua.jpg','granada':'nicaragua.jpg',
+  // Nigeria
+  'abuja':'nigeria.jpg','lagos':'nigeria.jpg','kano':'nigeria.jpg',
+  // North Macedonia
+  'skopje':'north-macedonia.jpg',
+  // Norway
+  'oslo':'norway.jpg','bergen':'norway.jpg','tromsø':'norway.jpg','tromso':'norway.jpg',
+  'stavanger':'norway.jpg',
+  // Oman
+  'muscat':'oman.jpg',
+  // Pakistan
+  'islamabad':'pakistan.jpg','karachi':'pakistan.jpg','lahore':'pakistan.jpg',
+  // Panama
+  'panama city':'panama.jpg',
+  // Paraguay
+  'asuncion':'paraguay.jpg','asunción':'paraguay.jpg',
+  // Peru
+  'lima':'peru-lima.jpg','machu picchu':'peru.jpg','cusco':'peru.jpg','cuzco':'peru.jpg',
+  'arequipa':'peru.jpg',
+  // Philippines
+  'manila':'philippines.jpg','cebu':'philippines.jpg','boracay':'philippines.jpg',
+  'palawan':'philippines.jpg','davao':'philippines.jpg',
+  // Poland
+  'warsaw':'poland.jpg','krakow':'poland.jpg','kraków':'poland.jpg','gdansk':'poland.jpg',
+  'gdańsk':'poland.jpg','wroclaw':'poland.jpg','wrocław':'poland.jpg',
+  // Portugal
+  'lisbon':'portugal-lisbon.jpg','porto':'portugal.jpg','faro':'portugal.jpg',
+  'madeira':'portugal.jpg','algarve':'portugal.jpg','funchal':'portugal.jpg',
+  // Puerto Rico (USA)
+  'san juan':'usa.jpg',
+  // Qatar
+  'doha':'qatar.jpg',
+  // Romania
+  'bucharest':'romania.jpg','cluj-napoca':'romania.jpg','brasov':'romania.jpg',
+  'brașov':'romania.jpg','sibiu':'romania.jpg',
+  // Russia
+  'moscow':'russia.jpg','st. petersburg':'russia.jpg','saint petersburg':'russia.jpg',
+  'vladivostok':'russia.jpg',
+  // Rwanda
+  'kigali':'rwanda.jpg',
+  // Saudi Arabia
+  'riyadh':'saudi-arabia.jpg','jeddah':'saudi-arabia.jpg','mecca':'saudi-arabia.jpg',
+  'medina':'saudi-arabia.jpg',
+  // Senegal
+  'dakar':'senegal.jpg',
+  // Serbia
+  'belgrade':'serbia.jpg','novi sad':'serbia.jpg',
+  // Sierra Leone
+  'freetown':'sierra-leone.jpg',
+  // Singapore
+  'singapore':'singapore.jpg',
+  // Slovakia
+  'bratislava':'slovakia.jpg',
+  // Slovenia
+  'ljubljana':'slovenia.jpg','bled':'slovenia.jpg',
+  // Somalia
+  'mogadishu':'somalia.jpg',
+  // South Africa
+  'cape town':'south-africa-cape-town.jpg','johannesburg':'south-africa.jpg',
+  'durban':'south-africa.jpg','pretoria':'south-africa.jpg',
+  // South Korea
+  'seoul':'south-korea-seoul.jpg','busan':'south-korea.jpg','incheon':'south-korea.jpg',
+  // Spain
+  'madrid':'spain-madrid.jpg','barcelona':'spain-barcelona.jpg','seville':'spain.jpg',
+  'sevilla':'spain.jpg','valencia':'spain.jpg','malaga':'spain.jpg','málaga':'spain.jpg',
+  'ibiza':'spain.jpg','mallorca':'spain.jpg','palma':'spain.jpg','bilbao':'spain.jpg',
+  'granada':'spain.jpg','tenerife':'spain.jpg','gran canaria':'spain.jpg',
+  'lanzarote':'spain.jpg','fuerteventura':'spain.jpg',
+  // Sri Lanka
+  'colombo':'sri-lanka.jpg','kandy':'sri-lanka.jpg','galle':'sri-lanka.jpg',
+  // Suriname
+  'paramaribo':'suriname.jpg',
+  // Sweden
+  'stockholm':'sweden-stockholm.jpg','gothenburg':'sweden.jpg','göteborg':'sweden.jpg',
+  'malmo':'sweden.jpg','malmö':'sweden.jpg',
+  // Switzerland
+  'bern':'switzerland.jpg','zurich':'switzerland.jpg','zürich':'switzerland.jpg',
+  'geneva':'switzerland.jpg','genève':'switzerland.jpg','lausanne':'switzerland.jpg',
+  'interlaken':'switzerland.jpg','lucerne':'switzerland.jpg','basel':'switzerland.jpg',
+  // Taiwan
+  'taipei':'taiwan.jpg','taichung':'taiwan.jpg','kaohsiung':'taiwan.jpg',
+  // Tajikistan
+  'dushanbe':'tajikistan.jpg',
+  // Tanzania
+  'dar es salaam':'tanzania.jpg','zanzibar':'tanzania.jpg','arusha':'tanzania.jpg',
+  // Thailand
+  'bangkok':'thailand-bangkok.jpg','phuket':'thailand-phuket.jpg',
+  'chiang mai':'thailand.jpg','pattaya':'thailand.jpg','ko samui':'thailand.jpg',
+  'koh samui':'thailand.jpg','krabi':'thailand.jpg','chiang rai':'thailand.jpg',
+  // Trinidad and Tobago
+  'port of spain':'trinidad-and-tobago.jpg',
+  // Tunisia
+  'tunis':'tunisia.jpg','sfax':'tunisia.jpg','sousse':'tunisia.jpg',
+  'djerba':'tunisia.jpg','dakhla':'tunisia.jpg',
+  // Turkey
+  'istanbul':'turkey-istanbul.jpg','ankara':'turkey.jpg','antalya':'turkey.jpg',
+  'izmir':'turkey.jpg','cappadocia':'turkey.jpg','bodrum':'turkey.jpg',
+  'trabzon':'turkey.jpg',
+  // Uganda
+  'kampala':'uganda.jpg',
+  // Ukraine
+  'kyiv':'ukraine.jpg','odessa':'ukraine.jpg','lviv':'ukraine.jpg',
+  // United Arab Emirates
+  'dubai':'uae-dubai.jpg','abu dhabi':'uae.jpg','sharjah':'uae.jpg',
+  // United Kingdom
+  'london':'uk-london.jpg','edinburgh':'uk.jpg','manchester':'uk.jpg',
+  'birmingham':'uk.jpg','glasgow':'uk.jpg','liverpool':'uk.jpg',
+  'bristol':'uk.jpg','leeds':'uk.jpg','cardiff':'uk.jpg','belfast':'uk.jpg',
+  'bath':'uk.jpg','oxford':'uk.jpg','cambridge':'uk.jpg',
+  // United States
+  'new york':'usa-new-york.jpg','new york city':'usa-new-york.jpg',
+  'new york jfk':'usa-new-york.jpg','nyc':'usa-new-york.jpg',
+  'chicago':'usa-chicago.jpg','los angeles':'usa.jpg','miami':'usa.jpg',
+  'las vegas':'usa.jpg','washington':'usa.jpg','washington dc':'usa.jpg',
+  'seattle':'usa.jpg','boston':'usa.jpg','denver':'usa.jpg','orlando':'usa.jpg',
+  'austin':'usa.jpg','dallas':'usa.jpg','philadelphia':'usa.jpg',
+  'charlotte':'usa.jpg','houston':'usa.jpg','atlanta':'usa.jpg',
+  'nashville':'usa.jpg','portland':'usa.jpg','phoenix':'usa.jpg',
+  'san francisco':'usa.jpg','san diego':'usa.jpg','sacramento':'usa.jpg',
+  'minneapolis':'usa.jpg','detroit':'usa.jpg','new orleans':'usa.jpg',
+  'baltimore':'usa.jpg','tampa':'usa.jpg','fort lauderdale':'usa.jpg',
+  'san antonio':'usa.jpg','columbus':'usa.jpg','indianapolis':'usa.jpg',
+  'melbourne, florida':'usa.jpg','melbourne, florida, usa':'usa.jpg',
+  // Uruguay
+  'montevideo':'uruguay.jpg','punta del este':'uruguay.jpg',
+  // US Virgin Islands
+  'st. thomas':'usa.jpg','saint thomas':'usa.jpg','st. croix':'usa.jpg',
+  'charlotte amalie':'usa.jpg',
+  // Uzbekistan
+  'tashkent':'uzbekistan.jpg','samarkand':'uzbekistan.jpg','bukhara':'uzbekistan.jpg',
+  // Venezuela
+  'caracas':'venezuela.jpg',
+  // Vietnam
   'hanoi':'vietnam.jpg','ho chi minh city':'vietnam.jpg','ho chi minh':'vietnam.jpg',
-  'saigon':'vietnam.jpg','da nang':'vietnam.jpg','lusaka':'zambia.jpg',
-  'harare':'zimbabwe.jpg','hong kong':'china-hong-kong.jpg','macau':'china.jpg',
-  'brisbane':'australia-brisbane.jpg','sydney':'australia-sydney.jpg',
-  'perth':'australia.jpg','bogota':'colombia-bogota.jpg',
-  'bogotá':'colombia-bogota.jpg','medellin':'colombia.jpg',
-  'medellín':'colombia.jpg','cartagena':'colombia-cartagena.jpg',
-  'afghanistan':'afghanistan.jpg','albania':'albania.jpg','algeria':'algeria.jpg',
-  'argentina':'argentina.jpg','armenia':'armenia.jpg','australia':'australia.jpg',
-  'austria':'austria.jpg','azerbaijan':'azerbaijan.jpg','bahamas':'bahamas.jpg',
-  'bahrain':'bahrain.jpg','bangladesh':'bangladesh.jpg','barbados':'barbados.jpg',
-  'belarus':'belarus.jpg','belgium':'belgium.jpg','belize':'belize.jpg',
-  'bolivia':'bolivia.jpg','brazil':'brazil.jpg','brunei':'brunei.jpg',
-  'bulgaria':'bulgaria.jpg','cambodia':'cambodia.jpg','cameroon':'cameroon.jpg',
-  'canada':'canada.jpg','cape verde':'cabo-verde.jpg','chile':'chile.jpg',
-  'china':'china.jpg','colombia':'colombia.jpg','costa rica':'costa-rica.jpg',
-  'croatia':'croatia.jpg','cuba':'cuba.jpg','cyprus':'cyprus.jpg',
-  'denmark':'denmark.jpg','ecuador':'ecuador.jpg','egypt':'egypt.jpg',
-  'ethiopia':'ethiopia.jpg','fiji':'fiji.jpg','finland':'finland.jpg',
-  'france':'france.jpg','germany':'germany.jpg','ghana':'ghana.jpg',
-  'greece':'greece.jpg','guatemala':'guatemala.jpg','guyana':'guyana.jpg',
-  'honduras':'honduras.jpg','hungary':'hungary.jpg','iceland':'iceland.jpg',
-  'india':'india.jpg','indonesia':'indonesia.jpg','iran':'iran.jpg',
-  'iraq':'iraq.jpg','ireland':'ireland.jpg','israel':'israel.jpg',
-  'italy':'italy.jpg','jamaica':'jamaica.jpg','japan':'japan.jpg',
-  'jordan':'jordan.jpg','kenya':'kenya.jpg','kuwait':'kuwait.jpg',
-  'laos':'laos.jpg','latvia':'latvia.jpg','lebanon':'lebanon.jpg',
-  'lithuania':'lithuania.jpg','madagascar':'madagascar.jpg',
-  'malaysia':'malaysia.jpg','maldives':'maldives.jpg','malta':'malta.jpg',
-  'mexico':'mexico.jpg','mongolia':'mongolia.jpg','morocco':'morocco.jpg',
-  'mozambique':'mozambique.jpg','myanmar':'myanmar.jpg','namibia':'namibia.jpg',
-  'nepal':'nepal.jpg','netherlands':'netherlands.jpg',
-  'new zealand':'new-zealand.jpg','nicaragua':'nicaragua.jpg',
-  'nigeria':'nigeria.jpg','norway':'norway.jpg','oman':'oman.jpg',
-  'pakistan':'pakistan.jpg','panama':'panama.jpg','paraguay':'paraguay.jpg',
-  'peru':'peru.jpg','philippines':'philippines.jpg','poland':'poland.jpg',
-  'portugal':'portugal.jpg','qatar':'qatar.jpg','romania':'romania.jpg',
-  'russia':'russia.jpg','rwanda':'rwanda.jpg','saudi arabia':'saudi-arabia.jpg',
-  'senegal':'senegal.jpg','serbia':'serbia.jpg','singapore':'singapore.jpg',
-  'slovakia':'slovakia.jpg','slovenia':'slovenia.jpg','somalia':'somalia.jpg',
-  'south africa':'south-africa.jpg','south korea':'south-korea.jpg',
-  'spain':'spain.jpg','sri lanka':'sri-lanka.jpg','suriname':'suriname.jpg',
-  'sweden':'sweden.jpg','switzerland':'switzerland.jpg','taiwan':'taiwan.jpg',
-  'tanzania':'tanzania.jpg','thailand':'thailand.jpg','tunisia':'tunisia.jpg',
-  'turkey':'turkey.jpg','uganda':'uganda.jpg','ukraine':'ukraine.jpg',
-  'united arab emirates':'uae.jpg','uae':'uae.jpg','united kingdom':'uk.jpg',
-  'uk':'uk.jpg','united states':'usa.jpg','usa':'usa.jpg','uruguay':'uruguay.jpg',
-  'uzbekistan':'uzbekistan.jpg','venezuela':'venezuela.jpg','vietnam':'vietnam.jpg',
-  'zambia':'zambia.jpg','zimbabwe':'zimbabwe.jpg'
+  'saigon':'vietnam.jpg','da nang':'vietnam.jpg','hoi an':'vietnam.jpg',
+  'nha trang':'vietnam.jpg','hue':'vietnam.jpg',
+  // Western Sahara
+  'dakhla, western sahara':'morocco.jpg',
+  // Yemen
+  'sanaa':'yemen.jpg','sana\'a':'yemen.jpg',
+  // Zambia
+  'lusaka':'zambia.jpg','livingstone':'zambia.jpg',
+  // Zimbabwe
+  'harare':'zimbabwe.jpg','victoria falls':'zimbabwe.jpg',
+
+  // ── COUNTRY FALLBACKS (every country in the world) ─────────────────────────
+  // These catch any city not listed above via the country portion of "City, Country"
+
+  'afghanistan':'afghanistan.jpg',
+  'albania':'albania.jpg',
+  'algeria':'algeria.jpg',
+  'andorra':'andorra.jpg',
+  'angola':'angola.jpg',
+  'antigua and barbuda':'antigua-and-barbuda.jpg','antigua & barbuda':'antigua-and-barbuda.jpg',
+  'argentina':'argentina.jpg',
+  'armenia':'armenia.jpg',
+  'aruba':'aruba.jpg',
+  'australia':'australia.jpg',
+  'austria':'austria.jpg',
+  'azerbaijan':'azerbaijan.jpg',
+  'bahamas':'bahamas.jpg',
+  'bahrain':'bahrain.jpg',
+  'bangladesh':'bangladesh.jpg',
+  'barbados':'barbados.jpg',
+  'belarus':'belarus.jpg',
+  'belgium':'belgium.jpg',
+  'belize':'belize.jpg',
+  'benin':'benin.jpg',
+  'bhutan':'bhutan.jpg',
+  'bolivia':'bolivia.jpg',
+  'bosnia and herzegovina':'bosnia.jpg','bosnia & herzegovina':'bosnia.jpg','bosnia':'bosnia.jpg',
+  'botswana':'botswana.jpg',
+  'brazil':'brazil.jpg',
+  'brunei':'brunei.jpg','brunei darussalam':'brunei.jpg',
+  'bulgaria':'bulgaria.jpg',
+  'burkina faso':'burkina-faso.jpg',
+  'burundi':'burundi.jpg',
+  'cabo verde':'cabo-verde.jpg','cape verde':'cabo-verde.jpg',
+  'cambodia':'cambodia.jpg',
+  'cameroon':'cameroon.jpg',
+  'canada':'canada.jpg',
+  'cayman islands':'cayman-islands.jpg',
+  'central african republic':'central-african-republic.jpg',
+  'chad':'chad.jpg',
+  'chile':'chile.jpg',
+  'china':'china.jpg',
+  'colombia':'colombia.jpg',
+  'comoros':'comoros.jpg',
+  'congo':'congo.jpg','democratic republic of the congo':'congo.jpg','dr congo':'congo.jpg',
+  'republic of the congo':'congo.jpg',
+  'costa rica':'costa-rica.jpg',
+  'croatia':'croatia.jpg',
+  'cuba':'cuba.jpg',
+  'curacao':'curacao.jpg','curaçao':'curacao.jpg',
+  'cyprus':'cyprus.jpg',
+  'czech republic':'czech-republic.jpg','czechia':'czech-republic.jpg',
+  'denmark':'denmark.jpg',
+  'djibouti':'djibouti.jpg',
+  'dominica':'dominica.jpg',
+  'dominican republic':'dominican-republic.jpg',
+  'ecuador':'ecuador.jpg',
+  'egypt':'egypt.jpg',
+  'el salvador':'el-salvador.jpg',
+  'equatorial guinea':'equatorial-guinea.jpg',
+  'eritrea':'eritrea.jpg',
+  'estonia':'estonia.jpg',
+  'eswatini':'eswatini.jpg','swaziland':'eswatini.jpg',
+  'ethiopia':'ethiopia.jpg',
+  'fiji':'fiji.jpg',
+  'finland':'finland.jpg',
+  'france':'france.jpg',
+  'gabon':'gabon.jpg',
+  'gambia':'gambia.jpg','the gambia':'gambia.jpg',
+  'georgia':'georgia.jpg',
+  'germany':'germany.jpg',
+  'ghana':'ghana.jpg',
+  'greece':'greece.jpg',
+  'grenada':'grenada.jpg',
+  'guatemala':'guatemala.jpg',
+  'guinea':'guinea.jpg',
+  'guinea-bissau':'guinea-bissau.jpg',
+  'guyana':'guyana.jpg',
+  'haiti':'haiti.jpg',
+  'honduras':'honduras.jpg',
+  'hungary':'hungary.jpg',
+  'iceland':'iceland.jpg',
+  'india':'india.jpg',
+  'indonesia':'indonesia.jpg',
+  'iran':'iran.jpg',
+  'iraq':'iraq.jpg',
+  'ireland':'ireland.jpg',
+  'israel':'israel.jpg',
+  'italy':'italy.jpg',
+  'ivory coast':'ivory-coast.jpg','côte d\'ivoire':'ivory-coast.jpg','cote d\'ivoire':'ivory-coast.jpg',
+  'jamaica':'jamaica.jpg',
+  'japan':'japan.jpg',
+  'jordan':'jordan.jpg',
+  'kazakhstan':'kazakhstan.jpg',
+  'kenya':'kenya.jpg',
+  'kosovo':'kosovo.jpg',
+  'kuwait':'kuwait.jpg',
+  'kyrgyzstan':'kyrgyzstan.jpg',
+  'laos':'laos.jpg',
+  'latvia':'latvia.jpg',
+  'lebanon':'lebanon.jpg',
+  'lesotho':'lesotho.jpg',
+  'liberia':'liberia.jpg',
+  'libya':'libya.jpg',
+  'liechtenstein':'liechtenstein.jpg',
+  'lithuania':'lithuania.jpg',
+  'luxembourg':'luxembourg.jpg',
+  'madagascar':'madagascar.jpg',
+  'malawi':'malawi.jpg',
+  'malaysia':'malaysia.jpg',
+  'maldives':'maldives.jpg',
+  'mali':'mali.jpg',
+  'malta':'malta.jpg',
+  'mauritania':'mauritania.jpg',
+  'mauritius':'mauritius.jpg',
+  'mexico':'mexico.jpg',
+  'moldova':'moldova.jpg',
+  'mongolia':'mongolia.jpg',
+  'montenegro':'montenegro.jpg',
+  'morocco':'morocco.jpg',
+  'mozambique':'mozambique.jpg',
+  'myanmar':'myanmar.jpg','burma':'myanmar.jpg',
+  'namibia':'namibia.jpg',
+  'nepal':'nepal.jpg',
+  'netherlands':'netherlands.jpg','holland':'netherlands.jpg',
+  'new zealand':'new-zealand.jpg',
+  'nicaragua':'nicaragua.jpg',
+  'niger':'niger.jpg',
+  'nigeria':'nigeria.jpg',
+  'north korea':'north-korea.jpg',
+  'north macedonia':'north-macedonia.jpg',
+  'norway':'norway.jpg',
+  'oman':'oman.jpg',
+  'pakistan':'pakistan.jpg',
+  'panama':'panama.jpg',
+  'papua new guinea':'papua-new-guinea.jpg',
+  'paraguay':'paraguay.jpg',
+  'peru':'peru.jpg',
+  'philippines':'philippines.jpg',
+  'poland':'poland.jpg',
+  'portugal':'portugal.jpg',
+  'qatar':'qatar.jpg',
+  'romania':'romania.jpg',
+  'russia':'russia.jpg','russian federation':'russia.jpg',
+  'rwanda':'rwanda.jpg',
+  'saint kitts and nevis':'saint-kitts-and-nevis.jpg',
+  'saint lucia':'saint-lucia.jpg','st. lucia':'saint-lucia.jpg','st lucia':'saint-lucia.jpg',
+  'saint vincent and the grenadines':'saint-vincent.jpg',
+  'samoa':'samoa.jpg',
+  'saudi arabia':'saudi-arabia.jpg',
+  'senegal':'senegal.jpg',
+  'serbia':'serbia.jpg',
+  'seychelles':'seychelles.jpg',
+  'sierra leone':'sierra-leone.jpg',
+  'singapore':'singapore.jpg',
+  'slovakia':'slovakia.jpg',
+  'slovenia':'slovenia.jpg',
+  'solomon islands':'solomon-islands.jpg',
+  'somalia':'somalia.jpg',
+  'south africa':'south-africa.jpg',
+  'south korea':'south-korea.jpg',
+  'south sudan':'south-sudan.jpg',
+  'spain':'spain.jpg',
+  'sri lanka':'sri-lanka.jpg',
+  'sudan':'sudan.jpg',
+  'suriname':'suriname.jpg',
+  'sweden':'sweden.jpg',
+  'switzerland':'switzerland.jpg',
+  'syria':'syria.jpg',
+  'taiwan':'taiwan.jpg',
+  'tajikistan':'tajikistan.jpg',
+  'tanzania':'tanzania.jpg',
+  'thailand':'thailand.jpg',
+  'timor-leste':'timor-leste.jpg','east timor':'timor-leste.jpg',
+  'togo':'togo.jpg',
+  'tonga':'tonga.jpg',
+  'trinidad and tobago':'trinidad-and-tobago.jpg','trinidad & tobago':'trinidad-and-tobago.jpg',
+  'tunisia':'tunisia.jpg',
+  'turkey':'turkey.jpg','türkiye':'turkey.jpg',
+  'turkmenistan':'turkmenistan.jpg',
+  'uganda':'uganda.jpg',
+  'ukraine':'ukraine.jpg',
+  'united arab emirates':'uae.jpg','uae':'uae.jpg',
+  'united kingdom':'uk.jpg','uk':'uk.jpg','great britain':'uk.jpg','britain':'uk.jpg',
+  'united states':'usa.jpg','usa':'usa.jpg','us virgin islands':'usa.jpg',
+  'uruguay':'uruguay.jpg',
+  'uzbekistan':'uzbekistan.jpg',
+  'vanuatu':'vanuatu.jpg',
+  'venezuela':'venezuela.jpg',
+  'vietnam':'vietnam.jpg','viet nam':'vietnam.jpg',
+  'western sahara':'morocco.jpg',
+  'yemen':'yemen.jpg',
+  'zambia':'zambia.jpg',
+  'zimbabwe':'zimbabwe.jpg'
 };
 
 function resolveImage(toArray) {
