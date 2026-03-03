@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZSXCJY4G9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7ZSXCJY4G9');
+  </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlyWell.Flights — Cheap Flight Deals, Error Fares & Airline Sales</title>
+<meta name="description" content="FlyWell.Flights finds you the cheapest flights online. Browse daily cheap flight deals, error fares and airline sales from Europe and worldwide. Free, no signup required.">
+<meta name="keywords" content="cheap flights, flight deals, error fares, mistake fares, cheap roundtrip flights, airline deals, cheap airline tickets">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.flywell.flights/">
+<link rel="sitemap" type="application/xml" href="https://www.flywell.flights/sitemap.xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FlyWell.Flights — Cheap Flight Deals &amp; Error Fares">
+<meta property="og:description" content="Find the cheapest flights online. Daily cheap flight deals, error fares and airline sales from Europe and worldwide. Free, no signup.">
+<meta property="og:url" content="https://www.flywell.flights/">
+<meta property="og:site_name" content="FlyWell.Flights">
+<meta property="og:image" content="https://www.flywell.flights/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@flywellflights">
+<meta name="twitter:title" content="FlyWell.Flights — Cheap Flight Deals &amp; Error Fares">
+<meta name="twitter:description" content="Find the cheapest flights online. Daily cheap flight deals, error fares and airline sales from Europe and worldwide. Free, no signup.">
+<meta name="twitter:image" content="https://www.flywell.flights/images/og-image.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "FlyWell.Flights",
+  "url": "https://www.flywell.flights/",
+  "description": "Daily cheap flight deals, error fares and airline sales from Europe and worldwide. Free, no signup required.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.flywell.flights/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo" onclick="showPage('main');return false;">Fly<span>Well</span>.Flights</a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('main');return false;">Flight Deals</a></li>
+
+    <li><a href="#" onclick="showPage('blog');return false;">Blog</a></li>
+    <li><a href="#" onclick="showPage('qa');return false;">Q&amp;A</a></li>
+    <li><a href="#" onclick="showPage('contact');return false;">Contact</a></li>
+  </ul>
+  <div class="mobile-search-bar">
+    <span style="font-size:0.8rem;opacity:0.5;">🔍</span>
+    <input type="text" id="mobile-search-input" placeholder="Search destinations…" autocomplete="off"
+      oninput="navSearch(this.value)" onkeydown="if(event.key==='Enter'){navSearchGoMobile()}" />
+  </div>
+</nav>
+
+<!-- MAIN PAGE -->
+<div id="main-page">
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <p class="hero-eyebrow">Global Flight Deals</p>
+  <h1>Cheap fares.<br><em>Real savings.</em></h1>
+  <p class="hero-sub">No signup required &nbsp;·&nbsp; Completely free &nbsp;·&nbsp; Updated daily</p>
+  <div class="search-bar">
+    <div class="search-field" style="position:relative;">
+      <label>From</label>
+      <input type="text" id="search-from" placeholder="Anywhere" autocomplete="off" />
+    </div>
+    <div class="search-divider"></div>
+    <div class="search-field" style="position:relative;">
+      <label>To</label>
+      <input type="text" id="search-to" placeholder="Anywhere" autocomplete="off" />
+    </div>
+    <div class="search-divider"></div>
+    <div class="search-field" style="flex:1;cursor:pointer;" onclick="toggleMonthPicker(event)">
+      <label style="cursor:pointer;">When</label>
+      <input type="text" id="search-when" placeholder="Any month" readonly style="cursor:pointer;" onclick="toggleMonthPicker(event)" />
+    </div>
+    <button class="search-btn" onclick="runSearch()">Search</button>
+  </div>
+</div>
+
+<div class="region-pills">
+  <a href="#" class="pill active" onclick="filterByRegion(this,'all');return false;">🌍 All</a>
+  <a href="#" class="pill" onclick="filterByRegion(this,'namerica');return false;">🌏 USA/Canada</a>
+  <a href="#" class="pill" onclick="filterByRegion(this,'camerica');return false;">🌏 C. America &amp; Carib.</a>
+  <a href="#" class="pill" onclick="filterByRegion(this,'samerica');return false;">🌎 S. America</a>
+  <a href="#" class="pill" onclick="filterByRegion(this,'europe');return false;">🌏 Europe</a>
+  <a href="#" class="pill" onclick="filterByRegion(this,'mena');return false;">🌏 MENA</a>
+  <a href="#" class="pill" onclick="filterByRegion(this,'africa');return false;">🌍 Africa</a>
+  <a href="#" class="pill" onclick="filterByRegion(this,'scasia');return false;">🌏 S. &amp; C. Asia</a>
+  <a href="#" class="pill" onclick="filterByRegion(this,'easia');return false;">🌏 E. Asia</a>
+  <a href="#" class="pill" onclick="filterByRegion(this,'oceania');return false;">🌏 Australia/Oceania</a>
+</div>
+
+<main>
+  <div class="section-header">
+    <h2>Latest Deals</h2>
+    <span class="deal-count">Updated Feb 2026</span>
+    <span style="font-size:0.68rem;color:rgba(28,22,18,0.45);font-style:italic;">Some links may be affiliate links — <a href="#" onclick="showPage('terms');return false;" style="color:var(--accent);text-decoration:none;">learn more</a></span>
+  </div>
+  <div class="deals-grid" id="deals-grid"></div>
+  <div class="load-more-wrap">
+    <button class="load-more" onclick="loadMore()">Load more deals ↓</button>
+  </div>
+</main>
+
+</div><!-- end #main-page -->
+
+
+<!-- DEAL DETAIL PAGE -->
+<div id="deal-page">
+  <div class="deal-detail-hero">
+    <img id="dd-img" src="" alt="" onerror="if(typeof ddImgFallback==='function')ddImgFallback(this)">
+    <div class="deal-detail-hero-overlay"></div>
+    <button class="deal-detail-back" onclick="showPage('main');return false;">← Back to deals</button>
+    <div class="deal-detail-hero-content">
+      <div class="deal-detail-badge-row">
+        <span id="dd-badge" class="deal-detail-badge"></span>
+        <span id="dd-posted" class="deal-detail-posted"></span>
+      </div>
+      <div id="dd-price" class="deal-detail-price-hero"></div>
+      <div id="dd-route-hero" class="deal-detail-route-hero"></div>
+    </div>
+  </div>
+  <div class="deal-detail-body">
+    <div class="deal-detail-main">
+      <h2 id="dd-title" style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.05em;color:var(--text);line-height:1.2;margin-bottom:0.5rem;"></h2>
+      <p id="dd-desc" style="font-family:'DM Sans',sans-serif;font-size:0.88rem;color:rgba(28,22,18,0.6);line-height:1.7;margin-bottom:2rem;"></p>
+      <div class="deal-detail-section">
+        <div class="deal-detail-label">Departing from</div>
+        <div id="dd-from" class="deal-detail-cities"></div>
+      </div>
+      <div class="deal-detail-section">
+        <div class="deal-detail-label">Arriving in</div>
+        <div id="dd-to" class="deal-detail-cities"></div>
+      </div>
+      <div class="deal-detail-section">
+        <div class="deal-detail-label">Travel dates</div>
+        <div class="deal-detail-info-text"><strong id="dd-dates"></strong></div>
+      </div>
+      <div class="deal-detail-section">
+        <div class="deal-detail-label">Airline</div>
+        <div class="deal-detail-info-text" id="dd-airline"></div>
+      </div>
+      <div class="deal-detail-section">
+        <div class="deal-detail-label">Stops</div>
+        <div class="deal-detail-info-text" id="dd-stops"></div>
+      </div>
+      <div class="deal-detail-section">
+        <div class="deal-detail-label">Cabin class</div>
+        <div class="deal-detail-info-text" id="dd-cabin"></div>
+      </div>
+      <div class="deal-detail-section">
+        <div class="deal-detail-label">Example dates</div>
+        <ul id="dd-example-dates" class="deal-detail-dates-list"></ul>
+        <p class="deal-detail-note">⚡ Prices change fast. Click a date to check live availability on Skyscanner. Try ±2 days for more options.</p>
+      </div>
+    </div>
+    <div class="deal-detail-sidebar">
+      <div class="deal-detail-cta-box">
+        <div id="dd-cta-price" class="deal-cta-price"></div>
+        <div id="dd-cta-route" class="deal-cta-route"></div>
+        <a id="dd-cta-btn" href="#" target="_blank" rel="noopener" class="deal-cta-btn">Search this deal ↗</a>
+        <div class="deal-cta-meta">
+          <div class="deal-cta-meta-row"><span>Airline</span><strong id="dd-meta-airline"></strong></div>
+          <div class="deal-cta-meta-row"><span>Cabin</span><strong id="dd-meta-cabin"></strong></div>
+          <div class="deal-cta-meta-row"><span>Stops</span><strong id="dd-meta-stops"></strong></div>
+          <div class="deal-cta-meta-row" style="border:none;padding:0;"><span>Available</span><strong id="dd-meta-dates"></strong></div>
+        </div>
+        <p class="deal-affiliate-note">Some links are affiliate links. We may earn a small commission at no cost to you.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q&A PAGE -->
+<div id="qa-page">
+  <div class="page-hero">
+    <p class="page-eyebrow">Frequently Asked Questions</p>
+    <h1>How to find <em>cheap flights</em> — answered.</h1>
+  </div>
+  <div class="page-content" style="max-width:720px;">
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.92rem;color:rgba(28,22,18,0.6);line-height:1.8;margin-bottom:2rem;">Everything you need to know about finding the cheapest flights online, how error fares and mistake fares work, and how FlyWell.Flights helps you travel more for less — completely free.</p>
+
+    <div class="qa-category">Cheap Flights & Deals</div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>How do you find the cheapest flight deals?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Our team scans hundreds of airlines, online travel agencies, and fare aggregators — including Skyscanner, Google Flights, Kayak, and direct airline websites — every single day. We hunt for mistake fares, flash sales, seat sales, and genuine cheap flight deals across thousands of routes worldwide. When a price drops 40–70% below the typical fare, we publish it immediately. The best cheap roundtrip flights disappear fast — sometimes within hours — so we move quickly so you don't miss out.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>What is a mistake fare or error fare?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>A mistake fare (also called an error fare or glitch fare) is a flight price published in error — usually caused by a currency conversion bug, a missing fuel surcharge, or a data entry mistake by the airline or booking system. These are the most extreme cheap flights you'll ever find — sometimes 80–90% off the normal roundtrip price. Many airlines do honour them, especially if you book quickly and receive a booking confirmation. We label error fares clearly so you always know the risk before you click.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>Are the cheap flight prices shown guaranteed?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>No — and we'll always be honest about that. Airline ticket prices are set and controlled entirely by airlines and third-party booking platforms. They can change or sell out at any moment. We post deals the instant we find them, but by the time you click through, the cheap fare may have been snapped up. Always verify the final price on the booking platform before confirming any purchase.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>What is the cheapest day and time to book flights?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>There's no single magic answer, but research consistently shows a few patterns: <strong>Tuesdays and Wednesdays</strong> tend to have lower fares on many routes as airlines adjust pricing after weekend demand. Booking <strong>6–8 weeks in advance</strong> often hits the sweet spot for short-haul European flights, while <strong>3–6 months ahead</strong> works better for long-haul routes to Asia, the Americas, or Australia. Flying mid-week (Tuesday–Thursday) is almost always cheaper than Friday or Sunday. The single best tip: set up fare alerts on Skyscanner for your route and let the algorithm do the work.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>Do you sell flights or process bookings?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>No. FlyWell.Flights is a free flight deal discovery and information service. We don't sell airline tickets, process bookings, or operate as a travel agency. Every deal on this site links directly to the airline or a trusted booking platform like Skyscanner, where your transaction takes place entirely with them. We have no involvement in the booking or payment process.</p></div></div>
+
+    <div class="qa-category" style="margin-top:2rem;">Using FlyWell.Flights</div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>Is FlyWell.Flights free? Do I need to create an account?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Completely free — no account, no subscription, no hidden fees. Browse every cheap flight deal, click through to book, and pay nothing to us. We may introduce an optional premium membership in the future for early access to exclusive deals and personalised fare alerts, but the core flight deals service will always be 100% free to use.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>How does the flight search work?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Use the <strong>From</strong> field to type your departure city or country, <strong>To</strong> for your destination, and <strong>When</strong> to select a travel month. Any combination works — leave fields blank to browse all current cheap flights. Deals filter instantly as you type. The region filter pills (Europe, USA, Asia, etc.) let you narrow results by destination region in one click.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>How often are the cheap flight deals updated?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>We update the deals grid daily — and multiple times a day when we find something exceptional. The freshest cheap flight deals appear at the top. Check back regularly: the best deals on business class flights, error fares, and deeply discounted economy tickets tend to last only hours before airlines correct or remove them.</p></div></div>
+
+    <div class="qa-category" style="margin-top:2rem;">Booking & Travel Tips</div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>What should I check before booking a cheap flight?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Before confirming any cheap airline ticket, always check: <strong>baggage allowance</strong> (many budget fares are carry-on only and add checked luggage fees that can double the price), <strong>fare flexibility</strong> (cheap fares are usually non-refundable and non-changeable), <strong>connection times</strong> on multi-stop flights, <strong>visa requirements</strong> for your destination and any transit countries, and <strong>travel insurance</strong> — especially for non-refundable bookings. Reading the full fare conditions takes two minutes and can save you hundreds.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>The deal has expired — what can I do?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Cheap flights move fast and some expire within hours of posting. If the price has gone up, try: <strong>flexible dates</strong> on the same route (±2–3 days often recovers the low fare), <strong>nearby airports</strong> (e.g. Brussels instead of Amsterdam), or <strong>setting a Skyscanner price alert</strong> for the route so you're notified automatically when prices drop again. You can also <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">contact us</a> and we'll check whether the deal is still available on alternate dates.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>Why are some flights cheaper from certain countries?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Airlines use dynamic pricing algorithms that vary by market — meaning the exact same seat can have a different price depending on which country's version of a booking site you use. This is sometimes called a <strong>hidden city fare</strong> or <strong>point-of-sale pricing</strong>. We source many deals via Skyscanner's Swedish market, which consistently surfaces some of the lowest EUR-denominated fares in Europe due to high competition and algorithm differences. Searching in EUR from a Swedish market setting is one of the most reliable ways to find cheap roundtrip international flights.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>Do you earn commission? Are links paid?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Some links on FlyWell.Flights are affiliate links — meaning we may earn a small referral commission if you book through them, at absolutely no extra cost to you. Affiliate revenue is how we keep the flight deal service free. It never influences which cheap flights we feature, how we rank them, or how we describe them. We only post deals we'd genuinely book ourselves. Full transparency is in our <a href="#" onclick="showPage('terms');return false;" style="color:var(--accent);text-decoration:none;">Terms of Service</a>.</p></div></div>
+    <div class="qa-item"><button class="qa-question" onclick="toggleQA(this)"><span>I found a cheap flight deal you haven't posted — can I share it?</span><span class="qa-icon">+</span></button><div class="qa-answer"><p>Yes please! We love reader tip-offs. Use the <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">Contact</a> form to send us the route, the price, the dates, and any booking link. If it checks out we'll post it fast. The best cheap flights are a community effort — the more eyes on fares, the more deals everyone benefits from.</p></div></div>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="contact-page">
+  <div class="page-hero">
+    <p class="page-eyebrow">Get in touch</p>
+    <h1>We'd love to <em>hear from you</em></h1>
+  </div>
+  <div class="page-content">
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <p>Found a great fare we missed? Have a question about a deal? Just want to say hi? Drop us a message and we'll get back to you as soon as we can.</p>
+        <p>We're a small team passionate about helping people travel more for less — your messages genuinely make our day.</p>
+        <div class="contact-info-item" style="margin-top:1.5rem;">
+          <div class="contact-info-icon">✉️</div><span><a href="/cdn-cgi/l/email-protection#533b363f3f3c13353f2a24363f3f7d353f3a343b2720" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="dcb4b9b0b0b39cbab0a5abb9b0b0f2bab0b5bbb4a8af">[email&#160;protected]</span></a></span>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">⏱️</div><span>We reply within 24 hours</span>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">🌍</div><span>Based in Europe, flying everywhere</span>
+        </div>
+      </div>
+      <div class="contact-form-box">
+        <h3>Send us a message</h3>
+        <div id="contact-form">
+          <div class="form-row">
+            <div class="form-group"><label>Name *</label><input type="text" id="cf-name" placeholder="Your name" /></div>
+            <div class="form-group"><label>Phone</label><input type="tel" id="cf-phone" placeholder="+1 234 567 890" /></div>
+          </div>
+          <div class="form-group"><label>Email *</label><input type="email" id="cf-email" placeholder="you@example.com" /></div>
+          <div class="form-group">
+            <label>Subject *</label>
+            <select id="cf-subject">
+              <option value="">Select a subject…</option>
+              <option>Submit a flight deal</option>
+              <option>Question about a deal</option>
+              <option>Partnership / Press</option>
+              <option>Bug report</option>
+              <option>General enquiry</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message *</label><textarea id="cf-message" placeholder="Tell us what's on your mind…"></textarea></div>
+          <button class="submit-btn" onclick="submitForm()">Send Message</button>
+          <p style="font-size:0.72rem;color:rgba(28,22,18,0.5);margin-top:0.75rem;line-height:1.6;">🔒 Your data will be processed in accordance with our <a href="#" onclick="showPage('privacy');return false;" style="color:var(--accent);text-decoration:none;">Privacy Policy</a>. Used solely to respond to your message. Request deletion anytime: <a href="/cdn-cgi/l/email-protection#69191b001f080a10290f05101e0c0505470f05000e011d1a" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="aadad8c3dccbc9d3eaccc6d3ddcfc6c684ccc6c3cdc2ded9">[email&#160;protected]</span></a>.</p>
+        </div>
+        <div class="form-success" id="form-success">
+          <div class="success-icon">✅</div>
+          <h4>Message Sent!</h4>
+          <p>Thanks for reaching out. We'll get back to you within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TERMS PAGE -->
+<div id="terms-page">
+  <div class="page-hero"><p class="page-eyebrow">Legal</p><h1>Terms of <em>Service</em></h1></div>
+  <div class="page-content">
+    <p class="legal-date"><strong>Last updated: 16 February 2026</strong></p>
+    <p class="legal-intro">These Terms of Service constitute a legally binding agreement between you and FlyWell.Flights governing your access to and use of the FlyWell.Flights website, platform, and any related features, content, or services. By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, you must not use the Service.</p>
+    <div class="legal-section"><h3>1. Overview of the Service &amp; Affiliate Disclosure</h3><p>FlyWell.Flights operates a digital travel discovery platform designed to help users identify and access discounted flight opportunities and travel deals. We act solely as an informational service provider. We do not sell airline tickets, act as a travel agency, process travel bookings, or guarantee availability, pricing, or accuracy of third-party offers. All travel bookings are made directly between you and third-party travel providers.</p><p style="margin-top:0.5rem;"><strong>Affiliate Disclosure:</strong> Some links on this site may be affiliate links. We may earn a small commission if you book through them, at no extra cost to you. This does not influence our editorial decisions or which deals we feature.</p></div>
+    <div class="legal-section"><h3>2. Eligibility and Account Registration</h3><p>By creating an account, you represent that you have the legal capacity to enter into binding agreements, all information provided is accurate and complete, and you will maintain and update your account information. You are solely responsible for the confidentiality of your login credentials and all activity through your account.</p></div>
+    <div class="legal-section"><h3>3. Membership Plans</h3><p>FlyWell.Flights currently provides free membership access. We may introduce optional paid membership plans in the future. All pricing, billing frequency, and features will be clearly disclosed prior to purchase.</p></div>
+    <div class="legal-section"><h3>4. Future Payments and Merchant of Record</h3><p>When Paid Memberships are introduced, payments will be processed by our Merchant of Record, Paddle, who will be responsible for processing payments, managing billing and subscription renewals, collecting and remitting applicable taxes, and managing refunds where applicable.</p></div>
+    <div class="legal-section"><h3>5. Future Subscription Billing and Renewal</h3><p>When Paid Memberships become available, subscriptions will automatically renew at the selected billing interval unless cancelled prior to renewal. Full billing details will be disclosed prior to purchase. You may cancel at any time, taking effect at the end of the current billing period.</p></div>
+    <div class="legal-section"><h3>6. Refunds and Cancellation</h3><p>Refund eligibility will be clearly disclosed prior to purchase of any Paid Membership. Unless required by law, subscription fees may be non-refundable.</p></div>
+    <div class="legal-section"><h3>7. Third-Party Websites and Services</h3><p>The Service contains links to third-party websites provided for informational purposes only. FlyWell.Flights does not control, endorse, or assume responsibility for third-party content, pricing accuracy, availability of offers, or booking processes. You access third-party services entirely at your own risk.</p></div>
+    <div class="legal-section"><h3>8. Accuracy of Information and No Guarantees</h3><p>While we strive to provide accurate and timely information, FlyWell.Flights makes no warranties regarding accuracy of deal information, continued availability of deals, or pricing validity. Travel pricing and availability are controlled entirely by third parties and may change at any time.</p></div>
+    <div class="legal-section"><h3>9. Acceptable Use</h3><p>You agree not to use the Service for unlawful or fraudulent purposes, interfere with or disrupt the Service, attempt to gain unauthorized access, copy or scrape content without authorization, or reverse engineer Service content without permission.</p></div>
+    <div class="legal-section"><h3>10. Intellectual Property</h3><p>All content, features, design, branding, and functionality of the Service are owned by FlyWell.Flights or its licensors. You are granted a limited, non-exclusive, non-transferable license to access and use the Service for personal, non-commercial purposes.</p></div>
+    <div class="legal-section"><h3>11. Disclaimer of Warranties</h3><p>The Service is provided on an "as is" and "as available" basis. FlyWell.Flights disclaims all warranties, express or implied, including merchantability, fitness for a particular purpose, and availability or uninterrupted operation.</p></div>
+    <div class="legal-section"><h3>12. Limitation of Liability</h3><p>To the maximum extent permitted by law, FlyWell.Flights shall not be liable for any indirect, incidental, or consequential damages, loss of profits, revenue, or data, travel-related losses, or booking issues with third parties.</p></div>
+    <div class="legal-section"><h3>13. Suspension and Termination</h3><p>We reserve the right to suspend or terminate your access to the Service at our discretion, including for violations of these Terms.</p></div>
+    <div class="legal-section"><h3>14. Modifications to the Service</h3><p>We reserve the right to modify, update, suspend, or discontinue any aspect of the Service at any time without liability.</p></div>
+    <div class="legal-section"><h3>15. Changes to These Terms</h3><p>We may revise these Terms from time to time. Updated Terms will be posted on this page. Continued use of the Service constitutes acceptance of revised Terms.</p></div>
+    <div class="legal-section"><h3>16. Governing Law</h3><p>These Terms shall be governed by and interpreted in accordance with the laws of Panama.</p></div>
+    <div class="legal-section"><h3>17. Contact Information</h3><p>For questions regarding these Terms, please <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">contact us</a> through our website contact form.</p></div>
+  </div>
+</div>
+
+<!-- PRIVACY PAGE -->
+<div id="privacy-page">
+  <div class="page-hero"><p class="page-eyebrow">Legal</p><h1>Privacy <em>Policy</em></h1></div>
+  <div class="page-content">
+    <p class="legal-date"><strong>Last updated: 16 February 2026</strong></p>
+    <p class="legal-intro">This Privacy Policy explains how FlyWell.Flights collects, uses, stores, and protects your personal data. It is drafted in compliance with the EU General Data Protection Regulation (GDPR), the UK GDPR, the ePrivacy Directive, and other applicable European data protection legislation.</p>
+    <div class="legal-section"><h3>1. Data Controller &amp; DPO</h3><p>FlyWell.Flights is the data controller. Contact us at <strong><a href="/cdn-cgi/l/email-protection#f9898b908f989a80b99f95808e9c9595d79f95909e918d8a" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="4f3f3d26392e2c360f292336382a23236129232628273b3c">[email&#160;protected]</span></a></strong> for all data protection enquiries.</p></div>
+    <div class="legal-section"><h3>2. What Personal Data We Collect</h3><ul><li><strong>Contact form data:</strong> name, email address, phone number (optional), subject, and message content.</li><li><strong>Account data:</strong> email address and password (hashed) if you create an account.</li><li><strong>Usage data:</strong> IP address, browser type, device type, OS, pages visited, time and date of visit, and referring URLs.</li><li><strong>Cookie data:</strong> identifiers and preferences stored via cookies and similar tracking technologies.</li></ul></div>
+    <div class="legal-section"><h3>3. Legal Basis for Processing (GDPR Article 6)</h3><ul><li><strong>Consent (Art. 6(1)(a)):</strong> for non-essential cookies and marketing communications.</li><li><strong>Contract (Art. 6(1)(b)):</strong> where necessary to fulfil a contract with you.</li><li><strong>Legal obligation (Art. 6(1)(c)):</strong> where required to comply with applicable law.</li><li><strong>Legitimate interests (Art. 6(1)(f)):</strong> for analytics, fraud prevention, and improving our Service.</li></ul></div>
+    <div class="legal-section"><h3>4. How We Use Your Data</h3><ul><li>To respond to enquiries and provide customer support</li><li>To operate, maintain, and improve the Service</li><li>To detect, prevent, and respond to fraud, abuse, or security threats</li></ul><p style="margin-top:0.6rem;">We will never sell, rent, or trade your personal data to third parties for their own marketing purposes.</p></div>
+    <div class="legal-section"><h3>5. Data Retention</h3><p>We retain your personal data only for as long as necessary. Contact form submissions are retained for up to 24 months. When data is no longer required, it is securely deleted or anonymised.</p></div>
+    <div class="legal-section"><h3>6. Your Rights Under GDPR</h3><ul><li><strong>Right of access (Art. 15):</strong> obtain a copy of your personal data.</li><li><strong>Right to erasure (Art. 17):</strong> request deletion of your personal data.</li><li><strong>Right to data portability (Art. 20):</strong> receive your data in a machine-readable format.</li></ul><p style="margin-top:0.6rem;">Submit a DSAR by emailing <a href="/cdn-cgi/l/email-protection#0373716a7562607a43656f7a74666f6f2d656f6a646b7770" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="d3a3a1baa5b2b0aa93b5bfaaa4b6bfbffdb5bfbab4bba7a0">[email&#160;protected]</span></a> with subject "GDPR Data Request". We respond within 30 days.</p></div>
+    <div class="legal-section"><h3>7. Cookies</h3><p>We use strictly necessary cookies (session management), analytics cookies (Google Analytics 4, IP anonymised, consent required), and functional cookies (preferences, consent required). Manage consent via the cookie banner or your browser settings.</p></div>
+    <div class="legal-section"><h3>8. Contact</h3><p>Contact us at <strong><a href="/cdn-cgi/l/email-protection#0c7c7e657a6d6f754c6a60757b696060226a60656b64787f" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="28585a415e494b51684e44515f4d4444064e44414f405c5b">[email&#160;protected]</span></a></strong> or via our <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">contact form</a>.</p></div>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="about-page">
+  <div class="page-hero"><p class="page-eyebrow">Our Story</p><h1>Built by travellers, <em>for travellers</em></h1></div>
+  <div class="page-content" style="max-width:640px;">
+    <div class="about-quote">"The world is too beautiful and life too short to stay in one place."</div>
+    <p class="about-text">FlyWell.Flights was born out of a simple obsession — finding extraordinary places to go without paying extraordinary prices to get there. We are a small team of passionate travellers who believe that great adventures shouldn't be reserved for those with deep pockets.</p>
+    <p class="about-text">Every day we scour hundreds of airlines, routes, and booking platforms to surface the deals that most people never see — mistake fares, flash sales, hidden discounts, and genuine bargains that disappear as quickly as they appear. We do the hunting so you can do the living.</p>
+    <p class="about-text">There are no subscriptions, no hidden fees, no noise. Just honest deals, delivered with care. We want every person who lands on this page to feel the same flutter of excitement we do when a dream destination suddenly becomes within reach.</p>
+    <p class="about-text">Because travel changes you. It opens your mind, softens your edges, and reminds you how wonderfully vast and varied this world is. That's worth fighting for — one great fare at a time.</p>
+    <div class="about-cta">
+      <div style="font-size:1.8rem;">🌍</div>
+      <div class="about-cta-text">
+        <p>Have a deal tip?</p>
+        <p>We'd love to hear from you — <a href="#" onclick="showPage('contact');return false;">drop us a message</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG PAGE -->
+<div id="blog-page">
+  <div class="page-hero"><p class="page-eyebrow">Travel Tips &amp; Guides</p><h1>The FlyWell <em>Blog</em></h1></div>
+  <div class="blog-grid" id="blog-grid"></div>
+</div>
+
+<!-- BLOG POST PAGE -->
+<div id="blogpost-page">
+  <div class="blog-post-nav">
+    <button class="blog-post-hero-back" onclick="blogPostBack()">&#8592; Back</button>
+  </div>
+  <div id="blogpost-hero-wrap" style="width:100%;max-height:420px;overflow:hidden;background:#1c1612;">
+    <img id="blogpost-hero-img" src="" alt="" style="width:100%;max-height:420px;object-fit:cover;display:block;opacity:0.85;">
+  </div>
+  <div class="blog-post-content">
+    <div class="blog-post-cat" id="blogpost-cat"></div>
+    <h1 class="blog-post-title" id="blogpost-title"></h1>
+    <div class="blog-post-meta" id="blogpost-meta"></div>
+    <div class="blog-post-body" id="blogpost-body"></div>
+    <div class="blog-post-cta">
+      <p>Ready to find your next cheap flight?</p>
+      <a href="#" onclick="showPage('main');return false;">Browse Today's Deals &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo" onclick="showPage('main');return false;" style="cursor:pointer;">Fly<span>Well</span>.Flights</div>
+  <p>Finding you the cheapest flights worldwide. No signup. Completely free.</p>
+  <div class="footer-links">
+    <a href="#" onclick="showPage('about');return false;">About</a><span class="footer-sep">·</span>
+    <a href="#" onclick="showPage('blog');return false;">Blog</a><span class="footer-sep">·</span>
+    <a href="#" onclick="showPage('contact');return false;">Contact</a><span class="footer-sep">·</span>
+    <a href="#" onclick="showPage('privacy');return false;">Privacy</a><span class="footer-sep">·</span>
+    <a href="#" onclick="showPage('terms');return false;">Terms</a><span class="footer-sep">·</span>
+    <a href="#" onclick="document.getElementById('cookie-banner').style.display='flex'">Cookie Settings</a>
+  </div>
+  <p>© 2026 FlyWell.Flights. All rights reserved. Prices are indicative and may change.</p>
+  <p style="margin-top:0.3rem;font-size:0.7rem;max-width:580px;margin-left:auto;margin-right:auto;">FlyWell.Flights is an informational service only. We do not sell flights, act as a travel agent, or guarantee the availability or accuracy of any deal listed. All bookings are made directly with airlines or third-party providers.</p>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie consent" style="position:fixed;bottom:0;left:0;right:0;z-index:8000;background:rgba(248,245,240,0.97);border-top:1px solid rgba(40,30,20,0.12);padding:1.1rem 2rem;display:none;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;box-shadow:0 -8px 32px rgba(40,30,20,0.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);">
+  <div style="flex:1;min-width:260px;">
+    <p style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.1em;color:#1c1612;margin-bottom:0.25rem;">Cookie Notice</p>
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.78rem;color:rgba(28,22,18,0.55);line-height:1.6;">We use cookies to operate this site and (with your consent) analyse traffic. <a href="#" onclick="showPage('privacy');return false;" style="color:#c47f2a;text-decoration:none;font-weight:500;">Privacy &amp; Cookie Policy</a></p>
+  </div>
+  <div style="display:flex;gap:0.5rem;flex-shrink:0;flex-wrap:wrap;">
+    <button onclick="acceptCookies('reject')" style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;padding:0.5rem 1rem;cursor:pointer;border:1px solid rgba(40,30,20,0.2);border-radius:8px;background:transparent;color:rgba(28,22,18,0.55);">Reject All</button>
+    <button onclick="openCookiePrefs()" style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;padding:0.5rem 1rem;cursor:pointer;border:1px solid rgba(40,30,20,0.25);border-radius:8px;background:transparent;color:rgba(28,22,18,0.7);">Manage Preferences</button>
+    <button onclick="acceptCookies('all')" style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;padding:0.5rem 1rem;cursor:pointer;border:1px solid #c47f2a;border-radius:8px;background:#c47f2a;color:#fff;">Accept All</button>
+  </div>
+</div>
+
+<!-- COOKIE PREFS MODAL -->
+<div id="cookie-prefs-overlay" style="display:none;position:fixed;inset:0;background:rgba(28,22,18,0.45);z-index:9000;backdrop-filter:blur(4px);" onclick="closeCookiePrefs()"></div>
+<div id="cookie-prefs-modal" role="dialog" style="display:none;position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:9001;background:#f8f5f0;border:1px solid rgba(40,30,20,0.14);border-radius:16px;box-shadow:0 32px 80px rgba(40,30,20,0.2);padding:2rem;width:min(500px,92vw);max-height:85vh;overflow-y:auto;">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+    <p style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.08em;color:#1c1612;">Cookie Preferences</p>
+    <button onclick="closeCookiePrefs()" style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:rgba(28,22,18,0.4);padding:0.2rem 0.5rem;">&#x2715;</button>
+  </div>
+  <p style="font-family:'DM Sans',sans-serif;font-size:0.79rem;color:rgba(28,22,18,0.55);line-height:1.7;margin-bottom:1.2rem;">Choose which cookies you allow. Strictly necessary cookies cannot be disabled.</p>
+  <div style="border:1px solid rgba(40,30,20,0.1);border-radius:10px;padding:0.9rem 1.1rem;margin-bottom:0.6rem;background:#fff;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.2rem;">
+      <p style="font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;color:#1c1612;">Strictly Necessary</p>
+      <span style="font-size:0.68rem;font-weight:600;color:#2d8a4e;background:rgba(45,138,78,0.1);padding:0.2rem 0.6rem;border-radius:100px;">Always on</span>
+    </div>
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.74rem;color:rgba(28,22,18,0.5);line-height:1.6;">Session management and security. Cannot be disabled.</p>
+  </div>
+  <div style="border:1px solid rgba(40,30,20,0.1);border-radius:10px;padding:0.9rem 1.1rem;margin-bottom:0.6rem;background:#fff;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.2rem;">
+      <p style="font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;color:#1c1612;">Analytics</p>
+      <label style="position:relative;display:inline-block;width:38px;height:22px;cursor:pointer;"><input type="checkbox" id="pref-analytics" style="opacity:0;width:0;height:0;" onchange="updateToggle(this)"><span id="toggle-analytics" style="position:absolute;inset:0;border-radius:100px;background:rgba(40,30,20,0.15);transition:background 0.2s;"></span><span id="knob-analytics" style="position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.2);transition:transform 0.2s;"></span></label>
+    </div>
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.74rem;color:rgba(28,22,18,0.5);line-height:1.6;">Anonymised usage stats (Google Analytics 4, IP anonymised).</p>
+  </div>
+  <div style="border:1px solid rgba(40,30,20,0.1);border-radius:10px;padding:0.9rem 1.1rem;margin-bottom:0.6rem;background:#fff;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.2rem;">
+      <p style="font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;color:#1c1612;">Functional</p>
+      <label style="position:relative;display:inline-block;width:38px;height:22px;cursor:pointer;"><input type="checkbox" id="pref-functional" style="opacity:0;width:0;height:0;" onchange="updateToggle(this)"><span id="toggle-functional" style="position:absolute;inset:0;border-radius:100px;background:rgba(40,30,20,0.15);transition:background 0.2s;"></span><span id="knob-functional" style="position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.2);transition:transform 0.2s;"></span></label>
+    </div>
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.74rem;color:rgba(28,22,18,0.5);line-height:1.6;">Remembers your preferences.</p>
+  </div>
+  <div style="border:1px solid rgba(40,30,20,0.1);border-radius:10px;padding:0.9rem 1.1rem;margin-bottom:1.3rem;background:#fff;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.2rem;">
+      <p style="font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;color:#1c1612;">Marketing</p>
+      <label style="position:relative;display:inline-block;width:38px;height:22px;cursor:pointer;"><input type="checkbox" id="pref-marketing" style="opacity:0;width:0;height:0;" onchange="updateToggle(this)"><span id="toggle-marketing" style="position:absolute;inset:0;border-radius:100px;background:rgba(40,30,20,0.15);transition:background 0.2s;"></span><span id="knob-marketing" style="position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.2);transition:transform 0.2s;"></span></label>
+    </div>
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.74rem;color:rgba(28,22,18,0.5);line-height:1.6;">Personalised ads. We don't currently use these.</p>
+  </div>
+  <div style="display:flex;gap:0.5rem;justify-content:flex-end;">
+    <button onclick="acceptCookies('reject');closeCookiePrefs()" style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.72rem;text-transform:uppercase;padding:0.55rem 1rem;cursor:pointer;border:1px solid rgba(40,30,20,0.2);border-radius:8px;background:transparent;color:rgba(28,22,18,0.55);">Reject All</button>
+    <button onclick="savePrefs()" style="font-family:'DM Sans',sans-serif;font-weight:6
