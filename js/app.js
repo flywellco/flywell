@@ -4,6 +4,8 @@
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const MONTHS_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 let pickerYear = new Date().getFullYear();
+let dealsShown = 9;
+let currentRegion = 'all';
 let selectedMonth = null;
 let pickerVisible = false;
 
@@ -46,6 +48,8 @@ function selectMonth(monthIdx) {
   pickerEl.style.display = 'none';
   pickerVisible = false;
   renderMonthGrid();
+  dealsShown = 9;
+  applyAllFilters();
 }
 
 function changeYear(dir) {
@@ -61,6 +65,8 @@ function clearMonth() {
   pickerEl.style.display = 'none';
   pickerVisible = false;
   renderMonthGrid();
+  dealsShown = 9;
+  applyAllFilters();
 }
 
 function toggleMonthPicker(e) {
@@ -112,8 +118,6 @@ document.addEventListener('click', (e) => {
 // ─────────────────────────────────────────────────────────────────────────────
 // UNIFIED FILTER STATE
 // ─────────────────────────────────────────────────────────────────────────────
-let dealsShown = 9;
-let currentRegion = 'all';
 
 function applyAllFilters() {
   const cards = document.querySelectorAll('#deals-grid .deal-card');
@@ -126,11 +130,9 @@ function applyAllFilters() {
     const fromData = (card.dataset.from    || '');
     const toData   = (card.dataset.to      || '');
     const country  = (card.dataset.country || '');
-    const cardText = (card.textContent || '').toLowerCase();
 
     const matchRegion = currentRegion === 'all' || regions.includes(currentRegion);
-    // CHANGE 1: single query matches from OR to OR country
-    const matchFromTo = !query || fromData.includes(query) || toData.includes(query) || country.includes(query) || cardText.includes(query);
+    const matchFromTo = !query || fromData.includes(query) || toData.includes(query) || country.includes(query);
 
     let matchWhen = true;
     if (selectedMonth) {
@@ -138,7 +140,7 @@ function applyAllFilters() {
       const availability = deal ? (deal.availability || '').toLowerCase() : '';
       const monthName = MONTHS_FULL[selectedMonth.monthIdx].toLowerCase();
       const year = String(selectedMonth.year);
-      matchWhen = availability.includes(monthName) || availability.includes(year);
+      matchWhen = availability.includes(monthName) && availability.includes(year);
     }
 
     if (matchRegion && matchFromTo && matchWhen) filtered.push(card);
