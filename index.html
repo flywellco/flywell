@@ -80,13 +80,10 @@
   <p class="hero-sub">No signup required &nbsp;·&nbsp; Completely free &nbsp;·&nbsp; Updated daily</p>
   <div class="search-bar">
     <div class="search-field" style="position:relative;">
-      <label>From</label>
-      <input type="text" id="search-from" placeholder="Anywhere" autocomplete="off" />
-    </div>
-    <div class="search-divider"></div>
-    <div class="search-field" style="position:relative;">
-      <label>To</label>
-      <input type="text" id="search-to" placeholder="Anywhere" autocomplete="off" />
+      <label>From / To</label>
+      <input type="text" id="search-from-to" placeholder="Country" autocomplete="off" />
+      <input type="hidden" id="search-from" value="" />
+      <input type="hidden" id="search-to" value="" />
     </div>
     <div class="search-divider"></div>
     <div class="search-field" style="flex:1;cursor:pointer;" onclick="toggleMonthPicker(event)">
