@@ -68,14 +68,37 @@ function toggleMonthPicker(e) {
   if (pickerVisible) { pickerEl.style.display = 'none'; pickerVisible = false; return; }
   const input = document.getElementById('search-when');
   const rect = input.getBoundingClientRect();
-  let left = rect.left + window.scrollX;
-  let top = rect.bottom + window.scrollY + 8;
   pickerEl.style.display = 'block';
   renderMonthGrid();
-  const pickerWidth = pickerEl.offsetWidth;
-  if (left + pickerWidth > window.innerWidth - 16) left = window.innerWidth - pickerWidth - 16;
-  pickerEl.style.left = left + 'px';
-  pickerEl.style.top = top + 'px';
+  const pickerWidth  = pickerEl.offsetWidth;
+  const pickerHeight = pickerEl.offsetHeight;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+
+  // On very small screens, center the picker on screen
+  if (vw < 400) {
+    pickerEl.style.position = 'fixed';
+    pickerEl.style.left = Math.max(8, (vw - pickerWidth) / 2) + 'px';
+    pickerEl.style.top  = Math.max(8, (vh - pickerHeight) / 2) + 'px';
+  } else {
+    pickerEl.style.position = 'fixed';
+    let left = rect.left;
+    // Flip left if overflowing right edge
+    if (left + pickerWidth > vw - 8) left = vw - pickerWidth - 8;
+    if (left < 8) left = 8;
+    // Flip above input if not enough room below
+    const spaceBelow = vh - rect.bottom - 8;
+    const spaceAbove = rect.top - 8;
+    let top;
+    if (spaceBelow >= pickerHeight || spaceBelow >= spaceAbove) {
+      top = rect.bottom + 8;
+    } else {
+      top = rect.top - pickerHeight - 8;
+    }
+    if (top < 8) top = 8;
+    pickerEl.style.left = left + 'px';
+    pickerEl.style.top  = top + 'px';
+  }
   pickerVisible = true;
 }
 
@@ -94,8 +117,8 @@ let currentRegion = 'all';
 
 function applyAllFilters() {
   const cards = document.querySelectorAll('#deals-grid .deal-card');
-  const fromInput = (document.getElementById('search-from').value || '').toLowerCase().trim();
-  const toInput   = (document.getElementById('search-to').value   || '').toLowerCase().trim();
+  // CHANGE 1: read from single merged FROM/TO field
+  const query = (document.getElementById('search-from-to') ? document.getElementById('search-from-to').value : '').toLowerCase().trim();
 
   const filtered = [];
   cards.forEach(card => {
@@ -106,8 +129,8 @@ function applyAllFilters() {
     const cardText = (card.textContent || '').toLowerCase();
 
     const matchRegion = currentRegion === 'all' || regions.includes(currentRegion);
-    const matchFrom = !fromInput || fromData.includes(fromInput) || cardText.includes(fromInput);
-    const matchTo   = !toInput   || toData.includes(toInput) || country.includes(toInput) || cardText.includes(toInput);
+    // CHANGE 1: single query matches from OR to OR country
+    const matchFromTo = !query || fromData.includes(query) || toData.includes(query) || country.includes(query) || cardText.includes(query);
 
     let matchWhen = true;
     if (selectedMonth) {
@@ -118,7 +141,7 @@ function applyAllFilters() {
       matchWhen = availability.includes(monthName) || availability.includes(year);
     }
 
-    if (matchRegion && matchFrom && matchTo && matchWhen) filtered.push(card);
+    if (matchRegion && matchFromTo && matchWhen) filtered.push(card);
   });
 
   cards.forEach(card => card.style.display = 'none');
@@ -156,10 +179,9 @@ function loadMore() {
   applyAllFilters();
 }
 
-['search-from','search-to'].forEach(id => {
-  const el = document.getElementById(id);
-  if (el) el.addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); });
-});
+// CHANGE 2: listen on the single merged field
+const _fromToEl = document.getElementById('search-from-to');
+if (_fromToEl) _fromToEl.addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); });
 
 // ─────────────────────────────────────────────────────────────────────────────
 // NAV SEARCH
@@ -224,8 +246,9 @@ function navSearchGoMobile() {
 
 function _doNavSearchGo(val) {
   showPage('main');
-  document.getElementById('search-from').value = '';
-  document.getElementById('search-to').value = val;
+  // CHANGE 3: populate the single merged field
+  const fromToEl = document.getElementById('search-from-to');
+  if (fromToEl) fromToEl.value = val;
   document.getElementById('nav-search-input').value = '';
   document.getElementById('mobile-search-input').value = '';
   const resultsEl = document.getElementById('nav-search-results');
@@ -723,8 +746,9 @@ function showPage(page, pushState) {
   });
 
   if (page === 'main') {
-    document.getElementById('search-from').value = '';
-    document.getElementById('search-to').value   = '';
+    // CHANGE 3: clear the merged field on nav back to main
+    const fromToEl = document.getElementById('search-from-to');
+    if (fromToEl) fromToEl.value = '';
     document.getElementById('search-when').value = '';
     selectedMonth = null;
     const allPill = document.querySelector('.pill[onclick*="\'all\'"]');
