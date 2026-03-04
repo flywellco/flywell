@@ -1,6 +1,11 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // MONTH PICKER
 // ─────────────────────────────────────────────────────────────────────────────
+// NOTE: This file must load AFTER data.js and blog.js in index.html:
+//   <script src="js/data.js"></script>
+//   <script src="js/blog.js"></script>
+//   <script src="js/app.js"></script>
+//   <script src="js/affiliate.js"></script>
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const MONTHS_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 let pickerYear = new Date().getFullYear();
@@ -81,7 +86,6 @@ function toggleMonthPicker(e) {
   const vw = window.innerWidth;
   const vh = window.innerHeight;
 
-  // On very small screens, center the picker on screen
   if (vw < 400) {
     pickerEl.style.position = 'fixed';
     pickerEl.style.left = Math.max(8, (vw - pickerWidth) / 2) + 'px';
@@ -89,10 +93,8 @@ function toggleMonthPicker(e) {
   } else {
     pickerEl.style.position = 'fixed';
     let left = rect.left;
-    // Flip left if overflowing right edge
     if (left + pickerWidth > vw - 8) left = vw - pickerWidth - 8;
     if (left < 8) left = 8;
-    // Flip above input if not enough room below
     const spaceBelow = vh - rect.bottom - 8;
     const spaceAbove = rect.top - 8;
     let top;
@@ -116,12 +118,197 @@ document.addEventListener('click', (e) => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
+// AUTOCOMPLETE FOR FROM/TO SEARCH FIELD
+// ─────────────────────────────────────────────────────────────────────────────
+
+(function() {
+  function getDestSuggestions() {
+    const seen = new Set();
+    const suggestions = [];
+    if (typeof DEST_IMAGE_MAP !== 'undefined') {
+      Object.keys(DEST_IMAGE_MAP).forEach(function(key) {
+        const label = key.replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+        if (!seen.has(label.toLowerCase())) {
+          seen.add(label.toLowerCase());
+          suggestions.push(label);
+        }
+      });
+    }
+    return suggestions.sort();
+  }
+
+  let acList = [];
+  let acIndex = -1;
+  let acDropdown = null;
+
+  function buildDropdown() {
+    if (acDropdown) return;
+    acDropdown = document.createElement('div');
+    acDropdown.id = 'fromto-autocomplete';
+    acDropdown.style.cssText = [
+      'display:none',
+      'position:fixed',
+      'background:#fff',
+      'border:1px solid rgba(40,30,20,0.14)',
+      'border-radius:10px',
+      'box-shadow:0 12px 40px rgba(0,0,0,0.18)',
+      'z-index:9998',
+      'max-height:220px',
+      'overflow-y:auto',
+      "font-family:'DM Sans',sans-serif",
+      'font-size:0.84rem',
+      'min-width:200px'
+    ].join(';');
+    document.body.appendChild(acDropdown);
+  }
+
+  function positionDropdown(input) {
+    const rect = input.getBoundingClientRect();
+    const vw = window.innerWidth;
+    let left = rect.left;
+    const width = Math.max(rect.width, 220);
+    if (left + width > vw - 8) left = vw - width - 8;
+    if (left < 8) left = 8;
+    acDropdown.style.left  = left + 'px';
+    acDropdown.style.top   = (rect.bottom + 6) + 'px';
+    acDropdown.style.width = width + 'px';
+  }
+
+  function showSuggestions(input, query) {
+    buildDropdown();
+    if (!query || query.length < 1) { acDropdown.style.display = 'none'; return; }
+    const q = query.toLowerCase();
+    const allSuggestions = getDestSuggestions();
+
+    // Starts-with first, then contains
+    const startsWith = allSuggestions.filter(function(s) { return s.toLowerCase().startsWith(q); });
+    const contains   = allSuggestions.filter(function(s) { return !s.toLowerCase().startsWith(q) && s.toLowerCase().includes(q); });
+    const results = startsWith.concat(contains).slice(0, 8);
+
+    if (results.length === 0) { acDropdown.style.display = 'none'; return; }
+
+    acList  = results;
+    acIndex = -1;
+    acDropdown.innerHTML = results.map(function(r, i) {
+      const lower = r.toLowerCase();
+      const idx   = lower.indexOf(q);
+      let display = r;
+      if (idx !== -1) {
+        display = r.slice(0, idx)
+          + '<strong>' + r.slice(idx, idx + q.length) + '</strong>'
+          + r.slice(idx + q.length);
+      }
+      return '<div class="ac-item" data-i="' + i + '" style="padding:0.55rem 0.9rem;cursor:pointer;color:#1c1612;border-bottom:1px solid rgba(40,30,20,0.06);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + display + '</div>';
+    }).join('');
+
+    acDropdown.querySelectorAll('.ac-item').forEach(function(item) {
+      item.addEventListener('mouseenter', function() {
+        acDropdown.querySelectorAll('.ac-item').forEach(function(el) { el.style.background = ''; });
+        item.style.background = 'rgba(196,127,42,0.08)';
+      });
+      item.addEventListener('mouseleave', function() { item.style.background = ''; });
+      item.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+        selectSuggestion(input, acList[parseInt(item.dataset.i)]);
+      });
+      // Touch support — fires on mobile, dismisses keyboard via blur
+      item.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        selectSuggestion(input, acList[parseInt(item.dataset.i)]);
+      });
+    });
+
+    positionDropdown(input);
+    acDropdown.style.display = 'block';
+  }
+
+  function selectSuggestion(input, value) {
+    input.value = value;
+    acDropdown.style.display = 'none';
+    acIndex = -1;
+    // Blur dismisses the mobile keyboard automatically
+    input.blur();
+    dealsShown = 9;
+    applyAllFilters();
+  }
+
+  function hideDropdown() {
+    if (acDropdown) acDropdown.style.display = 'none';
+    acIndex = -1;
+  }
+
+  function highlightItem(idx) {
+    const items = acDropdown ? acDropdown.querySelectorAll('.ac-item') : [];
+    items.forEach(function(el) { el.style.background = ''; });
+    if (idx >= 0 && idx < items.length) {
+      items[idx].style.background = 'rgba(196,127,42,0.12)';
+      items[idx].scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  function attachAutocomplete(inputId) {
+    function init() {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+
+      // Disable native browser autocomplete/spellcheck to avoid conflicts
+      input.setAttribute('autocomplete', 'off');
+      input.setAttribute('autocorrect', 'off');
+      input.setAttribute('autocapitalize', 'none');
+      input.setAttribute('spellcheck', 'false');
+
+      input.addEventListener('input', function() {
+        showSuggestions(input, input.value.trim());
+      });
+
+      input.addEventListener('keydown', function(e) {
+        if (!acDropdown || acDropdown.style.display === 'none') return;
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          acIndex = Math.min(acIndex + 1, acList.length - 1);
+          highlightItem(acIndex);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          acIndex = Math.max(acIndex - 1, 0);
+          highlightItem(acIndex);
+        } else if (e.key === 'Enter') {
+          if (acIndex >= 0 && acList[acIndex]) {
+            e.preventDefault();
+            selectSuggestion(input, acList[acIndex]);
+          } else {
+            hideDropdown();
+            runSearch();
+          }
+        } else if (e.key === 'Escape') {
+          hideDropdown();
+        }
+      });
+
+      // Small delay so mousedown/touchend on item fires first
+      input.addEventListener('blur', function() {
+        setTimeout(hideDropdown, 150);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  }
+
+  attachAutocomplete('search-from-to');
+
+  window.addEventListener('scroll', function() { hideDropdown(); }, { passive: true });
+  window.addEventListener('resize', function() { hideDropdown(); }, { passive: true });
+})();
+
+// ─────────────────────────────────────────────────────────────────────────────
 // UNIFIED FILTER STATE
 // ─────────────────────────────────────────────────────────────────────────────
 
 function applyAllFilters() {
   const cards = document.querySelectorAll('#deals-grid .deal-card');
-  // CHANGE 1: read from single merged FROM/TO field
   const query = (document.getElementById('search-from-to') ? document.getElementById('search-from-to').value : '').toLowerCase().trim();
 
   const filtered = [];
@@ -138,9 +325,12 @@ function applyAllFilters() {
     if (selectedMonth) {
       const deal = (window.DEALS || []).find(d => String(d.id) === String(card.dataset.deal));
       const availability = deal ? (deal.availability || '').toLowerCase() : '';
-      const monthName = MONTHS_FULL[selectedMonth.monthIdx].toLowerCase();
       const year = String(selectedMonth.year);
-      matchWhen = availability.includes(monthName) && availability.includes(year);
+      // Accept both full ("march") and abbreviated ("mar") month names in availability strings
+      const monthFull  = MONTHS_FULL[selectedMonth.monthIdx].toLowerCase();
+      const monthShort = MONTHS[selectedMonth.monthIdx].toLowerCase();
+      const matchesMonth = availability.includes(monthFull) || availability.includes(monthShort);
+      matchWhen = matchesMonth && availability.includes(year);
     }
 
     if (matchRegion && matchFromTo && matchWhen) filtered.push(card);
@@ -181,7 +371,6 @@ function loadMore() {
   applyAllFilters();
 }
 
-// CHANGE 2: listen on the single merged field
 const _fromToEl = document.getElementById('search-from-to');
 if (_fromToEl) _fromToEl.addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); });
 
@@ -248,7 +437,6 @@ function navSearchGoMobile() {
 
 function _doNavSearchGo(val) {
   showPage('main');
-  // CHANGE 3: populate the single merged field
   const fromToEl = document.getElementById('search-from-to');
   if (fromToEl) fromToEl.value = val;
   document.getElementById('nav-search-input').value = '';
@@ -424,7 +612,7 @@ const DEST_IMAGE_MAP = {
   'caracas':'venezuela.jpg','venezuela':'venezuela.jpg',
   'hanoi':'vietnam.jpg','ho chi minh city':'vietnam.jpg','vietnam':'vietnam.jpg',
   'harare':'zimbabwe.jpg','zimbabwe':'zimbabwe.jpg',
-  'calgary':'canada.jpg','montreal':'canada.jpg','hamilton':'bermuda.jpg',
+  'calgary':'canada.jpg','montreal':'canada.jpg',
   'hamburg':'germany.jpg','florence':'italy.jpg','venice':'italy.jpg',
   'goa':'india.jpg','lombok':'indonesia.jpg','machu picchu':'peru.jpg',
   'bogotá':'colombia-bogota.jpg','medellin':'colombia.jpg','medellín':'colombia.jpg',
@@ -433,13 +621,12 @@ const DEST_IMAGE_MAP = {
   'las vegas':'usa.jpg','seattle':'usa.jpg','boston':'usa.jpg','denver':'usa.jpg',
   'orlando':'usa.jpg','austin':'usa.jpg','charlotte':'usa.jpg','atlanta':'usa.jpg',
   'new york city':'usa-new-york.jpg','nyc':'usa-new-york.jpg','new york jfk':'usa-new-york.jpg',
-  'miami':'usa-miami.jpg','los angeles':'usa-los-angeles.jpg',
   'melbourne, florida':'usa.jpg','melbourne, florida, usa':'usa.jpg',
   'reykjavík':'iceland.jpg','são paulo':'brazil-sao-paolo.jpg',
   'brasilia':'brazil.jpg','brasília':'brazil.jpg',
   'chiang mai':'thailand.jpg','pattaya':'thailand.jpg','perth':'australia.jpg',
-  'boracay':'philippines.jpg','moscow':'russia.jpg','oslo':'norway.jpg',
-  'mombasa':'kenya.jpg','colombo':'sri-lanka.jpg','chiang rai':'thailand.jpg'
+  'boracay':'philippines.jpg','moscow':'russia.jpg',
+  'mombasa':'kenya.jpg','chiang rai':'thailand.jpg'
 };
 
 function resolveImage(toArray) {
@@ -483,26 +670,57 @@ function imgFallback(img) {
     var countryImg = (country && DEST_IMAGE_MAP[country])
       ? 'images/' + DEST_IMAGE_MAP[country]
       : 'images/earth.jpg';
+    // If we'd just retry the same src that already failed, skip to final fallback
+    if (countryImg === img.src) {
+      img.onerror = null;
+      img.style.display = 'none';
+      var ph = img.nextElementSibling;
+      if (ph && ph.classList.contains('img-placeholder')) ph.style.display = 'flex';
+      return;
+    }
     img.src = countryImg;
   } else if (step === '1') {
     img.dataset.s = '2';
-    img.src = 'images/earth.jpg';
+    // Only set earth.jpg if it isn't already the failing src
+    if (img.src.indexOf('earth.jpg') === -1) {
+      img.src = 'images/earth.jpg';
+    } else {
+      img.onerror = null;
+      img.style.display = 'none';
+      var ph2 = img.nextElementSibling;
+      if (ph2 && ph2.classList.contains('img-placeholder')) ph2.style.display = 'flex';
+    }
   } else {
     img.onerror = null;
     img.style.display = 'none';
-    var ph = img.nextElementSibling;
-    if (ph && ph.classList.contains('img-placeholder')) ph.style.display = 'flex';
+    var ph3 = img.nextElementSibling;
+    if (ph3 && ph3.classList.contains('img-placeholder')) ph3.style.display = 'flex';
   }
 }
 
 function ddImgFallback(img) {
   var step = img.dataset.fbStep || '0';
   if (step === '0' || step === '') {
+    var fb1 = img.dataset.fb1 || 'images/earth.jpg';
     img.dataset.fbStep = '1';
-    img.src = img.dataset.fb1 || 'images/earth.jpg';
+    if (fb1 === img.src) {
+      // fb1 is same as already-failing src — skip to earth.jpg
+      img.dataset.fbStep = '2';
+      if (img.src.indexOf('earth.jpg') === -1) {
+        img.src = 'images/earth.jpg';
+      } else {
+        img.onerror = null;
+      }
+    } else {
+      img.src = fb1;
+    }
   } else if (step === '1') {
     img.dataset.fbStep = '2';
-    img.src = 'images/earth.jpg';
+    if (img.src.indexOf('earth.jpg') === -1) {
+      img.src = 'images/earth.jpg';
+    } else {
+      img.onerror = null;
+    }
   } else {
     img.onerror = null;
   }
@@ -748,7 +966,6 @@ function showPage(page, pushState) {
   });
 
   if (page === 'main') {
-    // CHANGE 3: clear the merged field on nav back to main
     const fromToEl = document.getElementById('search-from-to');
     if (fromToEl) fromToEl.value = '';
     document.getElementById('search-when').value = '';
