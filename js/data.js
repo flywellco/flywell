@@ -1,5 +1,18 @@
 // FlyWell.Flights — Deals Data
 // Append new deals here. Do NOT edit index.html for deals.
+//
+// AFFILIATE: New deals use Aviasales via Travelpayouts (NOT Skyscanner)
+// Existing deals IDs 106-158 use Skyscanner - do NOT rewrite them.
+//
+// Link base: https://tp.media/r?campaign_id=100&marker=705634&p=4114&trs=501381&u=
+// Then append URL-encoded Aviasales URL: https%3A%2F%2Faviasales.com%2Fsearch%2F
+//
+// Aviasales format: IATA_ORIGIN + DDMM_depart + IATA_DEST + DDMM_return + 1
+// Example depart 1 May return 10 May, BUD to XIY:
+// u=https%3A%2F%2Faviasales.com%2Fsearch%2FBUD0105XIY10051
+//
+// Route-only bookUrl (no date):
+// u=https%3A%2F%2Faviasales.com%2Fsearch%2FBUDXIY
 
 window.DEALS = [
     {
