@@ -902,7 +902,7 @@ function showPage(page, doPush, extra) {
     if (fromToEl) fromToEl.value = '';
     document.getElementById('search-when').value = '';
     selectedMonth = null;
-    const allPill = document.querySelector('.pill[onclick*="'all'"]');
+    const allPill = document.querySelector('.pill[onclick*="\'all\'"]');
     if (allPill) {
       document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
       allPill.classList.add('active');
