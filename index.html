@@ -36,12 +36,13 @@
 <link rel="stylesheet" href="css/styles.css">
 <style>
 /* ── Language Switcher ─────────────────────────────────────── */
-.lang-switcher{display:flex;align-items:center;gap:4px;margin-left:12px;flex-shrink:0;}
-.lang-btn{display:flex;align-items:center;gap:5px;padding:4px 9px;border-radius:20px;border:1.5px solid rgba(40,30,20,0.18);background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.04em;color:rgba(28,22,18,0.55);transition:all 0.18s;line-height:1;}
-.lang-btn:hover{border-color:rgba(40,30,20,0.35);color:#1c1612;}
-.lang-btn.active{background:#1c1612;border-color:#1c1612;color:#fff;}
-.lang-btn .flag{font-size:1rem;line-height:1;}
-@media(max-width:600px){.lang-btn span.label{display:none;}.lang-btn{padding:4px 6px;}}
+.lang-switcher{display:flex;align-items:center;gap:2px;margin-left:14px;flex-shrink:0;}
+.lang-btn{display:flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;border:1.5px solid transparent;background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.05em;color:rgba(28,22,18,0.45);transition:all 0.18s;line-height:1;}
+.lang-btn:hover{color:#1c1612;border-color:rgba(40,30,20,0.2);}
+.lang-btn.active{color:#1c1612;border-color:rgba(40,30,20,0.3);background:rgba(40,30,20,0.06);}
+.lang-btn .flag{font-size:1.1rem;line-height:1;}
+.lang-sep{color:rgba(40,30,20,0.2);font-size:0.8rem;margin:0 1px;}
+@media(max-width:600px){.lang-btn span.label{display:none;}.lang-btn{padding:3px 5px;}}
 </style>
 <script type="application/ld+json">
 {
@@ -68,13 +69,14 @@
   <a href="/" class="logo" onclick="showPage('main');return false;">Fly<span>Well</span>.Flights</a>
   <ul class="nav-links">
     <li><a href="/" id="lang-nav-deals" onclick="showPage('main');return false;">Flight Deals</a></li>
+    <li><a href="/blog" id="lang-nav-blog" onclick="showPage('blog');return false;">Blog</a></li>
     <li><a href="/qa" id="lang-nav-qa" onclick="showPage('qa');return false;">Q&amp;A</a></li>
     <li><a href="/contact" id="lang-nav-contact" onclick="showPage('contact');return false;">Contact</a></li>
   </ul>
-  <a href="/blog" class="nav-blog-mobile" id="lang-nav-blog" onclick="showPage('blog');return false;">Blog</a>
   <div class="lang-switcher">
-    <button class="lang-btn active" data-lang="en" onclick="setLang('en')"><span class="flag">🇬🇧</span><span class="label">EN</span></button>
-    <button class="lang-btn" data-lang="fr" onclick="setLang('fr')"><span class="flag">🇫🇷</span><span class="label">FR</span></button>
+    <button class="lang-btn active" data-lang="en" onclick="window.setLang('en')"><span class="flag">🇬🇧</span><span class="label">EN</span></button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" data-lang="fr" onclick="window.setLang('fr')"><span class="flag">🇫🇷</span><span class="label">FR</span></button>
   </div>
 </nav>
 
@@ -444,9 +446,9 @@
 <!-- SCRIPTS — correct load order: data sources first, logic last -->
 <script src="js/data.js"></script>
 <script src="js/blog.js"></script>
+<script src="js/lang.js"></script>
 <script src="js/app.js"></script>
 <script src="js/affiliate.js"></script>
-<script src="js/lang.js"></script>
 
 </body>
 </html>
