@@ -780,7 +780,7 @@ function renderBlogGrid() {
   grid.innerHTML = html;
 }
 
-function openBlogPost(slug) {
+function openBlogPost(slug, doPush) {
   const post = (window.BLOG_POSTS || []).find(p => p.slug === slug);
   if (!post) return;
   document.getElementById('blogpost-cat').textContent   = post.cat;
@@ -792,13 +792,13 @@ function openBlogPost(slug) {
   heroImg.src = 'images/earth.jpg';
   heroImg.alt = post.title;
   heroWrap.style.display = 'block';
-  showPage('blogpost');
+  showPage('blogpost', doPush !== false, slug);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // DEAL DETAIL
 // ─────────────────────────────────────────────────────────────────────────────
-function openDeal(id) {
+function openDeal(id, doPush) {
   const d = (window.DEALS || []).find(x => x.id === id);
   if (!d) return;
 
@@ -859,13 +859,38 @@ function openDeal(id) {
   document.getElementById('dd-meta-cabin').textContent   = d.cabin   || 'Economy';
   document.getElementById('dd-meta-stops').textContent   = d.stops   || 'Non-stop';
   document.getElementById('dd-meta-dates').innerHTML     = (d.availability || '').replace(/(from|in)/i, '$1<br>');
-  showPage('deal');
+  showPage('deal', doPush !== false, id);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// PAGE NAVIGATION
+// PAGE NAVIGATION — clean URL routing
+// URL scheme:
+//   /              main (deals)
+//   /blog          blog index
+//   /blog/:slug    blog post
+//   /deals/:id     deal detail
+//   /qa  /contact  /about  /terms  /privacy
 // ─────────────────────────────────────────────────────────────────────────────
-function showPage(page, pushState) {
+
+function pageToPath(page, extra) {
+  if (page === 'main')     return '/';
+  if (page === 'blogpost') return '/blog/' + (extra || '');
+  if (page === 'deal')     return '/deals/' + (extra || '');
+  return '/' + page;
+}
+
+function pathToPage(path) {
+  path = (path || '/').replace(/[/]+$/, '') || '/';
+  if (path === '/')              return { page: 'main' };
+  if (path === '/blog')          return { page: 'blog' };
+  if (path.indexOf('/blog/') === 0)  return { page: 'blogpost', extra: path.slice(6) };
+  if (path.indexOf('/deals/') === 0) return { page: 'deal',     extra: path.slice(7) };
+  var simple = path.slice(1);
+  if (['qa','contact','about','terms','privacy'].indexOf(simple) >= 0) return { page: simple };
+  return { page: 'main' };
+}
+
+function showPage(page, doPush, extra) {
   ['main-page','contact-page','terms-page','privacy-page','about-page',
    'qa-page','deal-page','blog-page','blogpost-page'].forEach(id => {
     const el = document.getElementById(id);
@@ -873,12 +898,11 @@ function showPage(page, pushState) {
   });
 
   if (page === 'main') {
-    // CHANGE 3: clear the merged field on nav back to main
     const fromToEl = document.getElementById('search-from-to');
     if (fromToEl) fromToEl.value = '';
     document.getElementById('search-when').value = '';
     selectedMonth = null;
-    const allPill = document.querySelector('.pill[onclick*="\'all\'"]');
+    const allPill = document.querySelector('.pill[onclick*="'all'"]');
     if (allPill) {
       document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
       allPill.classList.add('active');
@@ -889,10 +913,10 @@ function showPage(page, pushState) {
   }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  if (pushState !== false) {
+  if (doPush !== false) {
     try {
-      const hash = page === 'main' ? '#' : '#' + page;
-      history.pushState({ page: page }, '', hash);
+      var path = pageToPath(page, extra);
+      history.pushState({ page: page, extra: extra || null }, '', path);
     } catch(e) {}
   }
 }
@@ -907,8 +931,16 @@ function blogPostBack() {
 }
 
 window.addEventListener('popstate', function(e) {
-  const page = (e.state && e.state.page) ? e.state.page : 'main';
-  showPage(page, false);
+  var pg, ex;
+  if (e.state && e.state.page) {
+    pg = e.state.page; ex = e.state.extra;
+  } else {
+    var r = pathToPage(window.location.pathname);
+    pg = r.page; ex = r.extra;
+  }
+  if (pg === 'blogpost' && ex) openBlogPost(ex, false);
+  else if (pg === 'deal' && ex) openDeal(Number(ex), false);
+  else showPage(pg, false);
 });
 
 window.addEventListener('load', function() {
@@ -918,9 +950,12 @@ window.addEventListener('load', function() {
   renderBlogGrid();
   applyAllFilters();
   try {
-    const hash = window.location.hash.replace('#', '');
-    if (hash) showPage(hash, false);
-    history.replaceState({ page: hash || 'main' }, '', window.location.hash || '#');
+    var r = pathToPage(window.location.pathname);
+    var pg = r.page, ex = r.extra;
+    if (pg === 'blogpost' && ex) openBlogPost(ex, false);
+    else if (pg === 'deal' && ex) openDeal(Number(ex), false);
+    else showPage(pg, false);
+    history.replaceState({ page: pg, extra: ex || null }, '', window.location.pathname);
   } catch(e) {}
 });
 
