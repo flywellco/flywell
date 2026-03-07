@@ -297,7 +297,7 @@
     .search-divider { width:auto; height:1px; margin:0 12px; }
     .search-when-wrap { padding:0 0 0.5rem; justify-content:center; }
     .deals-grid { grid-template-columns:1fr; }
-    .nav-blog-mobile { display:flex; align-items:center; margin-left:auto; font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); text-decoration:none; height:60px; padding:0 0.5rem; }
+    .nav-blog-mobile { display:flex; align-items:center; position:absolute; right:1rem; top:0; font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); text-decoration:none; height:60px; padding:0 0.5rem; }
   }
 
   @media(min-width:601px){ .mobile-search-bar { display:none; } }
