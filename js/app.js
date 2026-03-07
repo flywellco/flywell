@@ -1010,6 +1010,10 @@ function showPage(page, doPush, extra) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   var m = META_DEFAULTS[page];
   if (m) setMeta(m.title, m.desc);
+  // Re-apply current language so every page renders in the correct language
+  if (window.currentLang && window.currentLang !== 'en' && typeof window.setLang === 'function') {
+    window.setLang(window.currentLang);
+  }
   if (doPush !== false) {
     try {
       var path = pageToPath(page, extra);
