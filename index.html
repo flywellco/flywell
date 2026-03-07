@@ -15,9 +15,11 @@
 <meta name="description" content="FlyWell.Flights finds you the cheapest flights online. Browse daily cheap flight deals, error fares and airline sales from Europe and worldwide. Free, no signup required.">
 <meta name="keywords" content="cheap flights, flight deals, error fares, mistake fares, cheap roundtrip flights, airline deals, cheap airline tickets">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.flywell.flights/">
+<link rel="canonical" href="https://www.flywell.flights/" id="canonical-tag">
 <link rel="alternate" hreflang="en" href="https://www.flywell.flights/">
 <link rel="alternate" hreflang="fr" href="https://www.flywell.flights/?lang=fr">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="sitemap" type="application/xml" href="https://www.flywell.flights/sitemap.xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="FlyWell.Flights — Cheap Flight Deals &amp; Error Fares">
@@ -42,7 +44,6 @@
 .lang-btn.active{color:#1c1612;border-color:rgba(40,30,20,0.3);background:rgba(40,30,20,0.06);}
 .lang-btn .flag{font-size:1.1rem;line-height:1;}
 .lang-sep{color:rgba(40,30,20,0.2);font-size:0.8rem;margin:0 1px;}
-@media(min-width:601px){.lang-btn .flag{display:inline;}}
 @media(max-width:600px){.lang-btn span.label{display:none;}.lang-btn{padding:3px 5px;}}
 </style>
 <script type="application/ld+json">
@@ -62,6 +63,69 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FlyWell.Flights",
+  "url": "https://www.flywell.flights/",
+  "logo": "https://www.flywell.flights/images/og-image.jpg",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "hello@flywell.flights"
+  },
+  "sameAs": ["https://twitter.com/flywellflights"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you find the cheapest flight deals?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Our team scans hundreds of airlines, online travel agencies, and fare aggregators — including Skyscanner, Google Flights, Kayak, and direct airline websites — every single day. We hunt for mistake fares, flash sales, seat sales, and genuine cheap flight deals across thousands of routes worldwide. When a price drops 40–70% below the typical fare, we publish it immediately."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is a mistake fare or error fare?",
+      "acceptedAnswer": {"@type": "Answer", "text": "A mistake fare (also called an error fare or glitch fare) is a flight price published in error — usually caused by a currency conversion bug, a missing fuel surcharge, or a data entry mistake by the airline or booking system. These are the most extreme cheap flights you'll ever find — sometimes 80–90% off the normal roundtrip price."}
+    },
+    {
+      "@type": "Question",
+      "name": "Are the cheap flight prices shown guaranteed?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. Airline ticket prices are set and controlled entirely by airlines and third-party booking platforms. They can change or sell out at any moment. Always verify the final price on the booking platform before confirming any purchase."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is the cheapest day and time to book flights?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Tuesdays and Wednesdays tend to have lower fares on many routes. Booking 6–8 weeks in advance often hits the sweet spot for short-haul European flights, while 3–6 months ahead works better for long-haul routes. Flying mid-week (Tuesday–Thursday) is almost always cheaper than Friday or Sunday."}
+    },
+    {
+      "@type": "Question",
+      "name": "Is FlyWell.Flights free? Do I need to create an account?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Completely free — no account, no subscription, no hidden fees. Browse every cheap flight deal, click through to book, and pay nothing to us."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you sell flights or process bookings?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. FlyWell.Flights is a free flight deal discovery and information service. We don't sell airline tickets, process bookings, or operate as a travel agency. Every deal links directly to the airline or a trusted booking platform like Skyscanner."}
+    },
+    {
+      "@type": "Question",
+      "name": "How often are the cheap flight deals updated?",
+      "acceptedAnswer": {"@type": "Answer", "text": "We update the deals grid daily — and multiple times a day when we find something exceptional. The freshest cheap flight deals appear at the top."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you earn commission? Are links paid?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Some links on FlyWell.Flights are affiliate links — meaning we may earn a small referral commission if you book through them, at absolutely no extra cost to you. It never influences which cheap flights we feature or how we rank them."}
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -74,7 +138,12 @@
     <li><a href="/qa" id="lang-nav-qa" onclick="showPage('qa');return false;">Q&amp;A</a></li>
     <li><a href="/contact" id="lang-nav-contact" onclick="showPage('contact');return false;">Contact</a></li>
   </ul>
-  <a href="/blog" class="nav-blog-mobile" onclick="showPage('blog');return false;">Blog</a>
+  <div class="nav-search-wrap">
+    <span class="nav-search-icon">🔍</span>
+    <input type="text" id="nav-search-input" class="nav-search-input" placeholder="Search deals…" autocomplete="off"
+      oninput="navSearch(this.value)" onkeydown="if(event.key==='Enter')navSearchGo()">
+  </div>
+  <div id="nav-search-results" class="nav-search-results" style="display:none;"></div>
   <div class="lang-switcher">
     <button class="lang-btn active" data-lang="en" onclick="window.setLang('en')"><span class="flag">🇬🇧</span><span class="label">EN</span></button>
     <span class="lang-sep">|</span>
@@ -287,44 +356,44 @@
 
 <!-- TERMS PAGE -->
 <div id="terms-page">
-  <div class="page-hero"><p class="page-eyebrow">Legal</p><h1>Terms of <em>Service</em></h1></div>
+  <div class="page-hero"><p class="page-eyebrow" id="lang-terms-eyebrow">Legal</p><h1 id="lang-terms-h1">Terms of <em>Service</em></h1></div>
   <div class="page-content">
-    <p class="legal-date"><strong>Last updated: 16 February 2026</strong></p>
-    <p class="legal-intro">These Terms of Service constitute a legally binding agreement between you and FlyWell.Flights governing your access to and use of the FlyWell.Flights website, platform, and any related features, content, or services. By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, you must not use the Service.</p>
-    <div class="legal-section"><h3>1. Overview of the Service &amp; Affiliate Disclosure</h3><p>FlyWell.Flights operates a digital travel discovery platform designed to help users identify and access discounted flight opportunities and travel deals. We act solely as an informational service provider. We do not sell airline tickets, act as a travel agency, process travel bookings, or guarantee availability, pricing, or accuracy of third-party offers. All travel bookings are made directly between you and third-party travel providers.</p><p style="margin-top:0.5rem;"><strong>Affiliate Disclosure:</strong> Some links on this site may be affiliate links. We may earn a small commission if you book through them, at no extra cost to you. This does not influence our editorial decisions or which deals we feature.</p></div>
-    <div class="legal-section"><h3>2. Eligibility and Account Registration</h3><p>By creating an account, you represent that you have the legal capacity to enter into binding agreements, all information provided is accurate and complete, and you will maintain and update your account information. You are solely responsible for the confidentiality of your login credentials and all activity through your account.</p></div>
-    <div class="legal-section"><h3>3. Membership Plans</h3><p>FlyWell.Flights currently provides free membership access. We may introduce optional paid membership plans in the future. All pricing, billing frequency, and features will be clearly disclosed prior to purchase.</p></div>
-    <div class="legal-section"><h3>4. Future Payments and Merchant of Record</h3><p>When Paid Memberships are introduced, payments will be processed by our Merchant of Record, Paddle, who will be responsible for processing payments, managing billing and subscription renewals, collecting and remitting applicable taxes, and managing refunds where applicable.</p></div>
-    <div class="legal-section"><h3>5. Future Subscription Billing and Renewal</h3><p>When Paid Memberships become available, subscriptions will automatically renew at the selected billing interval unless cancelled prior to renewal. Full billing details will be disclosed prior to purchase. You may cancel at any time, taking effect at the end of the current billing period.</p></div>
-    <div class="legal-section"><h3>6. Refunds and Cancellation</h3><p>Refund eligibility will be clearly disclosed prior to purchase of any Paid Membership. Unless required by law, subscription fees may be non-refundable.</p></div>
-    <div class="legal-section"><h3>7. Third-Party Websites and Services</h3><p>The Service contains links to third-party websites provided for informational purposes only. FlyWell.Flights does not control, endorse, or assume responsibility for third-party content, pricing accuracy, availability of offers, or booking processes. You access third-party services entirely at your own risk.</p></div>
-    <div class="legal-section"><h3>8. Accuracy of Information and No Guarantees</h3><p>While we strive to provide accurate and timely information, FlyWell.Flights makes no warranties regarding accuracy of deal information, continued availability of deals, or pricing validity. Travel pricing and availability are controlled entirely by third parties and may change at any time.</p></div>
-    <div class="legal-section"><h3>9. Acceptable Use</h3><p>You agree not to use the Service for unlawful or fraudulent purposes, interfere with or disrupt the Service, attempt to gain unauthorized access, copy or scrape content without authorization, or reverse engineer Service content without permission.</p></div>
-    <div class="legal-section"><h3>10. Intellectual Property</h3><p>All content, features, design, branding, and functionality of the Service are owned by FlyWell.Flights or its licensors. You are granted a limited, non-exclusive, non-transferable license to access and use the Service for personal, non-commercial purposes.</p></div>
-    <div class="legal-section"><h3>11. Disclaimer of Warranties</h3><p>The Service is provided on an "as is" and "as available" basis. FlyWell.Flights disclaims all warranties, express or implied, including merchantability, fitness for a particular purpose, and availability or uninterrupted operation.</p></div>
-    <div class="legal-section"><h3>12. Limitation of Liability</h3><p>To the maximum extent permitted by law, FlyWell.Flights shall not be liable for any indirect, incidental, or consequential damages, loss of profits, revenue, or data, travel-related losses, or booking issues with third parties.</p></div>
-    <div class="legal-section"><h3>13. Suspension and Termination</h3><p>We reserve the right to suspend or terminate your access to the Service at our discretion, including for violations of these Terms.</p></div>
-    <div class="legal-section"><h3>14. Modifications to the Service</h3><p>We reserve the right to modify, update, suspend, or discontinue any aspect of the Service at any time without liability.</p></div>
-    <div class="legal-section"><h3>15. Changes to These Terms</h3><p>We may revise these Terms from time to time. Updated Terms will be posted on this page. Continued use of the Service constitutes acceptance of revised Terms.</p></div>
-    <div class="legal-section"><h3>16. Governing Law</h3><p>These Terms shall be governed by and interpreted in accordance with the laws of Panama.</p></div>
-    <div class="legal-section"><h3>17. Contact Information</h3><p>For questions regarding these Terms, please <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">contact us</a> through our website contact form.</p></div>
+    <p class="legal-date"><strong id="lang-terms-date">Last updated: 16 February 2026</strong></p>
+    <p class="legal-intro" id="lang-terms-intro">These Terms of Service constitute a legally binding agreement between you and FlyWell.Flights governing your access to and use of the FlyWell.Flights website, platform, and any related features, content, or services. By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, you must not use the Service.</p>
+    <div class="legal-section"><h3 id="lang-terms-s1-h">1. Overview of the Service &amp; Affiliate Disclosure</h3><p id="lang-terms-s1-p1">FlyWell.Flights operates a digital travel discovery platform designed to help users identify and access discounted flight opportunities and travel deals. We act solely as an informational service provider. We do not sell airline tickets, act as a travel agency, process travel bookings, or guarantee availability, pricing, or accuracy of third-party offers. All travel bookings are made directly between you and third-party travel providers.</p><p id="lang-terms-s1-p2" style="margin-top:0.5rem;"><strong>Affiliate Disclosure:</strong> Some links on this site may be affiliate links. We may earn a small commission if you book through them, at no extra cost to you. This does not influence our editorial decisions or which deals we feature.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s2-h">2. Eligibility and Account Registration</h3><p id="lang-terms-s2-p">By creating an account, you represent that you have the legal capacity to enter into binding agreements, all information provided is accurate and complete, and you will maintain and update your account information. You are solely responsible for the confidentiality of your login credentials and all activity through your account.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s3-h">3. Membership Plans</h3><p id="lang-terms-s3-p">FlyWell.Flights currently provides free membership access. We may introduce optional paid membership plans in the future. All pricing, billing frequency, and features will be clearly disclosed prior to purchase.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s4-h">4. Future Payments and Merchant of Record</h3><p id="lang-terms-s4-p">When Paid Memberships are introduced, payments will be processed by our Merchant of Record, Paddle, who will be responsible for processing payments, managing billing and subscription renewals, collecting and remitting applicable taxes, and managing refunds where applicable.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s5-h">5. Future Subscription Billing and Renewal</h3><p id="lang-terms-s5-p">When Paid Memberships become available, subscriptions will automatically renew at the selected billing interval unless cancelled prior to renewal. Full billing details will be disclosed prior to purchase. You may cancel at any time, taking effect at the end of the current billing period.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s6-h">6. Refunds and Cancellation</h3><p id="lang-terms-s6-p">Refund eligibility will be clearly disclosed prior to purchase of any Paid Membership. Unless required by law, subscription fees may be non-refundable.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s7-h">7. Third-Party Websites and Services</h3><p id="lang-terms-s7-p">The Service contains links to third-party websites provided for informational purposes only. FlyWell.Flights does not control, endorse, or assume responsibility for third-party content, pricing accuracy, availability of offers, or booking processes. You access third-party services entirely at your own risk.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s8-h">8. Accuracy of Information and No Guarantees</h3><p id="lang-terms-s8-p">While we strive to provide accurate and timely information, FlyWell.Flights makes no warranties regarding accuracy of deal information, continued availability of deals, or pricing validity. Travel pricing and availability are controlled entirely by third parties and may change at any time.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s9-h">9. Acceptable Use</h3><p id="lang-terms-s9-p">You agree not to use the Service for unlawful or fraudulent purposes, interfere with or disrupt the Service, attempt to gain unauthorized access, copy or scrape content without authorization, or reverse engineer Service content without permission.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s10-h">10. Intellectual Property</h3><p id="lang-terms-s10-p">All content, features, design, branding, and functionality of the Service are owned by FlyWell.Flights or its licensors. You are granted a limited, non-exclusive, non-transferable license to access and use the Service for personal, non-commercial purposes.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s11-h">11. Disclaimer of Warranties</h3><p id="lang-terms-s11-p">The Service is provided on an "as is" and "as available" basis. FlyWell.Flights disclaims all warranties, express or implied, including merchantability, fitness for a particular purpose, and availability or uninterrupted operation.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s12-h">12. Limitation of Liability</h3><p id="lang-terms-s12-p">To the maximum extent permitted by law, FlyWell.Flights shall not be liable for any indirect, incidental, or consequential damages, loss of profits, revenue, or data, travel-related losses, or booking issues with third parties.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s13-h">13. Suspension and Termination</h3><p id="lang-terms-s13-p">We reserve the right to suspend or terminate your access to the Service at our discretion, including for violations of these Terms.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s14-h">14. Modifications to the Service</h3><p id="lang-terms-s14-p">We reserve the right to modify, update, suspend, or discontinue any aspect of the Service at any time without liability.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s15-h">15. Changes to These Terms</h3><p id="lang-terms-s15-p">We may revise these Terms from time to time. Updated Terms will be posted on this page. Continued use of the Service constitutes acceptance of revised Terms.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s16-h">16. Governing Law</h3><p id="lang-terms-s16-p">These Terms shall be governed by and interpreted in accordance with the laws of Panama.</p></div>
+    <div class="legal-section"><h3 id="lang-terms-s17-h">17. Contact Information</h3><p id="lang-terms-s17-p">For questions regarding these Terms, please <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">contact us</a> through our website contact form.</p></div>
   </div>
 </div>
 
 <!-- PRIVACY PAGE -->
 <div id="privacy-page">
-  <div class="page-hero"><p class="page-eyebrow">Legal</p><h1>Privacy <em>Policy</em></h1></div>
+  <div class="page-hero"><p class="page-eyebrow" id="lang-privacy-eyebrow">Legal</p><h1 id="lang-privacy-h1">Privacy <em>Policy</em></h1></div>
   <div class="page-content">
-    <p class="legal-date"><strong>Last updated: 16 February 2026</strong></p>
-    <p class="legal-intro">This Privacy Policy explains how FlyWell.Flights collects, uses, stores, and protects your personal data. It is drafted in compliance with the EU General Data Protection Regulation (GDPR), the UK GDPR, the ePrivacy Directive, and other applicable European data protection legislation.</p>
-    <div class="legal-section"><h3>1. Data Controller &amp; DPO</h3><p>FlyWell.Flights is the data controller. Contact us at <strong><a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a></strong> for all data protection enquiries.</p></div>
-    <div class="legal-section"><h3>2. What Personal Data We Collect</h3><ul><li><strong>Contact form data:</strong> name, email address, phone number (optional), subject, and message content.</li><li><strong>Account data:</strong> email address and password (hashed) if you create an account.</li><li><strong>Usage data:</strong> IP address, browser type, device type, OS, pages visited, time and date of visit, and referring URLs.</li><li><strong>Cookie data:</strong> identifiers and preferences stored via cookies and similar tracking technologies.</li></ul></div>
-    <div class="legal-section"><h3>3. Legal Basis for Processing (GDPR Article 6)</h3><ul><li><strong>Consent (Art. 6(1)(a)):</strong> for non-essential cookies and marketing communications.</li><li><strong>Legitimate interests (Art. 6(1)(f)):</strong> for analytics, fraud prevention, and improving our Service.</li></ul></div>
-    <div class="legal-section"><h3>4. How We Use Your Data</h3><ul><li>To respond to enquiries and provide customer support</li><li>To operate, maintain, and improve the Service</li><li>To detect, prevent, and respond to fraud, abuse, or security threats</li></ul><p style="margin-top:0.6rem;">We will never sell, rent, or trade your personal data to third parties for their own marketing purposes.</p></div>
-    <div class="legal-section"><h3>5. Data Retention</h3><p>We retain your personal data only for as long as necessary. Contact form submissions are retained for up to 24 months. When data is no longer required, it is securely deleted or anonymised.</p></div>
-    <div class="legal-section"><h3>6. Your Rights Under GDPR</h3><ul><li><strong>Right of access (Art. 15):</strong> obtain a copy of your personal data.</li><li><strong>Right to erasure (Art. 17):</strong> request deletion of your personal data.</li><li><strong>Right to data portability (Art. 20):</strong> receive your data in a machine-readable format.</li></ul><p style="margin-top:0.6rem;">Submit a DSAR by emailing <a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a> with subject "GDPR Data Request". We respond within 30 days.</p></div>
-    <div class="legal-section"><h3>7. Cookies</h3><p>We use strictly necessary cookies (session management), analytics cookies (Google Analytics 4, IP anonymised, consent required), and functional cookies (preferences, consent required). Manage consent via the cookie banner or your browser settings.</p></div>
-    <div class="legal-section"><h3>8. Contact</h3><p>Contact us at <strong><a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a></strong> or via our <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">contact form</a>.</p></div>
+    <p class="legal-date"><strong id="lang-privacy-date">Last updated: 16 February 2026</strong></p>
+    <p class="legal-intro" id="lang-privacy-intro">This Privacy Policy explains how FlyWell.Flights collects, uses, stores, and protects your personal data. It is drafted in compliance with the EU General Data Protection Regulation (GDPR), the UK GDPR, the ePrivacy Directive, and other applicable European data protection legislation.</p>
+    <div class="legal-section"><h3 id="lang-priv-s1-h">1. Data Controller &amp; DPO</h3><p id="lang-priv-s1-p">FlyWell.Flights is the data controller. Contact us at <strong><a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a></strong> for all data protection enquiries.</p></div>
+    <div class="legal-section"><h3 id="lang-priv-s2-h">2. What Personal Data We Collect</h3><ul id="lang-priv-s2-ul"><li><strong>Contact form data:</strong> name, email address, phone number (optional), subject, and message content.</li><li><strong>Account data:</strong> email address and password (hashed) if you create an account.</li><li><strong>Usage data:</strong> IP address, browser type, device type, OS, pages visited, time and date of visit, and referring URLs.</li><li><strong>Cookie data:</strong> identifiers and preferences stored via cookies and similar tracking technologies.</li></ul></div>
+    <div class="legal-section"><h3 id="lang-priv-s3-h">3. Legal Basis for Processing (GDPR Article 6)</h3><ul id="lang-priv-s3-ul"><li><strong>Consent (Art. 6(1)(a)):</strong> for non-essential cookies and marketing communications.</li><li><strong>Legitimate interests (Art. 6(1)(f)):</strong> for analytics, fraud prevention, and improving our Service.</li></ul></div>
+    <div class="legal-section"><h3 id="lang-priv-s4-h">4. How We Use Your Data</h3><ul id="lang-priv-s4-ul"><li>To respond to enquiries and provide customer support</li><li>To operate, maintain, and improve the Service</li><li>To detect, prevent, and respond to fraud, abuse, or security threats</li></ul><p id="lang-priv-s4-p" style="margin-top:0.6rem;">We will never sell, rent, or trade your personal data to third parties for their own marketing purposes.</p></div>
+    <div class="legal-section"><h3 id="lang-priv-s5-h">5. Data Retention</h3><p id="lang-priv-s5-p">We retain your personal data only for as long as necessary. Contact form submissions are retained for up to 24 months. When data is no longer required, it is securely deleted or anonymised.</p></div>
+    <div class="legal-section"><h3 id="lang-priv-s6-h">6. Your Rights Under GDPR</h3><ul id="lang-priv-s6-ul"><li><strong>Right of access (Art. 15):</strong> obtain a copy of your personal data.</li><li><strong>Right to erasure (Art. 17):</strong> request deletion of your personal data.</li><li><strong>Right to data portability (Art. 20):</strong> receive your data in a machine-readable format.</li></ul><p id="lang-priv-s6-p" style="margin-top:0.6rem;">Submit a DSAR by emailing <a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a> with subject "GDPR Data Request". We respond within 30 days.</p></div>
+    <div class="legal-section"><h3 id="lang-priv-s7-h">7. Cookies</h3><p id="lang-priv-s7-p">We use strictly necessary cookies (session management), analytics cookies (Google Analytics 4, IP anonymised, consent required), and functional cookies (preferences, consent required). Manage consent via the cookie banner or your browser settings.</p></div>
+    <div class="legal-section"><h3 id="lang-priv-s8-h">8. Contact</h3><p id="lang-priv-s8-p">Contact us at <strong><a href="mailto:privacy@flywell.flights" style="color:var(--accent);text-decoration:none;">privacy@flywell.flights</a></strong> or via our <a href="#" onclick="showPage('contact');return false;" style="color:var(--accent);text-decoration:none;">contact form</a>.</p></div>
   </div>
 </div>
 
@@ -445,12 +514,12 @@
   </div>
 </div>
 
-<!-- SCRIPTS — correct load order: data sources first, logic last -->
-<script src="js/data.js"></script>
-<script src="js/blog.js"></script>
-<script src="js/lang.js"></script>
-<script src="js/app.js"></script>
-<script src="js/affiliate.js"></script>
+<!-- SCRIPTS — defer prevents render blocking -->
+<script src="js/data.js" defer></script>
+<script src="js/blog.js" defer></script>
+<script src="js/lang.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/affiliate.js" defer></script>
 
 </body>
 </html>
