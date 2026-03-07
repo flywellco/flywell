@@ -8063,4 +8063,47 @@ window.DEALS = [
         "desc": "Non-stop flights from Fort Lauderdale, USA to Seattle, USA for only $159 roundtrip with Delta Air Lines. Availability from April to May 2026.",
         "bookUrl": "https://tp.media/r?campaign_id=100&marker=705634&p=4114&trs=501381&u=https%3A%2F%2Faviasales.com%2Fsearch%2FFLLSEA"
     }
+    ,
+    {
+        "id": 187,
+        "from": ["Bratislava, Slovakia"],
+        "to": ["Lamezia Terme, Italy"],
+        "price": "€70",
+        "tripType": "roundtrip",
+        "badge": "new",
+        "airline": "Wizz Air",
+        "stops": "Non-stop",
+        "cabin": "Economy",
+        "region": "europe",
+        "availability": "April 2026",
+        "posted": "Mar 7, 2026",
+        "dates": [
+            {"label": "13th–17th Apr", "url": "https://tp.media/r?campaign_id=100&marker=705634&p=4114&trs=501381&u=https%3A%2F%2Faviasales.com%2Fsearch%2FBTS1304SUF17041"}
+        ],
+        "title": "Cheap flights from Bratislava, Slovakia to Lamezia Terme, Italy for only €70 roundtrip with Wizz Air",
+        "desc": "Cheap flights from Bratislava, Slovakia to Lamezia Terme, Italy for only €70 roundtrip with Wizz Air. Non-stop. Availability in April 2026.",
+        "bookUrl": "https://tp.media/r?campaign_id=100&marker=705634&p=4114&trs=501381&u=https%3A%2F%2Faviasales.com%2Fsearch%2FBTSSUF"
+    }
+    ,
+    {
+        "id": 188,
+        "from": ["Vienna, Austria"],
+        "to": ["Las Palmas, Spain"],
+        "price": "€95",
+        "tripType": "roundtrip",
+        "badge": "new",
+        "airline": "Ryanair",
+        "stops": "Non-stop",
+        "cabin": "Economy",
+        "region": "europe",
+        "availability": "from April to May 2026",
+        "posted": "Mar 7, 2026",
+        "dates": [
+            {"label": "15th Apr – 6th May", "url": "https://tp.media/r?campaign_id=100&marker=705634&p=4114&trs=501381&u=https%3A%2F%2Faviasales.com%2Fsearch%2FVIE1504LPA06051"},
+            {"label": "15th–27th May", "url": "https://tp.media/r?campaign_id=100&marker=705634&p=4114&trs=501381&u=https%3A%2F%2Faviasales.com%2Fsearch%2FVIE1505LPA27051"}
+        ],
+        "title": "Cheap flights from Vienna, Austria to Las Palmas, Spain for only €95 roundtrip with Ryanair",
+        "desc": "Cheap flights from Vienna, Austria to Las Palmas, Spain for only €95 roundtrip with Ryanair. Non-stop. Availability from April to May 2026.",
+        "bookUrl": "https://tp.media/r?campaign_id=100&marker=705634&p=4114&trs=501381&u=https%3A%2F%2Faviasales.com%2Fsearch%2FVIELPA"
+    }
 ];

@@ -798,6 +798,57 @@ function openBlogPost(slug, doPush) {
 // ─────────────────────────────────────────────────────────────────────────────
 // DEAL DETAIL
 // ─────────────────────────────────────────────────────────────────────────────
+// ─── Deal field translator (EN → FR) ─────────────────────────────────────────
+function translateDealField(val, field) {
+  if ((window.currentLang || 'en') === 'en') return val;
+
+  const MONTHS_FR = {
+    'January':'janvier','February':'février','March':'mars','April':'avril',
+    'May':'mai','June':'juin','July':'juillet','August':'août',
+    'September':'septembre','October':'octobre','November':'novembre','December':'décembre'
+  };
+
+  if (field === 'tripType') {
+    return val === 'roundtrip' ? 'aller-retour' : val;
+  }
+
+  if (field === 'cabin') {
+    return val === 'Economy' ? 'Économique' : val === 'Business' ? 'Affaires' : val;
+  }
+
+  if (field === 'stops') {
+    if (!val || val === 'Non-stop') return 'Sans escale';
+    // "1 stop (Denver)" → "1 escale (Denver)"
+    return val.replace(/\b(\d+)\s+stop(s)?\b/gi, (_, n) => n + ' escale' + (parseInt(n) > 1 ? 's' : ''));
+  }
+
+  if (field === 'availability') {
+    // Replace month names
+    let s = val;
+    for (const [en, fr] of Object.entries(MONTHS_FR)) {
+      s = s.replace(new RegExp('\\b' + en + '\\b', 'g'), fr);
+    }
+    // "from X to Y" → "de X à Y"
+    s = s.replace(/\bfrom\b/gi, 'de').replace(/\bto\b/gi, 'à');
+    // "in X" → "en X"
+    s = s.replace(/^en\s+(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)/i,
+                  (_, m) => 'en ' + m);
+    // "Limited availability" → "Disponibilité limitée"
+    s = s.replace(/Limited availability/gi, 'Disponibilité limitée');
+    return s;
+  }
+
+  if (field === 'fromonly') {
+    return 'à partir de';
+  }
+
+  if (field === 'posted') {
+    return val.replace(/^Posted\s+/i, 'Publié le ');
+  }
+
+  return val;
+}
+
 function openDeal(id, doPush) {
   const d = (window.DEALS || []).find(x => x.id === id);
   if (!d) return;
@@ -805,7 +856,7 @@ function openDeal(id, doPush) {
   const fromArr    = Array.isArray(d.from) ? d.from : [d.from];
   const toArr      = Array.isArray(d.to)   ? d.to   : [d.to];
   const badgeLabel = d.badgeLabel || (d.badge === 'hot' ? '🔥 Hot Deal' : d.badge === 'business' ? '✈ Business Class' : '✨ New');
-  const tripType   = d.tripType || 'roundtrip';
+  const tripType   = translateDealField(d.tripType || 'roundtrip', 'tripType');
   const exampleDates = d.dates || [];
 
   const ddImg = document.getElementById('dd-img');
@@ -815,17 +866,17 @@ function openDeal(id, doPush) {
   const badge = document.getElementById('dd-badge');
   badge.textContent = badgeLabel;
   badge.className = 'deal-detail-badge ' + (d.badge || 'new');
-  document.getElementById('dd-posted').textContent = d.posted ? 'Posted ' + d.posted : '';
-  document.getElementById('dd-price').innerHTML = '<small class="dd-price-label">from only</small>' + d.price + '<span>' + tripType + '</span>';
+  document.getElementById('dd-posted').textContent = d.posted ? translateDealField('Posted ' + d.posted, 'posted') : '';
+  document.getElementById('dd-price').innerHTML = '<small class="dd-price-label">' + translateDealField('from only','fromonly') + '</small>' + d.price + '<span>' + tripType + '</span>';
   document.getElementById('dd-route-hero').textContent = ensureCountry(fromArr[0]) + ' → ' + toArr[0];
   document.getElementById('dd-title').textContent = d.title || '';
   document.getElementById('dd-desc').textContent  = d.desc  || '';
   document.getElementById('dd-from').innerHTML = fromArr.map(c => '<span class="deal-detail-city">' + c + '</span>').join('');
   document.getElementById('dd-to').innerHTML   = toArr.map(c   => '<span class="deal-detail-city">' + c + '</span>').join('');
-  document.getElementById('dd-dates').innerHTML   = (d.availability || '').replace(/(from|in)/i, '$1<br>');
+  document.getElementById('dd-dates').innerHTML   = translateDealField(d.availability || '', 'availability').replace(/(from|de|in|en)/i, '$1<br>');
   document.getElementById('dd-airline').innerHTML = '<strong>' + (d.airline || '') + '</strong>';
-  document.getElementById('dd-stops').innerHTML  = '<strong>' + (d.stops || 'Non-stop') + '</strong>';
-  document.getElementById('dd-cabin').innerHTML  = '<strong>' + (d.cabin  || 'Economy') + '</strong>';
+  document.getElementById('dd-stops').innerHTML  = '<strong>' + translateDealField(d.stops || 'Non-stop', 'stops') + '</strong>';
+  document.getElementById('dd-cabin').innerHTML  = '<strong>' + translateDealField(d.cabin || 'Economy', 'cabin') + '</strong>';
 
   const dEl = document.getElementById('dd-example-dates');
   if (exampleDates.length === 0) {
@@ -852,13 +903,13 @@ function openDeal(id, doPush) {
     }
   }
 
-  document.getElementById('dd-cta-price').innerHTML = '<span class="cta-from-label">from only</span>' + d.price + '<small>' + tripType + ' / ' + (d.cabin || 'Economy') + '</small>';
+  document.getElementById('dd-cta-price').innerHTML = '<span class="cta-from-label">' + translateDealField('from only','fromonly') + '</span>' + d.price + '<small>' + tripType + ' / ' + translateDealField(d.cabin || 'Economy', 'cabin') + '</small>';
   document.getElementById('dd-cta-route').textContent = ensureCountry(fromArr[0]) + ' → ' + toArr[0];
   document.getElementById('dd-cta-btn').href = d.bookUrl || '#';
   document.getElementById('dd-meta-airline').textContent = d.airline || '';
-  document.getElementById('dd-meta-cabin').textContent   = d.cabin   || 'Economy';
-  document.getElementById('dd-meta-stops').textContent   = d.stops   || 'Non-stop';
-  document.getElementById('dd-meta-dates').innerHTML     = (d.availability || '').replace(/(from|in)/i, '$1<br>');
+  document.getElementById('dd-meta-cabin').textContent   = translateDealField(d.cabin || 'Economy', 'cabin');
+  document.getElementById('dd-meta-stops').textContent   = translateDealField(d.stops || 'Non-stop', 'stops');
+  document.getElementById('dd-meta-dates').innerHTML     = translateDealField(d.availability || '', 'availability').replace(/(from|de|in|en)/i, '$1<br>');
   showPage('deal', doPush !== false, id);
 }
 

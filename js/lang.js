@@ -83,7 +83,7 @@ window.LANG = {
     hero_sub:'Sans inscription &nbsp;·&nbsp; Entièrement gratuit &nbsp;·&nbsp; Mis à jour quotidiennement',
     search_from_label:'De / Vers', search_from_ph:'Pays ou ville',
     search_when_label:'Quand', search_when_ph:'N\'importe quel mois', search_btn:'Rechercher',
-    pill_all:'🌍 Tout', pill_namerica:'🌏 USA/Canada', pill_camerica:'🌏 Amér. Centrale &amp; Caraïbes',
+    pill_all:'🌍 Tout', pill_namerica:'🌏 USA/Canada', pill_camerica:'🌏 A.Centr. &amp; Caraïb.',
     pill_samerica:'🌎 Amér. du Sud', pill_europe:'🌏 Europe', pill_mena:'🌏 MENA',
     pill_africa:'🌍 Afrique', pill_scasia:'🌏 Asie du S. &amp; C.', pill_easia:'🌏 Asie du SE. &amp; E.',
     pill_oceania:'🌏 Australie/Océanie',
