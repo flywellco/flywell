@@ -86,7 +86,7 @@ window.LANG = {
     pill_all:'🌍 Tout', pill_namerica:'🌏 USA/Canada', pill_camerica:'🌏 A.Centr. &amp; Caraïb.',
     pill_samerica:'🌎 Amér. du Sud', pill_europe:'🌏 Europe', pill_mena:'🌏 MENA',
     pill_africa:'🌍 Afrique', pill_scasia:'🌏 Asie du S. &amp; C.', pill_easia:'🌏 Asie du SE. &amp; E.',
-    pill_oceania:'🌏 Australie/Océanie',
+    pill_oceania:'🌏 Austr./Océan.',
     deals_heading:'Derniers Bons Plans', deals_updated:'Mis à jour fév. 2026',
     deals_affiliate:'Certains liens peuvent être affiliés —', deals_learnmore:'en savoir plus',
     load_more:'Charger plus de bons plans ↓',
