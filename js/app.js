@@ -730,7 +730,7 @@ function renderDealsGrid() {
           + ' onclick="openDeal(' + d.id + ')" style="cursor:pointer;">'
           + '<div class="card-img-wrap">'
           + '<img class="card-img" src="' + imgSrc + '" alt="' + to0.replace(/"/g, '&quot;') + '"'
-          + ' onerror="imgFallback(this)">'
+          + ' loading="lazy" onerror="imgFallback(this)">'
           + '<div class="img-placeholder" style="display:none;">&#x2708;&#xFE0F;</div>'
           + '<div class="card-img-overlay"></div>'
           + '<div class="card-badge ' + badgeType + '">' + badgeText + '</div>'
@@ -768,7 +768,7 @@ function renderBlogGrid() {
       : '';
     var slugAttr = (p.slug || '').replace(/'/g, '');
     html += '<div class="blog-card" onclick="openBlogPost(\'' + slugAttr + '\')">'
-          + '<img class="blog-card-img" src="' + (p.img || '') + '" alt="' + (p.cat || '').replace(/"/g, '&quot;') + '">'
+          + '<img class="blog-card-img" src="' + (p.img || '') + '" alt="' + (p.cat || '').replace(/"/g, '&quot;') + '" loading=\"lazy\">'
           + '<div class="blog-card-body">'
           + '<div class="blog-card-cat">'   + (p.cat   || '') + '</div>'
           + '<div class="blog-card-title">' + (p.title || '') + '</div>'
@@ -792,63 +792,40 @@ function openBlogPost(slug, doPush) {
   heroImg.src = 'images/earth.jpg';
   heroImg.alt = post.title;
   heroWrap.style.display = 'block';
+  var excerptRaw = (post.body || '').match(/<p>([\s\S]*?)<\/p>/);
+  var blogDesc = excerptRaw ? excerptRaw[1].replace(/<[^>]+>/g,'').trim().slice(0,155) : (post.title + ' — travel guide from FlyWell.Flights.');
+  var postImg = post.heroImg || post.img || '';
+  var postImgFull = postImg ? 'https://www.flywell.flights/' + postImg : 'https://www.flywell.flights/images/og-image.jpg';
+  setMeta(post.title + ' | FlyWell.Flights Blog', blogDesc, postImgFull);
+  // Article schema
+  var oldSchema = document.getElementById('schema-article');
+  if (oldSchema) oldSchema.remove();
+  var articleSchema = document.createElement('script');
+  articleSchema.type = 'application/ld+json';
+  articleSchema.id = 'schema-article';
+  var articleObj = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: blogDesc,
+    image: postImgFull,
+    datePublished: post.date,
+    author: { '@type': 'Organization', name: 'FlyWell.Flights' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'FlyWell.Flights',
+      logo: { '@type': 'ImageObject', url: 'https://www.flywell.flights/images/og-image.jpg' }
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.flywell.flights/blog/' + slug }
+  };
+  articleSchema.textContent = JSON.stringify(articleObj);
+  document.head.appendChild(articleSchema);
   showPage('blogpost', doPush !== false, slug);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // DEAL DETAIL
 // ─────────────────────────────────────────────────────────────────────────────
-// ─── Deal field translator (EN → FR) ─────────────────────────────────────────
-function translateDealField(val, field) {
-  if ((window.currentLang || 'en') === 'en') return val;
-
-  const MONTHS_FR = {
-    'January':'janvier','February':'février','March':'mars','April':'avril',
-    'May':'mai','June':'juin','July':'juillet','August':'août',
-    'September':'septembre','October':'octobre','November':'novembre','December':'décembre'
-  };
-
-  if (field === 'tripType') {
-    return val === 'roundtrip' ? 'aller-retour' : val;
-  }
-
-  if (field === 'cabin') {
-    return val === 'Economy' ? 'Économique' : val === 'Business' ? 'Affaires' : val;
-  }
-
-  if (field === 'stops') {
-    if (!val || val === 'Non-stop') return 'Sans escale';
-    // "1 stop (Denver)" → "1 escale (Denver)"
-    return val.replace(/\b(\d+)\s+stop(s)?\b/gi, (_, n) => n + ' escale' + (parseInt(n) > 1 ? 's' : ''));
-  }
-
-  if (field === 'availability') {
-    // Replace month names
-    let s = val;
-    for (const [en, fr] of Object.entries(MONTHS_FR)) {
-      s = s.replace(new RegExp('\\b' + en + '\\b', 'g'), fr);
-    }
-    // "from X to Y" → "de X à Y"
-    s = s.replace(/\bfrom\b/gi, 'de').replace(/\bto\b/gi, 'à');
-    // "in X" → "en X"
-    s = s.replace(/^en\s+(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)/i,
-                  (_, m) => 'en ' + m);
-    // "Limited availability" → "Disponibilité limitée"
-    s = s.replace(/Limited availability/gi, 'Disponibilité limitée');
-    return s;
-  }
-
-  if (field === 'fromonly') {
-    return 'à partir de';
-  }
-
-  if (field === 'posted') {
-    return val.replace(/^Posted\s+/i, 'Publié le ');
-  }
-
-  return val;
-}
-
 function openDeal(id, doPush) {
   const d = (window.DEALS || []).find(x => x.id === id);
   if (!d) return;
@@ -856,7 +833,7 @@ function openDeal(id, doPush) {
   const fromArr    = Array.isArray(d.from) ? d.from : [d.from];
   const toArr      = Array.isArray(d.to)   ? d.to   : [d.to];
   const badgeLabel = d.badgeLabel || (d.badge === 'hot' ? '🔥 Hot Deal' : d.badge === 'business' ? '✈ Business Class' : '✨ New');
-  const tripType   = translateDealField(d.tripType || 'roundtrip', 'tripType');
+  const tripType   = d.tripType || 'roundtrip';
   const exampleDates = d.dates || [];
 
   const ddImg = document.getElementById('dd-img');
@@ -866,17 +843,17 @@ function openDeal(id, doPush) {
   const badge = document.getElementById('dd-badge');
   badge.textContent = badgeLabel;
   badge.className = 'deal-detail-badge ' + (d.badge || 'new');
-  document.getElementById('dd-posted').textContent = d.posted ? translateDealField('Posted ' + d.posted, 'posted') : '';
-  document.getElementById('dd-price').innerHTML = '<small class="dd-price-label">' + translateDealField('from only','fromonly') + '</small>' + d.price + '<span>' + tripType + '</span>';
+  document.getElementById('dd-posted').textContent = d.posted ? 'Posted ' + d.posted : '';
+  document.getElementById('dd-price').innerHTML = '<small class="dd-price-label">from only</small>' + d.price + '<span>' + tripType + '</span>';
   document.getElementById('dd-route-hero').textContent = ensureCountry(fromArr[0]) + ' → ' + toArr[0];
   document.getElementById('dd-title').textContent = d.title || '';
   document.getElementById('dd-desc').textContent  = d.desc  || '';
   document.getElementById('dd-from').innerHTML = fromArr.map(c => '<span class="deal-detail-city">' + c + '</span>').join('');
   document.getElementById('dd-to').innerHTML   = toArr.map(c   => '<span class="deal-detail-city">' + c + '</span>').join('');
-  document.getElementById('dd-dates').innerHTML   = translateDealField(d.availability || '', 'availability').replace(/(from|de|in|en)/i, '$1<br>');
+  document.getElementById('dd-dates').innerHTML   = (d.availability || '').replace(/(from|in)/i, '$1<br>');
   document.getElementById('dd-airline').innerHTML = '<strong>' + (d.airline || '') + '</strong>';
-  document.getElementById('dd-stops').innerHTML  = '<strong>' + translateDealField(d.stops || 'Non-stop', 'stops') + '</strong>';
-  document.getElementById('dd-cabin').innerHTML  = '<strong>' + translateDealField(d.cabin || 'Economy', 'cabin') + '</strong>';
+  document.getElementById('dd-stops').innerHTML  = '<strong>' + (d.stops || 'Non-stop') + '</strong>';
+  document.getElementById('dd-cabin').innerHTML  = '<strong>' + (d.cabin  || 'Economy') + '</strong>';
 
   const dEl = document.getElementById('dd-example-dates');
   if (exampleDates.length === 0) {
@@ -903,18 +880,85 @@ function openDeal(id, doPush) {
     }
   }
 
-  document.getElementById('dd-cta-price').innerHTML = '<span class="cta-from-label">' + translateDealField('from only','fromonly') + '</span>' + d.price + '<small>' + tripType + ' / ' + translateDealField(d.cabin || 'Economy', 'cabin') + '</small>';
+  document.getElementById('dd-cta-price').innerHTML = '<span class="cta-from-label">from only</span>' + d.price + '<small>' + tripType + ' / ' + (d.cabin || 'Economy') + '</small>';
   document.getElementById('dd-cta-route').textContent = ensureCountry(fromArr[0]) + ' → ' + toArr[0];
   document.getElementById('dd-cta-btn').href = d.bookUrl || '#';
   document.getElementById('dd-meta-airline').textContent = d.airline || '';
-  document.getElementById('dd-meta-cabin').textContent   = translateDealField(d.cabin || 'Economy', 'cabin');
-  document.getElementById('dd-meta-stops').textContent   = translateDealField(d.stops || 'Non-stop', 'stops');
-  document.getElementById('dd-meta-dates').innerHTML     = translateDealField(d.availability || '', 'availability').replace(/(from|de|in|en)/i, '$1<br>');
+  document.getElementById('dd-meta-cabin').textContent   = d.cabin   || 'Economy';
+  document.getElementById('dd-meta-stops').textContent   = d.stops   || 'Non-stop';
+  document.getElementById('dd-meta-dates').innerHTML     = (d.availability || '').replace(/(from|in)/i, '$1<br>');
+  var dealTitle = (d.title || ('Cheap flight from ' + (fromArr[0]||'') + ' to ' + (toArr[0]||'') + ' for only ' + d.price)) + ' | FlyWell.Flights';
+  var dealDesc  = d.desc || ('Cheap flight from ' + (fromArr[0]||'') + ' to ' + (toArr[0]||'') + ' for only ' + d.price + ' ' + tripType + '. ' + (d.availability||'') + '. Book now via FlyWell.Flights.');
+  var dealImg = resolveImage(toArr) || d.img || '';
+  var dealImgFull = dealImg ? 'https://www.flywell.flights/' + dealImg : 'https://www.flywell.flights/images/og-image.jpg';
+  setMeta(dealTitle, dealDesc.slice(0, 160), dealImgFull);
+  // Deal schema
+  var oldDealSchema = document.getElementById('schema-deal');
+  if (oldDealSchema) oldDealSchema.remove();
+  var dealSchema = document.createElement('script');
+  dealSchema.type = 'application/ld+json';
+  dealSchema.id = 'schema-deal';
+  var priceNum = (d.price || '').replace(/[^0-9.]/g, '');
+  var priceCurrency = (d.price || '').replace(/[0-9.,\s]/g,'').trim() || 'EUR';
+  var dealObj = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: d.title || ('Flight from ' + (fromArr[0] || '') + ' to ' + (toArr[0] || '')),
+    description: dealDesc.slice(0, 200),
+    image: dealImgFull,
+    offers: {
+      '@type': 'Offer',
+      url: 'https://www.flywell.flights/deals/' + d.id,
+      priceCurrency: priceCurrency,
+      price: priceNum,
+      availability: 'https://schema.org/InStock',
+      seller: { '@type': 'Organization', name: 'FlyWell.Flights' }
+    }
+  };
+  dealSchema.textContent = JSON.stringify(dealObj);
+  document.head.appendChild(dealSchema);
   showPage('deal', doPush !== false, id);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// PAGE NAVIGATION — clean URL routing
+// SEO — dynamic title + meta description
+// ─────────────────────────────────────────────────────────────────────────────
+function setMeta(title, description, imgUrl) {
+  document.title = title;
+  var metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', description);
+  var ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', title);
+  var ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.setAttribute('content', description);
+  var canonical = 'https://www.flywell.flights' + window.location.pathname;
+  var ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl) ogUrl.setAttribute('content', canonical);
+  var canonicalTag = document.getElementById('canonical-tag');
+  if (canonicalTag) canonicalTag.setAttribute('href', canonical);
+  var twTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twTitle) twTitle.setAttribute('content', title);
+  var twDesc = document.querySelector('meta[name="twitter:description"]');
+  if (twDesc) twDesc.setAttribute('content', description);
+  if (imgUrl) {
+    var ogImg = document.querySelector('meta[property="og:image"]');
+    if (ogImg) ogImg.setAttribute('content', imgUrl);
+    var twImg = document.querySelector('meta[name="twitter:image"]');
+    if (twImg) twImg.setAttribute('content', imgUrl);
+  }
+}
+
+var META_DEFAULTS = {
+  main:    { title: 'FlyWell.Flights — Cheap Flight Deals, Error Fares & Airline Sales', desc: 'FlyWell.Flights finds you the cheapest flights online. Browse daily cheap flight deals, error fares and airline sales from Europe and worldwide. Free, no signup required.' },
+  blog:    { title: 'Travel Tips & Flight Guides — FlyWell.Flights Blog', desc: 'Expert travel guides, destination tips, and flight booking advice. Free from FlyWell.Flights.' },
+  qa:      { title: 'FAQ — How to Find Cheap Flights | FlyWell.Flights', desc: 'Answers to your questions about finding cheap flights, error fares, and how FlyWell.Flights works.' },
+  contact: { title: 'Contact Us — FlyWell.Flights', desc: 'Get in touch with the FlyWell.Flights team. Submit a deal tip, ask a question, or say hello.' },
+  about:   { title: 'About FlyWell.Flights — Built by Travellers', desc: 'Learn about FlyWell.Flights — a free flight deals platform built by passionate travellers for travellers worldwide.' },
+  terms:   { title: 'Terms of Service — FlyWell.Flights', desc: 'Terms of Service for FlyWell.Flights. Read our legal agreement governing use of the platform.' },
+  privacy: { title: 'Privacy Policy — FlyWell.Flights', desc: 'Privacy Policy for FlyWell.Flights. How we collect, use, and protect your personal data under GDPR.' },
+};
+
+
 // URL scheme:
 //   /              main (deals)
 //   /blog          blog index
@@ -964,6 +1008,8 @@ function showPage(page, doPush, extra) {
   }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  var m = META_DEFAULTS[page];
+  if (m) setMeta(m.title, m.desc);
   if (doPush !== false) {
     try {
       var path = pageToPath(page, extra);
@@ -1150,3 +1196,27 @@ if (window.DEALS && Array.isArray(window.DEALS)) {
   console.error('[FlyWell] window.DEALS not found — check that js/data.js loaded correctly.');
 }
 renderBlogGrid();
+
+// ─────────────────────────────────────────────────────────────────────────────
+// GLOBAL EXPORTS — required because scripts load with defer
+// ─────────────────────────────────────────────────────────────────────────────
+window.showPage         = showPage;
+window.openDeal         = openDeal;
+window.openBlogPost     = openBlogPost;
+window.blogPostBack     = blogPostBack;
+window.filterByRegion   = filterByRegion;
+window.runSearch        = runSearch;
+window.loadMore         = loadMore;
+window.toggleMonthPicker= toggleMonthPicker;
+window.changeYear       = changeYear;
+window.clearMonth       = clearMonth;
+window.toggleQA         = toggleQA;
+window.submitForm       = submitForm;
+window.acceptCookies    = acceptCookies;
+window.openCookiePrefs  = openCookiePrefs;
+window.closeCookiePrefs = closeCookiePrefs;
+window.updateToggle     = updateToggle;
+window.savePrefs        = savePrefs;
+window.navSearch        = navSearch;
+window.navSearchGo      = navSearchGo;
+window.setLang          = window.setLang || function(){};
