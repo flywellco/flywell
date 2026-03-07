@@ -42,6 +42,7 @@
 .lang-btn.active{color:#1c1612;border-color:rgba(40,30,20,0.3);background:rgba(40,30,20,0.06);}
 .lang-btn .flag{font-size:1.1rem;line-height:1;}
 .lang-sep{color:rgba(40,30,20,0.2);font-size:0.8rem;margin:0 1px;}
+@media(min-width:601px){.lang-btn .flag{display:inline;}}
 @media(max-width:600px){.lang-btn span.label{display:none;}.lang-btn{padding:3px 5px;}}
 </style>
 <script type="application/ld+json">
@@ -73,6 +74,7 @@
     <li><a href="/qa" id="lang-nav-qa" onclick="showPage('qa');return false;">Q&amp;A</a></li>
     <li><a href="/contact" id="lang-nav-contact" onclick="showPage('contact');return false;">Contact</a></li>
   </ul>
+  <a href="/blog" class="nav-blog-mobile" onclick="showPage('blog');return false;">Blog</a>
   <div class="lang-switcher">
     <button class="lang-btn active" data-lang="en" onclick="window.setLang('en')"><span class="flag">🇬🇧</span><span class="label">EN</span></button>
     <span class="lang-sep">|</span>
